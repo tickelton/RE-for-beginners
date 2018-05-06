@@ -83,19 +83,19 @@ The return value contain the 4th byte now.
 \item Take the third byte, shift it left by 8 bits.
 You'll get a value like \TT{0x0000bb00} where \TT{bb} is your third byte.
 Apply the OR operation to the resulting value and returning value.
-The return value has contained \TT{0x000000aa} so far, so ORing the values will produce a value 
-like \TT{0x0000bbaa}.
+The return value has contained \TT{0x000000aa} so far, so ORing the values will produce
+a value like \TT{0x0000bbaa}.
 
 \item Take the second byte, shift it left by 16 bits.
 You'll get a value like \TT{0x00cc0000}, where \TT{cc} is your second byte.
-Apply the OR operation to the resulting value and return it.
+Apply the OR operation to the resulting value and returning value.
 The return value has contained \TT{0x0000bbaa} so far, so ORing the values will produce
 a value like \TT{0x00ccbbaa}.
 
 \item Take the first byte, shift it left by 24 bits.
 You'll get a value like \TT{0xdd000000}, where \TT{dd} is your first byte.
-Apply the OR operation to the resulting value and return it.
-The return value contain \TT{0x00ccbbaa} so far, so ORing the values will produce
+Apply the OR operation to the resulting value and returning value.
+The return value has contained \TT{0x00ccbbaa} so far, so ORing the values will produce
 a value like \TT{0xddccbbaa}.
 
 \end{itemize}
