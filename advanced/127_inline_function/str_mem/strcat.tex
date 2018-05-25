@@ -17,5 +17,13 @@ There are 3 parts visible:
 3) copying source string into the end of destination string (\INS{movsd}/\INS{movsb} pair).
 \fi % ENGLISH
 
+\ifdefined\FRENCH
+Ceci est un strcat() inline tel qu'il a été généré par MSVC 6.0.
+Il y a 3 parties visibles:
+1) obtenir la longueur de la chaîne source (premier \INS{scasb});
+2) obtenir la longueur de la chaîne destination (second \INS{scasb});
+3) copier la chaîne source dans la fin de la chaîne de destination (paire \INS{movsd}/\INS{movsb}).
+\fi % FRENCH
+
 \lstinputlisting[caption=strcat(),style=customasmx86]{\CURPATH/str_mem/strcat.lst}
 
