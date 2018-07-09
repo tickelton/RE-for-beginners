@@ -10,9 +10,18 @@
 
 % advertisement:
 %\ifdefined\ENGLISH{}
-%\newcommand{\mysection}[1]{\clearpage\input{ad_EN}\clearpage\section{#1}}
+%\newcommand{\mysection}[2][]{
+%    \clearpage\input{ad_EN}\clearpage
+%    \ifx&#1& \section{#2}
+%    \else    \section[#1]{#2}
+%    \fi
+%}
 %\else
-\newcommand{\mysection}[1]{\section{#1}}
+\newcommand{\mysection}[2][]{
+    \ifx&#1& \section{#2}
+    \else    \section[#1]{#2}
+    \fi
+}
 %\fi
 
 %\newcommand*{\TT}[1]{\texttt{#1}}
