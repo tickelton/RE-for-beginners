@@ -116,18 +116,41 @@
 \newcommand{\FRph}{\FR{{\color{red}French text placeholder}}}
 \newcommand{\JPNph}{\JPN{{\color{red}Japanese text placeholder}}}
 
-\newcommand{\TITLE}{%
-	\RU{Reverse Engineering для начинающих}%
+\newcommand{\TitleRE}{%
 	\EN{Reverse Engineering for Beginners}%
+	\RU{Reverse Engineering для начинающих}%
 	\ES{Ingenier\'ia Inversa para Principiantes}%
 	\PTBRph{}%
 	\DE{Reverse Engineering für Einsteiger}%
 	\PLph{}%
 	\ITA{Reverse Engineering per Principianti}%
-	\THAph{}\NLph{}%
+	\THAph{}%
+        \NLph{}%
 	\FR{Rétro-ingénierie pour Débutants}%
 	\JPN{リバースエンジニアリング入門}%
 }
+
+\newcommand{\TitleUAL}{%
+	\EN{Understanding Assembly Language}%
+	\RU{Понимание языка ассемблера}%
+	\ES{Understanding Assembly Language}%     %TBT
+	\PTBR{Understanding Assembly Language}%   %TBT
+	\DE{Understanding Assembly Language}%     %TBT
+	\PL{Understanding Assembly Language}%     %TBT
+	\ITA{Understanding Assembly Language}%    %TBT
+	\THA{Understanding Assembly Language}%    %TBT
+	\NL{Understanding Assembly Language}%     %TBT
+	\FR{Understanding Assembly Language}%     %TBT
+	\JPN{Understanding Assembly Language}%    %TBT
+}
+
+\ifdefined\UAL
+\newcommand{\TitleMain}{\TitleUAL}
+\newcommand{\TitleAux}{\TitleRE}
+\else
+\newcommand{\TitleMain}{\TitleRE}
+\newcommand{\TitleAux}{\TitleUAL}
+\fi
 
 \ifdefined\RUSSIAN
 \newcommand{\AUTHOR}{Денис Юричев}

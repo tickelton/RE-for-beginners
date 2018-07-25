@@ -1,4 +1,4 @@
-all:    RU EN DE FR JP
+all:    UAL-EN UAL-RU UAL-DE UAL-FR UAL-JP RE4B-RU RE4B-EN RE4B-DE RE4B-FR RE4B-JP
 
 clean:
 	rm -f *.aux
@@ -49,35 +49,51 @@ define compile
 	xelatex $1
 endef
 
-RU:
+RE4B-RU:
 	$(call compile,RE4B-RU)
 
-EN:
+RE4B-EN:
 	$(call compile,RE4B-EN)
 
-ES:
+RE4B-ES:
 	$(call compile,RE4B-ES)
 
-PTBR:	
+RE4B-PTBR:	
 	$(call compile,RE4B-PTBR)
 
-PL:
+RE4B-PL:
 	$(call compile,RE4B-PL)
 
-IT:
+RE4B-IT:
 	$(call compile,RE4B-IT)
 
-DE:
+RE4B-DE:
 	$(call compile,RE4B-DE)
 
-TH:
+RE4B-TH:
 	$(call compile,RE4B-TH)
 
-NL:
+RE4B-NL:
 	$(call compile,RE4B-NL)
 
-FR:
+RE4B-FR:
 	$(call compile,RE4B-FR)
 
-JP:
+RE4B-JP:
 	$(call compile,RE4B-JP)
+
+UAL-RU:
+	$(call compile,UAL-RU)
+
+UAL-EN:
+	$(call compile,UAL-EN)
+
+UAL-DE:
+	$(call compile,UAL-DE)
+
+UAL-FR:
+	$(call compile,UAL-FR)
+
+UAL-JP:
+	$(call compile,UAL-JP)
+

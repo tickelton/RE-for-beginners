@@ -3,18 +3,19 @@
 
 %{\Huge\TITLE}
 
-\iffalse
- % echo -n "Reverse" | od -A n -t x1
- % echo -n "Engineering" | od -A n -t x1
- % echo -n "for Beginners" | od -A n -t x1
-\fi
+{\Huge
+\makebox{\Longstack[l]
+{
+\texttt{\TitleMain}
+}}
+}
+
+\bigskip
 
 {\LARGE
 \makebox{\Longstack[l]
 {
-\texttt{52 65 76 65 72 73 65}\\
-\texttt{45 6e 67 69 6e 65 65 72 69 6e 67}\\
-\texttt{66 6f 72 20 42 65 67 69 6e 6e 65 72 73}
+\texttt{(\TitleAux)}
 }}
 }
 
@@ -37,7 +38,7 @@
 
 %{\hfill \huge \AUTHOR}
 % % echo -n "Dennis Yurichev" | od -A n -t x1
-{\hfill \large \texttt{44 65 6e 6e 69 73 20 59 75 72 69 63 68 65 76}}
+{\hfill \LARGE \texttt{\AUTHOR}}
 
 \vspace*{\fill}
 \end{center}
