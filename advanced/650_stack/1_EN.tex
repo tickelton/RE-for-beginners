@@ -69,7 +69,7 @@ to \q{Hello!} string. We see its address is also used as third argument to \IT{d
 
 In \IT{f()} we could read all functions arguments and local variables if we know exact stack layout, but it's always
 changed, from compiler to compiler.
-Various optimization levels affects stack layout greatly.
+Various optimization levels affect stack layout greatly.
 
 But if we can somehow detect information we need, we can use it and even modify it.
 As an example, I'll rework \IT{f()} function:
@@ -113,5 +113,5 @@ The example has been compiled without optimization on 32-bit Ubuntu using GCC 5.
 But when I turn on \TT{-O3} maximum optimization, it's failed.
 Try to find why.
 
-Use your favorite compiler and OS, try various optimization levels, find if it's works and if it's not, find why.
+Use your favorite compiler and OS, try various optimization levels, find if it works and if it doesn't, find why.
 
