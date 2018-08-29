@@ -44,13 +44,13 @@ Nous obtenons :
          1: ireturn       
 \end{lstlisting}
 
-Les développeurs Java ont décidé que 0 est l'une des constantes les plus utilisées en programmation,
-donc il existe une instruction à part qui fait d'un short sur un octet, \GTT{iconst\_0} qui pousse 0.
+Les développeurs Java ont décidé que comme 0 est l'une des constantes les plus utilisées en programmation,
+alors il existe une instruction à part sur un short d'un octet, \GTT{iconst\_0} qui pousse 0.
 
 \footnote{Comme en MIPS où un registre séparé existe pour la constante zéro : \myref{MIPS_zero_register}.}.
 Il y a aussi \GTT{iconst\_1} (qui pousse 1), \GTT{iconst\_2}, etc., jusqu'à \GTT{iconst\_5}.
 
-Il existe aussi \GTT{iconst\_m1} qui pousse -1.
+Il existe également l'instruction \GTT{iconst\_m1} qui pousse -1.
 
 La pile est utilisée en JVM pour passer des données à une fonction appelée et également pour renvoyer des valeurs.
 Donc \GTT{iconst\_0} pousse 0 sur la pile.
