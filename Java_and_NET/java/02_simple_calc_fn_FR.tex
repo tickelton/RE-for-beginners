@@ -56,7 +56,7 @@ TOS ->| result |
 
 \INS{ireturn} le prend et le renvoie.
 
-Procédons avec un nombre à virgule flottante double précision :
+Procédons avec un nombre flottant double précision :
 
 
 \begin{lstlisting}[style=customjava]
@@ -132,9 +132,9 @@ TOS ->| b |
 
 
 \begin{lstlisting}
-      +--------+
-TOS ->| result |
-      +--------+
+      +----------+
+TOS ->| resultat |
+      +----------+
 \end{lstlisting}
 
 Etendons cet exemple avec le type \IT{long} :
@@ -196,7 +196,7 @@ La première étape est la multiplication. Le produit est laissé au \ac{TOS}:
 
 \begin{lstlisting}
       +---------+
-TOS ->| product |
+TOS ->| produit |
       +---------+
 \end{lstlisting}
 
@@ -206,7 +206,7 @@ TOS ->| product |
       +---------+
 TOS ->|    c    |
       +---------+
-      | product |
+      | produit |
       +---------+
 \end{lstlisting}
 

@@ -124,7 +124,7 @@ en plusieurs, ou le garder dans le segment des données :
 \myref{ARM_big_constants}, \myref{MIPS_big_constants}.
 
 Le code MIPS a aussi traditionnellement un pool de constantes, nommé \q{literal pool}, les segments
-sont nommés \q{.lit4} (pour des constantes de nombres flottants constants de simples précisions sur 32-bit) et \q{.lit8}
+sont nommés \q{.lit4} (pour des nombres flottants constants de simples précisions sur 32-bit) et \q{.lit8}
 (pour des nombres flottants constants de double précision sur 64-bit).
 
 Essayons quelques autres types de données !
@@ -269,7 +269,7 @@ public class ret3
 Le nombre 64-bit est aussi stocké dans le pool de constantes, \INS{ldc2\_w} le charge et \INS{lreturn} 
 (\IT{long return}) le retourne.
 
-L'instruction \INS{ldc2\_w} est aussi utilisée pour charger des nombres à virgule flottante double précision 
+L'instruction \INS{ldc2\_w} est aussi utilisée pour charger des nombres flottants double précision 
 (qui occupent aussi 64 bits) depuis le pool de constantes :
 
 \begin{lstlisting}[style=customjava]
@@ -299,7 +299,7 @@ public class ret
 
 \INS{dreturn} signifie \q{return double}.
 
-Et enfin, un nombre à virgule flottante simple précision :
+Et enfin, un nombre flottant simple précision :
 
 \begin{lstlisting}[style=customjava]
 public class ret
