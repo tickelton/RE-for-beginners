@@ -103,7 +103,7 @@ We can see this in the
 \lstinputlisting[caption=\Optimizing MSVC 2012 x64,style=customasmx86]{\CURPATH/classes/simple_MSVC_x64_EN.asm}
 
 The \Tint data type is still 32-bit in x64
-\footnote{Apparently, for easier porting of 32-bit \CCpp code to x64}, 
+\footnote{Apparently, for easier porting of 32-bit \CCpp code to x64.}, 
 so that is why 32-bit register parts are used here.
 
 We also see \TT{JMP printf} instead of \RET in the \TT{dump()} method, that \IT{hack} we already saw
@@ -117,7 +117,7 @@ It is almost the same story in GCC 4.4.1, with a few exceptions.
 
 Here we see another \IT{name mangling} style, specific to GNU
 \footnote{There is a good document about the various name mangling conventions in different compilers:\\
-\InSqBrackets{\AgnerFogCC}.}
+\InSqBrackets{\AgnerFogCC}.}.
 It can also be noted that the pointer to the object is passed as the first function 
 argument---invisible to programmer, of course.
 
