@@ -7,7 +7,7 @@ get_from_array:
 ; determine if the element even or odd by isolation of the lowest bit:
         and     edi, 1
 ; calculate (idx>>1)*3.
-; multiplication is slow in geenral, and can be replaced by one shifting and addition operation
+; multiplication is slow in general, and can be replaced by one shifting and addition operation
 ; LEA is capable to do both:
         lea     edx, [rax+rax*2]
 ; EDX now is (idx>>1)*3
