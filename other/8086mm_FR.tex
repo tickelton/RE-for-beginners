@@ -22,7 +22,7 @@ Et probablement pour une raison de portage de vieux logiciels\footnote{Je ne sui
 pas sûr à 100\% de ceci}, le 8086 peut supporter plusieurs fenêtres de 64KB simultanément,
 situées dans l'espace d'adresse de 1MB.
 
-C'est une sorte de virualisation de niveau jouet.
+C'est une sorte de virtualisation de niveau jouet.
 \myindex{x86!\Registers!CS}
 \myindex{x86!\Registers!DS}
 \myindex{x86!\Registers!ES}
@@ -53,7 +53,7 @@ L'adresse réelle sur le bus d'adresse de 20-bit, toutefois, sera dans l'interva
 Le programme peut contenir des adresses codées en dur comme 0x1234, mais l'\ac{OS}
 peut avoir besoin de le charger à une adresse arbitraire, donc il recalcule les valeurs
 du registre de segment de façon à ce que le programme n'ait pas à se soucier de
-l'endroit oũ il est placé dans la RAM.
+l'endroit où il est placé dans la RAM.
 
 Donc, tout pointeur dans le vieil environnement MS-DOS consistait en fait en un segment
 d'adresse et une adresse dans ce segment, i.e., deux valeurs 16-bit. 20-bit étaient
