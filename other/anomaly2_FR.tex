@@ -16,11 +16,11 @@ Je viens juste de trouver celui-ci dans un vieux fragment de code :
 \end{lstlisting}
 
 \myindex{x86!\Instructions!FXCH}
-La première instruction \INS{FXCH} interverti les valeurs de \TT{ST(0)} et \TT{ST(1)}. La seconde 
+La première instruction \INS{FXCH} intervertit les valeurs de \TT{ST(0)} et \TT{ST(1)}. La seconde
 effectue la même opération. Combinées, elles ne produisent donc aucun effet.
-Cet extrait provient d'un programme qui utilise la librairie MFC42.dll, il a donc du être compilé 
+Cet extrait provient d'un programme qui utilise la bibliothèque MFC42.dll, il a donc dû être compilé
 avec MSVC 6.0 ou 5.0 ou peut-être même MSVC 4.2 qui date des années 90.
 
-Cette paire d'instruction ne produit aucun effet, ce qui expliquerait qu'elle n'ait pas été détectée 
+Cette paire d'instructions ne produit aucun effet, ce qui expliquerait qu'elle n'ait pas été détectée
 lors des tests du compilateur MSVC. Ou bien j'ai loupé quelque chose ...
 
