@@ -40,7 +40,7 @@ ELFファイルでは、この64KiB領域は初期化されていないデータ
 \INS{LUI}（\q{Load Upper Immediate}）と\INS{ADDIU}（\q{Add Immediate Unsigned Word}）命令のペアを使用して、テキスト文字列のアドレスが\$4にロードされます。 
 \INS{LUI}はレジスタの上位16ビット（したがって\q{命令名の上位ワード}）を設定し、\INS{ADDIU}はアドレスの下位16ビットを加算します。
 
-\INS{ADDIU}は\INS{JALR}に従います（まだ\IT{ブランチ遅延スロット}を覚えていますか？）。
+\INS{ADDIU}は\INS{JALR}に従います（まだ\IT{分岐遅延スロット}を覚えていますか？）。
 レジスタ \$4 は \$A0 とも呼ばれ、最初の関数引数を渡すために使用されます。
 \footnote{MIPSレジスタの表はappendixで見られます：\myref{MIPS_registers_ref}}.
 
