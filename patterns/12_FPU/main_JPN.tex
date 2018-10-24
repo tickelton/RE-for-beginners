@@ -22,56 +22,54 @@ x86の\ac{FPU}を学ぶ前に、スタックマシン\FNURLSTACK を調べたり
 
 \myindex{Intel!80486}
 \myindex{Intel!FPU}
-It is interesting to know that in the past (before the 80486 CPU) the coprocessor was a separate chip 
-and it was not always pre-installed on the motherboard. It was possible to buy it separately and install it
-\footnote{For example, John Carmack used fixed-point arithmetic 
-(\href{http://go.yurichev.com/17356}{wikipedia.org/wiki/Fixed-point\_arithmetic}) values in his Doom video game, stored in 
-32-bit \ac{GPR} registers (16 bit for integral part and another 16 bit for fractional part), so Doom
-could work on 32-bit computers without FPU, i.e., 80386 and 80486 SX.}.
+過去（80486 CPUの前）のコプロセッサは別個のチップであり、いつもマザーボードにプリインストールされていなかった
+ことは興味深いことです。別に購入してインストールすることができました。
+\footnote{たとえば、John Carmackは、32ビット\ac{GPR}レジスタ（整数部分は16ビット、小数部分は16ビット）
+に格納されたDoomビデオゲームの固定小数点演算（\href{http://go.yurichev.com/17356}{wikipedia.org/wiki/Fixed-point\_arithmetic}）
+の値を使用しました。 DoomはFPUなしの32ビットコンピュータ、つまり80386と80486 SXで動作しました}
 
-Starting with the 80486 DX CPU, the \ac{FPU} is integrated in the \ac{CPU}.
+\ac{FPU}は80486 DX CPUから\ac{CPU}に統合されています。
 
 \myindex{x86!\Instructions!FWAIT}
-The \INS{FWAIT} instruction reminds us of that fact---it switches the \ac{CPU} to a waiting state, so it can wait until the \ac{FPU} has finished with its work.
+\INS{FWAIT}命令は、\ac{CPU}を待機状態に切り替えるので、\ac{FPU}が処理を終了するまで待つことができるという事実を思い出させます。
 
-Another rudiment is the fact that the \ac{FPU} instruction 
-opcodes start with the so called \q{escape}-opcodes (\GTT{D8..DF}), i.e., 
-opcodes passed to a separate coprocessor.
+もう一つの基本は、\ac{FPU}命令オペコードが、いわゆる\q{エスケープ}オペコード（\GTT{D8..DF}）、
+すなわちオペコードが別個のコプロセッサに渡されることから始まるという事実です。
 
 \myindex{IEEE 754}
 \label{FPU_is_stack}
 
-The FPU has a stack capable to holding 8 80-bit registers, and each register can hold a number 
-in the IEEE 754\FNURLIEEE format.
+FPUは8個の80ビットレジスタを保持できるスタックを持ち、各レジスタは
+IEEE 754\FNURLIEEE 形式の番号を保持できます。
 
-They are \ST{0}..\ST{7}. For brevity, \IDA and \olly show \ST{0} as \GTT{ST}, 
-which is represented in some textbooks and manuals as \q{Stack Top}.
+それらは\ST{0}..\ST{7}です。 簡潔には、 \IDA と \olly は\ST{0}を\GTT{ST}と表示します。
+これは一部の教科書とマニュアルでは\q{スタックトップ}として表されています。
 
 \subsection{ARM, MIPS, x86/x64 SIMD}
 
-In ARM and MIPS the FPU is not a stack, but a set of registers, which can be accessed randomly, like \ac{GPR}.
+ARMおよびMIPSでは、FPUはスタックではなく、\ac{GPR}のようにランダムアクセスできるレジスタのセットです。
 
-The same ideology is used in the SIMD extensions of x86/x64 CPUs.
+同じ体系がx86/x64 CPUのSIMD拡張で使用されています。
 
 \subsection{\CCpp}
 
 \myindex{float}
 \myindex{double}
 
-The standard \CCpp languages offer at least two floating number types, \Tfloat (\IT{single-precision}\FNURLSP, 32 bits)
-\footnote{the single precision floating point number format is also addressed in 
-the \IT{\WorkingWithFloatAsWithStructSubSubSectionName}~(\myref{sec:floatasstruct}) section}
-and \Tdouble (\IT{double-precision}\FNURLDP, 64 bits).
+標準の \CCpp 言語では、 \Tfloat （\IT{単精度}\FNURLSP、32ビット）と 
+\footnote{単精度浮動小数点数形式も 
+\IT{\WorkingWithFloatAsWithStructSubSubSectionName}~(\myref{sec:floatasstruct}) セクションで扱います}
+\Tdouble （\IT{倍精度}\FNURLDP、64ビット）の少なくとも2つの浮動小数点型が用意されています。
 
-In \InSqBrackets{\TAOCPvolII 246} we can find the \IT{single-precision} means that the floating point value can be placed into a single
-[32-bit] machine word, \IT{double-precision} means it can be stored in two words (64 bits).
+\InSqBrackets{\TAOCPvolII 246}において、\IT{単精度}は、浮動小数点値を単一の[32ビット]マシンに入れることができることを意味するワード、
+\IT{倍精度}は、2ワード（64ビット）で格納できることを意味します。
 
 \myindex{long double}
 
-GCC also supports the \IT{long double} type (\IT{extended precision}\FNURLEP, 80 bit), which MSVC doesn't.
+GCCはMSVCがサポートしない\IT{long double}型（\IT{拡張精度}\FNURLEP、80ビット）もサポートしています。
 
-The \Tfloat type requires the same number of bits as the \Tint type in 32-bit environments, 
-but the number representation is completely different.
+\Tfloat 型は、32ビット環境では \Tint 型と同じビット数が必要ですが、
+数値表現はまったく異なります。
 
 \input{patterns/12_FPU/1_simple/main}
 \input{patterns/12_FPU/2_passing_floats/main}
