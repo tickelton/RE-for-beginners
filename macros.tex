@@ -106,6 +106,12 @@
 \newcommand*{\JPN}[1]{}
 \fi
 
+\ifdefined\TURKISH{}
+\newcommand*{\TR}[1]{\iflanguage{turkish}{#1}{}}
+\else
+\newcommand*{\TR}[1]{}
+\fi
+
 \newcommand{\ESph}{\ES{{\color{red}Spanish text placeholder}}}
 \newcommand{\PTBRph}{\PTBR{{\color{red}Brazilian Portuguese text placeholder}}}
 \newcommand{\PLph}{\PL{{\color{red}Polish text placeholder}}}
@@ -115,6 +121,7 @@
 \newcommand{\NLph}{\NL{{\color{red}Dutch text placeholder}}}
 \newcommand{\FRph}{\FR{{\color{red}French text placeholder}}}
 \newcommand{\JPNph}{\JPN{{\color{red}Japanese text placeholder}}}
+\newcommand{\TRph}{\TR{{\color{red}Turkish text placeholder}}}
 
 \newcommand{\TitleRE}{%
 	\EN{Reverse Engineering for Beginners}%
@@ -128,6 +135,7 @@
         \NLph{}%
 	\FR{Reverse Engineering pour Débutants}%
 	\JPN{リバースエンジニアリング入門}%
+	\TR{Acemiler için Tersine Mühendislik}%
 }
 
 \newcommand{\TitleUAL}{%
