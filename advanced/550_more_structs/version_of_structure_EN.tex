@@ -120,7 +120,7 @@ int main()
 
 In other words, \IT{SizeOfStruct} field takes a role of \IT{version of structure} field.
 It could be enumerate type (1, 2, 3, etc.), but to set \IT{SizeOfStruct} field to \IT{sizeof(struct...)}
-is less prone to mistakes/bugs.
+is less prone to mistakes/bugs: we just write \IT{s.SizeOfStruct=sizeof(...)} in caller's code.
 
 In C++, this problem is solved using \IT{inheritance} (\myref{cpp_inheritance}).
 You just extend your base class (let's call it \IT{Circle}),
