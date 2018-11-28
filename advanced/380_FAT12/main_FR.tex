@@ -84,7 +84,7 @@ Mettre des valeurs se fait presque de la même façon, mais faire attention de n
 
 \subsection{Le code C/C++}
 
-\lstinputlisting[style=customc]{advanced/380_FAT12/FAT12.c}
+\lstinputlisting[style=customc]{advanced/380_FAT12/FAT12_FR.c}
 
 Pendant le test, tous les éléments de 12-bit sont remplis avec des valeurs dans l'intervalle
 0..0xFFF.
@@ -132,13 +132,13 @@ Disons que le tableau est un buffer global pour faciliter l'accès.
 
 \subsubsection{Getter}
 
-Commençons avec la fonction prenant les valeurs du tableau, car elle est plus simple.
+Commençons avec la fonction prenant les valeurs dans le tableau, car elle est plus simple.
 
 La méthode pour trouver le numéro d'un triplet est simplement de diviser l'index
 entré par 2, mais nous pouvons faire cela en décalant à droite de 1 bit.
 C'est un moyen très répandu de diviser/multiplier par des nombres de la forme $2^n$.
 
-Je peux monter comment ça marche. Disons que vous voulez diviser 123 par 10.
+Je peux montrer comment ça marche. Disons que vous voulez diviser 123 par 10.
 Supprimons le dernier chiffre (3, qui est le reste de la division) et il reste 12
 La division par 2 consiste à supprimer le bit le moins significatif. La suppression
 peut être faite en décalant à droite.
@@ -151,24 +151,24 @@ valeur est paire, autrement elle est impaire.
 Ce fait peut être illustré facilement, regardez le bit de poids le plus faible:
 
 \begin{lstlisting}
-decimal binary even/odd
+§décimal§ binaire pair/impair
 
-0       0000   even
-1       0001   odd
-2       0010   even
-3       0011   odd
-4       0100   even
-5       0101   odd
-6       0110   even
-7       0111   odd
-8       1000   even
-9       1001   odd
-10      1010   even
-11      1011   odd
-12      1100   even
-13      1101   odd
-14      1110   even
-15      1111   odd
+0       0000   pair
+1       0001   impair
+2       0010   pair
+3       0011   impair
+4       0100   pair
+5       0101   impair
+6       0110   pair
+7       0111   impair
+8       1000   pair
+9       1001   impair
+10      1010   pair
+11      1011   impair
+12      1100   pair
+13      1101   impair
+14      1110   pair
+15      1111   impair
 ...
 \end{lstlisting}
 
@@ -220,11 +220,11 @@ en désordre des CPUs , et parfois,  échanger des instructions permet d'aller p
 
 \subsubsection{Getter}
 
-\lstinputlisting[style=customasmx86]{advanced/380_FAT12/GCC_getter.asm}
+\lstinputlisting[style=customasmx86]{advanced/380_FAT12/GCC_getter_FR.asm}
 
 \subsubsection{Setter}
 
-\lstinputlisting[style=customasmx86]{advanced/380_FAT12/GCC_setter.asm}
+\lstinputlisting[style=customasmx86]{advanced/380_FAT12/GCC_setter_FR.asm}
 
 \subsubsection{Autres commentaires}
 
@@ -250,7 +250,7 @@ Le code suivant a une opération OR finale dans l'épilogue de la fonction.
 En effet, il s'exécute à la fin des deux branches, ce qui permet d'économiser un
 peu d'espace.
 
-\lstinputlisting[style=customasmARM]{advanced/380_FAT12/Keil_thumb_O3_getter.asm}
+\lstinputlisting[style=customasmARM]{advanced/380_FAT12/Keil_thumb_O3_getter_FR.asm}
 
 Il y a au moins une redondance: \IT{idx*1.5} est calculé deux fois.
 À titre d'exercice, le lecteur peut essayer de retravailler la fonction assembleur
@@ -270,7 +270,7 @@ La première moitié du code du setter est très similaire au getter, l'adresse 
 est calculée en premier, puis un saut se produit pour diriger vers le code de gestion
 adéquat.
 
-\lstinputlisting[style=customasmARM]{advanced/380_FAT12/Keil_thumb_O3_setter.asm}
+\lstinputlisting[style=customasmARM]{advanced/380_FAT12/Keil_thumb_O3_setter_FR.asm}
 
 \subsection{Keil 5.05 avec optimisation (mode ARM)}
 
@@ -284,11 +284,11 @@ mis.
 De nombreuses instructions en mode ARM peuvent avoir un suffixe de décalage comme
 \INS{LSL \#1} (qui signifie que le dernier opérande est décalé de 1 bit).
 
-\lstinputlisting[style=customasmARM]{advanced/380_FAT12/Keil_ARM_O3_getter.asm}
+\lstinputlisting[style=customasmARM]{advanced/380_FAT12/Keil_ARM_O3_getter_FR.asm}
 
 \subsubsection{Setter}
 
-\lstinputlisting[style=customasmARM]{advanced/380_FAT12/Keil_ARM_O3_setter.asm}
+\lstinputlisting[style=customasmARM]{advanced/380_FAT12/Keil_ARM_O3_setter_FR.asm}
 
 La valeur de \IT{idx*1.5} est calculée deux fois, cette redondance produite par le
 compilateur Keil peut être éliminée.
@@ -306,7 +306,7 @@ mode ARM est toujours plus court (toutefois, les instructions sont plus longues)
 
 \subsubsection{Getter}
 
-\lstinputlisting[style=customasmARM]{advanced/380_FAT12/ARM64_getter.lst}
+\lstinputlisting[style=customasmARM]{advanced/380_FAT12/ARM64_getter_FR.lst}
 
 ARM64 possède la nouvelle instruction cool \INS{UBFIZ} (\IT{Unsigned bitfield insert
 in zero, with zeros to left and right}), qui peut être utilisée pour mettre un nombre
@@ -318,7 +318,7 @@ L'instruction \INS{UBFM} est l'instruction utilisée en interne en ARM64 au lieu
 
 \subsubsection{Setter}
 
-\lstinputlisting[style=customasmARM]{advanced/380_FAT12/ARM64_setter.lst}
+\lstinputlisting[style=customasmARM]{advanced/380_FAT12/ARM64_setter_FR.lst}
 
 \subsection{GCC 4.4.5 avec optimisation pour MIPS}
 
@@ -338,11 +338,11 @@ jusqu'ici.
 
 \subsubsection{Getter}
 
-\lstinputlisting[style=customasmMIPS]{advanced/380_FAT12/MIPS_getter.asm}
+\lstinputlisting[style=customasmMIPS]{advanced/380_FAT12/MIPS_getter_FR.asm}
 
 \subsubsection{Setter}
 
-\lstinputlisting[style=customasmMIPS]{advanced/380_FAT12/MIPS_setter.asm}
+\lstinputlisting[style=customasmMIPS]{advanced/380_FAT12/MIPS_setter_FR.asm}
 
 \subsection{Différence avec le FAT12 réel}
 
