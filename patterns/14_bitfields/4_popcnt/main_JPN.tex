@@ -1,29 +1,28 @@
 ﻿\subsection{Counting bits set to 1}
 
-Here is a simple example of a function that calculates the number of bits set in the input value.
+入力値のビットの数を計算する関数の単純な例です。
 
-This operation is also called \q{population count}\footnote{modern x86 CPUs (supporting SSE4) even have a POPCNT instruction for it}.
+この操作は\q{集団カウント}とも呼ばれます。\footnote{（SSE4をサポートする）モダンx86 CPUはこのためにPOPCNT命令を持っています}
 
 \lstinputlisting[style=customc]{patterns/14_bitfields/4_popcnt/shifts.c}
 
-In this loop, the iteration count value $i$ is counting from 0 to 31, 
-so the $1 \ll i$ statement is counting from 1 to \TT{0x80000000}.
-Describing this operation in natural language, we would say \IT{shift 1 by n bits left}.
-In other words, $1 \ll i$ statement consequently produces all possible bit positions in a 32-bit number.
-The freed bit at right is always cleared.
+このループでは、ループカウント値 $i$ は0から31を数えます。
+$1 \ll i$ 文は1から\TT{0x80000000}まで数えます。
+自然言語でこの操作を説明すると、\IT{1をnビット左シフトする}といえます。
+言い換えると、$1 \ll i$ 文は結果として32ビット数のすべての可能なビット位置を生成します。
+右側の解放されたビットは常にクリアされます。
 
 \label{2n_numbers_table}
-Here is a table of all possible $1 \ll i$ 
-for $i=0 \ldots 31$:
+$i=0 \ldots 31$ で取りうるすべての値の表です。
 
 \small
 \begin{center}
 \begin{tabular}{ | l | l | l | l | }
 \hline
-\HeaderColor \CCpp expression & 
-\HeaderColor Power of two & 
-\HeaderColor Decimal form & 
-\HeaderColor Hexadecimal form \\
+\HeaderColor \CCpp 表現 & 
+\HeaderColor 2のべき乗 & 
+\HeaderColor 10進数形式 & 
+\HeaderColor 16進数形式 \\
 \hline
 $1 \ll 0$ & $2^{0}$ & 1 & 1 \\
 \hline
@@ -93,15 +92,15 @@ $1 \ll 31$ & $2^{31}$ & 2147483648 & 0x80000000 \\
 \end{center}
 \normalsize
 
-These constant numbers (bit masks) very often appear in code and a practicing reverse engineer 
-must be able to spot them quickly.
+このような定数（ビットマスク）はコード上、非常によく現れます。現役のリバースエンジニアは
+これらを素早く見つけなければなりません。
 
-Decimal numbers below 65536 and hexadecimal ones are very easy to memorize.
-While decimal numbers above 65536 are, probably, not worth memorizing.
+65536以下の10進数と16進数は簡単に記憶できます。
+65536を超える10進数はおそらく記憶する価値はないでしょう。
 
-These constants are very often used for mapping flags to specific bits.
-For example, here is excerpt from \TT{ssl\_private.h} 
-from Apache 2.4.6 source code:
+これらの定数は、フラグを特定のビットにマッピングするために非常によく使用されます。
+たとえば、Apache 2.4.6のソースコードから\TT{ssl\_private.h}
+を抜粋した例を次に示します。
 
 \begin{lstlisting}[style=customc]
 /**
@@ -117,19 +116,19 @@ from Apache 2.4.6 source code:
 #define SSL_OPT_LEGACYDNFORMAT (1<<7)
 \end{lstlisting}
 
-Let's get back to our example.
+私たちの例に戻りましょう。
 
-The \TT{IS\_SET} macro checks bit presence in $a$.
+\TT{IS\_SET}マクロはビットの数を $a$ でチェックします。
 \myindex{x86!\Instructions!AND}
 
-The \TT{IS\_SET} macro is in fact the logical AND operation (\IT{AND}) 
-and it returns 0 if the specific bit is absent there,
-or the bit mask, if the bit is present.
-\IT{The if()} operator in \CCpp triggers if the expression in it is not zero, it might be even 123456, that is why
-it always works correctly.
+\TT{IS\_SET}マクロは実際、論理AND演算（\IT{AND}）で、
+特定のビットがそこになければ0を返すか、
+ビットが存在すれば、ビットをマスクします。
+\CCpp の\IT{if()}演算子は、その式がゼロでない場合に実行しますが、
+123456であっても正しく動作します。
 
 % subsections
-\input{patterns/14_bitfields/4_popcnt/x86_EN}
-\input{patterns/14_bitfields/4_popcnt/x64_EN}
-\input{patterns/14_bitfields/4_popcnt/ARM_EN}
-\input{patterns/14_bitfields/4_popcnt/MIPS_EN}
+\input{patterns/14_bitfields/4_popcnt/x86_JPN}
+\input{patterns/14_bitfields/4_popcnt/x64_JPN}
+\input{patterns/14_bitfields/4_popcnt/ARM_JPN}
+\input{patterns/14_bitfields/4_popcnt/MIPS_JPN}

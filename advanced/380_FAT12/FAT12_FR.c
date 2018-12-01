@@ -3,27 +3,27 @@
 #include <assert.h>
 
 #define ARRAY_SIZE (0x1000/2*3)
-uint8_t array[ARRAY_SIZE]; // big enough array of triplets
+uint8_t array[ARRAY_SIZE]; // tableau de triplets assez grand
 
 unsigned int get_from_array (unsigned int idx)
 {
-	// find right triple in array:
+	// trouver le bon triplet dans array:
 	int triple=(idx>>1);
 	int array_idx=triple*3;
 	//assert (array_idx<ARRAY_SIZE);
 
 	if (idx&1)
 	{
-		// this is odd element
+		// ceci est un §élément§ impair
 
-		// compose value using middle and rightmost bytes:
+		// composer la valeur en utilisant l'octet du milieu et celui le plus §à§ droite:
 		return ((array[array_idx+1]&0xF) << 8)|array[array_idx+2];
 	}
 	else
 	{
-		// this is even element
+		// ceci est un §élément§ pair
 
-		// compose value using leftmost and middle bytes:
+		// composer la valeur en utilisant l'octet le plus §à§ gauche et celui du milieu:
 		return array[array_idx]<<4 | ((array[array_idx+1]>>4)&0xF);
 	};
 };
@@ -32,21 +32,21 @@ void put_to_array (unsigned int idx, unsigned int val)
 {
 	//assert (val<=0xFFF);
 
-	// find right triple in array:
+	// trouver le bon triplet dans array:
 	int triple=(idx>>1);
 	int array_idx=triple*3;
 	//assert (array_idx<ARRAY_SIZE);
 
 	if (idx&1)
 	{
-		// this is odd element
-		// put value into middle and rightmost bytes:
+		// ceci est un §élément§ impair
+		// mettre la valeur dans l'octet du milieu et celui le plus §à§ droite:
 
-		// decompose value to be stored:
-		uint8_t val_lowest_byte=val&0xFF; // isolate lowest 8 bits
-		uint8_t val_highest_nibble=val>>8; // no need to apply &0xF, we already know the val<=0xFFF
+		// décomposer la valeur qui doit §être stockée§:
+		uint8_t val_lowest_byte=val&0xFF; // isoler les 8 bits les plus bas
+		uint8_t val_highest_nibble=val>>8; // pas besoin d'appliquer &0xF, nous connaissons §déjà§ val<=0xFFF
 
-		// clear low 4 bits in the middle byte:
+		// effacer les 4 bits bas de l'octet du milieu:
 		array[array_idx+1]=array[array_idx+1]&0xF0;
 
 		array[array_idx+1]=array[array_idx+1]|val_highest_nibble;
@@ -54,16 +54,16 @@ void put_to_array (unsigned int idx, unsigned int val)
 	}
 	else
 	{
-		// this is even element
-		// put value into leftmost and middle bytes:
+		// ceci est un §élément§ pair
+		// mettre la valeur dans l'octet le plus §à§ gauche et celui du milieu:
 
-		// decompose value to be stored:
+		// décomposer la valeur qui doit §être stockée§:
 		uint8_t val_highest_byte=val>>4;
 		uint8_t val_lowest_nibble=val&0xF;
 
 		array[array_idx]=val_highest_byte;
 
-		// clear high 4 bits in the middle byte:
+		// effacer les 4 bits haut de l'octet du milieu:
 		array[array_idx+1]=array[array_idx+1]&0xF;
 		array[array_idx+1]=array[array_idx+1]|val_lowest_nibble<<4;
 	};
@@ -73,7 +73,7 @@ int main()
 {
 	int i;
 
-	// test
+	// tester
 	for (i=0; i<0x1000; i++)
 	{
 		put_to_array(i, i);
@@ -83,9 +83,9 @@ int main()
 	{
 		assert(get_from_array(i)==i);
 	};
-	//put_to_array(0x1000, 1); // will fail due to assert()
+	//put_to_array(0x1000, 1); // va planter §à§ cause de assert()
 
-	// print triples:
+	// afficher les triples:
 	for (int i=0;i<0x1000/2;i++)
 		printf ("0x%02X%02X%02X\n",array[i*3],array[i*3+1],array[i*3+2]);
 };
