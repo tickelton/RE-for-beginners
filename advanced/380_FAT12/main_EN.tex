@@ -162,9 +162,9 @@ Now we have to combine these parts into 12-bit value.
 To do so, shift 4 bits from the middle byte by 8 bits left, so these 4 bits will be allocated right behind highest 8th bit of byte.
 Then, using OR operation, we just add these parts.
 
-If the element is even, high 8 bits of 12-bit value is located in left byte, while lowest 4 bits are located in the high 4 bits of middle byte.
+If the element is even, high 8 bits of 12-bit value are located in left byte, while lowest 4 bits are located in the high 4 bits of middle byte.
 We isolate highest 4 bits in the middle byte by shifting it 4 bits right and then applying AND operation, just to be sure that nothing is left there.
-We also take left byte and shift its value 4 bits left, because it has bits from 11th to 4th (inclusive, starting at 0),
+We also take left byte and shift its value 4 bits left, because it has bits from 11th to 4th (inclusive, starting at 0).
 Using OR operation, we combine these two parts.
 
 \subsubsection{Setter}
