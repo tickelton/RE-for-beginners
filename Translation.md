@@ -49,7 +49,7 @@ There are also `\ESph{}`, `\PTBRph{}`, `\PLph{}`, `\DEph{}` and `\ITAph{}` place
 
 ## Compiling
 
-To check your results, just run `make ES`, `make PTBR`, `make PL`, `make ITA`, `make DE`.
+To check your results, just run `make RE4B-ES`, `make RE4B-PTBR`, `make RE4B-PL`, `make RE4B-IT`, `make RE4B-DE`.
 You'll see almost blank pages with only listings and screenshots, without any text, but your text will be present.
 
 ## Coordination
