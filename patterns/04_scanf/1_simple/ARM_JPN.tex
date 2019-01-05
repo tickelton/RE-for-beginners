@@ -12,6 +12,17 @@
 ローカル変数\GTT{x}の場所がスタックに割り当てられ、 
 \IDA の名前は\IT{var\_8}です。 ただし、\ac{SP}（\gls{stack pointer}）がすでにその領域を指しているため、その領域を直接割り当てることはできません。 
 
+% TBT here
+%\INS{PUSH/POP} instructions behaves differently in ARM than in x86 (it's the other way around).
+%They are synonyms to \INS{STM/STMDB/LDM/LDMIA} instructions.
+%And \INS{PUSH} instruction first writes a value into the stack, \IT{and then} subtracts \ac{SP} by 4.
+%\INS{POP} first adds 4 to \ac{SP}, \IT{and then} reads a value from the stack.
+%Hence, after \INS{PUSH}, \ac{SP} points to an unused space in stack.
+%It is used by \scanf, and by \printf after.
+
+%\INS{LDMIA} means \IT{Load Multiple Registers Increment address After each transfer}.
+%\INS{STMDB} means \IT{Store Multiple Registers Decrement address Before each transfer}.
+
 したがって、\ac{SP}の値は\Reg{1}レジスタにコピーされ、フォーマット文字列とともに \scanf に渡されます。 
 その後、\INS{LDR}命令の助けを借りて、この値はスタックから\Reg{1}レジスタに移動され、 \printf に渡されます。
 

@@ -13,6 +13,18 @@ Eigentlich ist aber an dieser Stelle gar nicht notwendig, Platz auf dem Stack zu
 bereits auf die Adresse zeigt und auch direkt verwendet werden kann.
 
 Der Wert von \ac{SP} wird also in das \Reg{1} Register kopiert und zusammen mit dem Formatierungsstring an \scanf übergeben.
+
+% TBT here
+%\INS{PUSH/POP} instructions behaves differently in ARM than in x86 (it's the other way around).
+%They are synonyms to \INS{STM/STMDB/LDM/LDMIA} instructions.
+%And \INS{PUSH} instruction first writes a value into the stack, \IT{and then} subtracts \ac{SP} by 4.
+%\INS{POP} first adds 4 to \ac{SP}, \IT{and then} reads a value from the stack.
+%Hence, after \INS{PUSH}, \ac{SP} points to an unused space in stack.
+%It is used by \scanf, and by \printf after.
+
+%\INS{LDMIA} means \IT{Load Multiple Registers Increment address After each transfer}.
+%\INS{STMDB} means \IT{Store Multiple Registers Decrement address Before each transfer}.
+
 \myindex{ARM!\Instructions!LDR}
 Später wird mithilfe des \INS{LDR} Befehls dieser Wert vom Stack in das \Reg{1} Register verschoben um an \printf übergeben werden zu können.
 

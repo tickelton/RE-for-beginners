@@ -13,6 +13,17 @@ A place for the local variable \GTT{x} is allocated in the stack and \IDA
 has named it \IT{var\_8}. It is not necessary, however, to allocate a such since \ac{SP} (\gls{stack pointer}) is already pointing to that space and it can be used directly.
 
 So, \ac{SP}'s value is copied to the \Reg{1} register and, together with the format-string, passed to \scanf.
+
+\INS{PUSH/POP} instructions behaves differently in ARM than in x86 (it's the other way around).
+They are synonyms to \INS{STM/STMDB/LDM/LDMIA} instructions.
+And \INS{PUSH} instruction first writes a value into the stack, \IT{and then} subtracts \ac{SP} by 4.
+\INS{POP} first adds 4 to \ac{SP}, \IT{and then} reads a value from the stack.
+Hence, after \INS{PUSH}, \ac{SP} points to an unused space in stack.
+It is used by \scanf, and by \printf after.
+
+\INS{LDMIA} means \IT{Load Multiple Registers Increment address After each transfer}.
+\INS{STMDB} means \IT{Store Multiple Registers Decrement address Before each transfer}.
+
 \myindex{ARM!\Instructions!LDR}
 Later, with the help of the \INS{LDR} instruction, this value is moved from the stack to the \Reg{1} register in order to be passed to \printf.
 
