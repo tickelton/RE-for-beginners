@@ -50,12 +50,15 @@ Function names are so strange here because this example was compiled as C++ and 
 we will talk about it later: \myref{namemangling}.
 If we compile this in MSVC 2012, it uses the SIMD instructions for the FPU, read more about it here: \myref{FPU_PRNG_SIMD}.
 
+\iffalse
+A BUG HERE
 \subsubsection{MIPS}
 
 \lstinputlisting[caption=\Optimizing GCC 4.4.5,style=customasmMIPS]{patterns/17_unions/FPU_PRNG/MIPS_O3_IDA_EN.lst}
 
 There is also an useless \INS{LUI} instruction added for some weird reason.
 We considered this artifact earlier: \myref{MIPS_FPU_LUI}.
+\fi
 
 \subsubsection{ARM (\ARMMode)}
 

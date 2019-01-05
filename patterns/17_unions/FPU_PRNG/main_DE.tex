@@ -47,11 +47,14 @@ vorliegt. Dies werden wir später besprechen: \myref{namemangling}.
 Wenn wir das Beispiel mit MSVC 2012 kompilieren, verwendet es SIMD Befehle für die FPU; mehr dazu unter:
 \myref{FPU_PRNG_SIMD}.
 
+\iffalse
+A BUG HERE
 \subsubsection{MIPS}
 
 \lstinputlisting[caption=\Optimizing GCC 4.4.5,style=customasmMIPS]{patterns/17_unions/FPU_PRNG/MIPS_O3_IDA_DE.lst}
 Hier wurde auch ein unnützer \INS{LUI} Befehl aus unerfindlichen Gründen hinzugefügt.
 Wir haben solch ein Artefakt schon früher betrachtet: \myref{MIPS_FPU_LUI}.
+\fi
 
 \subsubsection{ARM (\ARMMode)}
 

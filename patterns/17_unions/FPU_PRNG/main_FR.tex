@@ -54,12 +54,15 @@ C++ et ceci est la modification des noms en C++, nous en parlerons plus loin: \m
 Si nous compilons ceci avec MSVC 2012, il utilise des instructions SIMD pour le FPU,
 pour en savoir plus: \myref{FPU_PRNG_SIMD}.
 
+\iffalse
+A BUG HERE
 \subsubsection{MIPS}
 
 \lstinputlisting[caption=GCC 4.4.5 \Optimizing,style=customasmMIPS]{patterns/17_unions/FPU_PRNG/MIPS_O3_IDA_FR.lst}
 
 Il y a aussi une instruction \INS{LUI} inutile, ajoutée pour quelque étrange raison.
 Nous avons déjà considéré cet artefact plus tôt: \myref{MIPS_FPU_LUI}.
+\fi
 
 \subsubsection{ARM (\ARMMode)}
 

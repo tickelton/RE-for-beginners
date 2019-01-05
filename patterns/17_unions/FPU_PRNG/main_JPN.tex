@@ -49,12 +49,15 @@
 これについては後で説明します：\myref{namemangling}
 これをMSVC 2012でコンパイルすると、FPU用のSIMD命令が使用されます。詳細については、こちらを参照してください：\myref{FPU_PRNG_SIMD}
 
+\iffalse
+A BUG HERE
 \subsubsection{MIPS}
 
 \lstinputlisting[caption=\Optimizing GCC 4.4.5,style=customasmMIPS]{patterns/17_unions/FPU_PRNG/MIPS_O3_IDA_JPN.lst}
 
 いくつかの奇妙な理由のために追加された無駄な\INS{LUI}命令もあります。 
 このアーティファクトを以前検討しました：\myref{MIPS_FPU_LUI}
+\fi
 
 \subsubsection{ARM (\ARMMode)}
 
