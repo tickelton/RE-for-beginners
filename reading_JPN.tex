@@ -6,7 +6,7 @@
 
 \input{RE_books}
 
-Also, Kris Kaspersky's books.
+そして、Kris Kasperskyの本も。
 
 \subsection{Windows}
 
@@ -20,9 +20,9 @@ Also, Kris Kaspersky's books.
 
 \label{x86_manuals}
 \begin{itemize}
-\item Intel manuals\footnote{\AlsoAvailableAs \url{http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html}}
+\item Intelマニュアル\footnote{\AlsoAvailableAs \url{http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html}}
 
-\item AMD manuals\footnote{\AlsoAvailableAs \url{http://developer.amd.com/resources/developer-guides-manuals/}}
+\item AMDマニュアル\footnote{\AlsoAvailableAs \url{http://developer.amd.com/resources/developer-guides-manuals/}}
 
 \item \AgnerFog{}\footnote{\AlsoAvailableAs \url{http://agner.org/optimize/microarchitecture.pdf}}
 
@@ -33,15 +33,15 @@ Also, Kris Kaspersky's books.
 \item \AMDOptimization
 \end{itemize}
 
-Somewhat outdated, but still interesting to read:
+やや時代遅れですが、それでも興味深く読めます。
 
 \MAbrash\footnote{\AlsoAvailableAs \url{https://github.com/jagregory/abrash-black-book}}
-(he is known for his work on low-level optimization for such projects as Windows NT 3.1 and id Quake).
+（彼は、Windows NT 3.1やid Quakeなどのプロジェクトのための低レベルの最適化に関する仕事で知られています。）
 
 \subsection{ARM}
 
 \begin{itemize}
-\item ARM manuals\footnote{\AlsoAvailableAs \url{http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.subset.architecture.reference/index.html}}
+\item ARMマニュアル\footnote{\AlsoAvailableAs \url{http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.subset.architecture.reference/index.html}}
 
 \item \ARMSevenRef
 
@@ -69,12 +69,38 @@ Richard Blum --- Professional Assembly Language.
 \item \RobPikePractice
 
 \item \HenryWarren.
-% TBT
+本からのトリックやハックは、分岐命令が高価である\ac{RISC} \ac{CPU}にのみ適していたので、
+今日は関係ないと言う人もいます。 
+それにもかかわらず、これらはブール代数とそれに近いすべての数学を理解するために非常に役立ちます。
 
-\item (For hard-core geeks with computer science and mathematical background) Donald E. Knuth, \IT{The Art of Computer Programming}.
+\item （コンピュータサイエンスと数学的背景を持つハードコアオタクのために） \TAOCP.
+平凡なプログラマーにとってこれらの非常に難しい基本的な本を読もうと努力する価値があるなら、議論する人もいます。 
+\ac{CS}が何から構成されているのかを学ぶために、すくい取ってみるだけの価値があります。
 
 \end{itemize}
 
 % subsection:
 \input{crypto_reading}
+
+\iffalse
+\subsection{Dedication}
+
+As the first page of this book says, ``This book is dedicated to Robert Jourdain, John Socha, Ralf Brown and Peter Abel''.
+These are authors of well-known assembly language related books and references from 1980's and 1990's:
+
+\begin{itemize}
+\item Robert Jourdain -- Programmer's problem solver for the IBM PC, XT, \& AT (1986)
+
+\item Peter Norton and John Socha -- The Peter Norton Programmer's Guide to the IBM PC (1985), Peter Norton's Assembly Language Book for the IBM PC (1989).
+In fact, John Socha is a real author of these books, it can be said, he was ghostwriter.
+He is also the author of Norton Commander.
+
+\item Ralph Brown was known for ``Ralf Brown's Interrupt List''\footnote{\url{http://www.ctyme.com/rbrown.htm}}.
+
+\item Peter Abel -- IBM PC assembly language and programming (1991)
+\end{itemize}
+
+These are outdated books, of course.
+But maybe someone will recall ``those times''.
+\fi
 
