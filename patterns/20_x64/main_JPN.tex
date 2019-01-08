@@ -1,88 +1,87 @@
-\mysection{64 bits}
+\mysection{64ビット}
 
 \subsection{x86-64}
 \myindex{x86-64}
 \label{x86-64}
 
-It is a 64-bit extension to the x86 architecture.
+これはx86アーキテクチャの64ビット拡張です。
 
-From the reverse engineer's perspective, the most important changes are:
+リバースエンジニアの観点からすると、最も重要な変更は次のとおりです。
 
 \myindex{\CLanguageElements!\Pointers}
 \begin{itemize}
 
 \item
 
-Almost all registers (except FPU and SIMD) were extended to 64 bits and got a R- prefix.
-8 additional registers wer added.
-Now \ac{GPR}'s are: \RAX, \RBX, \RCX, \RDX, 
+ほとんどすべてのレジスタ（FPUとSIMDを除く）は64ビットに拡張され、Rプレフィックスが付けられました。
+8つの追加レジスタが追加されました。
+\ac{GPR}は\RAX, \RBX, \RCX, \RDX, 
 \RBP, \RSP, \RSI, \RDI, \Reg{8}, \Reg{9}, \Reg{10}, 
-\Reg{11}, \Reg{12}, \Reg{13}, \Reg{14}, \Reg{15}. 
+\Reg{11}, \Reg{12}, \Reg{13}, \Reg{14}, \Reg{15}です。
 
-It is still possible to access the \IT{older} register parts as usual. 
-For example, it is possible to access the lower 32-bit part of the \RAX register using \EAX:
+従来通りに\IT{古い}レジスタ部分にアクセスすることはまだ可能です。
+例えば、 \EAX を使用して \RAX レジスタの下位32ビット部分にアクセスすることは可能です。
 
 \RegTableOne{RAX}{EAX}{AX}{AH}{AL}
 
-The new \GTT{R8-R15} registers also have their \IT{lower parts}: \GTT{R8D-R15D} (lower 32-bit parts),
-\GTT{R8W-R15W} (lower 16-bit parts), \GTT{R8L-R15L} (lower 8-bit parts).
+新しい\GTT{R8-R15}レジスタの\IT{下位部分}も、\GTT{R8D-R15D}（下位32ビット部分）、
+\GTT{R8W-R15W}（下位16ビット部分）、\GTT{R8L-R15L}（下位8ビット部分）です。
 
 \RegTableFour{R8}{R8D}{R8W}{R8L}
 
-The number of SIMD registers was doubled from 8 to 16: \XMM{0}-\XMM{15}.
+SIMDレジスタの数は8から16に倍増しました：\XMM{0}-\XMM{15}
 
 \item
 
-In Win64, the function calling convention is slightly different, somewhat resembling fastcall
-(\myref{fastcall}).
-The first 4 arguments are stored in the \RCX, \RDX, \Reg{8}, \Reg{9} registers, the rest~---in the stack.
-The \gls{caller} function must also allocate 32 bytes so the \gls{callee} may save there 4 first arguments and use these 
-registers for its own needs.
-Short functions may use arguments just from registers, but larger ones may save their values on the stack.
+Win64では、関数呼び出し規約は多少異なり、ややfastcallに似ています
+(\myref{fastcall})。
+最初の4つの引数は \RCX 、 \RDX 、 \Reg{8}、 \Reg{9}レジスタに格納され、残りはスタックに格納されます。
+また、\gls{caller}関数は32バイトを割り当てなければならないので、\gls{callee}はそこに4つの最初の引数を保存し、
+それ自体の必要性のためにこれらのレジスタを使用することができます。
+短い関数は単にレジスタからの引数を使用するかもしれませんが、大きいものはそれらの値をスタックに保存するかもしれません。
 
-System V AMD64 ABI (Linux, *BSD, \MacOSX)\SysVABI also somewhat resembles
-fastcall, it uses 6 registers 
-\RDI, \RSI, \RDX, \RCX, \Reg{8}, \Reg{9} for the first 6 arguments.
-All the rest are passed via the stack.
+System V AMD64 ABI（Linux、*BSD、\MacOSX） \SysVABI はfastcallにも似ていますが、
+最初の6つの引数に6つのレジスタ \RDI 、 \RSI 、 \RDX 、 \RCX 、 \Reg{8} 、 \Reg{9}を使用します。
+残りはすべてスタックを介して渡されます。
 
-See also the section on calling conventions~(\myref{sec:callingconventions}).
-
-\item
-The \CCpp \Tint type is still 32-bit for compatibility.
+呼び出し規約~(\myref{sec:callingconventions})に関するセクションも参照してください。
 
 \item
-All pointers are 64-bit now.
+互換性のため、 \CCpp の \Tint 型は32ビットのままです。
+
+\item
+ポインタはすべて64ビットです。
 
 \end{itemize}
 
 \myindex{Register allocation}
 
-Since now the number of registers is doubled, the compilers have more space for maneuvering called 
-\glslink{register allocator}{register allocation}.
-For us this implies that the emitted code containing less number of local variables.
+現在、レジスタの数が2倍になったため、コンパイラは\glslink{register allocator}{register allocation}
+と呼ばれる操作のためのスペースをより多く持っています。
+私たちにとってこれは、発行されたコードがより少ない数のローカル変数を含んでいることを意味します。
 
 \myindex{DES}
 
-For example, the function that calculates the first S-box of the DES encryption algorithm processes
-32/64/128/256 values at once (depending on \GTT{DES\_type} type (uint32, uint64, SSE2 or AVX)) 
-using the bitslice DES method
-(read more about this technique here ~(\myref{bitslicedes})):
+たとえば、DES暗号化アルゴリズムの最初のSボックスを計算する関数は、
+ビットスライスのDESメソッドを使用して（\GTT{DES\_type}型（uint32、uint64、SSE2、またはAVXに応じて））
+32/64/128/256の値を一度に処理します。
+（このテクニックの詳細はここにあります~(\myref{bitslicedes})）。
 
 \lstinputlisting[style=customc]{patterns/20_x64/19_1.c}
 
-There are a lot of local variables. 
-Of course, not all those going into the local stack.
-Let's compile it with MSVC 2008 with \GTT{/Ox} option:
+ローカル変数がたくさんあります。
+もちろん、すべてがローカルスタックに入るわけではありません。 
+\GTT{/Ox} オプションを付けてMSVC 2008でコンパイルしてみましょう。
 
 \lstinputlisting[caption=\Optimizing MSVC 2008,style=customasmx86]{patterns/20_x64/19_2_msvc_Ox.asm}
 
-5 variables were allocated in the local stack by the compiler.
+5つの変数がコンパイラによってローカルスタックに割り当てられました。
 
-Now let's try the same thing in the 64-bit version of MSVC 2008:
+それでは、64ビット版のMSVC 2008でも同じことを試してみましょう。
 
 \lstinputlisting[caption=\Optimizing MSVC 2008,style=customasmx86]{patterns/20_x64/19_3_msvc_x64.asm}
 
-Nothing was allocated in the local stack by the compiler, \GTT{x36} is synonym for \GTT{a5}.
+ローカルスタックにコンパイラによって割り当てられたものは何もありません。\GTT{x36}は\GTT{a5}と同義です。
 
 \iffalse
 % FIXME1 невнятно
@@ -91,46 +90,43 @@ By the way, we can see here that the function saved the \RCX and \RDX registers 
 but \Reg{8} and \Reg{9} were not saved but used from the beginning.
 \fi
 
-By the way, there are CPUs with much more \ac{GPR}'s, e.g. Itanium (128 registers).
+ところで、もっと多くの\ac{GPR}を持つCPUがあります。例えば、Itanium（128レジスタ）です。
 
 \subsection{ARM}
 
-64-bit instructions appeared in ARMv8.
+64ビット命令はARMv8で登場しました。
 
 \subsection{Float point numbers}
 
-How floating point numbers are processed in x86-64 is explained here: \myref{floating_SIMD}.
+x86-64で浮動小数点数がどのように処理されるかは以下で説明されます：\myref{floating_SIMD}
 
 \subsection{64-bit architecture criticism}
 
-Some people has irritation sometimes: now one needs twice as much memory for storing pointers,
-including cache memory, despite the fact that x64 \ac{CPU}s can address only 48 bits of external 
-\ac{RAM}.
+x64 \ac{CPU}は48ビットの外部\ac{RAM}しかアドレス指定できないという事実にもかかわらず、
+キャッシュメモリを含め、ポインタを格納するために2倍のメモリが必要になることに、いら立つ人がいます。
 
 \begin{framed}
 \begin{quotation}
-Pointers have gone out of favor to the point now where I had to
-flame about it because on my 64-bit computer that I have here, if I really
-care about using the capability of my machine I find that I’d better not use
-pointers because I have a machine that has 64-bit registers but it only has 2
-gigabytes of RAM. So a pointer never has more than 32 significant bits to it.
-But every time I use a pointer it’s costing me 64 bits and that doubles the
-size of my data structure. Worse, it goes into the cache and half of my
-cache is gone and that costs cash—cache is expensive.
+ここにある私の64ビットコンピュータでは、私が自分のマシンの能力を最大限使用する
+ことを気にしているのであれば、ポインタを使わない方がいいと思います。
+私は64ビットのレジスタを持つマシンを持っていますが、RAMは2ギガバイトしかありません。
+そのため、ポインタは32を超える有効ビットを持ちません。しかし、
+ポインタを使用するたびに64ビットのコストがかかり、データ構造のサイズが2倍になります。 
+さらに悪いことに、ポインタはキャッシュに入り、私のキャッシュの半分がなくなり、
+キャッシュをキャッシュするコストは高くつきます。
 
-So if I’m really trying to push the envelope now, I have to use arrays instead
-of pointers. I make complicated macros so that it looks like I’m using
-pointers, but I’m not really.
+だから本当にエンベロープを押し込もうとするなら、私はポインタの代わりに
+配列を使わなければなりません。 ポインタを使用しているように見えるように
+複雑なマクロを作成しますが、実際は使ってはいません。
 \end{quotation}
 \end{framed}
 
 ( Donald Knuth in ``Coders at Work: Reflections on the Craft of Programming ''. )
 
-Some people make their own memory allocators.
+自分自身のメモリアロケータを作る人もいます。 
 \myindex{CryptoMiniSat}
-It's interesting to know about CryptoMiniSat\footnote{\url{https://github.com/msoos/cryptominisat/}} case.
-This program rarely uses more than 4GiB of \ac{RAM}, but it uses pointers heavily.
-So it requires less memory on 32-bit architecture than on 64-bit one.
-To mitigate this problem, author made his own allocator (in \IT{clauseallocator.(h|cpp)} files),
-which allows to have access to allocated memory using 32-bit identifiers instead of 64-bit pointers.
-
+CryptoMiniSat\footnote{\url{https://github.com/msoos/cryptominisat/}}のケースについて知っておくと面白いです。
+このプログラムはめったに4GiBを超える\ac{RAM}を使用しませんが、ポインタを頻繁に使用します。
+そのため、32ビットアーキテクチャでは64ビットアーキテクチャよりもメモリが少なくて済みます。
+この問題を軽減するために、著者は独自のアロケータ（\IT{clauseallocator.(h|cpp)}ファイルに）を作成しました。
+これにより、64ビットポインタの代わりに32ビット識別子を使用して割り当てられたメモリにアクセスできます。
