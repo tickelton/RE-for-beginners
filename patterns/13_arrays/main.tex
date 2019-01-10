@@ -55,32 +55,5 @@ qui sont situées les unes à côté des autres et qui ont le même type%
 \FR{\input{patterns/13_arrays/conclusion_FR}}
 \JPN{\input{patterns/13_arrays/conclusion_JPN}}
 
-\myindex{Hex-Rays}
-
-\RU{\mysection{Кстати}
-Итак, указатель на массив и адрес первого элемента --- это одно и то же.
-Вот почему выражения \TT{ptr[0]} и \TT{*ptr} в \CCpp равноценны.
-Любопытно что Hex-Rays часто заменяет первое вторым.
-Он делает это в тех случаях, когда не знает, что имеет дело с указателем на целый массив,
-и думает, что это указатель только на одну переменную.}%
-\EN{\mysection{By the way}
-So, pointer to an array and address of a first element---is the same thing.
-This is why \TT{ptr[0]} and \TT{*ptr} expressions are equivalent in \CCpp.
-It's interesting to note that Hex-Rays often replaces the first by the second.
-It does so when it have no idea that it works with pointer to the whole array,
-and thinks that this is a pointer to single variable.}
-\DEph{}
-\FR{\mysection{À propos}
-Donc, un pointeur sur un tableau et l'adresse de son premier élément---sont la même
-chose.
-C'est pourquoi les expressions \TT{ptr[0]} et \TT{*ptr} sont équivalentes en \CCpp.
-Il est intéressant de noter que Hex-Rays remplace souvent la première par la seconde.
-Il procède ainsi lorsqu'il n'a aucune idée qu'il travaille avec un pointeur sur
-le tableau complet et pense que c'est un pointeur sur une seule variable.}
-\JPN{\mysection{ところで}
-したがって、最初の要素の配列とアドレスへのポインタは同じことです。 
-このため、\TT{ptr[0]}と\TT{*ptr}の式は \CCpp で同等です。 
-Hex-Raysはしばしば最初のものを2番目のものに置き換えることは興味深いことです。 
-これは、配列全体へのポインタで動作するかどうかわからないときに行い、
-これが単一変数へのポインタであると考えます。}
 \input{patterns/13_arrays/exercises}
+
