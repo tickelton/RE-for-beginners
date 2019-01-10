@@ -1,13 +1,12 @@
-% TODO resync with EN version
-\chapter{Books/blogs worth reading}
+\chapter{Libri/blog da leggere}
 
-\mysection{Libri e Altro Materiale}
+\mysection{Libri ed altro materiale}
 
 \subsection{Reverse Engineering}
 
 \input{RE_books}
 
-% TBT
+Inoltre, i libri di Kris Kaspersky.
 
 \subsection{Windows}
 
@@ -21,9 +20,9 @@
 
 \label{x86_manuals}
 \begin{itemize}
-\item Manuale Intel\footnote{\AlsoAvailableAs \url{http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html}}
+\item Manuali Intel\footnote{\AlsoAvailableAs \url{http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html}}
 
-\item Manuale AMD\footnote{\AlsoAvailableAs \url{http://developer.amd.com/resources/developer-guides-manuals/}}
+\item Manuali AMD\footnote{\AlsoAvailableAs \url{http://developer.amd.com/resources/developer-guides-manuals/}}
 
 \item \AgnerFog{}\footnote{\AlsoAvailableAs \url{http://agner.org/optimize/microarchitecture.pdf}}
 
@@ -34,15 +33,15 @@
 \item \AMDOptimization
 \end{itemize}
 
-Piuttosto obsoleto ma comunque interessante da leggere:
+Un po' datati ma sempre interessanti:
 
 \MAbrash\footnote{\AlsoAvailableAs \url{https://github.com/jagregory/abrash-black-book}}
-(è conosciuto per il suo lavoro nell'ambito di ottimizzazioni a basso livello per progetti come Windows NT 3.1 and id Quake).
+(è conosciuto per i suoi lavori di ottimizzazione a basso livello su progetti come Windows NT 3.1 e id Quake).
 
 \subsection{ARM}
 
 \begin{itemize}
-\item Manuale ARM\footnote{\AlsoAvailableAs \url{http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.subset.architecture.reference/index.html}}
+\item Manuali ARM\footnote{\AlsoAvailableAs \url{http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.subset.architecture.reference/index.html}}
 
 \item \ARMSevenRef
 
@@ -51,7 +50,9 @@ Piuttosto obsoleto ma comunque interessante da leggere:
 \item \ARMCookBook\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17273}}
 \end{itemize}
 
-% TBT
+\subsection{Assembly}
+
+Richard Blum --- Professional Assembly Language.
 
 \subsection{Java}
 
@@ -61,22 +62,44 @@ Piuttosto obsoleto ma comunque interessante da leggere:
 
 \TAOUP
 
+\subsection{Programmazione in generale}
+
+\begin{itemize}
+
+\item \RobPikePractice
+
+\item \HenryWarren.
+Alcune persone sostengono che i trucchi e gli hack di questo libro non siano più attuali adesso perchè erano validi solo per le \ac{CPU} \ac{RISC},
+dove le istruzioni di branching sono costose.
+Ad ogni modo, possono aiutare enormemente a comprendere l'algebra booleana e tutta la matematica coinvolta.
+
+\item (Per hard-core geek con background in computer science e matematica) \TAOCP.
+Alcune persone si domandano se sia utile, per programmatori mediocri, il tentare di leggere questi testi abbastanza complessi sui fondamenti della programmazione.
+Io direi che è utile sfogliarli, per comprendere di cosa tratta la \ac{CS}.
+
+\end{itemize}
+
 % subsection:
 \input{crypto_reading}
 
-\mysection{Altro}
+\iffalse
+\subsection{Dedica}
 
-\HenryWarren.
+Come scritto nella prima pagina di questo libro, ``Questo libro è dedicato a Robert Jourdain, John Socha, Ralf Brown e Peter Abel''.
+Si tratta di autori famosi di libri sul linguaggio assembly e di riferimento negli anni 1980 e 1990:
 
-Ci sono due ottimi \ac{RE} subreddits su reddit.com:
-\href{http://go.yurichev.com/17027}{reddit.com/r/ReverseEngineering/} e
-\href{http://go.yurichev.com/17028}{reddit.com/r/remath}
-(argomenti riguardanti l'intersezione tra matematica e \ac{RE}).
+\begin{itemize}
+\item Robert Jourdain -- Programmer's problem solver for the IBM PC, XT, \& AT (1986)
 
-C'è anche un sito di \ac{RE} che è parte di Stack Exchange:
+\item Peter Norton e John Socha -- The Peter Norton Programmer's Guide to the IBM PC (1985), Peter Norton's Assembly Language Book for the IBM PC (1989).
+Di fatto, John Socha è un vero autore di questi libri, si può dire, era un ghostwriter.
+Inoltre è autore del Norton Commander.
 
-\par \href{http://go.yurichev.com/17029}{reverseengineering.stackexchange.com}.
+\item Ralph Brown era conosciuto per la ``Ralf Brown's Interrupt List''\footnote{\url{http://www.ctyme.com/rbrown.htm}}.
 
-Su IRC c'è un canale \#\#re su
-FreeNode\footnote{\href{http://go.yurichev.com/17030}{freenode.net}}.
+\item Peter Abel -- IBM PC assembly language and programming (1991)
+\end{itemize}
 
+Chiaramente si tratta di libri antiquati.
+Ma magari qualcuno si ricorderà di ``quei tempi''.
+\fi
