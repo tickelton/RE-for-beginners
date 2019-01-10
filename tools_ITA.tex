@@ -24,7 +24,7 @@ Leggi di più riguardo l'entropia: \myref{entropy}.
 \IT{Hiew}\footnote{\href{http://go.yurichev.com/17035}{hiew.ru}}:
 per piccole modifiche del codice dei file binari.
 
-\item (Free, open-source) \IT{xxd} and \IT{od}: standard UNIX utility per effettuare il dump nel formato desiderato. 
+\item (Free, open-source) \IT{xxd} e \IT{od}: standard UNIX utility per effettuare il dump nel formato desiderato.
 
 \item (Free, open-source) \IT{strings}: strumento *NIX per cercare stringhe ASCII all'interno di file binari, eseguibili compresi.
 Sysinternals ha un'alternativa\footnote{\url{https://technet.microsoft.com/en-us/sysinternals/strings}}
@@ -37,7 +37,8 @@ che supporta la stringhe con caratteri di tipo "wide" (UTF-16, ampiamente utiliz
 (Free, open-source) \IT{binary grep}:
 piccola utility per cercare una sequenza di byte in molti file,
 incluso file non eseguibili: \BGREPURL.
-% TBT
+\myindex{rafind2}
+C'è anche rafind2 in rada.re allo stesso scopo.
 \end{itemize}
 
 \subsection{Disassemblers}
@@ -67,7 +68,7 @@ dump delle informazioni dei file ELF.
 C'è solo un decompiler conosciuto, pubblicamente disponibile e di elevata qualità per decompilare in C: \IT{Hex-Rays}:
 \href{http://go.yurichev.com/17033}{hex-rays.com/products/decompiler/}
 
-% TBT
+Più informazioni su: \myref{hex_rays}.
 
 \subsection{Comparazione Patch/diffing}
 
@@ -80,7 +81,7 @@ in modo da trovare cos'è stato patchato e perchè.
 \item (Free, open-source) \IT{Diaphora}\footnote{\url{https://github.com/joxeankoret/diaphora}}
 \end{itemize}
 
-\mysection{Live analysis}
+\mysection{Analisi live}
 
 Strumenti da utilizzare per effettuare un'analisi live del sistema o di un processo in esecuzione.
 
@@ -202,10 +203,28 @@ Versione gratuita di Visual Studio, conveniente per semplici esperimenti.
 
 Alcune opzioni utili: \myref{sec:MSVC_options}.
 
-% TBT
+C'è un sito chiamato ``Compiler Explorer'', che permette di compilare piccoli pezzi di codice e vederne l'output
+in varie versioni di GCC ed architetture differenti
+(almeno x86, ARM, MIPS): \url{http://godbolt.org/}---lo avrei utilizzato io stesso per il libro se lo avessi saputo!
+
+\subsection{Calcolatrici}
+
+Una buona calcolatrice, per le esigenze del reverse engineer, dovrebbe supportare almeno le basi decimale, esadecimale e binaria,
+ed operazioni importanti come XOR e gli shift.
+
+\begin{itemize}
+
+\item IDA ha una calcolatrice integrata (``?'').
+
+\item rada.re ha \IT{rax2}.
+
+\item \url{https://github.com/DennisYurichev/progcalc}
+
+\item Come ultima opzione, la calcolatrice standard di Windows ha una modalità programmatore.
+
+\end{itemize}
 
 \mysection{Manca qualcosa qui?}
 
 Se conosci qualche strumento non elencato qui, per favore segnalamelo tramite e-mail al seguente indirizzo:\\
 \TT{\EMAIL}.
-
