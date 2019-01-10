@@ -28,7 +28,7 @@ is usually not present in \ac{RISC} CPUs}.
 \myindex{x86-64}
 \RU{Регистры, имеющие префикс \TT{R-} появились только в x86-64, а префикс \TT{E-} ---в 80386.}
 \EN{Registers prefixed with \TT{R-} appeared in x86-64, and those prefixed with \TT{E-}---in 80386.}
-\DE{Register mit dem Präfix \TT{R-} tauschen bei x86-64 auf; der Präfix \TT{E-}---bei 80386.}
+\DE{Register mit dem Präfix \TT{R-} tauchen bei x86-64 auf; der Präfix \TT{E-}---bei 80386.}
 
 \RU{Таким образом, R-регистры 64-битные, а E-регистры --- 32-битные.}
 \EN{Thus, R-registers are 64-bit, and E-registers---32-bit.}
@@ -60,6 +60,7 @@ names these registers by adding the \IT{B} suffix, e.g.: \IT{R8B}}.
 \ac{AKA} \RU{счетчик}\EN{counter}\DE{Zähler}:
 \RU{используется в этой роли в инструкциях с префиксом REP и в инструкциях сдвига}
 \EN{in this role it is used in REP prefixed instructions and also in shift instructions}
+\DE{in dieser Rolle in REP Befehlen und auch als Schiebeoperationen verwendet}
 (SHL/SHR/RxL/RxR).
 
 \subsubsection{RDX/EDX/DX/DL}
@@ -68,14 +69,16 @@ names these registers by adding the \IT{B} suffix, e.g.: \IT{R8B}}.
 \subsubsection{RSI/ESI/SI/SIL}
 \RegTableTwo{RSI}{ESI}{SI}{SIL}
 
-\ac{AKA} \q{source index}. \RU{Используется как источник в инструкциях}\EN{Used as source in the instructions} 
+\ac{AKA} \q{source index}. \RU{Используется как источник в инструкциях}\EN{Used as source in the instructions}
+\DE{Als Quelle der Befehle verwendet}
 REP MOVSx, REP CMPSx.
 
 \subsubsection{RDI/EDI/DI/DIL}
 \RegTableTwo{RDI}{EDI}{DI}{DIL}
 
 \ac{AKA} \q{destination index}. \RU{Используется как указатель на место назначения в инструкции}
-\EN{Used as a pointer to the destination in the instructions} REP MOVSx, REP STOSx.
+\EN{Used as a pointer to the destination in the instructions}
+\DE{Als Zeiger auf das Ziel der Befehle verwendet}REP MOVSx, REP STOSx.
 
 % TODO навести тут порядок
 \subsubsection{R8/R8D/R8W/R8L}
@@ -440,7 +443,7 @@ SSE: 8 128-\RU{битных регистров}\EN{bit registers}\DE{Bit-Registe
 
 AVX \RU{это расширение всех регистры до 256 бит}
 \EN{is the extension of all these registers to 256 bits}
-\DE{ist eine Erweiterung all Register auf 256 Bit}.
+\DE{ist eine Erweiterung aller Register auf 256 Bit}.
 
 \input{appendix/x86/DRx}
 
