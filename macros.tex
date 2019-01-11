@@ -145,7 +145,7 @@
 	\PTBR{Understanding Assembly Language}%   %TBT
 	\DE{Understanding Assembly Language}%     %TBT
 	\PL{Understanding Assembly Language}%     %TBT
-	\ITA{Understanding Assembly Language}%    %TBT
+	\ITA{Capire il linguaggio Assembly}%
 	\THA{Understanding Assembly Language}%    %TBT
 	\NL{Understanding Assembly Language}%     %TBT
 	\FR{Comprendre le langage d'assemblage}%
@@ -320,7 +320,7 @@
 % FIXME: get rid of:
 \newcommand{\tracer}{\protect\gls{tracer}\xspace}
 
-\newcommand{\Tchar}{\IT{char}\xspace} 
+\newcommand{\Tchar}{\IT{char}\xspace}
 \newcommand{\Tint}{\IT{int}\xspace}
 \newcommand{\Tbool}{\IT{bool}\xspace}
 \newcommand{\Tfloat}{\IT{float}\xspace}
@@ -338,13 +338,13 @@
 \newcommand{\olly}{OllyDbg\xspace}
 
 % common C functions
-\newcommand{\printf}{\GTT{printf()}\xspace} 
-\newcommand{\puts}{\GTT{puts()}\xspace} 
-\newcommand{\main}{\GTT{main()}\xspace} 
-\newcommand{\qsort}{\GTT{qsort()}\xspace} 
-\newcommand{\strlen}{\GTT{strlen()}\xspace} 
-\newcommand{\scanf}{\GTT{scanf()}\xspace} 
-\newcommand{\rand}{\GTT{rand()}\xspace} 
+\newcommand{\printf}{\GTT{printf()}\xspace}
+\newcommand{\puts}{\GTT{puts()}\xspace}
+\newcommand{\main}{\GTT{main()}\xspace}
+\newcommand{\qsort}{\GTT{qsort()}\xspace}
+\newcommand{\strlen}{\GTT{strlen()}\xspace}
+\newcommand{\scanf}{\GTT{scanf()}\xspace}
+\newcommand{\rand}{\GTT{rand()}\xspace}
 
 
 % for easier fiddling with formatting of all instructions together
@@ -454,34 +454,34 @@
 
 % x86 flags
 
-\newcommand{\ZF}{\GTT{ZF}\xspace} 
-\newcommand{\CF}{\GTT{CF}\xspace} 
-\newcommand{\PF}{\GTT{PF}\xspace} 
+\newcommand{\ZF}{\GTT{ZF}\xspace}
+\newcommand{\CF}{\GTT{CF}\xspace}
+\newcommand{\PF}{\GTT{PF}\xspace}
 
 % x86 registers
 
-\newcommand{\AL}{\GTT{AL}\xspace} 
-\newcommand{\AH}{\GTT{AH}\xspace} 
-\newcommand{\AX}{\GTT{AX}\xspace} 
-\newcommand{\EAX}{\GTT{EAX}\xspace} 
-\newcommand{\EBX}{\GTT{EBX}\xspace} 
-\newcommand{\ECX}{\GTT{ECX}\xspace} 
-\newcommand{\EDX}{\GTT{EDX}\xspace} 
-\newcommand{\DL}{\GTT{DL}\xspace} 
-\newcommand{\ESI}{\GTT{ESI}\xspace} 
-\newcommand{\EDI}{\GTT{EDI}\xspace} 
-\newcommand{\EBP}{\GTT{EBP}\xspace} 
-\newcommand{\ESP}{\GTT{ESP}\xspace} 
-\newcommand{\RSP}{\GTT{RSP}\xspace} 
-\newcommand{\EIP}{\GTT{EIP}\xspace} 
-\newcommand{\RIP}{\GTT{RIP}\xspace} 
-\newcommand{\RAX}{\GTT{RAX}\xspace} 
-\newcommand{\RBX}{\GTT{RBX}\xspace} 
-\newcommand{\RCX}{\GTT{RCX}\xspace} 
-\newcommand{\RDX}{\GTT{RDX}\xspace} 
-\newcommand{\RBP}{\GTT{RBP}\xspace} 
-\newcommand{\RSI}{\GTT{RSI}\xspace} 
-\newcommand{\RDI}{\GTT{RDI}\xspace} 
+\newcommand{\AL}{\GTT{AL}\xspace}
+\newcommand{\AH}{\GTT{AH}\xspace}
+\newcommand{\AX}{\GTT{AX}\xspace}
+\newcommand{\EAX}{\GTT{EAX}\xspace}
+\newcommand{\EBX}{\GTT{EBX}\xspace}
+\newcommand{\ECX}{\GTT{ECX}\xspace}
+\newcommand{\EDX}{\GTT{EDX}\xspace}
+\newcommand{\DL}{\GTT{DL}\xspace}
+\newcommand{\ESI}{\GTT{ESI}\xspace}
+\newcommand{\EDI}{\GTT{EDI}\xspace}
+\newcommand{\EBP}{\GTT{EBP}\xspace}
+\newcommand{\ESP}{\GTT{ESP}\xspace}
+\newcommand{\RSP}{\GTT{RSP}\xspace}
+\newcommand{\EIP}{\GTT{EIP}\xspace}
+\newcommand{\RIP}{\GTT{RIP}\xspace}
+\newcommand{\RAX}{\GTT{RAX}\xspace}
+\newcommand{\RBX}{\GTT{RBX}\xspace}
+\newcommand{\RCX}{\GTT{RCX}\xspace}
+\newcommand{\RDX}{\GTT{RDX}\xspace}
+\newcommand{\RBP}{\GTT{RBP}\xspace}
+\newcommand{\RSI}{\GTT{RSI}\xspace}
+\newcommand{\RDI}{\GTT{RDI}\xspace}
 \newcommand*{\ST}[1]{\GTT{ST(#1)}\xspace}
 \newcommand*{\XMM}[1]{\GTT{XMM#1}\xspace}
 
@@ -636,42 +636,42 @@
 
 % was in common_phrases.tex
 % for index
-\newcommand{\GrepUsage}{\RU{Использование grep}\EN{grep usage}\PTBR{Uso do grep}\ES{Uso de grep}\FR{Utilisation de grep}\JPN{grep usage}}
-\newcommand{\SyntacticSugar}{\RU{Синтаксический сахар}\EN{Syntactic Sugar}\PTBR{Açúcar sintático}\ES{Azúcar sintáctica}\FR{Sucre syntaxique}\JPN{糖衣構文}}
-\newcommand{\CompilerAnomaly}{\RU{Аномалии компиляторов}\EN{Compiler's anomalies}\PTBR{Anomalias do compilador}\ES{Anomalías del compilador}\FR{Anomalies du compilateur}\JPN{コンパイラアノマリ}}
-\newcommand{\CLanguageElements}{\RU{Элементы языка Си}\EN{C language elements}\DE{C Sprachelemente}\PTBR{Elementos da linguagem C}\ES{Elementos del lenguaje C}\FR{Eléments du langage C}\JPN{C言語の要素}}
-\newcommand{\CStandardLibrary}{\RU{Стандартная библиотека Си}\EN{C standard library}\PTBR{Biblioteca padrão C}\ES{Librería estándar C}\FR{Bibliothèque standard C}\JPN{C標準ライブラリ}}
-\newcommand{\Instructions}{\RU{Инструкции}\EN{Instructions}\PTBR{Instruções}\ES{Instrucciones}\FR{Instructions}\JPN{命令}}
-\newcommand{\Pseudoinstructions}{\RU{Псевдоинструкции}\EN{Pseudoinstructions}\PTBR{Pseudo-instruções}\ES{Pseudo-instrucciones}\FR{Pseudo-instructions}\JPN{疑似命令}}
-\newcommand{\Prefixes}{\RU{Префиксы}\EN{Prefixes}\PTBR{Prefixos}\ES{Prefijos}\FR{Préfixes}\JPN{プリフィックス}}
+\newcommand{\GrepUsage}{\RU{Использование grep}\EN{grep usage}\PTBR{Uso do grep}\ES{Uso de grep}\FR{Utilisation de grep}\JPN{grep usage}\ITA{uso di grep}}
+\newcommand{\SyntacticSugar}{\RU{Синтаксический сахар}\EN{Syntactic Sugar}\PTBR{Açúcar sintático}\ES{Azúcar sintáctica}\FR{Sucre syntaxique}\JPN{糖衣構文}\ITA{Syntactic Sugar}}
+\newcommand{\CompilerAnomaly}{\RU{Аномалии компиляторов}\EN{Compiler's anomalies}\PTBR{Anomalias do compilador}\ES{Anomalías del compilador}\FR{Anomalies du compilateur}\ITA{Anomalie del compilatore}\JPN{コンパイラアノマリ}}
+\newcommand{\CLanguageElements}{\RU{Элементы языка Си}\EN{C language elements}\DE{C Sprachelemente}\PTBR{Elementos da linguagem C}\ES{Elementos del lenguaje C}\FR{Eléments du langage C}\ITA{Elementi del linguaggio C}\JPN{C言語の要素}}
+\newcommand{\CStandardLibrary}{\RU{Стандартная библиотека Си}\EN{C standard library}\PTBR{Biblioteca padrão C}\ES{Librería estándar C}\FR{Bibliothèque standard C}\ITA{Libreria C standard}\JPN{C標準ライブラリ}}
+\newcommand{\Instructions}{\RU{Инструкции}\EN{Instructions}\PTBR{Instruções}\ES{Instrucciones}\FR{Instructions}\ITA{Istruzioni}\JPN{命令}}
+\newcommand{\Pseudoinstructions}{\RU{Псевдоинструкции}\EN{Pseudoinstructions}\PTBR{Pseudo-instruções}\ES{Pseudo-instrucciones}\FR{Pseudo-instructions}\ITA{Pseudo-istruzioni}\JPN{疑似命令}}
+\newcommand{\Prefixes}{\RU{Префиксы}\EN{Prefixes}\PTBR{Prefixos}\ES{Prefijos}\FR{Préfixes}\ITA{Prefissi}\JPN{プリフィックス}}
 
-\newcommand{\Flags}{\RU{Флаги}\EN{Flags}\PTBR{Flags}\ES{Flags}\FR{Flags}\JPN{フラグ}}
-\newcommand{\Registers}{\RU{Регистры}\EN{Registers}\PTBR{Registradores}\ES{Registros}\FR{Registres}\JPN{レジスタ}}
-\newcommand{\registers}{\RU{регистры}\EN{registers}\PTBR{registradores}\ES{registros}\FR{registres}\JPN{レジスタ}}
-\newcommand{\Stack}{\RU{Стек}\EN{Stack}\DE{Stack}\PTBR{Pilha}\ES{Pila}\FR{Pile}\JPN{スタック}}
-\newcommand{\Recursion}{\RU{Рекурсия}\EN{Recursion}\PTBR{Recursividade}\ES{Recursión}\FR{Récursivité}\JPN{再帰}}
-\newcommand{\RAM}{\RU{ОЗУ}\EN{RAM}\PTBR{RAM}\ES{RAM}\FR{RAM}\JPN{RAM}}
-\newcommand{\ROM}{\RU{ПЗУ}\EN{ROM}\PTBR{ROM}\ES{ROM}\FR{ROM}\JPN{ROM}}
-\newcommand{\Pointers}{\RU{Указатели}\EN{Pointers}\PTBR{Ponteiros}\ES{Apuntadores}\FR{Pointeurs}\JPN{ポインタ}}
-\newcommand{\BufferOverflow}{\RU{Переполнение буфера}\EN{Buffer Overflow}\PTBR{Buffer Overflow}\ES{Desbordamiento de buffer}\FR{Débordement de tampon}\JPN{バッファオーバーフロー}}
+\newcommand{\Flags}{\RU{Флаги}\EN{Flags}\PTBR{Flags}\ES{Flags}\FR{Flags}\ITA{Flag}\JPN{フラグ}}
+\newcommand{\Registers}{\RU{Регистры}\EN{Registers}\PTBR{Registradores}\ES{Registros}\FR{Registres}\ITA{Registri}\JPN{レジスタ}}
+\newcommand{\registers}{\RU{регистры}\EN{registers}\PTBR{registradores}\ES{registros}\FR{registres}\ITA{registri}\JPN{レジスタ}}
+\newcommand{\Stack}{\RU{Стек}\EN{Stack}\DE{Stack}\PTBR{Pilha}\ES{Pila}\FR{Pile}\ITA{Stack}\JPN{スタック}}
+\newcommand{\Recursion}{\RU{Рекурсия}\EN{Recursion}\PTBR{Recursividade}\ES{Recursión}\FR{Récursivité}\ITA{Recursione}\JPN{再帰}}
+\newcommand{\RAM}{\RU{ОЗУ}\EN{RAM}\PTBR{RAM}\ES{RAM}\FR{RAM}\ITA{RAM}\JPN{RAM}}
+\newcommand{\ROM}{\RU{ПЗУ}\EN{ROM}\PTBR{ROM}\ES{ROM}\FR{ROM}\ITA{ROM}\JPN{ROM}}
+\newcommand{\Pointers}{\RU{Указатели}\EN{Pointers}\PTBR{Ponteiros}\ES{Apuntadores}\FR{Pointeurs}\ITA{Puntatori}\JPN{ポインタ}}
+\newcommand{\BufferOverflow}{\RU{Переполнение буфера}\EN{Buffer Overflow}\PTBR{Buffer Overflow}\ES{Desbordamiento de buffer}\FR{Débordement de tampon}\ITA{Buffer Overflow}\JPN{バッファオーバーフロー}}
 
 % DE: also "Zusammenfassung"
-\newcommand{\Conclusion}{\RU{Вывод}\EN{Conclusion}\DE{Fazit}\PTBR{Conclusão}\ES{Conclusión}\FR{Conclusion}\JPN{結論}}
+\newcommand{\Conclusion}{\RU{Вывод}\EN{Conclusion}\DE{Fazit}\PTBR{Conclusão}\ES{Conclusión}\FR{Conclusion}\ITA{Conclusione}\JPN{結論}}
 
-\newcommand{\Exercise}{\RU{Упражнение}\EN{Exercise}\PTBR{Exercício}\ES{Ejercicio}\FR{Exercice}\JPN{練習問題}\xspace}
-\newcommand{\Exercises}{\RU{Упражнения}\EN{Exercises}\PTBR{Exercícios}\ES{Ejercicios}\FR{Exercices}\DE{Übungen}\JPN{練習問題}\xspace}
-\newcommand{\Arrays}{\RU{Массивы}\EN{Arrays}\PTBR{Matriz}\ES{Matriz}\FR{Tableaux}\JPN{配列}\DE{Arrays}}
-\newcommand{\Cpp}{\RU{Си++}\EN{C++}\PTBR{C++}\ES{C++}\FR{C++}\DE{C++}\JPN{C++}\xspace}
-\newcommand{\CCpp}{\RU{Си/Си++}\EN{C/C++}\PTBR{C/C++}\ES{C/C++}\FR{C/C++}\DE{C/C++}\JPN{C/C++}\xspace}
-\newcommand{\NonOptimizing}{\RU{Неоптимизирующий}\EN{Non-optimizing}\PTBR{Sem otimização}\ES{Sin optimización}\FR{sans optimisation}\JPN{非最適化}\xspace}
-\newcommand{\Optimizing}{\RU{Оптимизирующий}\EN{Optimizing}\PTBR{Com otimização}\ES{Con optimización}\FR{avec optimisation}\JPN{最適化}\xspace}
+\newcommand{\Exercise}{\RU{Упражнение}\EN{Exercise}\PTBR{Exercício}\ES{Ejercicio}\FR{Exercice}\ITA{Esercizio}\JPN{練習問題}\xspace}
+\newcommand{\Exercises}{\RU{Упражнения}\EN{Exercises}\PTBR{Exercícios}\ES{Ejercicios}\FR{Exercices}\ITA{Esercizi}\DE{Übungen}\JPN{練習問題}\xspace}
+\newcommand{\Arrays}{\RU{Массивы}\EN{Arrays}\PTBR{Matriz}\ES{Matriz}\FR{Tableaux}\ITA{Array}\JPN{配列}\DE{Arrays}}
+\newcommand{\Cpp}{\RU{Си++}\EN{C++}\PTBR{C++}\ES{C++}\FR{C++}\ITA{C++}\DE{C++}\JPN{C++}\xspace}
+\newcommand{\CCpp}{\RU{Си/Си++}\EN{C/C++}\PTBR{C/C++}\ES{C/C++}\FR{C/C++}\ITA{C/C++}\DE{C/C++}\JPN{C/C++}\xspace}
+\newcommand{\NonOptimizing}{\RU{Неоптимизирующий}\EN{Non-optimizing}\PTBR{Sem otimização}\ES{Sin optimización}\FR{sans optimisation}\ITA{Senza ottimizzazione}\JPN{非最適化}\xspace}
+\newcommand{\Optimizing}{\RU{Оптимизирующий}\EN{Optimizing}\PTBR{Com otimização}\ES{Con optimización}\FR{avec optimisation}\ITA{Con ottimizzazione}\JPN{最適化}\xspace}
 \newcommand{\NonOptimizingKeilVI}{\NonOptimizing Keil 6/2013\xspace}
 \newcommand{\OptimizingKeilVI}{\Optimizing Keil 6/2013\xspace}
 \newcommand{\NonOptimizingXcodeIV}{\NonOptimizing Xcode 4.6.3 (LLVM)\xspace}
 \newcommand{\OptimizingXcodeIV}{\Optimizing Xcode 4.6.3 (LLVM)\xspace}
-\newcommand{\ARMMode}{\RU{Режим ARM}\EN{ARM mode}\PTBR{Modo ARM}\ES{Modo ARM}\FR{Mode ARM}\JPN{ARMモード}\xspace}
-\newcommand{\ThumbMode}{\RU{Режим Thumb}\EN{Thumb mode}\PTBR{Modo Thumb}\ES{Modo Thumb}\FR{Mode Thumb}\JPN{Thumbモード}\xspace}
-\newcommand{\ThumbTwoMode}{\RU{Режим Thumb-2}\EN{Thumb-2 mode}\PTBR{Modo Thumb-2}\ES{Modo Thumb-2}\FR{Mode Thumb-2}\JPN{Thumb-2モード}\xspace}
+\newcommand{\ARMMode}{\RU{Режим ARM}\EN{ARM mode}\PTBR{Modo ARM}\ES{Modo ARM}\FR{Mode ARM}\ITA{Modalità ARM}\JPN{ARMモード}\xspace}
+\newcommand{\ThumbMode}{\RU{Режим Thumb}\EN{Thumb mode}\PTBR{Modo Thumb}\ES{Modo Thumb}\FR{Mode Thumb}\ITA{Modalità Thumb}\JPN{Thumbモード}\xspace}
+\newcommand{\ThumbTwoMode}{\RU{Режим Thumb-2}\EN{Thumb-2 mode}\PTBR{Modo Thumb-2}\ES{Modo Thumb-2}\FR{Mode Thumb-2}\ITA{Modalità Thumb-2}\JPN{Thumb-2モード}\xspace}
 \newcommand{\AndENRU}{\RU{и}\EN{and}\PTBR{e}\ES{y}\FR{et}\JPN{and}\xspace}
 \newcommand{\OrENRU}{\RU{или}\EN{or}\PTBR{ou}\ES{o}\FR{ou}\JPN{or}\xspace}
 \newcommand{\InENRU}{\RU{в}\EN{in}\PTBR{em}\ES{en}\FR{dans}\JPN{in}\xspace}
@@ -684,64 +684,66 @@
 	\PTBR{Estas intruções também são chamadas \q{data processing instructions}}%
 	\ES{Estas instrucciones también son llamadas \q{instrucciones de procesamiento de datos}}%
 	\FR{Ces instructions sont également appelées \q{instructions de traitement de données}}%
+  \EN{Queste istruzioni sono anche chiamate \q{istruzioni di processamento dei dati}}%
 	\JPN{この命令は \q{データプロセス命令} とも呼ばれます}%
 }
 
 % for .bib files
-\newcommand{\AlsoAvailableAs}{\RU{Также доступно здесь:}\EN{Also available as}\PTBR{Também disponível como}\ES{También disponible como}\FR{Aussi disponible en}\JPN{以下で利用可能}\xspace}
+\newcommand{\AlsoAvailableAs}{\RU{Также доступно здесь:}\EN{Also available as}\PTBR{Também disponível como}\ES{También disponible como}\FR{Aussi disponible en}\EN{Disponibile anche come}\JPN{以下で利用可能}\xspace}
 
 % section names
 \newcommand{\ShiftsSectionName}{\RU{Сдвиги}\EN{Shifts}\PTBR{Shifts}\ES{Desplazamientos}\FR{Décalages}\JPN{シフト}}
-\newcommand{\SignedNumbersSectionName}{\RU{Представление знака в числах}\EN{Signed number representations}\ES{Representaci\'on de n\'umeros con signo}\FR{Représentations des nombres signés}\DE{Darstellung vorzeichenbehafteter Zahlen}\JPN{符号付き整数表現}}
-\newcommand{\HelloWorldSectionName}{\RU{Hello, world!}\EN{Hello, world!}\ES{!`Hola, mundo!}\FR{Hello, world!}\DE{Hallo, Welt!}\JPN{ハローワールド!}}
+\newcommand{\SignedNumbersSectionName}{\RU{Представление знака в числах}\EN{Signed number representations}\ES{Representaci\'on de n\'umeros con signo}\FR{Représentations des nombres signés}\ITA{Rappresentazione di numeri con segno}\DE{Darstellung vorzeichenbehafteter Zahlen}\JPN{符号付き整数表現}}
+\newcommand{\HelloWorldSectionName}{\RU{Hello, world!}\EN{Hello, world!}\ES{!`Hola, mundo!}\FR{Hello, world!}\ITA{Hello, world!}\DE{Hallo, Welt!}\JPN{ハローワールド!}}
 \newcommand{\SwitchCaseDefaultSectionName}{switch()/case/default}
 \newcommand{\PrintfSeveralArgumentsSectionName}{printf() \RU{с несколькими аргументами}\EN{with several arguments}\PTBR{com vários argumentos}\ES{con varios argumentos}\ITA{con più argomenti}\FR{avec plusieurs arguments}\JPN{引数を取って}}
-\newcommand{\BitfieldsChapter}{\RU{Работа с отдельными битами}\EN{Manipulating specific bit(s)}\PTBR{Manipulando bit(s) específicos}\ES{Manipulando bit(s) específicos}\FR{Manipulation de bits spécifiques}\JPN{特定のビットを操作する}\DE{Manipulieren einzelner Bits}}
+\newcommand{\BitfieldsChapter}{\RU{Работа с отдельными битами}\EN{Manipulating specific bit(s)}\PTBR{Manipulando bit(s) específicos}\ES{Manipulando bit(s) específicos}\FR{Manipulation de bits spécifiques}\ITA{Manipolando dei bit speifici}\JPN{特定のビットを操作する}\DE{Manipulieren einzelner Bits}}
 \newcommand{\ArithOptimizations}{%
 	\RU{Замена одних арифметических инструкций на другие}%
 	\EN{Replacing arithmetic instructions to other ones}%
 	\PTBR{Substituição de instruções aritiméticas por outras}%
 	\ES{Substituición de instrucciones aritméticas por otras}%
 	\FR{Remplacement de certaines instructions arithmétiques par d'autres}%
+  \ITA{Sostituzione di istruzioni aritmetiche con altre}%
 	\JPN{算術命令を他の命令に置換する}%
 	\DE{Ersetzen von arithmetischen Operationen}%
 	}
-\newcommand{\FPUChapterName}{\RU{Работа с FPU}\EN{Floating-point unit}\PTBR{Unidade de Ponto flutuante}\ES{Unidad de punto flotante}\FR{Unité à virgule flottante}\JPN{フローティングポイントユニット}\DE{Gleitkommaeinheit}}
-\newcommand{\MoreAboutStrings}{\RU{Еще кое-что о строках}\EN{More about strings}\PTBRph{}\ESph{}\FR{Plus d'information sur les chaînes}\JPN{文字列に関する加筆}\DE{Mehr über Zeichenketten}}
-\newcommand{\DivisionByMultSectionName}{\RU{Деление используя умножение}\EN{Division using multiplication}\PTBR{Divisão por 9}\ES{División entre 9}\FR{Division par la multiplication}\JPN{乗法を使用した除算}}
-\newcommand{\Answer}{\RU{Ответ}\EN{Answer}\PTBR{Responda}\ES{Respuesta}\FR{Réponse}\JPN{解答}}
-\newcommand{\WhatThisCodeDoes}{\RU{Что делает этот код}\EN{What does this code do}\PTBR{O que este código faz}\ES{?`Qu\'e hace este código}?\FR{Que fait ce code ?}\JPN{このコードは何をしている}}
+\newcommand{\FPUChapterName}{\RU{Работа с FPU}\EN{Floating-point unit}\PTBR{Unidade de Ponto flutuante}\ES{Unidad de punto flotante}\FR{Unité à virgule flottante}\ITA{Floating-point unit}\JPN{フローティングポイントユニット}\DE{Gleitkommaeinheit}}
+\newcommand{\MoreAboutStrings}{\RU{Еще кое-что о строках}\EN{More about strings}\PTBRph{}\ESph{}\FR{Plus d'information sur les chaînes}\ITA{Maggiori informazioni sulle stringhe}\JPN{文字列に関する加筆}\DE{Mehr über Zeichenketten}}
+\newcommand{\DivisionByMultSectionName}{\RU{Деление используя умножение}\EN{Division using multiplication}\PTBR{Divisão por 9}\ES{División entre 9}\FR{Division par la multiplication}\ITA{Divisione utilizzando la moltiplicazione}\JPN{乗法を使用した除算}}
+\newcommand{\Answer}{\RU{Ответ}\EN{Answer}\PTBR{Responda}\ES{Respuesta}\FR{Réponse}\ITA{Risposta}\JPN{解答}}
+\newcommand{\WhatThisCodeDoes}{\RU{Что делает этот код}\EN{What does this code do}\PTBR{O que este código faz}\ES{?`Qu\'e hace este código}?\FR{Que fait ce code ?}\ITA{Cosa fa qusto codice}\JPN{このコードは何をしている}}
 \newcommand{\WorkingWithFloatAsWithStructSubSubSectionName}{%
-\RU{Работа с типом float как со структурой}\EN{Handling float data type as a structure}\PTBR{Trabalhando com o tipo float como uma estrutura}\ES{Trabajando con el tipo float como una estructura}\FR{Travailler avec le type float comme une structure}\JPN{フロート型のデータを構造体として扱う}}
+\RU{Работа с типом float как со структурой}\EN{Handling float data type as a structure}\PTBR{Trabalhando com o tipo float como uma estrutura}\ES{Trabajando con el tipo float como una estructura}\FR{Travailler avec le type float comme une structure}\ITA{Utilizzare i tipi di dato float come una struttura}\JPN{フロート型のデータを構造体として扱う}}
 
 \newcommand{\MinesweeperWinXPExampleChapterName}{\RU{Сапёр}\EN{Minesweeper}\PTBR{Campo minado}\ES{Buscaminas}\FR{Démineur}\JPN{マインスイーパー} (Windows XP)}
 
-\newcommand{\StructurePackingSectionName}{\RU{Упаковка полей в структуре}\EN{Fields packing in structure}\PTBR{Organização de campos na estrutura}\ES{Organización de campos en la estructura}\FR{Organisation des champs dans la structure}\JPN{フィールドを構造体にパッキングする}}
-\newcommand{\StructuresChapterName}{\RU{Структуры}\EN{Structures}\PTBR{Estruturas}\ES{Estructuras}\FR{Structures}\JPN{構造体}\DE{Strukturen}}
-\newcommand{\PICcode}{\RU{адресно-независимый код}\EN{position-independent code}\PTBR{código independente de posição}\ES{código independiente de la posición}\FR{code indépendant de la position}\DE{positionsabhängiger Code}\JPN{位置独立コード}}
-\newcommand{\CapitalPICcode}{\RU{Адресно-независимый код}\EN{Position-independent code}\PTBR{Código independente de posição}\ES{Código independiente de lá posición}\FR{Code indépendant de la position}\DE{Positionsabhängiger Code}\JPN{位置独立コード}}
-\newcommand{\Loops}{\RU{Циклы}\EN{Loops}\DE{Schleifen}\PTBR{Laços}\ES{Bucles}\FR{Boucles}\JPN{ループ}}
+\newcommand{\StructurePackingSectionName}{\RU{Упаковка полей в структуре}\EN{Fields packing in structure}\PTBR{Organização de campos na estrutura}\ES{Organización de campos en la estructura}\FR{Organisation des champs dans la structure}\ITA{Organizzazione dei campi in una struttura}\JPN{フィールドを構造体にパッキングする}}
+\newcommand{\StructuresChapterName}{\RU{Структуры}\EN{Structures}\PTBR{Estruturas}\ES{Estructuras}\FR{Structures}\ITA{Strutture}\JPN{構造体}\DE{Strukturen}}
+\newcommand{\PICcode}{\RU{адресно-независимый код}\EN{position-independent code}\PTBR{código independente de posição}\ES{código independiente de la posición}\FR{code indépendant de la position}\ITA{codice indipendente dalla posizione}\DE{positionsabhängiger Code}\JPN{位置独立コード}}
+\newcommand{\CapitalPICcode}{\RU{Адресно-независимый код}\EN{Position-independent code}\PTBR{Código independente de posição}\ES{Código independiente de lá posición}\FR{Code indépendant de la position}\ITA{Codice indipendente dalla posizione}\DE{Positionsabhängiger Code}\JPN{位置独立コード}}
+\newcommand{\Loops}{\RU{Циклы}\EN{Loops}\DE{Schleifen}\PTBR{Laços}\ES{Bucles}\FR{Boucles}\ITA{Cicli}\JPN{ループ}}
 
 % C
-\newcommand{\PostIncrement}{\RU{Пост-инкремент}\EN{Post-increment}\PTBR{Pós-incremento}\ES{Post-incremento}\FR{Post-incrémentation}\JPN{後置インクリメント}}
-\newcommand{\PostDecrement}{\RU{Пост-декремент}\EN{Post-decrement}\PTBR{Pós-decremento}\ES{Post-decremento}\FR{Post-décrémentation}\JPN{後置デクリメント}}
-\newcommand{\PreIncrement}{\RU{Пре-инкремент}\EN{Pre-increment}\PTBR{Pré-incremento}\ES{Pre-incremento}\FR{Pré-incrémentation}\JPN{前置インクリメント}}
-\newcommand{\PreDecrement}{\RU{Пре-декремент}\EN{Pre-decrement}\PTBR{Pré-decremento}\ES{Pre-decremento}\FR{Pré-décrémentation}\JPN{前置デクリメント}}
+\newcommand{\PostIncrement}{\RU{Пост-инкремент}\EN{Post-increment}\PTBR{Pós-incremento}\ES{Post-incremento}\FR{Post-incrémentation}\ITA{Post-incremento}\JPN{後置インクリメント}}
+\newcommand{\PostDecrement}{\RU{Пост-декремент}\EN{Post-decrement}\PTBR{Pós-decremento}\ES{Post-decremento}\FR{Post-décrémentation}\ITA{Post-decremento}\JPN{後置デクリメント}}
+\newcommand{\PreIncrement}{\RU{Пре-инкремент}\EN{Pre-increment}\PTBR{Pré-incremento}\ES{Pre-incremento}\FR{Pré-incrémentation}\ITA{Pre-incremento}\JPN{前置インクリメント}}
+\newcommand{\PreDecrement}{\RU{Пре-декремент}\EN{Pre-decrement}\PTBR{Pré-decremento}\ES{Pre-decremento}\FR{Pré-décrémentation}\ITA{Pre-decremento}\JPN{前置デクリメント}}
 
 % MIPS
-\newcommand{\GlobalPointer}{\RU{Глобальный указатель}\EN{Global Pointer}\PTBR{Ponteiro Global}\ES{Apuntador Global}\FR{Pointeur Global}\JPN{グローバルポインタ}}
+\newcommand{\GlobalPointer}{\RU{Глобальный указатель}\EN{Global Pointer}\PTBR{Ponteiro Global}\ES{Apuntador Global}\FR{Pointeur Global}\ITA{Puntatore Globale}\JPN{グローバルポインタ}}
 
-\newcommand{\garbage}{\RU{мусор}\EN{garbage}\PTBR{Lixo}\ES{Basura}\FR{déchets}\JPN{ガーベッジ}}
-\newcommand{\IntelSyntax}{\RU{Синтаксис Intel}\EN{Intel syntax}\PTBR{Sintaxe Intel}\ES{Sintaxis Intel}\FR{Syntaxe Intel}\JPN{インテル構文}}
-\newcommand{\ATTSyntax}{\RU{Синтаксис AT\&T}\EN{AT\&T syntax}\PTBR{Sintaxe AT\&T}\ES{Sintaxis AT\&T}\FR{Syntaxe AT\&T}\JPN{AT\&T構文}}
-\newcommand{\randomNoise}{\RU{случайный шум}\EN{random noise}\PTBR{Ruído aleatório}\ES{Ruido aleatorio}\FR{bruit aléatoire}\JPN{ランダムノイズ}}
-\newcommand{\Example}{\RU{Пример}\EN{Example}\PTBR{Exemplo}\ES{Ejemplo}\FR{Exemple}\JPN{例}}
-\newcommand{\argument}{\RU{аргумент}\EN{argument}\PTBR{argumento}\ES{argumento}\FR{argument}\JPN{引数}}
-\newcommand{\MarkedInIDAAs}{\RU{маркируется в \IDA как}\EN{marked in \IDA as}\PTBR{Marcado no \IDA como}\ES{Marcado en \IDA como}\FR{marqué dans \IDA comme}\JPN{\IDA にマークする}}
-\newcommand{\stepover}{\RU{сделать шаг, не входя в функцию}\EN{step over}\PTBR{passar por cima}\ES{pasar por encima}\FR{enjamber}\JPN{ステップオーバー}}
-\newcommand{\ShortHotKeyCheatsheet}{\RU{Краткий справочник горячих клавиш}\EN{Hot-keys cheatsheet}\PTBR{Cheatsheet de teclas de atalho}\ES{Cheatsheet de teclas de acceso rápido}\FR{Anti-sèche des touches de raccourci}\JPN{ホットキーチートシート}}
+\newcommand{\garbage}{\RU{мусор}\EN{garbage}\PTBR{Lixo}\ES{Basura}\FR{déchets}\ITA{garbage}\JPN{ガーベッジ}}
+\newcommand{\IntelSyntax}{\RU{Синтаксис Intel}\EN{Intel syntax}\PTBR{Sintaxe Intel}\ES{Sintaxis Intel}\FR{Syntaxe Intel}\ITA{Sintassi Intel}\JPN{インテル構文}}
+\newcommand{\ATTSyntax}{\RU{Синтаксис AT\&T}\EN{AT\&T syntax}\PTBR{Sintaxe AT\&T}\ES{Sintaxis AT\&T}\FR{Syntaxe AT\&T}\ITA{Sintassi AT\&T}\JPN{AT\&T構文}}
+\newcommand{\randomNoise}{\RU{случайный шум}\EN{random noise}\PTBR{Ruído aleatório}\ES{Ruido aleatorio}\FR{bruit aléatoire}\ITA{rumore casuale}\JPN{ランダムノイズ}}
+\newcommand{\Example}{\RU{Пример}\EN{Example}\PTBR{Exemplo}\ES{Ejemplo}\FR{Exemple}\ITA{Esempio}\JPN{例}}
+\newcommand{\argument}{\RU{аргумент}\EN{argument}\PTBR{argumento}\ES{argumento}\FR{argument}\ITA{argomento}\JPN{引数}}
+\newcommand{\MarkedInIDAAs}{\RU{маркируется в \IDA как}\EN{marked in \IDA as}\PTBR{Marcado no \IDA como}\ES{Marcado en \IDA como}\FR{marqué dans \IDA comme}\ITA{marcato in IDA come}\JPN{\IDA にマークする}}
+\newcommand{\stepover}{\RU{сделать шаг, не входя в функцию}\EN{step over}\PTBR{passar por cima}\ES{pasar por encima}\FR{enjamber}\ITA{step over}\JPN{ステップオーバー}}
+\newcommand{\ShortHotKeyCheatsheet}{\RU{Краткий справочник горячих клавиш}\EN{Hot-keys cheatsheet}\PTBR{Cheatsheet de teclas de atalho}\ES{Cheatsheet de teclas de acceso rápido}\FR{Anti-sèche des touches de raccourci}\ITA{Elenco delle scorciatoie da tastiera}\JPN{ホットキーチートシート}}
 
-\newcommand{\assemblyOutput}{\RU{вывод на ассемблере}\EN{assembly output}\PTBR{saída do assembly}\ES{salida del ensamblador}\FR{résultat en sortie de l'assembleur}\JPN{アセンブリ出力}}
+\newcommand{\assemblyOutput}{\RU{вывод на ассемблере}\EN{assembly output}\PTBR{saída do assembly}\ES{salida del ensamblador}\FR{résultat en sortie de l'assembleur}\ITA{risultato dell'assembly}\JPN{アセンブリ出力}}
 
 % was in common_URLS.tex:
 \newcommand{\URLWPDA}{%
@@ -765,14 +767,14 @@
 \newcommand{\YurichevIDAIDCScripts}{http://go.yurichev.com/17019}
 
 % ML prefix is for multi-lingual words and sentences:
-\newcommand{\MLHeap}{\EN{Heap}\RU{Куча}\PTBR{Heap}\FR{Heap}\JPN{ヒープ}}
-\newcommand{\MLStack}{\EN{Stack}\RU{Стэк}\PTBR{Pilha}\FR{Pile}\JPN{スタック}}
+\newcommand{\MLHeap}{\EN{Heap}\RU{Куча}\PTBR{Heap}\FR{Heap}\ITA{Heap}\JPN{ヒープ}}
+\newcommand{\MLStack}{\EN{Stack}\RU{Стэк}\PTBR{Pilha}\FR{Pile}\ITA{Stack}\JPN{スタック}}
 \newcommand{\MLStackOverflow}{\EN{Stack overflow}\RU{Переполнение стека}\PTBR{\PTBRph{}}\FR{Débordement de pile}\DEph{}\ITA{Stack overflow}\JPN{スタックオーバーフロー}\PTBR{\PTBRph{}}}
-\newcommand{\MLStartOfHeap}{\RU{Начало кучи}\EN{Start of heap}\PTBR{começo da heap}\FR{Début du heap}\JPN{ヒープの開始}}
-\newcommand{\MLStartOfStack}{\RU{Вершина стека}\EN{Start of stack}\PTBR{começo da pilha}\FR{Début de la pile}\JPN{スタックの開始}}
-\newcommand{\MLinputA}{\RU{вход А}\EN{input A}\FR{entrée A}\JPN{入力A}}
-\newcommand{\MLinputB}{\RU{вход Б}\EN{input B}\FR{entrée B}\JPN{入力B}}
-\newcommand{\MLoutput}{\RU{выход}\EN{output}\FR{sortie}\JPN{出力}}
+\newcommand{\MLStartOfHeap}{\RU{Начало кучи}\EN{Start of heap}\PTBR{começo da heap}\FR{Début du heap}\ITA{Inizio dell'heap}\JPN{ヒープの開始}}
+\newcommand{\MLStartOfStack}{\RU{Вершина стека}\EN{Start of stack}\PTBR{começo da pilha}\FR{Début de la pile}\ITA{Inizio dello stack}\JPN{スタックの開始}}
+\newcommand{\MLinputA}{\RU{вход А}\EN{input A}\FR{entrée A}\ITA{input A}\JPN{入力A}}
+\newcommand{\MLinputB}{\RU{вход Б}\EN{input B}\FR{entrée B}\ITA{input A}\JPN{入力B}}
+\newcommand{\MLoutput}{\RU{выход}\EN{output}\FR{sortie}\EN{output}\JPN{出力}}
 
 % sources: books, etc
 \newcommand{\TAOCPvolI}{Donald E. Knuth, \IT{The Art of Computer Programming}, Volume 1, 3rd ed., (1997)}
@@ -858,4 +860,3 @@
 \newcommand{\NetsecHiringThread}{\href{https://www.reddit.com/r/netsec/comments/552rz1/rnetsecs_q4_2016_information_security_hiring/}{2016}}
 
 \newcommand{\FNURLREDDIT}{\footnote{\href{http://go.yurichev.com/17027}{reddit.com/r/ReverseEngineering/}}}
-
