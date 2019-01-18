@@ -1,7 +1,7 @@
 .text:00000000 f:
-; $a0=a
-; $a1=b
-; $a2=c
+; \$a0=a
+; \$a1=b
+; \$a2=c
 .text:00000000        mult    $a1, $a0
 .text:00000004        mflo    $v0
 .text:00000008        jr      $ra

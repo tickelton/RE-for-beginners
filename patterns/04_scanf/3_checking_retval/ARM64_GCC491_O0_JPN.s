@@ -15,7 +15,7 @@ f6:
 	adrp	x0, .LC0
 	add	x0, x0, :lo12:.LC0
 	bl	puts
-; "%d"文字列へのポインタをロード
+; "\%d"文字列へのポインタをロード
 	adrp	x0, .LC1
 	add	x0, x0, :lo12:.LC1
 ; ローカルスタックにある変数xのアドレスを計算
@@ -30,7 +30,7 @@ f6:
 ; W0=1の場合、エラーなし
 ; ローカルスタックからxの値をロードする
 	ldr	w1, [x29,28]
-; "You entered %d...\n"文字列へのポインタをロードする
+; "You entered \%d...\textbackslash{}n"文字列へのポインタをロードする
 	adrp	x0, .LC2
 	add	x0, x0, :lo12:.LC2
 	bl	printf
