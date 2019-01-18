@@ -7,7 +7,7 @@ printing_function:
 	add	x29, sp, 0
 ; W0レジスタの内容を保存します
 	str	w0, [x29,28]
-; "f(%d)\n"文字列のアドレスをロードします
+; "f(\%d)\textbackslash{}n"文字列のアドレスをロードします
 	adrp	x0, .LC0
 	add	x0, x0, :lo12:.LC0
 ; ローカルスタックから入力値をリロードしてW1レジスタに書き込みます
@@ -30,9 +30,9 @@ main:
 	b	.L3
 .L4:
 ; W0にカウンタ値をロードします
-; printing_function()への第一引数になります
+; printing\_function()への第一引数になります
 	ldr	w0, [x29,28]
-; printing_function()を呼び出します
+; printing\_function()を呼び出します
 	bl	printing_function
 ; カウンタ値をインクリメント
 	ldr	w0, [x29,28]

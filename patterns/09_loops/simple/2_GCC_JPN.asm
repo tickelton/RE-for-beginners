@@ -10,11 +10,11 @@ var_20          = dword ptr -20h
                 mov     ebx, 2    ; i=2
                 sub     esp, 1Ch
 
-; ラベルloc_80484D0（ループボディの開始場所）を16バイト境界でアラインメント
+; ラベルloc\_80484D0（ループボディの開始場所）を16バイト境界でアラインメント
                 nop
 
 loc_80484D0:
-; (i)を第一引数としてprinting_function()に渡す
+; (i)を第一引数としてprinting\_function()に渡す
                 mov     [esp+20h+var_20], ebx 
                 add     ebx, 1    ; i++
                 call    printing_function

@@ -13,7 +13,7 @@ f14:
 ; X1にジャンプテーブルのアドレスをロードする:
 	adrp	x1, .L4
 	add	x1, x1, :lo12:.L4
-; W0=input_value-1
+; W0=input\_value-1
 ; テーブルからバイトをロード:
 	ldrb	w0, [x1,w0,uxtw]
 ; Lrtxラベルのアドレスをロードする

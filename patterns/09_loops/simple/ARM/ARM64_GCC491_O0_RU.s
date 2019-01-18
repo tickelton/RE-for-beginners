@@ -30,9 +30,9 @@ main:
 	b	.L3
 .L4:
 ; загрузить значение счетчика в W0.
-; это будет первый аргумент ф-ции printing_function():
+; это будет первый аргумент ф-ции printing\_function():
 	ldr	w0, [x29,28]
-; вызвать printing_function():
+; вызвать printing\_function():
 	bl	printing_function
 ; инкремент значения счетчика:
 	ldr	w0, [x29,28]

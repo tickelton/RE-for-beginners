@@ -1,7 +1,7 @@
 ﻿printing_function:
 ; printf()の第二引数を準備:
 	mov	w1, w0
-; "f(%d)\n"文字列のアドレスをロード
+; "f(\%d)\textbackslash{}n"文字列のアドレスをロード
 	adrp	x0, .LC0
 	add	x0, x0, :lo12:.LC0
 ; 分岐とリターンの命令ではなく単なる分岐の命令
@@ -17,7 +17,7 @@ main:
 ; W19に初期値として2を設定します
 	mov	w19, 2
 .L3:
-; printing_function()の最初の引数を準備します:
+; printing\_function()の最初の引数を準備します:
 	mov	w0, w19
 ; カウンタレジスタをインクリメント
 	add	w19, w19, 1

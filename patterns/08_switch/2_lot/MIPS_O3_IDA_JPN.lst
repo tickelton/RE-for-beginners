@@ -1,6 +1,6 @@
 ﻿f:
                 lui     $gp, (__gnu_local_gp >> 16)
-; 入力値が5未満の場合はloc_24にジャンプ
+; 入力値が5未満の場合はloc\_24にジャンプ
                 sltiu   $v0, $a0, 5
                 bnez    $v0, loc_24
                 la      $gp, (__gnu_local_gp & 0xFFFF) ; 分岐遅延スロット
@@ -43,7 +43,7 @@ sub_58:                                  # DATA XREF: .rodata:00000130
                 jr      $t9
                 la      $a0, ($LC4 & 0xFFFF)  # "four" ; 分岐遅延スロット
 
-sub_6C:                                  # DATA XREF: .rodata:off_120
+sub_6C:                                  # DATA XREF: .rodata:off\_120
 ; "zero"を表示して終了
                 lui     $a0, ($LC0 >> 16)  # "zero"
                 lw      $t9, (puts & 0xFFFF)($gp)

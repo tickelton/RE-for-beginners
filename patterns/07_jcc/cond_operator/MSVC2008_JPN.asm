@@ -9,7 +9,7 @@ _f	PROC
 	push	ecx
 ; 入力値と10を比較
 	cmp	DWORD PTR _a$[ebp], 10
-; 同じでなければ、$LN3@fにジャンプ
+; 同じでなければ、\$LN3@fにジャンプ
 	jne	SHORT $LN3@f
 ; 文字列へのポインタを一時変数に保存
 	mov	DWORD PTR tv65[ebp], OFFSET $SG746 ; 'it is ten'

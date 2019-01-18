@@ -6,7 +6,7 @@ _f	PROC
 ; 入力値と10を比較
 	cmp	DWORD PTR _a$[esp-4], 10
 	mov	eax, OFFSET $SG792 ; 'it is ten'
-; 同じなら$LN4@fにジャンプ
+; 同じなら\$LN4@fにジャンプ
 	je	SHORT $LN4@f
 	mov	eax, OFFSET $SG793 ; 'it is not ten'
 $LN4@f:

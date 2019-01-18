@@ -27,7 +27,7 @@ $LN2@f:
 $LN1@f:
 	mov	DWORD PTR _a$[esp-4], OFFSET $SG2806 ; 'default'
 	jmp	DWORD PTR __imp__printf
-	npad	2 ; $LN11@fテーブルを16バイト境界にアラインメントする
+	npad	2 ; \$LN11@fテーブルを16バイト境界にアラインメントする
 $LN11@f:
 	DD	$LN5@f ; '1, 2, 7, 10'を表示
 	DD	$LN4@f ; '3, 4, 5'を表示
