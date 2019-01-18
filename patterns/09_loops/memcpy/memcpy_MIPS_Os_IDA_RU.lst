@@ -5,7 +5,7 @@ my_memcpy:
 ; он будет всегда находится в регистре \$v0:
                 move    $v0, $zero ; branch delay slot
 
-loc_8:                                   # CODE XREF: my_memcpy+1C
+loc_8:                                   # CODE XREF: my\_memcpy+1C
 ; загрузить байт как беззнаковый по адресу \$t0 в \$v1:
                 lbu     $v1, 0($t0)
 ; инкремент счетчика (i):
@@ -13,7 +13,7 @@ loc_8:                                   # CODE XREF: my_memcpy+1C
 ; записываем байт по адресу \$a3
                 sb      $v1, 0($a3)
 
-loc_14:                                  # CODE XREF: my_memcpy
+loc_14:                                  # CODE XREF: my\_memcpy
 ; проверить, до сих пор ли счетчик (i) в \$v0 меньше чем третий аргумент ("cnt" в \$a2)
                 sltu    $v1, $v0, $a2
 ; сформировать адрес байта исходного блока:

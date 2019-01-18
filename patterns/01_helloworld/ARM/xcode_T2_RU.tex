@@ -62,7 +62,7 @@ __cstring:00003E70 48 65 6C 6C 6F 20+aHelloWorld  DCB "Hello world!",0xA,0
 Здесь это нужно потому, что инструкция, куда ведет переход, выглядит так (она закодирована в режиме ARM):
 
 \begin{lstlisting}[style=customasmARM]
-__symbolstub1:00003FEC _puts           ; CODE XREF: _hello_world+E
+__symbolstub1:00003FEC _puts           ; CODE XREF: \_hello\_world+E
 __symbolstub1:00003FEC 44 F0 9F E5     LDR  PC, =__imp__puts
 \end{lstlisting}
 

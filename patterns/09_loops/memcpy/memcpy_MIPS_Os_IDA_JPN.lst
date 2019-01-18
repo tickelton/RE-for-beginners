@@ -5,7 +5,7 @@
 ; 必ず$v0に割り当たる:
                 move    $v0, $zero ; 分岐遅延スロット
 
-loc_8:                                   # CODE XREF: my_memcpy+1C
+loc_8:                                   # CODE XREF: my\_memcpy+1C
 ; $t0 から $v1に符号なしのバイトとしてロードされる:
                 lbu     $v1, 0($t0)
 ; カウンタ (i)をインクリメント:
@@ -13,7 +13,7 @@ loc_8:                                   # CODE XREF: my_memcpy+1C
 ; $a3にバイトを保存
                 sb      $v1, 0($a3)
 
-loc_14:                                  # CODE XREF: my_memcpy
+loc_14:                                  # CODE XREF: my\_memcpy
 ; $v0のカウンタ(i)が依然として小さければ、第三引数($a2の"cnt")をチェック
                 sltu    $v1, $v0, $a2
 ; ソースブロックのバイトのアドレスを整える
