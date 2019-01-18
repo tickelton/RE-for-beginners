@@ -44,7 +44,7 @@ ARMのシフト命令は、 \LSR/\LSL （符号なし値の場合）と \ASR/\LS
 これは通常、x86コードで次のように実装されています。
 
 \begin{lstlisting}[caption=x86,style=customasmx86]
-; REG=input_value
+; REG=input\_value
 ; CL=n
 SHR REG, CL
 AND REG, 1

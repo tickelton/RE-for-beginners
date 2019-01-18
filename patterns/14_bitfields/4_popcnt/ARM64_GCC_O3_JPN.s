@@ -4,7 +4,7 @@
 	mov	w1, w2
 .L2:
 	lsl	x4, x5, x1	; w4 = w5<<w1 = 1<<i
-	add	w3, w2, 1	; new_rt=rt+1
+	add	w3, w2, 1	; new\_rt=rt+1
 	tst	x4, x0		; (1<<i) & a
 	add	w1, w1, 1	; i++
 ; TSTの結果は非ゼロか？

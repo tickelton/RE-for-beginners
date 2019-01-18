@@ -24,7 +24,7 @@
 .text:C0169FB0      SUB       R3, R11, #-var_38
 .text:C0169FB4      BL        lookup_fast
 ...
-.text:C016A128 loc_C016A128   ; CODE XREF: do_last.isra.14+DC
+.text:C016A128 loc_C016A128   ; CODE XREF: do\_last.isra.14+DC
 .text:C016A128      MOV       R0, R4
 .text:C016A12C      BL        complete_walk
 ...

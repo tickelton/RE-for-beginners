@@ -74,20 +74,7 @@ MSVC\FNURLMSDNZP と GCC\FNURLGCCPC{} の両方で利用できます。
 
 PshPack1.h ファイルはこのようになっています。
 
-\begin{lstlisting}[caption=PshPack1.h,style=customc]
-#if ! (defined(lint) || defined(RC_INVOKED))
-#if ( _MSC_VER >= 800 && !defined(_M_I86)) || defined(_PUSHPOP_SUPPORTED)
-#pragma warning(disable:4103)
-#if !(defined( MIDL_PASS )) || defined( __midl )
-#pragma pack(push,1)
-#else
-#pragma pack(1)
-#endif
-#else
-#pragma pack(1)
-#endif
-#endif /* ! (defined(lint) || defined(RC_INVOKED)) */
-\end{lstlisting}
+\lstinputlisting[caption=PshPack1.h,style=customc]{patterns/15_structs/4_packing/tmp1.c}
 
 コンパイラは \TT{\#pragma pack} の後で定義される構造体をパックする方法を知らせます。
 
