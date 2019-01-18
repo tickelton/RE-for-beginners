@@ -1,5 +1,6 @@
 \mysection{Пример: ошибка в Angband}
 \myindex{Angband}
+\label{Angband}
 
 В сравнительно древней rogue-like игре 90-х
 \footnote{\url{https://en.wikipedia.org/wiki/Angband_(video_game)}, \url{http://rephial.org/}} была ошибка в духе "Пикника на обочине"
@@ -148,4 +149,6 @@ inven_type inventory[INVEN_ARRAY_SIZE];
 Видимо, это и есть причина. Константа \TT{The MAX\_DUNGEON\_OBJ} слишком маленькая.
 Наверное, авторам следовало бы использовать связные списки, или иные структуры данных, без ограничений на размер.
 Но с массивами проще.
+
+% Еще один пример переполнения буфера в глобальных массивах: \myref{GlobalArraysOverflowHeisenbug}.
 

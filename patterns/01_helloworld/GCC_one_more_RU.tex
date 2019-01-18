@@ -36,7 +36,7 @@ f1              proc near
 s               = dword ptr -1Ch
 
                 sub     esp, 1Ch
-                mov     [esp+1Ch+s], offset s ; "world\n"
+                mov     [esp+1Ch+s], offset s ; "world\textbackslash{}n"
                 call    _puts
                 add     esp, 1Ch
                 retn

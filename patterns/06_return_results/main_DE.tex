@@ -10,6 +10,8 @@ Wenn eine Funktion eine \Tfloat Zahl zurückgibt, wird das FPU Register \ST{0} s
 In ARM wird das Ergebnis üblicherweise über das \Reg{0} Register zurückgegeben.
 
 \subsection{Versuch einen Rückgabewert vom Typ \Tvoid zu verwenden}
+\label{UseResultOfVoidFunc}
+
 Was würde passieren, wenn der Rückgabewert der Funktion \main vom Typ \Tvoid und nicht \Tint wäre?
 Der sogenannte Startup-Code ruft \main in etwa wie folgt auf:
 

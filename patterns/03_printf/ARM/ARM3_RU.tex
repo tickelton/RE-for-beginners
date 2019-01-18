@@ -15,7 +15,7 @@ fastcall~(\myref{fastcall}) или win64~(\myref{sec:callingconventions_win64}).
 .text:00000004 03 30 A0 E3   MOV     R3, #3
 .text:00000008 02 20 A0 E3   MOV     R2, #2
 .text:0000000C 01 10 A0 E3   MOV     R1, #1
-.text:00000010 08 00 8F E2   ADR     R0, aADBDCD     ; "a=%d; b=%d; c=%d"
+.text:00000010 08 00 8F E2   ADR     R0, aADBDCD     ; "a=\%d; b=\%d; c=\%d"
 .text:00000014 06 00 00 EB   BL      __2printf
 .text:00000018 00 00 A0 E3   MOV     R0, #0          ; return 0
 .text:0000001C 10 80 BD E8   LDMFD   SP!, {R4,PC}
@@ -37,7 +37,7 @@ fastcall~(\myref{fastcall}) или win64~(\myref{sec:callingconventions_win64}).
 .text:00000002 03 23        MOVS    R3, #3
 .text:00000004 02 22        MOVS    R2, #2
 .text:00000006 01 21        MOVS    R1, #1
-.text:00000008 02 A0        ADR     R0, aADBDCD     ; "a=%d; b=%d; c=%d"
+.text:00000008 02 A0        ADR     R0, aADBDCD     ; "a=\%d; b=\%d; c=\%d"
 .text:0000000A 00 F0 0D F8  BL      __2printf
 .text:0000000E 00 20        MOVS    R0, #0
 .text:00000010 10 BD        POP     {R4,PC}
@@ -65,7 +65,7 @@ void main()
 .text:00000014 03 30 A0 E3   MOV     R3, #3
 .text:00000018 02 20 A0 E3   MOV     R2, #2
 .text:0000001C 01 10 A0 E3   MOV     R1, #1
-.text:00000020 1E 0E 8F E2   ADR     R0, aADBDCD     ; "a=%d; b=%d; c=%d\n"
+.text:00000020 1E 0E 8F E2   ADR     R0, aADBDCD     ; "a=\%d; b=\%d; c=\%d\textbackslash{}n"
 .text:00000024 CB 18 00 EA   B       __2printf
 \end{lstlisting}
 

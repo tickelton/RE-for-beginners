@@ -94,10 +94,10 @@ call main
 
 \begin{lstlisting}[style=customasmx86]
 mov  dx, msg      ; адрес сообщения
-mov  ah, 9        ; §9 означает ф-цию "вывод строки"§
+mov  ah, 9        ; 9 означает ф-цию "вывод строки"
 int  21h          ; DOS "syscall"
 
-mov  ah, 4ch      ; §ф-ция "закончить программу"§
+mov  ah, 4ch      ; ф-ция "закончить программу"
 int  21h          ; DOS "syscall"
 
 msg  db 'Hello, World!\$'

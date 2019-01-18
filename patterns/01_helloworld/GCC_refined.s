@@ -1,5 +1,5 @@
 .LC0:
-	.string	"hello, world\n"
+	.string	"hello, world\textbackslash{}n"
 main:
 	pushl	%ebp
 	movl	%esp, %ebp

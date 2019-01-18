@@ -1,5 +1,5 @@
-% TODO translate
 \mysection{Another heisenbug}
+\label{GlobalArraysOverflowHeisenbug}
 
 Sometimes, array (or buffer) can overflow due to \IT{fencepost error}:
 
@@ -36,4 +36,6 @@ depending on compiler version and optimization switches.
 \myindex{Valgrind}
 It all variables and arrays are allocated in local stack, stack protection may be triggered, or may not.
 However, Valgrind can find bugs like these.
+
+Related example in the book (Angband game): \myref{Angband}.
 

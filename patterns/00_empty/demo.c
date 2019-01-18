@@ -1,6 +1,6 @@
 void save_file ()
 {
 #ifndef DEMO
-	// actual saving code
+	// a real saving code
 #endif
 };

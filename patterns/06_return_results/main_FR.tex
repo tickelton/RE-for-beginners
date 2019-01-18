@@ -13,6 +13,7 @@ Si une fonction renvoie un nombre de type \Tfloat, le registre \ST{0} du FPU est
 En ARM, d'habitude, le résultat est renvoyé dans le registre \Reg{0}.
 
 \subsection{Tentative d'utilisation du résultat d'une fonction renvoyant \Tvoid}
+\label{UseResultOfVoidFunc}
 
 Donc, que se passe-t-il si le type de retour de la fonction \main a été déclaré
 du type \Tvoid et non pas \Tint?
@@ -97,6 +98,9 @@ Hello, world!
 
 14 est le nombre de caractères écrits.
 Le nombre de caractères affichés est \textit{passé} de \printf{}, à travers \TT{EAX}/\TT{RAX}, dans le \q{code de retour}.
+
+% TBT
+% Another example in the book: \myref{ForgottenReturn}.
 
 \myindex{Hex-Rays}
 À propos, lorsque l'on décompile du C++ dans Hex-Rays, nous rencontrons souvent

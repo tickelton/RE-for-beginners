@@ -2,7 +2,7 @@
 
 По умолчанию Xcode 4.6.3 генерирует код для режима Thumb-2 примерно в такой манере:
 
-\begin{lstlisting}[caption=\OptimizingXcodeIV (\ThumbTwoMode),style=customasmARM]
+\begin{lstlisting}[caption=\OptimizingXcodeIV (\ThumbTwoMode)]
 __text:00002B6C                   _hello_world
 __text:00002B6C 80 B5          PUSH            {R7,LR}
 __text:00002B6E 41 F2 D8 30    MOVW            R0, #0x13D8
@@ -61,7 +61,7 @@ __cstring:00003E70 48 65 6C 6C 6F 20+aHelloWorld  DCB "Hello world!",0xA,0
 в функцию \puts, происходит смена режима процессора с Thumb/Thumb-2 на режим ARM (либо назад).
 Здесь это нужно потому, что инструкция, куда ведет переход, выглядит так (она закодирована в режиме ARM):
 
-\begin{lstlisting}[style=customasmARM]
+\begin{lstlisting}
 __symbolstub1:00003FEC _puts           ; CODE XREF: _hello_world+E
 __symbolstub1:00003FEC 44 F0 9F E5     LDR  PC, =__imp__puts
 \end{lstlisting}

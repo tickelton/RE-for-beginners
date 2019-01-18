@@ -9,6 +9,7 @@ x86では、関数の実行結果は通常 \EAX レジスタに返されます�
 ARMでは、結果は通常\Reg{0}レジスタに返されます。
 
 \subsection{\Tvoid を返す関数の結果を使ってみる}
+\label{UseResultOfVoidFunc}
 
 では、\main 関数の戻り値が \Tint 型ではなく \Tvoid 型であると宣言された場合はどうでしょうか？
 いわゆるスタートアップコードは、以下のように \main を呼び出しています。
@@ -87,6 +88,9 @@ Hello, world!
 
 14は表示された文字数です。
 印刷される文字の数は、\printf から \TT{EAX}/\TT{RAX}までの \q{exit code}への\textit{スリップ}です。
+
+% TBT
+% Another example in the book: \myref{ForgottenReturn}.
 
 \myindex{Hex-Rays}
 ちなみに、Hex-RaysでC++を逆コンパイルすると、あるクラスのデストラクタで終了する関数に遭遇することがよくあります。
