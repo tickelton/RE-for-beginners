@@ -6,23 +6,7 @@ Now let's try to compile the same \CCpp code in the GCC 4.4.1 compiler in Linux:
 Next, with the assistance of the \IDA disassembler, let's see how the \main function was created.
 \IDA, like MSVC, uses Intel-syntax\footnote{We could also have GCC produce assembly listings in Intel-syntax by applying the options \TT{-S -masm=intel}.}.
 
-\begin{lstlisting}[caption=code in \IDA,style=customasmx86]
-main            proc near
-
-var_10          = dword ptr -10h
-
-                push    ebp
-                mov     ebp, esp
-                and     esp, 0FFFFFFF0h
-                sub     esp, 10h
-                mov     eax, offset aHelloWorld ; "hello, world\n"
-                mov     [esp+10h+var_10], eax
-                call    _printf
-                mov     eax, 0
-                leave
-                retn
-main            endp
-\end{lstlisting}
+\lstinputlisting[caption=code in \IDA,style=customasmx86]{patterns/01_helloworld/IDA_x86.asm}
 
 \myindex{Function prologue}
 \myindex{x86!\Instructions!AND}

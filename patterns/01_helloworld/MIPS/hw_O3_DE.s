@@ -1,5 +1,5 @@
 $LC0:
-; \000 ist das Nullbyte im Oktalsystem:
+; \textbackslash{}000 ist das Nullbyte im Oktalsystem:
 	.ascii	"Hello, world!\012\000"
 main:
 ; Funktionsprolog:

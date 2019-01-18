@@ -6,23 +6,7 @@ LinuxのGCC 4.4.1コンパイラと同じ \CCpp コードをコンパイルし�
 次に、 \IDA 逆アセンブラの助けを借りて、どのように \main 関数が作成されるのかを見ていきましょう。
 \IDA は、MSVCと同様に、Intel-syntaxを使用します。\footnote{\TT{-S -masm=intel}オプションを適用することで、Intel構文でGCCのアセンブリリストを生成させることもできます}
 
-\begin{lstlisting}[caption=code in \IDA,style=customasmx86]
-main            proc near
-
-var_10          = dword ptr -10h
-
-                push    ebp
-                mov     ebp, esp
-                and     esp, 0FFFFFFF0h
-                sub     esp, 10h
-                mov     eax, offset aHelloWorld ; "hello, world\n"
-                mov     [esp+10h+var_10], eax
-                call    _printf
-                mov     eax, 0
-                leave
-                retn
-main            endp
-\end{lstlisting}
+\lstinputlisting[caption=code in \IDA,style=customasmx86]{patterns/01_helloworld/IDA_x86.asm}
 
 \myindex{Function prologue}
 \myindex{x86!\Instructions!AND}

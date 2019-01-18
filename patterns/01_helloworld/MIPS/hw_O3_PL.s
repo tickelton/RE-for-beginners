@@ -1,5 +1,5 @@
 $LC0:
-; \000 to zero w systemie ósemkowym:
+; \textbackslash{}000 to zero w systemie ósemkowym:
 	.ascii	"Hello, world!\012\000"
 main:
 ; prolog funkcji

@@ -1,5 +1,5 @@
 $LC0:
-; \000 is zero byte in octal base:
+; \textbackslash{}000 is zero byte in octal base:
 	.ascii	"Hello, world!\012\000"
 main:
 ; function prologue.
@@ -9,9 +9,9 @@ main:
 	addiu	$28,$28,%lo(__gnu_local_gp)
 ; save the RA to the local stack:
 	sw	$31,28($sp)
-; load the address of the puts() function from the GP to $25:
+; load the address of the puts() function from the GP to \$25:
 	lw	$25,%call16(puts)($28)
-; load the address of the text string to $4 ($a0):
+; load the address of the text string to \$4 (\$a0):
 	lui	$4,%hi($LC0)
 ; jump to puts(), saving the return address in the link register:
 	jalr	$25

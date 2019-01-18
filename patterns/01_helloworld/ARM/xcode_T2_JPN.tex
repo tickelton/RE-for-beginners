@@ -65,7 +65,7 @@ Thumb-2命令の1つは\TT{MOVW R0, \#0x13D8}です。16ビット値を\Reg{0}�
 この命令は、制御が渡される命令が次のようになっているため、ここに配置されています（ARMモードでエンコードされています）。
 
 \begin{lstlisting}[style=customasmARM]
-__symbolstub1:00003FEC _puts           ; CODE XREF: _hello_world+E
+__symbolstub1:00003FEC _puts           ; CODE XREF: \_hello\_world+E
 __symbolstub1:00003FEC 44 F0 9F E5     LDR  PC, =__imp__puts
 \end{lstlisting}
 

@@ -30,32 +30,7 @@ int main()
 
 La plupart des compilateurs \CCpp{} (MSVC inclus) allouent deux chaînes, mais voyons ce que fait GCC 4.8.1:
 
-\begin{lstlisting}[caption=GCC 4.8.1 + IDA listing,style=customasmx86]
-f1              proc near
-
-s               = dword ptr -1Ch
-
-                sub     esp, 1Ch
-                mov     [esp+1Ch+s], offset s ; "world\n"
-                call    _puts
-                add     esp, 1Ch
-                retn
-f1              endp
-
-f2              proc near
-
-s               = dword ptr -1Ch
-
-                sub     esp, 1Ch
-                mov     [esp+1Ch+s], offset aHello ; "hello "
-                call    _puts
-                add     esp, 1Ch
-                retn
-f2              endp
-
-aHello          db 'hello '
-s               db 'world',0xa,0
-\end{lstlisting}
+\lstinputlisting[caption=GCC 4.8.1 + IDA,style=customasmx86]{patterns/01_helloworld/two_strings.asm}
 
 Effectivement: lorsque nous affichons la chaîne \q{hello world} ses deux mots sont positionnés
 consécutivement en mémoire et l'appel à \puts depuis la fonction \GTT{f2()}

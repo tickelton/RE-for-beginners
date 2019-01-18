@@ -4,23 +4,7 @@ Als nächstes wird der gleiche \CCpp-Code mit GCC 4.4.1 unter Linux kompiliert: 
 Mithilfe des \IDA-Disassemblers wird untersucht, wie die \main-Funktion erzeugt wurde.
 \IDA nutzt, genau wie MSVX den Intel-Syntax\footnote{GCC kann Assembler-Ausgaben im Intel-Syntax erzeugen mit der Options \TT{-S -masm=intel}.}.
 
-\begin{lstlisting}[caption=Code in \IDA,style=customasmx86]
-main            proc near
-
-var_10          = dword ptr -10h
-
-                push    ebp
-                mov     ebp, esp
-                and     esp, 0FFFFFFF0h
-                sub     esp, 10h
-                mov     eax, offset aHelloWorld ; "hello, world\n"
-                mov     [esp+10h+var_10], eax
-                call    _printf
-                mov     eax, 0
-                leave
-                retn
-main            endp
-\end{lstlisting}
+\lstinputlisting[caption=Code in \IDA,style=customasmx86]{patterns/01_helloworld/IDA_x86.asm}
 
 \myindex{Function prologue}
 \myindex{x86!\Instructions!AND}

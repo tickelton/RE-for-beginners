@@ -4,23 +4,7 @@ Proviamo adesso a compilare lo stesso codice \CCpp con il compilatore GCC 4.4.1 
 Successivamente, con l'aiuto del disassembler \IDA, vediamo come è stata creata la funzione \main .
 \IDA, come MSVC, utilizza la sintassi Intel\footnote{Possiamo anche fare in modo che GCC produca un listato assembly con la sintassi Intel tramite l'opzione \TT{-S -masm=intel}.}.
 
-\begin{lstlisting}[caption=codice in \IDA,style=customasmx86]
-main            proc near
-
-var_10          = dword ptr -10h
-
-                push    ebp
-                mov     ebp, esp
-                and     esp, 0FFFFFFF0h
-                sub     esp, 10h
-                mov     eax, offset aHelloWorld ; "hello, world\n"
-                mov     [esp+10h+var_10], eax
-                call    _printf
-                mov     eax, 0
-                leave
-                retn
-main            endp
-\end{lstlisting}
+\lstinputlisting[caption=codice in \IDA,style=customasmx86]{patterns/01_helloworld/IDA_x86.asm}
 
 \myindex{Function prologue}
 \myindex{x86!\Instructions!AND}

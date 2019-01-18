@@ -67,7 +67,7 @@ il processore passa dalla modalita' Thumb/Thumb-2 alla modalita' ARM mode (o vic
 Questa istruzione e' posta qui poiche' l'istruzione a cui il controllo viene passato appare cosi' (e' codificata in ARM mode):
 
 \begin{lstlisting}[style=customasmARM]
-__symbolstub1:00003FEC _puts           ; CODE XREF: _hello_world+E
+__symbolstub1:00003FEC _puts           ; CODE XREF: \_hello\_world+E
 __symbolstub1:00003FEC 44 F0 9F E5     LDR  PC, =__imp__puts
 \end{lstlisting}
 

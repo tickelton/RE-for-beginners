@@ -1,5 +1,5 @@
 $LC0:
-; \000 §est l'octet à zéro en base octale:§
+; \textbackslash{}000 §est l'octet à zéro en base octale:§
 	.ascii	"Hello, world!\012\000"
 main:
 ; prologue de la fonction.

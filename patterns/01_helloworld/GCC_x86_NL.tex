@@ -4,23 +4,7 @@ Nu zullen we dezelfde \CCpp code compileren in de GCC 4.4.1 compiler in Linux: \
 Vervolgens, met de assistentie van de \IDA disassembler, zullen we kijken hoe de \main functie gemaakt is.
 \IDA, maakt net als MSVC gebruik van de Intel-syntax\footnote{We hadden GCC ook assembly listings kunnen laten gereren in Intel-syntax door gebruik te maken van de opties \TT{-S -masm=intel}.}.
 
-\begin{lstlisting}[caption=code in \IDA,style=customasmx86]
-main            proc near
-
-var_10          = dword ptr -10h
-
-                push    ebp
-                mov     ebp, esp
-                and     esp, 0FFFFFFF0h
-                sub     esp, 10h
-                mov     eax, offset aHelloWorld ; "hello, world\n"
-                mov     [esp+10h+var_10], eax
-                call    _printf
-                mov     eax, 0
-                leave
-                retn
-main            endp
-\end{lstlisting}
+\lstinputlisting[caption=code in \IDA,style=customasmx86]{patterns/01_helloworld/IDA_x86.asm}
 
 \myindex{Function prologue}
 \myindex{x86!\Instructions!AND}
