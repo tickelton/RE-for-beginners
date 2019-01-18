@@ -1,74 +1,68 @@
-% TODO to be resynced with EN version
-\mysection{La funzione più semplice}
+\mysection{Ritornare valori}
+\label{ret_val_func}
 
-La funzione più semplice possibile è probabilmente quella che restituisce un valore costante:
+Un'altra funzione semplice è quella che ritorna un valore costante:
 
-Eccola:
+\lstinputlisting[caption=\EN{\CCpp Code},style=customc]{patterns/011_ret/1.c}
 
-\lstinputlisting[caption=\CCpp Codice,style=customc]{patterns/011_ret/1.c}
-
-Compiliamola!
+Compiliamola.
 
 \subsection{x86}
 
-Questo è il risultato prodotto dai compilatori ottimizzanti GCC e MSVC sulla piattaforma x86:
+Questo è quello che i compilatori GCC e MSVC producono (con ottimizzazione) per x86:
 
 \lstinputlisting[caption=\Optimizing GCC/MSVC (\assemblyOutput),style=customasmx86]{patterns/011_ret/1.s}
 
 \myindex{x86!\Instructions!RET}
-Ci sono solo due istruzioni: la prima mette il valore 123 nel registro \EAX, per convenzione usato per la memorizzazione del valore di ritorno, la seconda, \RET, restituisce l'esecuzione alla funzione \glslink{caller}{chiamante}.
+Ci sono solo due istruzioni: la prima inserisce il valore 123 nel registro \EAX,
+che per convenzione viene utilizzato per memorizzare i valori di ritorno,
+e la seconda è \RET, che ritorna l'esecuzione al \gls{caller}.
 
-La funzione chiamante prenderà il risultato dal registro \EAX.
+La funzione chiamante troverà quindi il valore di ritorno nel registro \EAX.
 
 \subsection{ARM}
 
-Sulla piattaforma ARM ci sono alcune differenze:
+Ci sono alcune differenze nella piattaforma ARM:
 
 \lstinputlisting[caption=\OptimizingKeilVI (\ARMMode) ASM Output,style=customasmARM]{patterns/011_ret/1_Keil_ARM_O3.s}
 
-ARM usa il registro \Reg{0} per restituire i risultati delle funzioni, quindi 123 viene copiato in \Reg{0}.
-
-Il return address sulla piattaforma ARM \ac{ISA} non viene salvato nello stack locale ma nel link register, 
-così che l'istruzione \INS{BX LR} faccia in modo che l'esecuzione "salti" a quell'indirizzo --- restituendo effettivamente l'esecuzione alla funzione \glslink{caller}{chiamante}.
+ARM utilizza il registro \Reg{0} per ritornare i risultati delle funzioni, quindi 123 viene copiato in \Reg{0}.
 
 \myindex{ARM!\Instructions!MOV}
 \myindex{x86!\Instructions!MOV}
-Vale la pena notare che il nome dell'istruzione \MOV è fuorviante in entrambe le \ac{ISA} x86 e ARM. 
+Occorre notare che \MOV è un nome di funzione fuorviante sia nella \ac{ISA} x86 che ARM.
 
-Il dato non viene infatti \IT{spostato}, bensì \IT{copiato}.
+I dati non vengono infatti \IT{spostati}, ma \IT{copiati}.
 
 \subsection{MIPS}
 
 \label{MIPS_leaf_function_ex1}
-Esistono due naming conventions (convenzioni di denominazione) usate nel mondo MIPS per fare riferimento ai registri: per numero (da \$0 a \$31) or per pseudonome (\$V0, \$A0, etc.).
 
-Il seguente output assembly di GCC elenca i registri per numero:
+L'output in assembly di GCC assembly qua sotto chiama i registri per numero:
 
 \lstinputlisting[caption=\Optimizing GCC 4.4.5 (\assemblyOutput),style=customasmMIPS]{patterns/011_ret/MIPS.s}
 
-\ITAph{}
+\dots mentre \IDA utilizza gli pseudonimi:
 
 \lstinputlisting[caption=\Optimizing GCC 4.4.5 (IDA),style=customasmMIPS]{patterns/011_ret/MIPS_IDA.lst}
 
-Il registro \$2 (o \$V0) è usato per memorizzare il valore di ritorno di una funzione.
+Il registro \$2 (o \$V0) viene utilizzato per memorizzare il valore di ritorno della funzione.
 \myindex{MIPS!\Pseudoinstructions!LI}
 \INS{LI} sta per ``Load Immediate'' ed è l'equivalente MIPS di \MOV.
 
 \myindex{MIPS!\Instructions!J}
-L'altra istruzione è quella di jump (salto) (J or JR) che riporta il flusso di esecuzione alla funzione \glslink{caller}{chiamante}, \IT{saltando} all'indirizzo specificato nel registro \$31 (o \$RA).
-
-Questo registro è l'analogo di \ac{LR} in ARM.
+L'altra istruzione è il salto (J or JR) che ritorna il flusso di esecuzione al \gls{caller}.
 
 \myindex{MIPS!Branch delay slot}
-Ci si potrebbe domandare perchè le posizioni delle istruzioni load (LI) e jump (J or JR) siano invertite. Cio' e' dovuto ad una feature di \ac{RISC} detta ``branch delay slot''.
+Potresti domandarti perchè le posizioni delle istruzioni Load Immediate (LI) ed il jump (J or JR) siano invertite. Questo è dovuto ad una funzionalità di \ac{RISC} chiamata``branch delay slot''.
 
-La ragione per cui ciò avviene è una peculiarità dell'architettura di alcune \ac{ISA}s RISC e non è di importanza rilevante per il nostro scopo - sarà sufficiente semplicemente ricordare che in MIPS l'istruzione che segue un jump o branch viene eseguita \IT{prima} del jump/branch stesso.
+Il motivo per cui accade è dovuto ad un problema nell'architettura di alcune \ac{ISA} RISC e non è importante per i nostri
+scopi---dobbiamo semplicemente tenere a mente che in MIPS, l'istruzione che segue un jump o un'istruzione condizionale
+viene eseguita \IT{prima} del salto/ramificazione stessi.
 
-Di conseguenza, le istruzioni branch scambiano sempre il posto con l'istruzione che deve essere eseguita prima.
+Come conseguenza, le istruzioni di ramificazione vengono sempre scambiate di posto con l'istruzione immediatamente precedente.
 
-\subsubsection{Una nota sui nomi delle istruzioni e dei registri MIPS}
+In pratica, le funzioni che ritornano semplicemente 1 (\IT{true}) o 0 (\IT{false}) sono molto frequenti.
 
-I nomi dei registri e delle istruzioni nel mondo MIPS sono solitamente scritti in minuscolo. Tuttavia, per consistenza, useremo nomi in maiuscolo secondo la convenzione seguita da tutte le altre \ac{ISA}s trattate in questo libro.
-
-% TBT
-
+Le più piccole utility UNIX in assoluto, \IT{/bin/true} e \IT{/bin/false} ritornano 0 ed 1 rispettivamente, come codice di uscita.
+(Zero come codice di uscita generalmente indica successo, valori diversi da zero indicano errori.)
