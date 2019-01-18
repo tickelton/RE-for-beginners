@@ -7,8 +7,8 @@ _d_max     PROC
     mov    ebp, esp
     fld    QWORD PTR _b$[ebp]
 
-; 現在のスタック状態: ST(0) = _b
-; _b (ST(0))と_aを比較し、レジスタをポップ
+; 現在のスタック状態: ST(0) = \_b
+; \_b (ST(0))と_aを比較し、レジスタをポップ
     fcomp  QWORD PTR _a$[ebp] 
 
 ; スタックは空

@@ -22,7 +22,7 @@ loc_1DC
           LSLS    R0, R4, #2      ; R0=i<<2 (i*4と同様)
           LDR     R2, [R5,R0]     ; *(R5+R0)からロード (R5+i*4と同様)
           MOVS    R1, R4
-          ADR     R0, aADD        ; "a[%d]=%d\n"
+          ADR     R0, aADD        ; "a[\%d]=\%d\textbackslash{}n"
           BL      __2printf
           ADDS    R4, R4, #1      ; i=i+1
           CMP     R4, #20         ; i<20?

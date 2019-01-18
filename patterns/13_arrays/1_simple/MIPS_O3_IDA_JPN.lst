@@ -35,8 +35,8 @@ loc_34:                                  # CODE XREF: main+3C
                 addiu   $v1, 4
 ; 配列に詰め込むループが終了
 ; 次のループを開始
-                la      $s3, $LC0        # "a[%d]=%d\n"
-; "i"変数が$s0に存在
+                la      $s3, $LC0        # "a[\%d]=\%d\textbackslash{}n"
+; "i"変数が\$s0に存在
                 move    $s0, $zero
                 li      $s2, 0x14
 

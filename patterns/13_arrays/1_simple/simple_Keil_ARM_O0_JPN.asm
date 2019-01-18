@@ -23,7 +23,7 @@ loc_4A0
 loc_4B0                             
             LDR     R2, [SP,R4,LSL#2]  ; (printfの第二引数) R2=*(SP+R4<<4) (*(SP+R4*4)と同様)
             MOV     R1, R4             ; (printfの第一引数) R1=i
-            ADR     R0, aADD           ; "a[%d]=%d\n"
+            ADR     R0, aADD           ; "a[\%d]=\%d\textbackslash{}n"
             BL      __2printf
             ADD     R4, R4, #1         ; i=i+1
 
