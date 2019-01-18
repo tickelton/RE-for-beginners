@@ -1,7 +1,7 @@
 ...
-.text:C0169EA8      MOV       R9, R3  ; R3 - (4th argument) open_flag
+.text:C0169EA8      MOV       R9, R3  ; R3 - (4th argument) open\_flag
 ...
-.text:C0169ED4      LDR       R6, [R9] ; R6 - open_flag
+.text:C0169ED4      LDR       R6, [R9] ; R6 - open\_flag
 ...
 .text:C0169F68      TST       R6, #0x40 ; jumptable C0169F00 default case
 .text:C0169F6C      BNE       loc_C016A128
