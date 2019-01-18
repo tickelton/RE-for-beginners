@@ -26,7 +26,7 @@ $LL3@crc:
 
     xor    edi, ebx
 
-; EAX=EAX>>8; bits 24-31 taken §\IT{from nowhere}§ will be cleared
+; EAX=EAX>>8; bits 24-31 taken \IT{from nowhere} will be cleared
     shr    eax, 8
 
 ; EAX=EAX^crctab[EDI*4] - choose EDI-th element from crctab[] table
