@@ -17,9 +17,9 @@ $LL3@crc:
 
     movzx  edi, BYTE PTR [ecx+esi] 
     mov    ebx, eax ; EBX = (hash = len)
-    and    ebx, 255 ; EBX = hash & 0xff
+    and    ebx, 255 ; EBX = hash \& 0xff
 
-; XOR EDI, EBX (EDI=EDI^EBX) - this operation uses all 32 bits of each register
+; \verb|XOR EDI, EBX (EDI=EDI^EBX) - this operation uses all 32 bits of each register|
 ; but other bits (8-31) are cleared all time, so its OK'
 ; these are cleared because, as for EDI, it was done by MOVZX instruction above
 ; high bits of EBX was cleared by AND EBX, 255 instruction above (255 = 0xff)
@@ -29,7 +29,7 @@ $LL3@crc:
 ; EAX=EAX>>8; bits 24-31 taken \IT{from nowhere} will be cleared
     shr    eax, 8
 
-; EAX=EAX^crctab[EDI*4] - choose EDI-th element from crctab[] table
+; \verb|EAX=EAX^crctab[EDI*4] - choose EDI-th element from crctab[] table|
     xor    eax, DWORD PTR _crctab[edi*4]
     inc    ecx            ; i++
     cmp    ecx, edx       ; i<len ?
