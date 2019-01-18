@@ -1,5 +1,7 @@
 \subsubsection{GCC}
 
+% The text states that GCC uses Intel syntax, but the footnote sounds like in needs to be activated
+% Maybe edit the text to: GCC can produce Intel syntax (like MSVC), and the footnote to: Use the \TT{-S -masm=intel}.} to activate this
 Proviamo adesso a compilare lo stesso codice \CCpp con il compilatore GCC 4.4.1 su Linux: \TT{gcc 1.c -o 1}.
 Successivamente, con l'aiuto del disassembler \IDA, vediamo come è stata creata la funzione \main .
 \IDA, come MSVC, utilizza la sintassi Intel\footnote{Possiamo anche fare in modo che GCC produca un listato assembly con la sintassi Intel tramite l'opzione \TT{-S -masm=intel}.}.
@@ -26,9 +28,9 @@ main            endp
 \myindex{x86!\Instructions!AND}
 Il risultato è pressoché lo stesso.
 L'indirizzo della stringa \TT{hello, world} (memorizzato nel data segment) è caricato prima nel registro \EAX e successivamente salvato sullo stack.
-Inoltre, il prologo della funzione contiene \TT{AND ESP, 0FFFFFFF0h}~---questa 
+Inoltre, il prologo della funzione contiene \TT{AND ESP, 0FFFFFFF0h}~---questa
 istruzione allinea il valore del registro \ESP a 16-byte.
-Ciò fa sì che tutti i valori sullo stack siano allineati allo stesso modo (la CPU è più efficiente se i valori che tratta sono collocati in memoria ad indirizzi allineati a, ovvero multipli di, 4 o 16 byte)\footnote{\URLWPDA}.
+Ciò fa sì che tutti i valori sullo stack siano allineati allo stesso modo (la CPU è più efficiente se i valori che tratta sono collocati in memoria ad indirizzi allineati a multipli di 4 o 16 byte)\footnote{\URLWPDA}.
 
 \myindex{x86!\Instructions!SUB}
 \INS{SUB ESP, 10h} alloca 16 byte sullo stack. Tuttavia, come vedremo a breve, solo 4 sono necessari in questo caso.
@@ -77,7 +79,7 @@ Alcune delle differenze maggiori tra la sintassi Intel e quella AT\&T sono:
 \begin{itemize}
 
 \item
-\ITAph{}
+Gli operandi sorgente e destinazione sono scritti in ordine opposto.
 
 Sintassi Intel: <istruzione> <operando di destinazione> <operando di origine>.
 
@@ -91,6 +93,7 @@ quando si tratta di sintassi Intel immagina che ci sia un segno di uguaglianza (
 
 \item
 AT\&T: Il simbolo di percentuale (\%) deve essere scritto prima del nome di un registro, e il dollaro (\$) prima dei numeri.
+Vengono utilizzate le parentesi tonde invece di quelle quadre.
 
 \item
 AT\&T: All'istruzione si aggiunge un suffisso che definisce le dimensioni dell'operando:
@@ -102,6 +105,8 @@ AT\&T: All'istruzione si aggiunge un suffisso che definisce le dimensioni dell'o
 \item b --- byte (8 bit)
 \end{itemize}
 
+% TODO1 simple example may be? \RU{Например mov\textbf{l}, movb, movw представляют различые версии инсструкция mov} \EN {For example: movl, movb, movw are variations of the mov instruction}
+
 \end{itemize}
 
 Torniamo al risultato compilato: è identico a quello che abbiamo visto in \IDA.
@@ -112,5 +117,4 @@ E' la stessa cosa: \TT{16} nel sistema decimale è \TT{0x10} in esadecimale.
 \myindex{x86!\Instructions!MOV}
 Ancora una cosa: il valore di ritorno viene settato a 0 usando \MOV, non \XOR.
 \MOV semplicemente carica un valore in un registro.
-Il suo nome è fuorviante (il dato non viene spostato, bensì copiato). In altre architectures questa istruzione è chiamata \q{LOAD} o \q{STORE} o qualcosa di simile.
-
+Il suo nome è fuorviante (il dato non viene spostato, bensì copiato). In altre architetture questa istruzione è chiamata \q{LOAD} o \q{STORE} o qualcosa di simile.
