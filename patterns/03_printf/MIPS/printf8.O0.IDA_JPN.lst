@@ -16,7 +16,7 @@
 .text:0000000C                 move    $fp, $sp
 .text:00000010                 la      $gp, __gnu_local_gp
 .text:00000018                 sw      $gp, 0x38+var_10($sp)
-.text:0000001C                 la      $v0, aADBDCDDDEDFDGD  # "a=%d; b=%d; c=%d; d=%d; e=%d; f=%d; g=%"...
+.text:0000001C                 la      $v0, aADBDCDDDEDFDGD  # "a=\%d; b=\%d; c=\%d; d=\%d; e=\%d; f=\%d; g=\%"...
 ; スタックに5番目の引数を渡す:
 .text:00000024                 li      $v1, 4
 .text:00000028                 sw      $v1, 0x38+var_28($sp)

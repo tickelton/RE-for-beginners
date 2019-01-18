@@ -19,7 +19,7 @@ main:
 	lw	$28,16($sp)
 	lui	$4,%hi($LC1)
 	lw	$25,%call16(__isoc99_scanf)($28)
-; scanf()の2番目の引数に $a1=$sp+24 を設定する:
+; scanf()の2番目の引数に \$a1=\$sp+24 を設定する:
 	addiu	$5,$sp,24
 	jalr	$25
 	addiu	$4,$4,%lo($LC1) ; branch delay slot

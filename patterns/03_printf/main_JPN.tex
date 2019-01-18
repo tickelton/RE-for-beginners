@@ -73,10 +73,10 @@ BL function
 
 \myindex{MIPS!O32}
 \begin{lstlisting}[caption=MIPS (O32 calling convention),style=customasmMIPS]
-LI $4, 1st argument ; AKA $A0
-LI $5, 2nd argument ; AKA $A1
-LI $6, 3rd argument ; AKA $A2
-LI $7, 4th argument ; AKA $A3
+LI $4, 1st argument ; AKA \$A0
+LI $5, 2nd argument ; AKA \$A1
+LI $6, 3rd argument ; AKA \$A2
+LI $7, 4th argument ; AKA \$A3
 ; 5番目、6番目の引数などをスタックに渡す（必要なら）
 LW temp_reg, address of function
 JALR temp_reg

@@ -12,7 +12,7 @@
 .text:00000010                 la      $gp, __gnu_local_gp
 .text:00000018                 sw      $gp, 0x20+var_10($sp)
 ; テキスト文字列のアドレスをロード:
-.text:0000001C                 la      $v0, aADBDCD     # "a=%d; b=%d; c=%d"
+.text:0000001C                 la      $v0, aADBDCD     # "a=\%d; b=\%d; c=\%d"
 ; printf()の1番目の引数を設定:
 .text:00000024                 move    $a0, $v0
 ; printf()の2番目の引数を設定:

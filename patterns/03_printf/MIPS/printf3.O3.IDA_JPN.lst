@@ -12,7 +12,7 @@
 ; printf()のアドレスをロードする:
 .text:00000014                 lw      $t9, (printf & 0xFFFF)($gp)
 ; テキスト文字列のアドレスをロードし、printf()の1番目の引数を設定する:
-.text:00000018                 la      $a0, $LC0        # "a=%d; b=%d; c=%d"
+.text:00000018                 la      $a0, $LC0        # "a=\%d; b=\%d; c=\%d"
 ; printf()の2番目の引数を設定する:
 .text:00000020                 li      $a1, 1
 ; printf()の3番目の引数を設定する:
