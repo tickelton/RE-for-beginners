@@ -3,7 +3,7 @@ create_color:
 
 main:
 	xor	eax, eax
-; as if create_color() was called and returned 0
+; as if create\_color() was called and returned 0
 	sub	rsp, 8
 	mov	r8d, DWORD PTR ds:8
 	mov	ecx, DWORD PTR [rax+4]

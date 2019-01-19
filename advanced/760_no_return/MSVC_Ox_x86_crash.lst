@@ -1,6 +1,6 @@
 _a$ = -4
 _main	PROC
-; this is inlined optimized version of create_color():
+; this is inlined optimized version of create\_color():
 	push	ecx
 	push	12
 	call	_malloc
