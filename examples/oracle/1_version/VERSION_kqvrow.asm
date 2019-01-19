@@ -27,8 +27,8 @@ arg_18    = dword ptr  20h
           mov     ecx, [eax]      ; [EAX]=0..5
           mov     [ebp+var_4], edi ; EDI=0xc98c938
 
-loc_2CE10F6: ; CODE XREF: _kqvrow_+10A
-             ; _kqvrow_+1A9
+loc_2CE10F6: ; \verb|CODE XREF: _kqvrow_+10A|
+             ; \verb|_kqvrow_+1A9|
           cmp     ecx, 5          ; ECX=0..5
           ja      loc_56C11C7
           mov     edi, [ebp+arg_18] ; [EBP+20h]=0
@@ -37,12 +37,12 @@ loc_2CE10F6: ; CODE XREF: _kqvrow_+10A
           mov     ebx, eax        ; EAX=0xcdfe554
           mov     [ebp+var_C], esi ; ESI=0xcdfe248
 
-loc_2CE110D: ; CODE XREF: _kqvrow_+29E00E6
+loc_2CE110D: ; \verb|CODE XREF: _kqvrow_+29E00E6|
           mov     edx, ds:off_628B09C[ecx*4] ; [ECX*4+628B09Ch]=0x2ce1116, 0x2ce11ac, 0x2ce11db, 0x2ce11f6, 0x2ce1236, 0x2ce127a
           jmp     edx             ; EDX=0x2ce1116, 0x2ce11ac, 0x2ce11db, 0x2ce11f6, 0x2ce1236, 0x2ce127a
 
-loc_2CE1116: ; DATA XREF: .rdata:off_628B09C
-          push    offset aXKqvvsnBuffer ; "x$kqvvsn buffer"
+loc_2CE1116: ; \verb|DATA XREF: .rdata:off_628B09C|
+          push    offset aXKqvvsnBuffer ; \verb|"x$kqvvsn buffer"|
           mov     ecx, [ebp+arg_C] ; [EBP+14h]=0x8a172b4
           xor     edx, edx
           mov     esi, [ebp+var_14] ; [EBP-14h]=0xc98c938
@@ -74,20 +74,20 @@ loc_2CE1116: ; DATA XREF: .rdata:off_628B09C
           push    edi             ; EDI=0
           mov     edi, [ebp+arg_18] ; [EBP+20h]=0
           push    eax             ; EAX=1
-          mov     eax, ds:__imp__vsnban ; [597D6D8h]=0x65852100, "Oracle Database 11g Enterprise Edition Release %d.%d.%d.%d.%d %s"
+          mov     eax, ds:__imp__vsnban ; \verb|[597D6D8h]=0x65852100, "Oracle Database 11g Enterprise Edition Release %d.%d.%d.%d.%d %s"|
           push    edx             ; EDX=0
           push    ecx             ; ECX=2
           push    ebx             ; EBX=0xb
           mov     ebx, [ebp+arg_8] ; [EBP+10h]=0xcdfe554
-          push    eax             ; EAX=0x65852100, "Oracle Database 11g Enterprise Edition Release %d.%d.%d.%d.%d %s"
+          push    eax             ; \verb|EAX=0x65852100, "Oracle Database 11g Enterprise Edition Release %d.%d.%d.%d.%d %s"|
           mov     eax, [ebp+Dest] ; [EBP-10h]=0xce2ffb0
           push    eax             ; EAX=0xce2ffb0
           call    ds:__imp__sprintf ; op1=MSVCR80.dll!sprintf tracing nested maximum level (1) reached, skipping this CALL
           add     esp, 38h
           mov     dword ptr [ebx], 1
 
-loc_2CE1192: ; CODE XREF: _kqvrow_+FB
-             ; _kqvrow_+128 ...
+loc_2CE1192: ; \verb|CODE XREF: _kqvrow_+FB|
+             ; \verb|_kqvrow_+128 ...|
           test    edi, edi        ; EDI=0
           jnz     __VInfreq__kqvrow
           mov     esi, [ebp+var_C] ; [EBP-0Ch]=0xcdfe248
@@ -96,7 +96,7 @@ loc_2CE1192: ; CODE XREF: _kqvrow_+FB
           mov     ebx, [ebp+var_8] ; [EBP-8]=0
           lea     eax, [eax+4]    ; [EAX+4]=0xce2ffb0, "NLSRTL Version 11.2.0.1.0 - Production", "Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - Production", "PL/SQL Release 11.2.0.1.0 - Production", "TNS for 32-bit Windows: Version 11.2.0.1.0 - Production"
 
-loc_2CE11A8: ; CODE XREF: _kqvrow_+29E00F6
+loc_2CE11A8: ; \verb|CODE XREF: _kqvrow_+29E00F6|
           mov     esp, ebp
           pop     ebp
           retn                    ; EAX=0xcdfe558
@@ -147,7 +147,7 @@ loc_2CE11F6: ; DATA XREF: .rdata:0628B0A8
           call    _nrtnsvrs       ; tracing nested maximum level (1) reached, skipping this CALL
           add     esp, 0Ch
 
-loc_2CE122B: ; CODE XREF: _kqvrow_+29E0118
+loc_2CE122B: ; \verb|CODE XREF: _kqvrow_+29E0118|
           mov     dword ptr [ebx], 4
           jmp     loc_2CE1192
 
@@ -181,11 +181,11 @@ loc_2CE127A: ; DATA XREF: .rdata:0628B0B0
           mov     eax, ebx        ; EBX=0xcdfe554
           mov     ebx, [ebp+var_8] ; [EBP-8]=0
 
-loc_2CE1288: ; CODE XREF: _kqvrow_+1F
+loc_2CE1288: ; \verb|CODE XREF: _kqvrow_+1F|
           mov     eax, [eax+8]    ; [EAX+8]=0xce2ffb0, "NLSRTL Version 11.2.0.1.0 - Production"
           test    eax, eax        ; EAX=0xce2ffb0, "NLSRTL Version 11.2.0.1.0 - Production"
           jz      short loc_2CE12A7
-          push    offset aXKqvvsnBuffer ; "x$kqvvsn buffer"
+          push    offset aXKqvvsnBuffer ; \verb|"x$kqvvsn buffer"|
           push    eax             ; EAX=0xce2ffb0, "NLSRTL Version 11.2.0.1.0 - Production"
           mov     eax, [ebp+arg_C] ; [EBP+14h]=0x8a172b4
           push    eax             ; EAX=0x8a172b4
@@ -193,7 +193,7 @@ loc_2CE1288: ; CODE XREF: _kqvrow_+1F
           call    _kghfrf         ; tracing nested maximum level (1) reached, skipping this CALL
           add     esp, 10h
 
-loc_2CE12A7: ; CODE XREF: _kqvrow_+1C1
+loc_2CE12A7: ; \verb|CODE XREF: _kqvrow_+1C1|
           xor     eax, eax
           mov     esp, ebp
           pop     ebp

@@ -83,7 +83,7 @@ The \TT{kqfd\_DRN\_ksutm\_c()} function is mentioned in the \\
 \TT{kqfd\_tab\_registry\_0} table:
 
 \begin{lstlisting}[style=customasmx86]
-dd offset _2__STRING_62_0 ; "X$KSUTM"
+dd offset _2__STRING_62_0 ; "X\$KSUTM"
 dd offset kqfd_OPN_ksutm_c
 dd offset kqfd_tabl_fetch
 dd 0
@@ -209,8 +209,8 @@ and division of its result by 10 (\myref{sec:divisionbymult}))
 And win32-version:
 
 \begin{lstlisting}[style=customasmx86]
-_slgcs  proc near     ; CODE XREF: _dbgefgHtElResetCount+15
-                      ; _dbgerRunActions+1528
+_slgcs  proc near     ; CODE XREF: \_dbgefgHtElResetCount+15
+                      ; \_dbgerRunActions+1528
         db      66h
         nop
         push    ebp

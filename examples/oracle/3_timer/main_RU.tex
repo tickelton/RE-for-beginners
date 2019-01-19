@@ -80,7 +80,7 @@ kqfd_DRN_ksutm_c endp
 \TT{kqfd\_tab\_registry\_0} вот так:
 
 \begin{lstlisting}[style=customasmx86]
-dd offset _2__STRING_62_0 ; "X$KSUTM"
+dd offset _2__STRING_62_0 ; "X\$KSUTM"
 dd offset kqfd_OPN_ksutm_c
 dd offset kqfd_tabl_fetch
 dd 0
@@ -204,8 +204,8 @@ slgcs   endp
 И в win32-версии:
 
 \begin{lstlisting}[style=customasmx86]
-_slgcs  proc near     ; CODE XREF: _dbgefgHtElResetCount+15
-                      ; _dbgerRunActions+1528
+_slgcs  proc near     ; CODE XREF: \_dbgefgHtElResetCount+15
+                      ; \_dbgerRunActions+1528
         db      66h
         nop
         push    ebp

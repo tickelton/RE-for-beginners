@@ -1,8 +1,8 @@
-\subsection{Таблица \TT{X\$KSMLRU} в \oracle}
+\subsection{\TT{X\$KSMLRU} table in \oracle}
 \myindex{\oracle}
 
-В заметке \IT{Diagnosing and Resolving Error ORA-04031 
-on the Shared Pool or Other Memory Pools [Video] [ID 146599.1]} упоминается некая служебная таблица:
+There is a mention of a special table in the \IT{Diagnosing and Resolving Error ORA-04031 
+on the Shared Pool or Other Memory Pools [Video] [ID 146599.1]} note:
 
 \begin{framed}
 \begin{quotation}
@@ -20,14 +20,13 @@ of selecting from this table should be carefully kept since it cannot be retriev
 \end{quotation}
 \end{framed}
 
-Однако, как можно легко убедиться, эта системная таблица очищается всякий раз, когда кто-то делает запрос 
-к ней.
-Сможем ли мы найти причину, почему это происходит?
-Если вернуться к уже рассмотренным таблицам \TT{kqftab} и \TT{kqftap} полученных при помощи \oracletables, 
-содержащим информацию о X\$-таблицах, мы узнаем что для того чтобы подготовить строки этой таблицы, 
-вызывается функция \TT{ksmlrs()}:
+However, as it can be easily checked, the contents of this table are cleared each time it's queried.
+Are we able to find why?
+Let's get back to tables we already know: \TT{kqftab} and \TT{kqftap} 
+which were generated with \oracletables's help, that has all information about the X\$-tables. We can see here 
+that the \TT{ksmlrs()} function is called to prepare this table's elements:
 
-\begin{lstlisting}[caption=Результат работы \OracleTablesName]
+\begin{lstlisting}[caption=Result of \OracleTablesName]
 kqftab_element.name: [X$KSMLRU] ?: [ksmlr] 0x4 0x64 0x11 0xc 0xffffc0bb 0x5
 kqftap_param.name=[ADDR] ?: 0x917 0x0 0x0 0x0 0x4 0x0 0x0
 kqftap_param.name=[INDX] ?: 0xb02 0x0 0x0 0x0 0x4 0x0 0x0
@@ -51,18 +50,19 @@ kqftap_element.fn2=NULL
 \end{lstlisting}
 
 \myindex{tracer}
-Действительно, при помощи \tracer легко убедиться, что эта функция вызывается каждый раз, когда мы обращаемся 
-к таблице \TT{X\$KSMLRU}.
+Indeed, with \tracer's help it is easy to see that this function is called each 
+time we query the \TT{X\$KSMLRU} table.
 
 \myindex{\CStandardLibrary!memset()}
-Здесь есть ссылки на функции \TT{ksmsplu\_sp()} и \TT{ksmsplu\_jp()}, каждая из которых в итоге вызывает 
-\TT{ksmsplu()}.
-В конце функции \TT{ksmsplu()} мы видим вызов \TT{memset()}:
+Here we see a references to the \TT{ksmsplu\_sp()} and \TT{ksmsplu\_jp()} functions, each of 
+them calls the \TT{ksmsplu()} at the end.
+At the end of the \TT{ksmsplu()} function we see 
+a call to \TT{memset()}:
 
 \begin{lstlisting}[caption=ksm.o,style=customasmx86]
 ...
 
-.text:00434C50 loc_434C50:    ; DATA XREF: .rdata:off_5E50EA8
+.text:00434C50 loc_434C50:    ; DATA XREF: .rdata:off\_5E50EA8
 .text:00434C50         mov     edx, [ebp-4]
 .text:00434C53         mov     [eax], esi
 .text:00434C55         mov     esi, [edi]
@@ -87,26 +87,25 @@ kqftap_element.fn2=NULL
 .text:00434C8D _ksmsplu  endp
 \end{lstlisting}
 
-Такие конструкции (\TT{memset (block, 0, size)}) очень часто используются для простого обнуления блока памяти.
-Мы можем попробовать рискнуть, заблокировав вызов \TT{memset()} и посмотреть, что будет?
+Constructions like \TT{memset (block, 0, size)} are often used just to zero memory block.
+What if we take a risk, block the \TT{memset()} call and see what happens?
 
 \myindex{tracer}
-Запускаем \tracer со следующей опцией: поставить точку останова на \TT{0x434C7A} 
-(там, где начинается передача параметров для функции \TT{memset()}) так, 
-чтобы \tracer в этом месте установил указатель инструкций процессора (\TT{EIP}) на место, где уже произошла очистка переданных параметров в \TT{memset()} (по адресу \TT{0x434C8A}):
 
-Можно сказать, при помощи этого, мы симулируем безусловный переход с адреса \TT{0x434C7A} на \TT{0x434C8A}.
+Let's run \tracer with the following options: set breakpoint at \TT{0x434C7A} 
+(the point where the arguments to \TT{memset()} are to be passed), 
+so that \tracer will set program counter \TT{EIP} to the point where the arguments passed to \TT{memset()} are to be cleared (at \TT{0x434C8A})
+It can be said that we just simulate an unconditional jump from address \TT{0x434C7A} to \TT{0x434C8A}.
 
 \begin{lstlisting}
 tracer -a:oracle.exe bpx=oracle.exe!0x00434C7A,set(eip,0x00434C8A)
 \end{lstlisting}
 
-(Важно: все эти адреса справедливы только для win32-версии \oracle 11.2)
+(Important: all these addresses are valid only for the win32 version of \oracle 11.2)
 
-Действительно, после этого мы можем обращаться к таблице \TT{X\$KSMLRU} сколько угодно, и она уже не очищается!
+Indeed, now we can query the \TT{X\$KSMLRU} table as many times as we want and it is not being cleared anymore!
 
-\sout{Не делайте этого дома ("Разрушители легенд")} Не делайте этого на своих production-серверах.
+\sout{Do not try this at home ("MythBusters")} Do not try this on your production servers.
 
-Впрочем, это не обязательно полезное или желаемое поведение системы, но как эксперимент по поиску нужного кода, нам это подошло!
-
+It is probably not a very useful or desired system behavior, but as an experiment for locating a piece of code that we need, it perfectly suits our needs!
 
