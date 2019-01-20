@@ -10,7 +10,7 @@ First of all, Hex-Rays is getting lost when \ac{FPU} instructions are interleave
 
 For example, this:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 f               proc    near
 
         	lea     eax, [esp+4]
@@ -34,7 +34,7 @@ f               endp
 
 \dots will be correcly decompiled to:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 signed int __cdecl f(signed int a1, signed int a2)
 {
   signed int result; // eax@2
@@ -49,7 +49,7 @@ signed int __cdecl f(signed int a1, signed int a2)
 
 But let's comment one of the instructions at the end:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 ...
 l01:
 	        ;mov    eax, 2
@@ -59,7 +59,7 @@ l01:
 
 \dots we getting an obvious bug:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 void __cdecl f(char a1, char a2)
 {
   fabs((double)a2);
@@ -68,7 +68,7 @@ void __cdecl f(char a1, char a2)
 
 This is another bug:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 extrn f1:dword
 extrn f2:dword
 
@@ -99,7 +99,7 @@ const_100       dd 42C80000h            ; 100.0
 
 Result:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 int __cdecl f(float a1, float a2, float a3, float a4)
 {
   double v5; // st7@1
@@ -125,7 +125,7 @@ Another bug: \INS{FPATAN} instruction is correctly decompiled into \IT{atan2()},
 Hex-Rays too often promotes 32-bit \IT{int} to 64-bit one.
 Here is example:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 f               proc    near
 
 	        mov     eax, [esp+4]
@@ -151,7 +151,7 @@ f               endp
 
 Result:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 int __cdecl f(int a1, int a2)
 {
   __int64 v2; // rax@1
@@ -166,7 +166,7 @@ Anyway, whenever you see \IT{\_\_int64} type in 32-bit code, pay attention.
 
 This is also weird:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 f               proc    near
 
 	        mov     esi, [esp+4]
@@ -190,7 +190,7 @@ f               endp
 
 Result:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 signed int __cdecl f(signed int a1)
 {
   signed int result; // eax@3
@@ -207,7 +207,7 @@ The code is correct, but needs manual intervention.
 
 Sometimes, Hex-Rays doesn't fold (or reduce) division by multiplication code:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 f               proc    near
 
         	mov     eax, [esp+4]
@@ -222,7 +222,7 @@ f               endp
 
 Result:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 int __cdecl f(int a1)
 {
   return (unsigned __int64)(715827883i64 * a1) >> 32;
@@ -236,7 +236,7 @@ and then feeding it to Hex-Rays again.
 
 \subsection{Silence}
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 extrn some_func:dword
 
 f               proc    near
@@ -257,7 +257,7 @@ f               endp
 
 Result:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 int __cdecl f(int a1, int a2)
 {
   int v2; // ecx@1
@@ -273,7 +273,7 @@ but it would be good for Hex-Rays to give a warning.
 
 Another one:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 extrn some_func:dword
 
 f               proc    near
@@ -292,7 +292,7 @@ f               endp
 
 Result:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 signed int f()
 {
   char v0; // zf@1
@@ -319,7 +319,7 @@ Comma in C/C++ has a bad fame, because it can lead to a confusing code.
 
 Quick quiz, what does this C/C++ function return?
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 int f()
 {
 	return 1, 2;
@@ -331,7 +331,7 @@ It's 2: when compiler encounters comma-expression, it generates code which execu
 
 I've seen something like that in production code:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 if (cond)
 	return global_var=123, 456; // 456 is returned
 else
@@ -348,10 +348,10 @@ Comma in C/C++ is close to \TT{begin} in Scheme/Racket: \url{https://docs.racket
 
 Perhaps, the only widely accepted usage of comma is in \IT{for()} statements:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 char *s="hello, world";
 for(int i=0; *s; s++, i++);
-; i = string length
+// i = string length
 \end{lstlisting}
 
 Both \IT{s++} and \IT{i++} are executed at each loop iteration.
@@ -363,7 +363,7 @@ I'm writing all this because Hex-Rays produces (at least in my case) code which 
 expressions.
 For example, this is real output from Hex-Rays:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
  if ( a >= b || (c = a, (d[a] - e) >> 2 > f) )
     {
     	...
@@ -372,7 +372,7 @@ For example, this is real output from Hex-Rays:
 This is correct, it compiles and works, and let god help you to understand it.
 Here is it rewritten:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 if (cond1 || (comma_expr, cond2))
 {
 	...
@@ -413,7 +413,7 @@ And don't forget about tests.
 
 Sometimes, during rewriting, you can end up with long and hard to understand expressions in \IT{if()} constructs, like:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 if ((! (v38 && v30 <= 5 && v27 != -1)) && ((! (v38 && v30 <= 5) && v27 != -1) || (v24 >= 5 || v26)) && v25)
 {
 ...
@@ -443,7 +443,7 @@ Out[2]= Experimental`OptimizedExpression[
      v24 >= 5 || v26) && v25]]
 \end{lstlisting}
 
-Mathematica adds two new variables: \TT{Compile`\$1} and \TT{Compile`\$2}, values of which will be used several times in expression.
+Mathematica has added two new variables: \TT{Compile`\$1} and \TT{Compile`\$2}, values of which are to be used several times in expression.
 So we can add two additional variables.
 
 \subsection{My plan}

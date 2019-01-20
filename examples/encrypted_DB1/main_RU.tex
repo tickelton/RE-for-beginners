@@ -197,10 +197,12 @@ ListPlot[Counts[Map[StringLength[#] &, BinaryStrings]]]
 Почему программа использует шифрование AES чтобы дешифровать БД?
 
 ОК, найти ф-цию шифрования блока это не проблема.
-Она называется \IT{CryptoPP::Rijndael::Enc::ProcessAndXorBlock}:\\
-\url{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L349},
-и она может вызывать другую ф-цию: \IT{Rijndael::Enc::AdvancedProcessBlocks()}\\
-\url{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L1179},
+Она называется \\
+\IT{CryptoPP::Rijndael::Enc::ProcessAndXorBlock}:
+\href{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L349}{src},
+и она может вызывать другую ф-цию: \\
+\IT{Rijndael::Enc::AdvancedProcessBlocks()}
+\href{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L1179}{src},
 которая, в свою очередь, может вызывать две ф-ции (
 \href{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L1000}{AESNI\_Enc\_Block}
 and
@@ -320,8 +322,8 @@ enum {BT_InBlockIsCounter=1, BT_DontIncrementInOutPointers=2, BT_XorInput=4, BT_
 О, и нам нужно также восстановить ключ шифрования.
 \myindex{x86!\Instructions!AESKEYGENASSIST}
 В DLL есть \INS{AESKEYGENASSIST}, и она вызывается, и используется в ф-ции \\
-\IT{Rijndael::Base::UncheckedSetKey()}:\\
-\url{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L198}
+\IT{Rijndael::Base::UncheckedSetKey()}:
+\href{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L198}{src}.
 Её легко найти в IDA и установить брякпойнт. Посмотрим:
 
 \begin{lstlisting}

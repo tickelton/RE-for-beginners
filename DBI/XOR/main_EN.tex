@@ -19,7 +19,8 @@ like XOR EAX, EAX), and if they are different, it increments a counter at this E
 I have prepared two files for test: test1.bin (30720 bytes) and test2.bin
 (5547752 bytes), I'll compress them by RAR with password and see difference in statistics.
 
-You'll also need to turn off \ac{ASLR}\footnote{\url{https://stackoverflow.com/questions/9560993/how-do-you-disable-aslr-address-space-layout-randomization-on-windows-7-x64}},
+You'll also need to turn off \ac{ASLR}
+\footnote{\url{https://stackoverflow.com/q/9560993}},
 so the PIN tool will report the same RIPs as in RAR executable.
 
 Now let's run it:

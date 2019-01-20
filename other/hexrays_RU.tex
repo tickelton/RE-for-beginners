@@ -10,7 +10,7 @@
 
 Например:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 f               proc    near
 
         	lea     eax, [esp+4]
@@ -34,7 +34,7 @@ f               endp
 
 \dots будет корректино декомпилировано в:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 signed int __cdecl f(signed int a1, signed int a2)
 {
   signed int result; // eax@2
@@ -49,7 +49,7 @@ signed int __cdecl f(signed int a1, signed int a2)
 
 Но давайте закомментируем одну инструкцию в конце:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 ...
 l01:
 	        ;mov    eax, 2
@@ -59,7 +59,7 @@ l01:
 
 \dots получаем явную ошибку:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 void __cdecl f(char a1, char a2)
 {
   fabs((double)a2);
@@ -68,7 +68,7 @@ void __cdecl f(char a1, char a2)
 
 Вот еще ошибка:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 extrn f1:dword
 extrn f2:dword
 
@@ -78,7 +78,7 @@ f               proc    near
         	fadd    dword ptr [esp+8]
                 fst     dword ptr [esp+12]
 	        fcomp   ds:const_100
-                fld     dword ptr [esp+16]      ; §закомментируйте эту инструкцию, и всё будет хорошо§
+                fld     dword ptr [esp+16]      ; закомментируйте эту инструкцию, и всё будет хорошо
 	        fnstsw  ax
         	test    ah, 1
 
@@ -99,7 +99,7 @@ const_100       dd 42C80000h            ; 100.0
 
 Результат:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 int __cdecl f(float a1, float a2, float a3, float a4)
 {
   double v5; // st7@1
@@ -125,7 +125,7 @@ int __cdecl f(float a1, float a2, float a3, float a4)
 Hex-Rays часто конвертирует 32-битный \IT{int} в 64-битный.
 Вот пример:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 f               proc    near
 
 	        mov     eax, [esp+4]
@@ -137,7 +137,7 @@ f               proc    near
 	        sub     eax, [esp+8]
         	; EAX=EAX-a2
 
-                ; §в этом месте, EAX каким-то образом был сконвертирован в 64-битный (RAX)§
+                ; в этом месте, EAX каким-то образом был сконвертирован в 64-битный (RAX)
 
 	        cdq
         	xor     eax, edx
@@ -151,7 +151,7 @@ f               endp
 
 Результат:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 int __cdecl f(int a1, int a2)
 {
   __int64 v2; // rax@1
@@ -166,7 +166,7 @@ int __cdecl f(int a1, int a2)
 
 Это тоже странно:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 f               proc    near
 
 	        mov     esi, [esp+4]
@@ -190,7 +190,7 @@ f               endp
 
 Результат:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 signed int __cdecl f(signed int a1)
 {
   signed int result; // eax@3
@@ -207,7 +207,7 @@ signed int __cdecl f(signed int a1)
 
 Иногда Hex-Rays не сокращает деление через умножение:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 f               proc    near
 
         	mov     eax, [esp+4]
@@ -222,7 +222,7 @@ f               endp
 
 Результат:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 int __cdecl f(int a1)
 {
   return (unsigned __int64)(715827883i64 * a1) >> 32;
@@ -236,7 +236,7 @@ int __cdecl f(int a1)
 
 \subsection{Безмолвие}
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 extrn some_func:dword
 
 f               proc    near
@@ -257,7 +257,7 @@ f               endp
 
 Результат:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 int __cdecl f(int a1, int a2)
 {
   int v2; // ecx@1
@@ -273,7 +273,7 @@ int __cdecl f(int a1, int a2)
 
 Вот еще:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 extrn some_func:dword
 
 f               proc    near
@@ -292,7 +292,7 @@ f               endp
 
 Результат:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 signed int f()
 {
   char v0; // zf@1
@@ -319,7 +319,7 @@ signed int f()
 
 Вот простая задача, что возвращает эта ф-ция на Си/Си++?
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 int f()
 {
 	return 1, 2;
@@ -331,7 +331,7 @@ int f()
 
 Я видел такое в реальном коде:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 if (cond)
 	return global_var=123, 456; // возвращается 456
 else
@@ -346,12 +346,12 @@ else
 \myindex{Racket}
 Запятая в Си/Си++ близка к \TT{begin} в Scheme/Racket: \url{https://docs.racket-lang.org/guide/begin.html}.
 
-Вероятн, есть только одно популярное и всеми одобренное использование запятой, это в выражении \IT{for()}:
+Вероятно, есть только одно популярное и всеми одобренное использование запятой, это в выражении \IT{for()}:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 char *s="hello, world";
 for(int i=0; *s; s++, i++);
-; i = длина строки
+// i = длина строки
 \end{lstlisting}
 
 И \IT{s++} и \IT{i++} исполняются на каждой итерации цикла.
@@ -363,7 +363,7 @@ for(int i=0; *s; s++, i++);
 short-circuit-выражения (\IT{короткое замыкание}).
 Например, вот реальный пример работы Hex-Rays:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
  if ( a >= b || (c = a, (d[a] - e) >> 2 > f) )
     {
     	...
@@ -372,7 +372,7 @@ short-circuit-выражения (\IT{короткое замыкание}).
 Это корректно, оно компилируется и работает, и да поможет вам бог понять, как.
 Вот оно переписанное:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 if (cond1 || (comma_expr, cond2))
 {
 	...
@@ -414,7 +414,7 @@ Hex-Rays корректно декомпилирует это: он создае
 
 Иногда, во время переписывания, вы можете прийти к длинным и труднопонятным выражениям в конструкциях \IT{if()}, вроде:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 if ((! (v38 && v30 <= 5 && v27 != -1)) && ((! (v38 && v30 <= 5) && v27 != -1) || (v24 >= 5 || v26)) && v25)
 {
 ...

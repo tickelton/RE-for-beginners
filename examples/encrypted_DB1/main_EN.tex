@@ -199,10 +199,12 @@ Why \INS{AESDEC} is still not executed?
 Why the program use AES encryption in order to decrypt database?
 
 OK, it's not a problem to find a function which encrypts block.
-It is called \IT{CryptoPP::Rijndael::Enc::ProcessAndXorBlock}:\\
-\url{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L349},
-and it can call from another function: \IT{Rijndael::Enc::AdvancedProcessBlocks()}\\
-\url{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L1179},
+It is called \\
+\IT{CryptoPP::Rijndael::Enc::ProcessAndXorBlock}:
+\href{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L349}{src},
+and it can call from another function: \\
+\IT{Rijndael::Enc::AdvancedProcessBlocks()}
+\href{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L1179}{src},
 which, in turn, can be call the two functions (
 \href{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L1000}{AESNI\_Enc\_Block}
 and
@@ -322,8 +324,8 @@ In our case, \ac{IV} is the block which is encrypted at first iteration:
 Oh, and we also have to recover encryption key.
 \myindex{x86!\Instructions!AESKEYGENASSIST}
 There is \INS{AESKEYGENASSIST} is DLL, and it is called, and it is used in the \\
-\IT{Rijndael::Base::UncheckedSetKey()} function:\\
-\url{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L198}
+\IT{Rijndael::Base::UncheckedSetKey()} function:
+\href{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L198}{src}.
 It's easy to find it in IDA and set breakpoint. Let's see:
 
 \begin{lstlisting}
