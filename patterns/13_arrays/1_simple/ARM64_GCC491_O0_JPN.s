@@ -43,7 +43,7 @@ main:
 	ldrsw	x1, [x29,108]
 ; アドレス(X0+X1<<2 = address of array + i*4)の配列から値をロード
 	ldr	w2, [x0,x1,lsl 2]
-; "a[%d]=%d\n"文字列のアドレスをロード
+; \verb|"a[%d]=%d\n"|文字列のアドレスをロード
 	adrp	x0, .LC0
 	add	x0, x0, :lo12:.LC0
 ; "i"変数をW1にロードし、printf()の第二引数として渡す

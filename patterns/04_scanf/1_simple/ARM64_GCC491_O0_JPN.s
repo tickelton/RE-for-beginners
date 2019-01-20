@@ -15,7 +15,7 @@ scanf_main:
 ; X0=pointer to the "Enter X:" string
 ; print it:
 	bl	puts
-; load pointer to the "%d" string:
+; load pointer to the "\%d" string:
 	adrp	x0, .LC1
 	add	x0, x0, :lo12:.LC1
 ; find a space in stack frame for "x" variable (X1=FP+28):
@@ -26,7 +26,7 @@ scanf_main:
 ; load 32-bit value from the variable in stack frame:
 	ldr	w1, [x29,28]
 ; W1=x
-; load pointer to the "You entered %d...\n" string
+; load pointer to the \verb|"You entered %d...\n"| string
 ; printf() will take text string from X0 and "x" variable from X1 (or W1)
 	adrp	x0, .LC2
 	add	x0, x0, :lo12:.LC2

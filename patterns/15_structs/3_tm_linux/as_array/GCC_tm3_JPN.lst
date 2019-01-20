@@ -20,7 +20,7 @@ loc_80483D8:
 ; EBXは構造体へのポインタで、ESIは構造体の終わりへのポインタです。
                 mov     eax, [ebx]	; get 配列から32ビットwordを取得
                 add     ebx, 4          ; 構造体の次のフィールド
-                mov     dword ptr [esp+4], offset a0x08xD ; "0x%08X (%d)\n"
+                mov     dword ptr [esp+4], offset a0x08xD ; \verb|"0x%08X (%d)\n"|
                 mov     dword ptr [esp], 1
                 mov     [esp+0Ch], eax	; printf()に値を渡す
                 mov     [esp+8], eax	; printf()に値を渡す

@@ -173,7 +173,7 @@ cseg01:0108                 call    near ptr stat
 cseg01:010C                 test    ax, ax
 cseg01:010E                 jz      short loc_125
 cseg01:0110                 push    ds
-cseg01:0111                 mov     ax, offset aCannotStatFile ; "cannot stat file:\n"
+cseg01:0111                 mov     ax, offset aCannotStatFile ; \verb|"cannot stat file:\n"|
 cseg01:0114                 push    ax
 cseg01:0115                 call    OUTPUTDEBUGSTRING
 cseg01:011A                 push    si

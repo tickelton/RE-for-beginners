@@ -43,7 +43,7 @@ main:
 	ldrsw	x1, [x29,108]
 ; charger la valeur du tableau à l'adresse (X0+X1<<2 = adresse du tableau + i*4)
 	ldr	w2, [x0,x1,lsl 2]
-; charger l'adresse de la chaîne "a[%d]=%d\n":
+; charger l'adresse de la chaîne \verb|"a[%d]=%d\n"|:
 	adrp	x0, .LC0
 	add	x0, x0, :lo12:.LC0
 ; charger la variable "i" dans W1 et la passer à printf() comme second argument:

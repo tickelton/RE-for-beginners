@@ -15,7 +15,7 @@ scanf_main:
 ; X0=Pointer auf den "Enter X:" String
 ; print it:
 	bl	puts
-; lade Pointer auf den "%d" String:
+; lade Pointer auf den "\%d" String:
 	adrp	x0, .LC1
 	add	x0, x0, :lo12:.LC1
 ; finde Platz im Stack Frame für die Variable "x" (X1=FP+28):
@@ -26,7 +26,7 @@ scanf_main:
 ; lade 32-Bit-Wert aus der Variable in den Stack Frame:
 	ldr	w1, [x29,28]
 ; W1=x
-; lade Pointer auf den "You entered %d...\n" String
+; lade Pointer auf den \verb|"You entered %d...\n"| String
 ; printf() nimmt den Textstring aus X0 und die Variable "x" aus X1 (oder W1)
 	adrp	x0, .LC2
 	add	x0, x0, :lo12:.LC2
