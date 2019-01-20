@@ -1,7 +1,7 @@
 my_abs:
 ; \$a0<0ならジャンプ:
                 bltz    $a0, locret_10
-; 入力値 (\$a0)を$v0に設定してリターン
+; 入力値 (\$a0)を\$v0に設定してリターン
                 move    $v0, $a0
                 jr      $ra
                 or      $at, $zero ; branch delay slot, NOP

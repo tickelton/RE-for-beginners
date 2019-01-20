@@ -28,7 +28,7 @@
 ; xのアドレスを取得する:
 .text:00400704                 la      $v0, x
 .text:00400708                 la      $t9, printf
-; 変数xから値をロードして$a1にてprintf()に値を渡す:
+; 変数xから値をロードして\$a1にてprintf()に値を渡す:
 .text:0040070C                 lw      $a1, (x - 0x41099C)($v0)
 .text:00400710                 jalr    $t9 ; printf
 .text:00400714                 la      $a0, aYouEnteredD___  # "You entered \%d...\textbackslash{}n" ; branch delay slot

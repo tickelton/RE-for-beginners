@@ -20,7 +20,7 @@ float f(float _in)
     memcpy (&t, &f, sizeof (float));
 
     t.sign=1; // 負号を設定
-    t.exponent=t.exponent+2; // dに §$2^{n}$§(nはここでは2)を乗算
+    t.exponent=t.exponent+2; // dに $2^{n}$(nはここでは2)を乗算
 
     memcpy (&f, &t, sizeof (float));
 

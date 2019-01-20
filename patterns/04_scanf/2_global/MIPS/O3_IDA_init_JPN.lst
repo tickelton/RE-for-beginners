@@ -21,13 +21,13 @@
 .text:004006D4                 lui     $a0, 0x40
 ; アドレスxの低ビットを準備する:
 .text:004006D8                 addiu   $a1, $s0, (x - 0x410000)
-; アドレスxは$a1にあります
+; アドレスxは\$a1にあります
 .text:004006DC                 jalr    $t9 ; \_\_isoc99\_scanf
 .text:004006E0                 la      $a0, aD          # "\%d"
 .text:004006E4                 lw      $gp, 0x20+var_10($sp)
 ; メモリからwordを取得する:
 .text:004006E8                 lw      $a1, x
-; xの値は$a1にあります
+; xの値は\$a1にあります
 .text:004006EC                 la      $t9, printf
 .text:004006F0                 lui     $a0, 0x40
 .text:004006F4                 jalr    $t9 ; printf

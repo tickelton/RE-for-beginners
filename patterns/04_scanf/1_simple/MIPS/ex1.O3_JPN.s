@@ -27,7 +27,7 @@ main:
 ; printf()を呼び出す:
 	lw	$28,16($sp)
 ; printf()の2番目の引数を設定する, 
-; アドレス$sp+24にwordをロードする:
+; アドレス\$sp+24にwordをロードする:
 	lw	$5,24($sp)
 	lw	$25,%call16(printf)($28)
 	lui	$4,%hi($LC2)
