@@ -34,10 +34,10 @@ f6:
 	adrp	x0, .LC2
 	add	x0, x0, :lo12:.LC2
 	bl	printf
-; ропустить код, печатающий строку "What you entered? Huh?" :
+; пропустить код, печатающий строку "What you entered? Huh?":
 	b	.L3
 .L2:
-; загрузить указатель на строку "What you entered? Huh?" :
+; загрузить указатель на строку "What you entered? Huh?":
 	adrp	x0, .LC3
 	add	x0, x0, :lo12:.LC3
 	bl	puts
