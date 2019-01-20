@@ -21,7 +21,7 @@ $LL3@crc:
     and    ebx, 255 ; \verb|EBX = hash & 0xff|
 
 ; \verb|XOR EDI, EBX (EDI=EDI^EBX) - cette opération utilise tous les 32 bits de chaque registre|
-; mais les autres bits (8-31) sont toujours mis à 0, donc c'est OK'
+; mais les autres bits (8-31) sont toujours mis à 0, donc c'est OK
 ; ils sont mis à 0 car, comme pour EDI, cela a été fait avec l'instruction MOVZX ci-dessus
 ; les bits hauts de EBX sont mis à 0 par l'instruction AND EBX, 255 ci-dessus (255 = 0xff)
 

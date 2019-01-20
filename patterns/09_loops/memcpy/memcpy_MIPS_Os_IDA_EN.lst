@@ -14,7 +14,7 @@ loc_8:                                   # CODE XREF: my\_memcpy+1C
                 sb      $v1, 0($a3)
 
 loc_14:                                  # CODE XREF: my\_memcpy
-; check if counter (i) in $v0 is still less then 3rd function argument ("cnt" in $a2):
+; check if counter (i) in \$v0 is still less then 3rd function argument ("cnt" in \$a2):
                 sltu    $v1, $v0, $a2
 ; form address of byte in source block:
                 addu    $t0, $a1, $v0

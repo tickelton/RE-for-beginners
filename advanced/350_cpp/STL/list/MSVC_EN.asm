@@ -66,7 +66,7 @@ _main    PROC
     call ?dump_List_val@@YAXPAI@Z ; \verb|dump_List_val|
     push OFFSET $SG40831 ; 'node at .begin:'
     call edi ; printf
-    push DWORD PTR [ebx] ; get next field of node $l$ variable points to
+    push DWORD PTR [ebx] ; get next field of node "l" variable points to
     call ?dump_List_node@@YAXPAUList_node@@@Z ; \verb|dump_List_node|
     push OFFSET $SG40835 ; 'node at .end:'
     call edi ; printf

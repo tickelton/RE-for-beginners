@@ -18,8 +18,8 @@ _tmp$ = -4
 ; вычесть 1.0:
 	fsub	QWORD PTR __real@3ff0000000000000
 ; сохранить полученное значение в локальном стеке и перезагрузить его
-	fstp	DWORD PTR tv130[esp+4] ; \  эти инструкции избыточны
-	fld	DWORD PTR tv130[esp+4] ; /
+	fstp	DWORD PTR tv130[esp+4] ; \verb|\  эти инструкции избыточны|
+	fld	DWORD PTR tv130[esp+4] ; \verb|/                          |
 	pop	ecx
 	ret	0
 ?float_rand@@YAMXZ ENDP

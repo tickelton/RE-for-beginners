@@ -6,7 +6,7 @@
     mov  eax, DWORD PTR [ecx]
     push edx
     push eax
-; \verb|'this is box. width=%d, height=%d, depth=%d', 0aH, 00H|
+; \verb|'this is a box. width=%d, height=%d, depth=%d', 0aH, 00H|
     push OFFSET ??_C@_0CM@DIKPHDFI@this?5is?5box?4?5width?$DN?$CFd?0?5height?$DN?$CFd@
     call _printf
     add  esp, 16

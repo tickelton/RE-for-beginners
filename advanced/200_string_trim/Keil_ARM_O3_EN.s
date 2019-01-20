@@ -16,7 +16,7 @@ str_trim PROC
         CMP      r1,#0xd      ; \verb|is loaded byte '\r'?|
         CMPNE    r1,#0xa      ; \verb|(if loaded byte is not '\r') is loaded byte '\r'?|
         SUBEQ    r0,r0,#1     ; \verb|(if loaded byte is '\r' or '\n') R0-- or str_len--|
-        STRBEQ   r3,[r2,#-1]  ; \verb|(if loaded byte is '\r' or '\n') store R3 (zero) at address R2-1=s+str_len-1|
+        STRBEQ   r3,[r2,#-1]  ; \verb|(if loaded byte is '\r' or '\n')| store R3 (zero) at address R2-1=s+str\_len-1
         BEQ      |L0.16|      ; \verb|jump to loop begin if loaded byte was '\r' or '\n'|
 |L0.56|
 ; return "s"

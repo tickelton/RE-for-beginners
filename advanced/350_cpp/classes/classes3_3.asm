@@ -8,7 +8,7 @@
     push edx
     push eax
     push ecx
-; \verb|'this is solid_box. width=%d, height=%d, depth=%d, density=%d', 0aH|
+; \verb|'this is a solid_box. width=%d, height=%d, depth=%d, density=%d', 0aH|
     push OFFSET ??_C@_0DO@HNCNIHNN@this?5is?5solid_box?4?5width?$DN?$CFd?0?5hei@
     call _printf
     add  esp, 20

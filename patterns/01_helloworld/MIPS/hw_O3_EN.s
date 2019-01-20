@@ -18,7 +18,7 @@ main:
 	addiu	$4,$4,%lo($LC0) ; branch delay slot
 ; restore the RA:
 	lw	$31,28($sp)
-; copy 0 from $zero to $v0:
+; copy 0 from \$zero to \$v0:
 	move	$2,$0
 ; return by jumping to the RA:
 	j	$31
