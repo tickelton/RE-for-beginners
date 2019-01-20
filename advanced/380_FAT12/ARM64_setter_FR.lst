@@ -33,7 +33,7 @@ W1 = val
 ; \verb|W2 = W2&0xF = middle_byte&0xF (les 4 bits hauts dans l'octet du milieu sont supprimés)|
 ; fusionner les parties de la nouvelle version du l'octet du milieu:
   88:           orr     w1, w2, w1
-; \verb|W1 = W2|W1 = middle_byte&0xF | val<<4|
+; \verb!W1 = W2|W1 = middle_byte&0xF | val<<4!
 ; stocker W2 (nouvel octet du milieu) en X0+X3 = array+idx*1.5+1
   8c:           strb    w1, [x0,x3]
   90:           ret
@@ -54,7 +54,7 @@ W1 = val
   ac:           and     w3, w3, #0xfffffff0
 ; \verb|W3 = W3&0xFFFFFFF0 = middle_byte&0xFFFFFFF0, i.e., effacer les 4 bits les plus bas|
   b0:           orr     w3, w3, w1, lsr #8
-; \verb|W3 = W3|W1>>8 = middle_byte&0xFFFFFFF0 | val>>8|
+; \verb!W3 = W3|W1>>8 = middle_byte&0xFFFFFFF0 | val>>8!
 ; stocker la nouvelle version de l'octet du milieu en X0+X4=array+idx*1.5+1:
   b4:           strb    w3, [x0,x4]
 ; maintenant stocker les 8 bits les plus bas de val (dans W1) en X0+W2=array+idx*1.5+2, i.e.,

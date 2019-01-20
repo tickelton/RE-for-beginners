@@ -14,7 +14,7 @@ f5:
 	adrp	x0, .LC0
 	add	x0, x0, :lo12:.LC0
 	bl	puts
-; "%d" 文字列へのポインタをロードする:
+; "\%d" 文字列へのポインタをロードする:
 	adrp	x0, .LC1
 	add	x0, x0, :lo12:.LC1
 ; xグローバル変数のアドレスを形作る:
@@ -26,7 +26,7 @@ f5:
 	add	x0, x0, :lo12:x
 ; このアドレスのメモリから値をロードする:
 	ldr	w1, [x0]
-; "You entered %d...\n" 文字列へのポインタをロードする:
+; \verb|"You entered %d...\n"| 文字列へのポインタをロードする:
 	adrp	x0, .LC2
 	add	x0, x0, :lo12:.LC2
 	bl	printf

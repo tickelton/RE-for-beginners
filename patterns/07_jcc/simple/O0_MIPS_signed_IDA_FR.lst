@@ -24,7 +24,7 @@
 ; ceci est une pseudo-instructions. en fait, c'est "slt \$v0,\$v0,\$v1" ici.
 ; donc \$v0 sera mis à 1 si \$v0<\$v1 (b<a) ou à 0 autrement:
 .text:00000030                 slt     $v0, $v1
-; saut en loc_5c, si la condition n'est pas vraie.
+; saut en loc\_5c, si la condition n'est pas vraie.
 ; ceci est une pseudo-instruction. en fait, c'est "beq \$v0,\$zero,loc\_5c" ici:
 .text:00000034                 beqz    $v0, loc_5C
 ; afficher "a>b" et terminer
@@ -59,9 +59,9 @@
 .text:00000090                 lw      $v1, 0x20+arg_0($fp)
 .text:00000094                 lw      $v0, 0x20+arg_4($fp)
 .text:00000098                 or      $at, $zero ; NOP
-; tester si \$v1<\$v0 (a<b), mettre \$v0 à 1 si la condition est vraie:
+; \verb|tester si $v1<$v0 (a<b), mettre $v0 à 1 si la condition est vraie:|
 .text:0000009C                 slt     $v0, $v1, $v0
-; si la condition n'est pas vraie (i.e., $\v0==0), sauter en loc_c8:
+; \verb|si la condition n'est pas vraie (i.e., $v0==0), sauter en loc_c8:|
 .text:000000A0                 beqz    $v0, loc_C8
 .text:000000A4                 or      $at, $zero ; slot de délai de branchement, NOP
 ; la condition est vraie, afficher "a<b" et terminer

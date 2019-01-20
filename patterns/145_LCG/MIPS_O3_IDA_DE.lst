@@ -1,5 +1,5 @@
 my_srand:
-; speichere \$a0 in rand_state:
+; speichere \$a0 in rand\_state:
                 lui     $v0, (rand_state >> 16)
                 jr      $ra
                 sw      $a0, rand_state

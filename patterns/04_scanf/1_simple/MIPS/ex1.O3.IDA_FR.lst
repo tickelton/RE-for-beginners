@@ -14,7 +14,7 @@
 .text:00000014          lw      $t9, (puts & 0xFFFF)($gp)
 .text:00000018          lui     $a0, ($LC0 >> 16)  # "Enter X:"
 .text:0000001C          jalr    $t9
-.text:00000020          la      $a0, ($LC0 & 0xFFFF)  # "Enter X:" ; §slot de délai de branchement§
+.text:00000020          la      $a0, ($LC0 & 0xFFFF)  # "Enter X:" ; slot de délai de branchement
 ; appel de scanf():
 .text:00000024          lw      $gp, 0x28+var_18($sp)
 .text:00000028          lui     $a0, ($LC1 >> 16)  # "\%d"

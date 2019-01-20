@@ -10,7 +10,7 @@ saved_RA           = -4
                 sw      $ra, 0x20+saved_RA($sp)
                 sw      $s0, 0x20+saved_S0($sp)
                 sw      $gp, 0x20+saved_GP($sp)
-; appeler strlen(). l'adresse de la chaîne en entrée est toujours dans $a0,
+; appeler strlen(). l'adresse de la chaîne en entrée est toujours dans \$a0,
 ; strlen() la prendra d'ici:
                 lw      $t9, (strlen & 0xFFFF)($gp)
                 or      $at, $zero ; slot de délai de chargement, NOP
@@ -25,7 +25,7 @@ saved_RA           = -4
 ; \$a1 = \$v0-1 = str\_len-1
                 addu    $a1, $s0, $a1
 ; \$a1 = adresse de la chaîne en entrée + \$a1 = s+strlen-1
-; charger l'octet à l'adresse $a1:
+; charger l'octet à l'adresse \$a1:
                 lb      $a0, 0($a1)
                 or      $at, $zero ; slot de délai de chargement, NOP
 ; est-ce que l'octet est zéro? sauter à la sortie si oui:
@@ -40,7 +40,7 @@ saved_RA           = -4
                 b       loc_6C
                 li      $a3, 0xA   ; slot de délai de branchement
 loc_5C:
-; charger l'octet suivant de la mémoire dans $a0:
+; charger l'octet suivant de la mémoire dans \$a0:
                 lb      $a0, 0($v1)
                 move    $a1, $v1
 ; \$a1=s+str\_len-2

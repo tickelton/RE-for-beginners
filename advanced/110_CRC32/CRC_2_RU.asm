@@ -17,7 +17,7 @@ $LL3@crc:
 
     movzx  edi, BYTE PTR [ecx+esi] 
     mov    ebx, eax ; EBX = (hash = len)
-    and    ebx, 255 ; EBX = hash & 0xff
+    and    ebx, 255 ; \verb|EBX = hash & 0xff|
 
 ; \verb|XOR EDI, EBX (EDI=EDI^EBX) - эта операция задействует все 32 бита каждого регистра|
 ; но остальные биты (8-31) будут обнулены всегда, так что все ОК

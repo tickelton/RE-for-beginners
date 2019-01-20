@@ -8,7 +8,7 @@ my_rand:
                 lui     $v1, (rand_state >> 16)
                 lw      $v0, rand_state
                 or      $at, $zero  ; slot de délai de branchement
-; multiplier rand\_state dans $v0 par 1664525 (RNG\_a):
+; multiplier rand\_state dans \$v0 par 1664525 (RNG\_a):
                 sll     $a1, $v0, 2
                 sll     $a0, $v0, 4
                 addu    $a0, $a1, $a0

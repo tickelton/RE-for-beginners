@@ -45,13 +45,13 @@ struct st
 void f (struct st *s)
 {
 	printf ("%d %d %s\n", s->a, s->b, s->s);
-	// §f() не может заменить s[] большей строкой - длина выделенного блока неизвестна на этом этапе§
+	// f() не может заменить s[] большей строкой - длина выделенного блока неизвестна на этом этапе
 };
 
 int main()
 {
 #define STRING "Hello!"
-	struct st *s=malloc(sizeof(struct st)+strlen(STRING)+1); // §включая терминирующий ноль.§
+	struct st *s=malloc(sizeof(struct st)+strlen(STRING)+1); // включая терминирующий ноль.
 	s->a=1;
 	s->b=2;
 	strcpy (s->s, STRING);

@@ -6,7 +6,7 @@ str_trim:
 ; X19 contiendra toujours la valeur de "s"
 	bl	strlen
 ; X0=str\_len
-	cbz	x0, .L9        ; sauter en L9 (sortir) si str_len==0
+	cbz	x0, .L9        ; sauter en L9 (sortir) si str\_len==0
 	sub	x1, x0, #1
 ; X1=X0-1=str\_len-1
 	add	x3, x19, x1

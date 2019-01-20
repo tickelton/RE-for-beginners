@@ -50,7 +50,7 @@ get_from_array PROC
         LDRB     r0,[r3,r4]
 ; R0 = octet de gauche
         LSLS     r0,r0,#4
-; R0 = left_byte<<4
+; \verb|R0 = left_byte<<4|
 ; \verb|décaler middle_byte dans R2 de 4 bits à droite:|
         LSRS     r1,r2,#4
 ; \verb|R1=middle_byte>>4|

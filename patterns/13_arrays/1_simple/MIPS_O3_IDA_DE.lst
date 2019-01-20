@@ -36,7 +36,7 @@ loc_34:                                  # CODE XREF: main+3C
 ; Schleife zum Befüllen des Arrays ist beendet
 ; Beginn der zweiten Schleife
                 la      $s3, $LC0        # "a[\%d]=\%d\textbackslash{}n"
-; Variable "i" bleibt in $s0:
+; Variable "i" bleibt in \$s0:
                 move    $s0, $zero
                 li      $s2, 0x14
 

@@ -18,7 +18,7 @@ $LL3@crc:
 
     movzx  edi, BYTE PTR [ecx+esi]
     mov    ebx, eax ; EBX = (hash = len)
-    and    ebx, 255 ; EBX = hash \& 0xff
+    and    ebx, 255 ; \verb|EBX = hash & 0xff|
 
 ; \verb|XOR EDI, EBX (EDI=EDI^EBX) - cette opération utilise tous les 32 bits de chaque registre|
 ; mais les autres bits (8-31) sont toujours mis à 0, donc c'est OK'

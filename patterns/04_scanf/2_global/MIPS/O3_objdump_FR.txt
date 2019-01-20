@@ -17,7 +17,7 @@
 ; préparer l'adresse de x:
   4006f0:       8f858044        lw      a1,-32700(gp)
   4006f4:       0320f809        jalr    t9
-  4006f8:       248408fc        addiu   a0,a0,2300 ; §slot de délai de branchement§
+  4006f8:       248408fc        addiu   a0,a0,2300 ; slot de délai de branchement
 ; appel de printf():
   4006fc:       8fbc0010        lw      gp,16(sp)
   400700:       3c040040        lui     a0,0x40

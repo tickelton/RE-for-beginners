@@ -71,7 +71,7 @@ _main    PROC
     push OFFSET $SG40835 ; 'node at .end:'
     call edi ; printf
     push ebx ; pointer to the node $l$ variable points to!
-    call ?dump_List_node@@YAXPAUList_node@@@Z ; dump_List_node
+    call ?dump_List_node@@YAXPAUList_node@@@Z ; \verb|dump_List_node|
     push OFFSET $SG40839 ; '* let''s count from the begin:'
     call edi ; printf
     mov  esi, DWORD PTR [ebx] ; operator++: get ->next pointer

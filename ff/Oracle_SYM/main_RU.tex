@@ -178,10 +178,10 @@ Hiew, как и многие другие шестнадцатеричные р�
 .text:60351026          mov     eax, dword_60353014
 .text:6035102B          mov     hModule, ecx
 .text:60351031
-.text:60351031 loc_60351031:    ; CODE XREF: sub_60351000+1D
+.text:60351031 loc_60351031:    ; CODE XREF: sub\_60351000+1D
 .text:60351031          test    ecx, ecx
 .text:60351033          jbe     short loc_6035104F
-.text:60351035          push    offset ProcName ; "ax_reg"
+.text:60351035          push    offset ProcName ; "ax\_reg"
 .text:6035103A          push    ecx             ; hModule
 .text:6035103B          call    ds:GetProcAddress
 ...
@@ -215,10 +215,10 @@ Hiew, как и многие другие шестнадцатеричные р�
 .text:603510A6          mov     eax, dword_60353018
 .text:603510AB          mov     hModule, ecx
 .text:603510B1
-.text:603510B1 loc_603510B1:    ; CODE XREF: sub_60351080+1D
+.text:603510B1 loc_603510B1:    ; CODE XREF: sub\_60351080+1D
 .text:603510B1          test    ecx, ecx
 .text:603510B3          jbe     short loc_603510CF
-.text:603510B5          push    offset aAx_unreg ; "ax_unreg"
+.text:603510B5          push    offset aAx_unreg ; "ax\_unreg"
 .text:603510BA          push    ecx             ; hModule
 .text:603510BB          call    ds:GetProcAddress
 ...
