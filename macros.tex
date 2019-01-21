@@ -56,37 +56,43 @@
 \fi
 
 \ifdefined\RUSSIAN{}
-\newcommand*{\RU}[1]{\iflanguage{russian}{#1}{}}
+%\newcommand*{\RU}[1]{\iflanguage{russian}{#1}{}}
+\newcommand*{\RU}[1]{#1}
 \else
 \newcommand*{\RU}[1]{}
 \fi
 
 \ifdefined\CHINESE{}
-\newcommand*{\CN}[1]{\iflanguage{chinese}{#1}{}}
+%\newcommand*{\CN}[1]{\iflanguage{chinese}{#1}{}}
+\newcommand*{\CN}[1]{#1}
 \else
 \newcommand*{\CN}[1]{}
 \fi
 
 \ifdefined\SPANISH{}
-\newcommand*{\ES}[1]{\iflanguage{spanish}{#1}{}}
+%\newcommand*{\ES}[1]{\iflanguage{spanish}{#1}{}}
+\newcommand*{\ES}[1]{#1}
 \else
 \newcommand*{\ES}[1]{}
 \fi
 
 \ifdefined\ITALIAN{}
-\newcommand*{\ITA}[1]{\iflanguage{italian}{#1}{}}
+%\newcommand*{\ITA}[1]{\iflanguage{italian}{#1}{}}
+\newcommand*{\ITA}[1]{#1}
 \else
 \newcommand*{\ITA}[1]{}
 \fi
 
 \ifdefined\BRAZILIAN{}
-\newcommand*{\PTBR}[1]{\iflanguage{portuges}{#1}{}}
+%\newcommand*{\PTBR}[1]{\iflanguage{portuges}{#1}{}}
+\newcommand*{\PTBR}[1]{#1}
 \else
 \newcommand*{\PTBR}[1]{}
 \fi
 
 \ifdefined\POLISH{}
-\newcommand*{\PL}[1]{\iflanguage{polish}{#1}{}}
+%\newcommand*{\PL}[1]{\iflanguage{polish}{#1}{}}
+\newcommand*{\PL}[1]{#1}
 \else
 \newcommand*{\PL}[1]{}
 \fi
@@ -99,31 +105,36 @@
 \fi
 
 \ifdefined\THAI{}
-\newcommand*{\THA}[1]{\iflanguage{thai}{#1}{}}
+%\newcommand*{\THA}[1]{\iflanguage{thai}{#1}{}}
+\newcommand*{\THA}[1]{#1}
 \else
 \newcommand*{\THA}[1]{}
 \fi
 
 \ifdefined\DUTCH{}
-\newcommand*{\NL}[1]{\iflanguage{dutch}{#1}{}}
+%\newcommand*{\NL}[1]{\iflanguage{dutch}{#1}{}}
+\newcommand*{\NL}[1]{#1}
 \else
 \newcommand*{\NL}[1]{}
 \fi
 
 \ifdefined\FRENCH{}
-\newcommand*{\FR}[1]{\iflanguage{french}{#1}{}}
+%\newcommand*{\FR}[1]{\iflanguage{french}{#1}{}}
+\newcommand*{\FR}[1]{#1}
 \else
 \newcommand*{\FR}[1]{}
 \fi
 
 \ifdefined\JAPANESE{}
-\newcommand*{\JPN}[1]{\iflanguage{japanese}{#1}{}}
+%\newcommand*{\JPN}[1]{\iflanguage{japanese}{#1}{}}
+\newcommand*{\JPN}[1]{#1}
 \else
 \newcommand*{\JPN}[1]{}
 \fi
 
 \ifdefined\TURKISH{}
-\newcommand*{\TR}[1]{\iflanguage{turkish}{#1}{}}
+%\newcommand*{\TR}[1]{\iflanguage{turkish}{#1}{}}
+\newcommand*{\TR}[1]{#1}
 \else
 \newcommand*{\TR}[1]{}
 \fi
@@ -471,10 +482,10 @@
 
 \newcommand{\TCPPPL}{Bjarne Stroustrup, \IT{The C++ Programming Language, 4th Edition}, (2013)}
 
-\newcommand{\AMDOptimization}{\InSqBrackets{\IT{Software Optimization Guide for AMD Family 16h Processors}, (2013)}}
+\newcommand{\AMDOptimization}{\IT{Software Optimization Guide for AMD Family 16h Processors}, (2013)}
 % note = "\AlsoAvailableAs \url{http://go.yurichev.com/17285}",
 
-\newcommand{\IntelOptimization}{\InSqBrackets{\IT{Intel® 64 and IA-32 Architectures Optimization Reference Manual}, (2014)}}
+\newcommand{\IntelOptimization}{\IT{Intel® 64 and IA-32 Architectures Optimization Reference Manual}, (2014)}
 % note = "\AlsoAvailableAs \url{http://go.yurichev.com/17342}",
 
 \newcommand{\TAOUP}{Eric S. Raymond, \IT{The Art of UNIX Programming}, (2003)}

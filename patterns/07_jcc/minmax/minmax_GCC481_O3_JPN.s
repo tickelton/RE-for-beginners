@@ -7,7 +7,6 @@ my_max:
 	cmp	edx, eax
 ; A>=Bなら、Aの値をEAXにロード
 ; それ以外(A<B)の場合は、アイドル命令
-; the instruction idle if otherwise (if A<B)
 	cmovge	eax, edx
 	ret
 

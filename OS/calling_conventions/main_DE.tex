@@ -283,7 +283,7 @@ nutzen (der Autor dieser Linien hat so einen Fall in der Praxis noch nie gesehen
 
 %TODO Compilation of german version fails with style=customasm
 %\lstinputlisting[caption=MSVC 2012,style=customasm]{OS/calling_conventions/change_arguments.asm}
-\lstinputlisting[caption=MSVC 2012]{OS/calling_conventions/change_arguments.asm}
+\lstinputlisting[caption=MSVC 2012,style=customasmx86]{OS/calling_conventions/change_arguments.asm}
 
 % TODO (OllyDbg) пример как в стеке меняется $a$
 
@@ -298,7 +298,7 @@ Vielleicht wenn dies direkt in Assembler programmiert ist.
 
 Beispielsweise wird Code wie folgt von gewöhnlichen \CCpp-Compilern erzeugt:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 	push	456	; wird gleich b sein
 	push	123	; wird gleich a sein
 	call	f	; f() modifiziert das erste Argument
@@ -307,7 +307,7 @@ Beispielsweise wird Code wie folgt von gewöhnlichen \CCpp-Compilern erzeugt:
 
 Der Code kann wie folgt neu geschrieben werden:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customasmx86]
 	push	456	; wird gleich b sein
 	push	123	; wird gleich a sein
 	call	f	; f() modifiziert das erste Argument

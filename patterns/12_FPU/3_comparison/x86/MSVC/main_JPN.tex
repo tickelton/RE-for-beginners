@@ -38,22 +38,10 @@ MSVC 2010は以下のコードを生成します。
 \AX レジスタの同じ位置にあり、 \AX{}~---\AH{} の上位部分に配置されます。
 
 \begin{itemize}
-\item If $b>a$ in our example, then \CThreeBits bits are to be set as following: 0, 0, 0.
-\item If $a>b$, then the bits are: 0, 0, 1.
-\item If $a=b$, then the bits are: 1, 0, 0.
-\item
-
-If the result is unordered (in case of error), then the set bits are: 1, 1, 1.
-\end{itemize}
-% TODO: table here?
-
-\begin{itemize}
 \item この例では $b>a$ の場合、 \CThreeBits ビットは0,0,0と設定します。
 \item $a>b$ の場合、ビットは0,0,1です。
 \item $a=b$ の場合、ビットは1,0,0です。
-\item
-
-結果が順序付けられていない場合（エラーの場合）、セットされたビットは1,1,1,1です。
+\item 結果が順序付けられていない場合（エラーの場合）、セットされたビットは1,1,1,1です。
 \end{itemize}
 % TODO: table here?
 

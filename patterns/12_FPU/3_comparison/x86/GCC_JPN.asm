@@ -28,7 +28,7 @@ b_second_half   = dword ptr  14h
 
 ; 現在のスタック状態: ST(0) - b; ST(1) - a
 
-    fxch    st(1) ; this instruction swapping ST(1) and ST(0)
+    fxch    st(1) ; this instruction swaps ST(1) and ST(0)
 
 ; 現在のスタック状態: ST(0) - a; ST(1) - b
 
