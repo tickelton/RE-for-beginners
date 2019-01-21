@@ -87,7 +87,8 @@ ainsi que dans ReactOS\footnote{\url{http://go.yurichev.com/17060}}.\\
 Lorsque le champ \IT{filter} est un pointeur NULL, le champ \IT{handler} est un pointeur vers un 
 bloc de code \IT{finally}.\\
 \\
-Au cours de l'exécution, la valeur du champe \IT{previous try level} change. Ceci permet à la 
+Au cours de l'exécution, la valeur du champe \IT{previous try level} change. \\
+Ceci permet à la 
 fonction \TT{\_except\_handler3} de connaître le niveau d'imbrication et donc de savoir quelle 
 entrée de la table \IT{scope table} utiliser en cas d'exception.
 

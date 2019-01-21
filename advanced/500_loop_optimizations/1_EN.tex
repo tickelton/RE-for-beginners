@@ -48,7 +48,7 @@ void __cdecl f1(char *dst, char *src, size_t size)
     sliding_dst = dst;
     do
     {
-      tmp = (sliding_dst++)[src - dst];         // difference (src-dst) is calculated once, before loop body
+      tmp = (sliding_dst++)[src - dst];         // difference (src-dst) is calculated once, at the beginning
       *(sliding_dst - 1) = tmp;
       --counter;
     }
