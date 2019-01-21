@@ -7,7 +7,7 @@ printing_function:
 	add	x29, sp, 0
 ; W0レジスタの内容を保存します
 	str	w0, [x29,28]
-; "f(\%d)\textbackslash{}n"文字列のアドレスをロードします
+; \verb|"f(%d)\n"|文字列のアドレスをロードします
 	adrp	x0, .LC0
 	add	x0, x0, :lo12:.LC0
 ; ローカルスタックから入力値をリロードしてW1レジスタに書き込みます

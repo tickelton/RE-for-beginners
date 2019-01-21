@@ -7,7 +7,7 @@ printing_function:
 	add	x29, sp, 0
 ; Inhalt des W0 Registers speichern:
 	str	w0, [x29,28]
-; lade Adresse des "f(\%d)\textbackslash{}n" Strings
+; \verb|lade Adresse des "f(%d)\n" Strings|
 	adrp	x0, .LC0
 	add	x0, x0, :lo12:.LC0
 ; Eingabewert vom Stack zurück ins W1 Register laden:

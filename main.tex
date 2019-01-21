@@ -18,6 +18,7 @@
 \usepackage{csquotes}
 
 \ifdefined\ENGLISH
+%\wlog{main ENGLISH defined OK}
 \setmainlanguage{english}
 \setotherlanguage{russian}
 \fi
@@ -173,7 +174,31 @@
 \makeindex
 
 \include{macros}
-\include{glossary}
+\EN{\include{macro_lang_EN}}
+\RU{\include{macro_lang_RU}}
+\FR{\include{macro_lang_FR}}
+\DE{\include{macro_lang_DE}}
+\JPN{\include{macro_lang_JP}}
+\ITA{\include{macro_lang_IT}}
+\PL{\include{macro_lang_PL}}
+\ES{\include{macro_lang_ES}}
+\NL{\include{macro_lang_NL}}
+\TR{\include{macro_lang_TR}}
+\PTBR{\include{macro_lang_PTBR}}
+
+\ifdefined\UAL
+\newcommand{\TitleMain}{\TitleUAL}
+\newcommand{\TitleAux}{\TitleRE}
+\else
+\newcommand{\TitleMain}{\TitleRE}
+\newcommand{\TitleAux}{\TitleUAL}
+\fi
+
+\EN{\input{glossary_EN}}
+\RU{\input{glossary_RU}}
+\FR{\input{glossary_FR}}
+\DE{\input{glossary_DE}}
+\JPN{\input{glossary_JPN}}
 
 \makeglossaries
 

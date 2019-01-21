@@ -37,13 +37,13 @@ Das einzige \\TT{alloca()} Argument wird über \EAX übergeben (anstatt es erst 
 
 GCC 4.4.1 macht das selbe, aber ohne externe Funktions aufrufe.
 
-\lstinputlisting[caption=GCC 4.7.3,style=customasmx86]]{patterns/02_stack/04_alloca/2_1_gcc_intel_O3_EN.asm}
+\lstinputlisting[caption=GCC 4.7.3,style=customasmx86]{patterns/02_stack/04_alloca/2_1_gcc_intel_O3_EN.asm}
 
 \myparagraph{GCC + \ATTSyntax}
 
 Nun der gleiche Code, aber in AT\&T Syntax:
 
-\lstinputlisting[caption=GCC 4.7.3,style=customasmx86]]{patterns/02_stack/04_alloca/2_1_gcc_ATT_O3.s}
+\lstinputlisting[caption=GCC 4.7.3,style=customasmx86]{patterns/02_stack/04_alloca/2_1_gcc_ATT_O3.s}
 
 \myindex{\ATTSyntax}
 Der Code ist der gleiche wie im vorherigen listig.

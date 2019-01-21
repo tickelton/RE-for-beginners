@@ -7,7 +7,7 @@ printing_function:
 	add	x29, sp, 0
 ; save contents of W0 register:
 	str	w0, [x29,28]
-; load address of the "f(\%d)\textbackslash{}n" string
+; \verb|load address of the "f(%d)\n" string|
 	adrp	x0, .LC0
 	add	x0, x0, :lo12:.LC0
 ; reload input value from the local stack to W1 register:

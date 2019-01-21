@@ -9,7 +9,8 @@ werden, werden zu \lstref{unsigned_multiply_lst} kompiliert, so dass \IMUL statt
 Dies ist eine wichtige Eigenschaft der \MUL- und \IMUL-Anweisung.
 Zunächst produzieren beide einen 64-Bit-Wert wenn zwei 32-Bit-Werte miteinander multipliziert werden,
 oder einen 128-Bit-Wert wenn zwei 64-Bit-Werte miteinander multipliziert werden (größtes mögliches \gls{product}
-in 32-Bit-Umgebungen ist \GTT{0xffffffff*0xffffffff=0xfffffffe00000001}).
+in 32-Bit-Umgebungen ist \\
+\GTT{0xffffffff*0xffffffff=0xfffffffe00000001}).
 Der \CCpp-Standard kennt keine Möglichkeit auf die höherwertige Hälfte eines Ergebnisses zuzugreifen
 und ein \gls{product} hat immer die gleiche Größe wie die Faktoren. % TODO \gls{}?
 Beide Anweisungen \MUL und \IMUL arbeiten auf die gleiche Weise wenn die höherwertige Hälfte ignoriert wird.

@@ -73,7 +73,7 @@ keine generelle Anforderung. Jemand könnte auch einfach eine andere Methode imp
 
 Ein ziemlich beliebter Weg Argumente zu übergeben unter Assembler Neulingen ist über globale Variablen wie z.B:
 
-\lstinputlisting[caption=Assembly code]{patterns/02_stack/global_args.asm}
+\lstinputlisting[caption=Assembly code,style=customasmx86]{patterns/02_stack/global_args.asm}
 
 Aber diese Methode hat Nachteile: Die \IT{do\_something()} Funktion kann sich selbst nicht rekursiv aufrufen (aber auch keine andere Funktion),
 weil sie ihre eigenen Argumente löschen muss.

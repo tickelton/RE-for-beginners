@@ -7,7 +7,7 @@ printing_function:
 	add	x29, sp, 0
 ; sauver le contenu du registre W0:
 	str	w0, [x29,28]
-; charger l'adresse de la chaîne "f(\%d)\textbackslash{}n"
+; \verb|charger l'adresse de la chaîne "f(%d)\n"|
 	adrp	x0, .LC0
 	add	x0, x0, :lo12:.LC0
 ; recharger la valeur entrée depuis le pile locale dans le registre W0:
