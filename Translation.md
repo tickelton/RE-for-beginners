@@ -92,11 +92,14 @@ But, several characters needs to be escaped, as in usual TeX code: $, #, %, \, e
 To be on safe side, use \verb|comment|.
 But if a comment itself contains pipe symbol ("|"), you can do this: \verb!comment!.
 
+However, \verb|long_string| is unbreakable and thus is not suitable for long strings...
+In this case, I enclose smaller parts of comment in listing...
+
 "§" symbol is still to be used in code, but not in comments.
 This is a case of translated variable names, like:
 https://github.com/DennisYurichev/RE-for-beginners/blob/master/patterns/09_loops/simple/loops_1_RU.c
 https://github.com/DennisYurichev/RE-for-beginners/blob/master/patterns/09_loops/simple/loops_3_RU.c
- 
+
 ## Contact me
 
 Do not hesitate to contact me if you have any questions: dennis(a)yurichev.com
