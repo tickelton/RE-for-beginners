@@ -101,7 +101,7 @@
 \newglossaryentry{POKE}
 {
   name=POKE,
-  description={instruction du langage BASIC pour écrire un octet a une adresse spécifique}
+  description={instruction du langage BASIC pour écrire un octet à une adresse spécifique}
 }
 
 \newglossaryentry{keygenme}
@@ -114,7 +114,7 @@
 {
   name=dongle,
   description={Un dongle est un petit périphérique se connectant sur un port d'imprimante LPT (par le passé) ou USB.
-  Sa fonction est similaire au tokens de sécurité, il y a de la mémoire et, parfois, un algorithme secret de (crypto-)hachage.}
+  Sa fonction est similaire au tokens de sécurité, il a de la mémoire et, parfois, un algorithme secret de (crypto-)hachage.}
 }
 
 \newglossaryentry{thunk function}
@@ -126,13 +126,13 @@
 \newglossaryentry{user mode}
 {
   name=user mode,
-  description={Un mode CPU restreint dans lequel tout le code des applications est exécuté. cf. \gls{kernel mode}}
+  description={Un mode CPU restreint dans lequel le code de toutes les applications est exécuté. cf. \gls{kernel mode}}
 }
 
 \newglossaryentry{kernel mode}
 {
   name=kernel mode,
-  description={Un mode CPU sans restriction dans lequel le noyaux de l'OS et les drivers sont exécutés. cf. \gls{user mode}}
+  description={Un mode CPU sans restriction dans lequel le noyau de l'OS et les drivers sont exécutés. cf. \gls{user mode}}
 }
 
 \newglossaryentry{Windows NT}
@@ -172,8 +172,8 @@
 \newglossaryentry{compiler intrinsic}
 {
   name=compiler intrinsic,
-  description={Une foncion spécifique à un compilateur, qui n'est pas une fonction usuelle de bibliothèquee.
-    Le compilateur génère du code machine spcifique au lieu d'un appel à celui-ci.
+  description={Une foncion spécifique d'un compilateur, qui n'est pas une fonction usuelle de bibliothèque.
+    Le compilateur génère du code machine spécifique au lieu d'un appel à celui-ci.
     Souvent il s'agit d'une pseudo-fonction pour une instruction \ac{CPU} spécifique. Lire plus:
     (\myref{sec:compiler_intrinsic})}
 }
@@ -195,7 +195,7 @@
 \newglossaryentry{xoring}
 {
   name=xoring,
-  description={souvent utilisé en angalis, qui signifie appliquer l'opération \ac{XOR}}
+  description={souvent utilisé en anglais, qui signifie appliquer l'opération \ac{XOR}}
 }
 
 \newglossaryentry{security cookie}
@@ -219,8 +219,8 @@
 \newglossaryentry{CP/M}
 {
   name=CP/M,
-  description={Control Program for Microcomputers: 
-  un \ac{OS} de disque trè basique utilisé avant MS-DOS}
+  description={Control Program for Microcomputers:
+  un \ac{OS} de disque très basique utilisé avant MS-DOS}
 }
 
 \newglossaryentry{stack frame}
@@ -234,20 +234,19 @@
 {
   name=jump offset,
   description={une partie de l'opcode de l'instruction JMP ou Jcc, qui doit être ajoutée à l'adresse de l'instruction suivante,
-  et c'est ainsi que le nouveau \ac{PC} est calculé. Peut-être négatif}
+  et c'est ainsi que le nouveau \ac{PC} est calculé. Peut être négatif}
 }
 
 \newglossaryentry{integral type}
 {
-  % TBT?
-  name={integral data type},
+  name={type de donnée intégral},
   description={nombre usuel, mais pas un réel. peut être utilisé pour passer des variables de type booléen et des énumérations}
 }
 
 \newglossaryentry{real number}
 {
   name={nombre réel},
-  description={nombre qui peut contenir un point. ceci est \Tfloat et \Tdouble en \CCpp}
+  description={nombre qui peut contenir un point. comme \Tfloat et \Tdouble en \CCpp}
 }
 
 \newglossaryentry{PDB}
@@ -266,7 +265,7 @@
 \newglossaryentry{stdout}
 {
   name=stdout,
-  description={standard output}
+  description={standard output, sortie standard}
 }
 
 \newglossaryentry{word}
@@ -284,13 +283,15 @@
 \newglossaryentry{padding}
 {
   name=padding,
-  description={\IT{Padding} en anglais signifie rembourrer un oreiller, un matelat, etc. avec quelque chose afin de lui donner la forme désirée.
+  description={\IT{Padding} en anglais signifie rembourrer un oreiller, un matelas, etc. avec quelque chose afin de lui donner la forme désirée.
   En informatique, padding signifie ajouter des octets à un bloc, afin qu'il ait une certaine taille, comme $2^n$ octets.}
 }
 
 \newglossaryentry{basic block}
 {
-  name=\FRph{},
-  description=\FRph{}
+  name=basic block,
+  description={
+	un groupe d'instructions qui n'a pas d'instruction de saut/branchement,
+	et donc n'as pas de saut de l'intérieur du bloc vers l'extérieur.
+	Dans \IDA il ressemble à une liste d'instructions sans ligne vide}
 }
-

@@ -218,7 +218,7 @@ la valeur soit présente dans la pile FPU après l'opération.
 % LDS
 % XLAT
 
-\subsubsection{Instructions ayant un opcode affichable en ASCII\EN{Instructions having printable ASCII opcode}}
+\subsubsection{Instructions ayant un opcode affichable en ASCII}
 
 (En mode 32-bit).
 
@@ -231,9 +231,9 @@ Voir aussi: \myref{subsec:EICAR}.
 \begin{center}
 \begin{longtable}{ | l | l | l | }
 \hline
-\HeaderColor caractère ASCII\EN{ character} & 
-\HeaderColor code hexadécimal\EN{hexadecimal code} & 
-\HeaderColor instruction x86\EN{ instruction} \\
+\HeaderColor caractère ASCII & 
+\HeaderColor code hexadécimal & 
+\HeaderColor instruction x86 \\
 \hline
 0	 &30	 &XOR \\
 1	 &31	 &XOR \\
@@ -283,6 +283,10 @@ Z	 &5a	 &POP \\
 \_	 &5f	 &POP \\
 \verb|`|	 &60	 &PUSHA \\
 a	 &61	 &POPA \\
+f	 &66	 &en mode 32-bit, change pour une\\
+   & & taille d'opérande de 16-bit \\
+g	 &67	 &en mode 32-bit, change pour une\\
+   & & taille d'adresse 16-bit \\
 h	 &68	 &PUSH\\
 i	 &69	 &IMUL\\
 j	 &6a	 &PUSH\\
@@ -302,18 +306,18 @@ z	 &7a	 &JP\\
 \end{longtable}
 \end{center}
 
-Also: % TBT
+De même:
 \begin{center}
 \begin{longtable}{ | l | l | l | }
 \hline
-\HeaderColor caractère ASCII\EN{ character} & 
-\HeaderColor code hexadécimal\EN{hexadecimal code} & 
-\HeaderColor instruction x86\EN{ instruction} \\
+\HeaderColor caractère ASCII & 
+\HeaderColor code hexadécimal & 
+\HeaderColor instruction x86 \\
 \hline
-f	 &66	 &en mode 32-bit, change pour une\EN{(in 32-bit mode) switch to}\\
-   & & taille d'opérande de 16-bit\EN{16-bit operand size} \\
-g	 &67	 &en mode 32-bit, change pour une\EN{(in 32-bit mode) switch to}\\
-   & & taille d'adresse 16-bit\EN{16-bit address size} \\
+f	 &66	 &en mode 32-bit, change pour une\\
+   & & taille d'opérande de 16-bit \\
+g	 &67	 &en mode 32-bit, change pour une\\
+   & & taille d'adresse 16-bit \\
 \hline
 \end{longtable}
 \end{center}
@@ -341,7 +345,7 @@ g	 &67	 &en mode 32-bit, change pour une\EN{(in 32-bit mode) switch to}\\
 \myindex{x86!\Instructions!PUSHA}
 \myindex{x86!\Instructions!XOR}
 
-En résumé\EN{In summary}:
+En résumé:
 AAA, AAS, CMP, DEC, IMUL, INC, JA, JAE, JB, JBE, JE, JNE, JNO, JNS, JO, JP, JS, POP, POPA, PUSH, PUSHA, 
 XOR.
 

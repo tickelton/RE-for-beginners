@@ -15,19 +15,20 @@ nommée \IT{var\_8}. Il n'est toutefois pas nécessaire de définir cette macro,
 le \ac{SP} (\glslink{stack pointer}{pointeur de pile}) pointe déjà sur cet espace et
 peut être utilisé directement.
 
-Doc, la valeur de \ac{SP} est copiée dans la registre \Reg{1} et, avec la chaîne
+Donc, la valeur de \ac{SP} est copiée dans la registre \Reg{1} et, avec la chaîne
 de format, passée à \scanf.
 
-% TBT here
-%\INS{PUSH/POP} instructions behaves differently in ARM than in x86 (it's the other way around).
-%They are synonyms to \INS{STM/STMDB/LDM/LDMIA} instructions.
-%And \INS{PUSH} instruction first writes a value into the stack, \IT{and then} subtracts \ac{SP} by 4.
-%\INS{POP} first adds 4 to \ac{SP}, \IT{and then} reads a value from the stack.
-%Hence, after \INS{PUSH}, \ac{SP} points to an unused space in stack.
-%It is used by \scanf, and by \printf after.
+Les instructions \INS{PUSH/POP} se comportent différemment en ARM et en x86 (c'est l'inverse)
+Il y a des sysnonymes aux instructions \INS{STM/STMDB/LDM/LDMIA}.
+Et l'instruction \INS{PUSH} écrit d'abord une valeur sur la pile, \IT{et ensuite}
+soustrait 4 de \ac{SP}.
+De ce fait, après \INS{PUSH}, \ac{SP} pointe sur de l'espace inutilisé sur la pile.
+Il est utilisé par \scanf, et après par \printf.
 
-%\INS{LDMIA} means \IT{Load Multiple Registers Increment address After each transfer}.
-%\INS{STMDB} means \IT{Store Multiple Registers Decrement address Before each transfer}.
+\INS{LDMIA} signifie \IT{Load Multiple Registers Increment address After each transfer}
+(charge plusieurs registres incrémente l'adresse après chaque transfert).
+\INS{STMDB} signifie \IT{Store Multiple Registers Decrement address Before each transfer}
+(socke plusieurs registres décrémente l'adresse avant chaque transfert).
 
 \myindex{ARM!\Instructions!LDR}
 Plus tard, avec l'aide de l'instruction \INS{LDR}, cette valeur est copiée depuis
