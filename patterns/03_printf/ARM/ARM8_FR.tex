@@ -17,7 +17,7 @@ Ce code peut être divisé en plusieurs parties:
 \myindex{ARM!\Instructions!STR}
 La toute première instruction \INS{STR LR, [SP,\#var\_4]!} sauve \ac{LR} sur la pile,
 car nous allons utiliser ce registre pour l'appel à \printf.
-Le point d'exclamation à la fin indique un \IT{pré-index}.
+Le point d'exclamation à la fin indique un \emph{pré-index}.
 
 Cela signifie que \ac{SP} est d'abord décrémenté de 4, et qu'ensuite \ac{LR}
 va être sauvé à l'adresse stockée dans \ac{SP}.
@@ -36,21 +36,21 @@ Les 4 autres valeurs de 32-bit sont passées par les registres.
 Ensuite, l'instruction \INS{ADD R12, SP, \#0x18+var\_14} écrit l'adresse de la pile
 où ces 4 variables doivent être stockées dans le registre \Reg{12}.
 \myindex{IDA!var\_?}
-\IT{var\_14} est une macro d'assemblage, égal à -0x14, créée par \IDA pour afficher
+\emph{var\_14} est une macro d'assemblage, égal à -0x14, créée par \IDA pour afficher
 commodément le code accédant à la pile.
-Les macros \IT{var\_?} générée par \IDA reflètent les variables locales dans la pile.
+Les macros \emph{var\_?} générée par \IDA reflètent les variables locales dans la pile.
 
 Donc, \GTT{SP+4} doit être stocké dans le registre \Reg{12}. \\
 \myindex{ARM!\Instructions!STMIA}
 L'instruction suivante \INS{STMIA R12, {R0-R3}} écrit le contenu des registres
 \Reg{0}-\Reg{3} dans la mémoire pointée par \Reg{12}.
-\INS{STMIA} est l'abréviation de \IT{Store Multiple Increment After} (stocker plusieurs incrémenter après).
-\IT{\q{Increment After}} signifie que \Reg{12} doit être incrémenté de 4 après
+\INS{STMIA} est l'abréviation de \emph{Store Multiple Increment After} (stocker plusieurs incrémenter après).
+\emph{Increment After} signifie que \Reg{12} doit être incrémenté de 4 après
 l'écriture de chaque valeur d'un registre.
 
 \item Passer 4 par la pile: 4 est stocké dans \Reg{0} et ensuite, cette valeur, avec l'aide de \\
 l'instruction \INS{STR R0, [SP,\#0x18+var\_18]} est sauvée dans la pile.
-\IT{var\_18} est -0x18, donc l'offset est 0, donc la valeur du registre \Reg{0}
+\emph{var\_18} est -0x18, donc l'offset est 0, donc la valeur du registre \Reg{0}
 (4) est écrite à l'adresse écrite dans \ac{SP}.
 
 \item Passer 1, 2 et 3 par des registres:
@@ -74,7 +74,7 @@ depuis la pile dans le registre \ac{PC}, provoquant ainsi la sortie de la foncti
 Il n'y a pas de point d'exclamation---effectivement, \ac{PC} est d'abord chargé
 depuis l'adresse stockées dans \ac{SP} ($4+var\_4=4+(-4)=0$, donc cette instruction
 est analogue à INS{LDR PC, [SP],\#4}), et ensuite \ac{SP} est incrémenté de 4.
-Il s'agit de \IT{post-index}\footnote{Lire à ce propos: \myref{ARM_postindex_vs_preindex}.}.
+Il s'agit de \emph{post-index}\footnote{Lire à ce propos: \myref{ARM_postindex_vs_preindex}.}.
 Pourquoi est-ce qu'\IDA affiche l'instruction comme ça?
 Parce qu'il veut illustrer la disposition de la pile et le fait que \GTT{var\_4}
 est alloué pour sauver la valeur de \ac{LR} dans la pile locale.

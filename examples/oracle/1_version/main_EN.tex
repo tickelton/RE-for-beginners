@@ -33,23 +33,23 @@ Probably, because \oracle is a very old product and was developed in C in the 19
 
 And that was a time when the C standard guaranteed that the function names/variables can support only up to 6 characters inclusive: <<6 significant initial characters in an external identifier>>\footnote{\href{http://go.yurichev.com/17142}{Draft ANSI C Standard (ANSI X3J11/88-090) (May 13, 1988) (yurichev.com)}}
 
-Probably, the table \TT{kqfviw} contains most (maybe even all) views prefixed with V\$, these are \IT{fixed views}, present all the time.
+Probably, the table \TT{kqfviw} contains most (maybe even all) views prefixed with V\$, these are \emph{fixed views}, present all the time.
 Superficially, by noticing the cyclic recurrence of data, we can easily see that each \TT{kqfviw} table element has 12 32-bit fields.
 It is very simple to create a 12-elements structure in \IDA and apply it to all table elements.
-As of \oracle version 11.2, there are 1023 table elements, i.e., in it are described 1023 of all possible \IT{fixed views}.
+As of \oracle version 11.2, there are 1023 table elements, i.e., in it are described 1023 of all possible \emph{fixed views}.
 
 We are going to return to this number later.
 
 As we can see, there is not much information in these numbers in the fields. The first number is always equals to the name of the view (without the terminating zero.
 This is correct for each element. But this information is not very useful.
 
-We also know that the information about all fixed views can be retrieved from a \IT{fixed view} named \TT{V\$FIXED\_VIEW\_DEFINITION}
+We also know that the information about all fixed views can be retrieved from a \emph{fixed view} named \TT{V\$FIXED\_VIEW\_DEFINITION}
 (by the way, the information for this view is also taken from the \TT{kqfviw} and \TT{kqfvip} tables.)
 By the way, there are 1023 elements in those too. Coincidence? No.
 
 \lstinputlisting{examples/oracle/1_version/3.txt}
 
-So, \TT{V\$VERSION} is some kind of a \IT{thunk view} for another view, named \TT{GV\$VERSION}, which is, in turn:
+So, \TT{V\$VERSION} is some kind of a \emph{thunk view} for another view, named \TT{GV\$VERSION}, which is, in turn:
 
 \lstinputlisting{examples/oracle/1_version/4.txt}
 
@@ -63,10 +63,10 @@ If we search for the text \\
 
 The table appear to have 4 fields in each element. By the way, there are 1023 elements in it, again, the number we already know.
 
-The second field points to another table that contains the table fields for this \IT{fixed view}.
+The second field points to another table that contains the table fields for this \emph{fixed view}.
 As for \TT{V\$VERSION}, this table has only two elements, the first is 6 and the second is 
-the \TT{BANNER} string (the number 6 is this string's length) and after, a \IT{terminating} element that contains 
-0 and a \IT{null} C string:
+the \TT{BANNER} string (the number 6 is this string's length) and after, a \emph{terminating} element that contains 
+0 and a \emph{null} C string:
 
 \begin{lstlisting}[caption=kqf.o,style=customasmx86]
 .rodata:080BBAC4 kqfv133_c_0 dd 6     ; DATA XREF: .rodata:08019574
@@ -75,7 +75,7 @@ the \TT{BANNER} string (the number 6 is this string's length) and after, a \IT{t
 .rodata:080BBAD0             dd offset _2__STRING_0_0
 \end{lstlisting}
 
-By joining data from both \TT{kqfviw} and \TT{kqfvip} tables, we can get the SQL statements which are executed when the user wants to query information from a specific \IT{fixed view}.
+By joining data from both \TT{kqfviw} and \TT{kqfvip} tables, we can get the SQL statements which are executed when the user wants to query information from a specific \emph{fixed view}.
 
 So we can write an \oracletables program, to gather all this information from \oracle for Linux's object files.
 For \TT{V\$VERSION}, we find this:
@@ -96,7 +96,7 @@ kqfvip_element.params:
 [INST_ID] [BANNER] 
 \end{lstlisting}
 
-The \TT{GV\$VERSION} \IT{fixed view} is different from \TT{V\$VERSION} only in that it has one more field with the identifier \IT{instance}.
+The \TT{GV\$VERSION} \emph{fixed view} is different from \TT{V\$VERSION} only in that it has one more field with the identifier \emph{instance}.
 
 Anyway, we are going to stick with the \TT{X\$VERSION} table. Just like any other X\$-table, it is undocumented, however, we can query it:
 
@@ -113,9 +113,9 @@ But again, we don't have enough information.
 
 It's not clear what does the \TT{kqvt} string stands for. 
 
-The \TT{kq} prefix may mean \IT{kernel} or \IT{query}. 
+The \TT{kq} prefix may mean \emph{kernel} or \emph{query}. 
 
-\TT{v} apparently stands for \IT{version} and \TT{t}---\IT{type}? 
+\TT{v} apparently stands for \emph{version} and \TT{t}---\emph{type}? 
 Hard to say.
 
 A table with a similar name can be found in \TT{kqf.o}:

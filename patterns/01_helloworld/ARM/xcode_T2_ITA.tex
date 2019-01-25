@@ -28,7 +28,7 @@ __cstring:00003E70 48 65 6C 6C 6F 20+aHelloWorld  DCB "Hello world!",0xA,0
 \myindex{ARM!\Instructions!BLX}
 
 Le istruzioni \TT{BL} e \TT{BLX} in Thumb mode, come ricordiamo, sono codificate con una coppia di istruzioni 16-bit.
-In Thumb-2 questi opcode \IT{surrogati} sono estesi in modo tale che le nuove istruzioni possano essere codificate in istruzioni a 32-bit.
+In Thumb-2 questi opcode \emph{surrogati} sono estesi in modo tale che le nuove istruzioni possano essere codificate in istruzioni a 32-bit.
 
 Ciò appare ovvio considerando che che gli opcodes delle istruzioni Thumb-2 iniziano sempre con \TT{0xFx} o \TT{0xEx}.
 
@@ -88,7 +88,7 @@ Si tratta di una lista di simboli (symbols - funzioni o variabili globali) impor
 Il loader dell' \ac{OS} carica tutti i moduli necessari e, mentre enumera gli import symbols nel modulo primario, determina gli indirizzi
 corretti per ciascun simbolo.
 
-Nel nostro caso, \IT{\_\_imp\_\_puts} è una variabile a 32-bit usata dal loader dell'\ac{OS} per memorizzare l'indirizzo corretto
+Nel nostro caso, \emph{\_\_imp\_\_puts} è una variabile a 32-bit usata dal loader dell'\ac{OS} per memorizzare l'indirizzo corretto
 della funzione in una libreria esterna.
 Successivamente l'istruzione \TT{LDR} legge semplicemente il valore a 32-bit da questa variabile e lo scrive nel registro \ac{PC},
 passando il controllo ad esso.
@@ -114,7 +114,7 @@ La modalità del processore però non viene cambiata (da cui l'assenza di una \q
 Le thunk-functions sono difficili da comprendere, apparentemente, a causa di una denominazione impropria.
 Il modo migliore per capirle è pensarle come adattatori o convertitori da un tipo di jack ad un altro.
 Ad esempio, un adattatore che consente l'inserimento di una spina elettrica Inglese in una presa Americana, o viceversa.
-Le thunk functions sono a volte anche dette \IT{wrappers}.
+Le thunk functions sono a volte anche dette \emph{wrappers}.
 
 Seguono altre descrizioni di queste funzioni:
 

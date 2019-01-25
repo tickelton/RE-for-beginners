@@ -11,7 +11,7 @@
 
 \subsubsection{\Conclusion{}}
 
-\IT{switch()} の大まかなスケルトン：
+\emph{switch()} の大まかなスケルトン：
 
 % TODO: ARM, MIPS skeleton
 \lstinputlisting[caption=x86,style=customasmx86]{patterns/08_switch/2_lot/skel1_JPN.lst}
@@ -19,4 +19,4 @@
 ジャンプテーブルのアドレスへのジャンプはこの命令で用いて実装されるでしょう：\TT{JMP jump\_table[REG*4]}
 もしくはx64では\TT{JMP jump\_table[REG*8]} 。
 
-\IT{jumptable}は単にポインタの配列で、後で説明します：\myref{array_of_pointers_to_strings}
+\emph{jumptable}は単にポインタの配列で、後で説明します：\myref{array_of_pointers_to_strings}

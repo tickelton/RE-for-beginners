@@ -14,7 +14,7 @@
 
 \subsection{IEEE 754}
 
-IEEE 754形式の数字は、\IT{符号}、\IT{有効数字}（\IT{小数部}とも呼ばれます）、および\IT{指数}で構成されます。
+IEEE 754形式の数字は、\emph{符号}、\emph{有効数字}（\emph{小数部}とも呼ばれます）、および\emph{指数}で構成されます。
 
 \subsection{x86}
 
@@ -56,17 +56,17 @@ ARMおよびMIPSでは、FPUはスタックではなく、\ac{GPR}のように�
 \myindex{float}
 \myindex{double}
 
-標準の \CCpp 言語では、 \Tfloat （\IT{単精度}\FNURLSP、32ビット）と 
+標準の \CCpp 言語では、 \Tfloat （\emph{単精度}\FNURLSP、32ビット）と 
 \footnote{単精度浮動小数点数形式も 
-\IT{\WorkingWithFloatAsWithStructSubSubSectionName}~(\myref{sec:floatasstruct}) セクションで扱います}
-\Tdouble （\IT{倍精度}\FNURLDP、64ビット）の少なくとも2つの浮動小数点型が用意されています。
+\emph{\WorkingWithFloatAsWithStructSubSubSectionName}~(\myref{sec:floatasstruct}) セクションで扱います}
+\Tdouble （\emph{倍精度}\FNURLDP、64ビット）の少なくとも2つの浮動小数点型が用意されています。
 
-\InSqBrackets{\TAOCPvolII 246}において、\IT{単精度}は、浮動小数点値を単一の[32ビット]マシンに入れることができることを意味するワード、
-\IT{倍精度}は、2ワード（64ビット）で格納できることを意味します。
+\InSqBrackets{\TAOCPvolII 246}において、\emph{単精度}は、浮動小数点値を単一の[32ビット]マシンに入れることができることを意味するワード、
+\emph{倍精度}は、2ワード（64ビット）で格納できることを意味します。
 
 \myindex{long double}
 
-GCCはMSVCがサポートしない\IT{long double}型（\IT{拡張精度}\FNURLEP、80ビット）もサポートしています。
+GCCはMSVCがサポートしない\emph{long double}型（\emph{拡張精度}\FNURLEP、80ビット）もサポートしています。
 
 \Tfloat 型は、32ビット環境では \Tint 型と同じビット数が必要ですが、
 数値表現はまったく異なります。
@@ -82,7 +82,7 @@ IEEE 754の0.0は、32ビットのゼロビット（単精度の場合）また�
 興味深いことです。
 したがって、浮動小数点変数をレジスタまたはメモリで0.0に設定するには、 \MOV または\TT{XOR reg, reg}命令を使用します。
 これは、さまざまなデータ型の多くの変数が存在する構造に適しています。
-通常のmemset()関数では、すべての整数変数を0に、すべてのブール変数を \IT{false}に、すべてのポインタをNULLに、
+通常のmemset()関数では、すべての整数変数を0に、すべてのブール変数を \emph{false}に、すべてのポインタをNULLに、
 すべての浮動小数点変数（任意の精度）を0.0に設定できます。
 
 \subsection{コピー}

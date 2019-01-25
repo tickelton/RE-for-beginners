@@ -9,12 +9,12 @@ SizeOfStruct
 
 ( \url{https://msdn.microsoft.com/en-us/library/windows/desktop/ms680686(v=vs.85).aspx} )
 
-Some structures like \IT{SYMBOL\_INFO} has started with this field indeed. Why?
+Some structures like \emph{SYMBOL\_INFO} has started with this field indeed. Why?
 This is some kind of structure version.
 
 Imagine you have a function which draws circle.
 It takes a single argument---a pointer to a structure with only three fields: X, Y and radius.
-And then color displays flooded a market, sometimes in 1980s. And you want to add \IT{color} argument to the function.
+And then color displays flooded a market, sometimes in 1980s. And you want to add \emph{color} argument to the function.
 But, let's say, you cannot add another argument to it (a lot of software use your \ac{API} and cannot be recompiled).
 And if the old piece of software uses your \ac{API} with color display,
 let your function draw a circle in (default) black and white colors.
@@ -25,14 +25,14 @@ Here is one solution to the problem:
 
 \lstinputlisting[style=customc]{advanced/550_more_structs/src_EN.c}
 
-In other words, \IT{SizeOfStruct} field takes a role of \IT{version of structure} field.
-It could be enumerate type (1, 2, 3, etc.), but to set \IT{SizeOfStruct} field to \IT{sizeof(struct...)}
-is less prone to mistakes/bugs: we just write \IT{s.SizeOfStruct=sizeof(...)} in caller's code.
+In other words, \emph{SizeOfStruct} field takes a role of \emph{version of structure} field.
+It could be enumerate type (1, 2, 3, etc.), but to set \emph{SizeOfStruct} field to \emph{sizeof(struct...)}
+is less prone to mistakes/bugs: we just write \emph{s.SizeOfStruct=sizeof(...)} in caller's code.
 
-In C++, this problem is solved using \IT{inheritance} (\myref{cpp_inheritance}).
-You just extend your base class (let's call it \IT{Circle}),
-and then you will have \IT{ColoredCircle} and then \IT{FilledColoredCircle}, and so on.
-A current \IT{version} of an object (or, more precisely, current \IT{type}) will be determined using C++ \ac{RTTI}.
+In C++, this problem is solved using \emph{inheritance} (\myref{cpp_inheritance}).
+You just extend your base class (let's call it \emph{Circle}),
+and then you will have \emph{ColoredCircle} and then \emph{FilledColoredCircle}, and so on.
+A current \emph{version} of an object (or, more precisely, current \emph{type}) will be determined using C++ \ac{RTTI}.
 
-So when you see \IT{SizeOfStruct} somewhere in \ac{MSDN}---perhaps this structure was extended at least once in past.
+So when you see \emph{SizeOfStruct} somewhere in \ac{MSDN}---perhaps this structure was extended at least once in past.
 

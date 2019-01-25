@@ -11,7 +11,7 @@ Il numero di registri è raddoppiato: \myref{ARM64_GPRs}.
 I registri a 64-bit hanno il prefisso \TT{X-} prefixes, mentre le loro parti a 32-bit hanno il prefisso --- \TT{W-}.
 
 \myindex{ARM!\Instructions!STP}
-L'istruzione \TT{STP} (\IT{Store Pair})
+L'istruzione \TT{STP} (\emph{Store Pair})
 salva simultaneamente due registri nello stack: \RegX{29} e \RegX{30}.
 
 Questa istruzione può ovviamente salvare la coppia di valori in una posizione arbitraria in memoria, tuttavia in questo caso è
@@ -22,8 +22,8 @@ I registri ARM64 sono a 64-bit, ognuno di essi ha dimensione pari a 8 byte, quin
 Il punto esclamativo (``!'') dopo l'operando sta a significare che 16 deve esse prima sottratto da \ac{SP}, e solo successivamente
 i valori devono essere scritti nello stack.
 
-Questo è anche detto \IT{pre-index}.
-Per le differenze tra \IT{post-index} e \IT{pre-index}
+Questo è anche detto \emph{pre-index}.
+Per le differenze tra \emph{post-index} e \emph{pre-index}
 leggere qui: \myref{ARM_postindex_vs_preindex}.
 
 Quindi, in termini del più familiare x86, la prima istruzione è semplicamente l'analogo della coppia
@@ -86,15 +86,15 @@ Il risultato è lo stesso, ma quell'istruzione MOV adesso appare così:
 
 \myindex{ARM!\Instructions!LDP}
 
-\INS{LDP} (\IT{Load Pair}) infine riprisina i registri \RegX{29} e \RegX{30}.
+\INS{LDP} (\emph{Load Pair}) infine riprisina i registri \RegX{29} e \RegX{30}.
 
 Non c'è il punto esclamativo dopo l'istruzione: ciò implica che il valore viene prima caricato dallo stack, e solo successivamente
 \ac{SP} è incrementato di 16.
-Questo viene detto \IT{post-index}.
+Questo viene detto \emph{post-index}.
 
 \myindex{ARM!\Instructions!RET}
 Una nuova istruzione è apparsa in ARM64: \RET.
-Funziona esattamente come \TT{BX LR}, con l'aggiunta di uno speciale \IT{hint} bit, che informa la \ac{CPU}
+Funziona esattamente come \TT{BX LR}, con l'aggiunta di uno speciale \emph{hint} bit, che informa la \ac{CPU}
 del fatto che si tratta di un ritorno da una funzione, e non soltanto una normale istruzione jump, in questo modo
 può venire eseguita in modo più ottimale.
 

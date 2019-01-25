@@ -9,12 +9,12 @@
 \ttf 関数は、最初の3つのレジスタ（\Reg{0}-\Reg{2}）を引数として使用します。
 
 \myindex{ARM!\Instructions!MLA}
-\TT{MLA}（\IT{Multiply Accumulate}）
+\TT{MLA}（\emph{Multiply Accumulate}）
 命令は最初の2つのオペランド（\Reg{3}と\Reg{1}）を乗算し、3番目のオペランド（\Reg{2}）を積に加算し、
 その結果をゼロ関数（\Reg{0}）に格納します。
 
 \myindex{Fused multiply–add}
-一度に乗算と加算を同時に行うの（\IT{Fused multiply?add}）は非常に便利な操作です。
+一度に乗算と加算を同時に行うの（\emph{Fused multiply?add}）は非常に便利な操作です。
 ところで、SIMD\footnote{\href{http://go.yurichev.com/17103}{wikipedia}}
 にFMA命令が登場する前に、x86にそのような命令はありませんでした。
 

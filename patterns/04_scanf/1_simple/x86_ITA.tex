@@ -28,7 +28,7 @@ rendendo possibile accedere alle variabili locali ed agli argomenti della funzio
 
 \myindex{x86!\Registers!ESP}
 E' anche possibile usare \ESP per lo stesso scopo, tuttavia non e' molto conveniente poiche' cambia di frequente.
-Il valore di \EBP puo' essere pensato come uno \IT{stato congelato} del valore in \ESP all'inizio dell'esecuzione della funzione.
+Il valore di \EBP puo' essere pensato come uno \emph{stato congelato} del valore in \ESP all'inizio dell'esecuzione della funzione.
 
 % FIXME1 это уже было в 02_stack?
 Questo e' un tipico layout di uno \gls{stack frame} in un ambiente a 32-bit:
@@ -63,7 +63,7 @@ Il primo e' un puntatore alla stringa contenente \TT{\%d} e il secondo e' l'indi
 \myindex{x86!\Instructions!LEA}
 Per prima cosa l'indirizzo della variabile \TT{x} e' caricato nel registro \EAX dall'istruzione \TT{lea eax, DWORD PTR \_x\$[ebp]}.
 
-\LEA sta per \IT{load effective address}, ed e' spesso usata per formare un indirizzo ~(\myref{sec:LEA}).
+\LEA sta per \emph{load effective address}, ed e' spesso usata per formare un indirizzo ~(\myref{sec:LEA}).
 
 Potremmo dire che in questo caso \LEA memorizza semplicemente la somma del valore nel registro \EBP e della macro \TT{\_x\$} nel registro \EAX.
 

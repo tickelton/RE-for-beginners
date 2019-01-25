@@ -31,7 +31,7 @@ In other words:
 exit(main(argc,argv,envp));
 \end{lstlisting}
 
-If you declare \main as \Tvoid, nothing is to be returned explicitly (using the \IT{return} statement),
+If you declare \main as \Tvoid, nothing is to be returned explicitly (using the \emph{return} statement),
 then something random, that has been stored in the \EAX register at the end of \main becomes 
 the sole argument of the exit() function.
 Most likely, there will be a random value, left from your function execution, so the exit code of program is pseudorandom.

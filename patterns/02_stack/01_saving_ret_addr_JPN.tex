@@ -40,7 +40,7 @@ c:\tmp6\ss.cpp(4) : warning C4717: 'f' : recursive on all control paths, functio
 \lstinputlisting[style=customasmx86]{patterns/02_stack/1.asm}
 
 \dots また、コンパイラ最適化（\TT{\Ox}オプション）を有効にすると、最適化されたコードはスタックをオーバーフローせず、
-代わりに\IT{正しく}\footnote{ここの皮肉}動作します。
+代わりに\emph{正しく}\footnote{ここの皮肉}動作します。
 
 \lstinputlisting[style=customasmx86]{patterns/02_stack/2.asm}
 
@@ -62,7 +62,7 @@ GCC 4.4.1はどちらの場合も問題の警告を出さずに同様のコー�
 
 \myindex{ARM!Leaf function}
 それにもかかわらず、ある関数が他の関数を呼び出すことがなければ、\ac{RISC}の用語ではそれを
-\IT{\gls{leaf function}}\footnote{\href{http://go.yurichev.com/17064}{infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.faqs/ka13785.html}}と呼びます。
+\emph{\gls{leaf function}}\footnote{\href{http://go.yurichev.com/17064}{infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.faqs/ka13785.html}}と呼びます。
 その結果、リーフ関数は\ac{LR}レジスタを保存しません（\ac{LR}レジスタを変更しないため）。 
 このような関数が小さく、少数のレジスタを使用する場合は、スタックをまったく使用しないことがあります。 
 したがって、スタックを使用せずにリーフ関数を呼び出すことができます。

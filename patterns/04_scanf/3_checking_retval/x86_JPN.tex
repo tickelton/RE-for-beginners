@@ -9,10 +9,10 @@
 呼び出し先は \EAX レジスタに返します。
 
 \myindex{x86!\Instructions!CMP}
-我々は、\TT{CMP EAX, 1} (\IT{CoMPare})の指示によりそれをチェックします。つまり、 \EAX レジスタの値と1を比較します。
+我々は、\TT{CMP EAX, 1} (\emph{CoMPare})の指示によりそれをチェックします。つまり、 \EAX レジスタの値と1を比較します。
 
 \myindex{x86!\Instructions!JNE}
-\JNE 条件ジャンプが \CMP 命令の後に続きます。  \JNE は\IT{Jump if Not Equal}の略です。
+\JNE 条件ジャンプが \CMP 命令の後に続きます。  \JNE は\emph{Jump if Not Equal}の略です。
 
 したがって、 \EAX レジスタの値が1に等しくない場合、\ac{CPU}は \JNE オペランドに記述されているアドレス（この場合は\TT{\$LN2@main}）に実行を渡します。
 このアドレスに制御を渡すと、\ac{CPU}は \printf を引数\TT{What you entered? Huh?} で実行します 。
@@ -25,7 +25,7 @@
 
 % FIXME internal \ref{} to x86 flags instead of wikipedia
 \myindex{x86!\Registers!\Flags}
-したがって、ある値を別の値と比較することは、\TT{通常}、 \CMP/\Jcc 命令ペアによって実装されると言えます\IT{cc}は\IT{条件コード}です。 
+したがって、ある値を別の値と比較することは、\TT{通常}、 \CMP/\Jcc 命令ペアによって実装されると言えます\emph{cc}は\emph{条件コード}です。 
 \CMP は2つの値を比較し、プロセッサフラグ\footnote{x86フラグは以下を参照: \href{http://go.yurichev.com/17120}{wikipedia}}を設定します。 
 \Jcc はこれらのフラグをチェックし、指定されたアドレスに制御を渡すかどうかを決定します。
 
@@ -37,9 +37,9 @@
 これは逆説的に聞こえるかもしれませんが、 \CMP 命令は実際には \SUB （減算）です。
 すべての算術命令は、 \CMP だけでなくプロセッサフラグを設定します。 1と1を比較し、$1-1$が0であるため、ZFフラグが設定されます（最後の結果が0であることを意味します）。
 オペランドが等しい場合を除いて、 \ZF は設定できません。  \JNE は \ZF フラグのみをチェックし、設定されていない場合にジャンプします。 
-JNEは実際にはJNZ（\IT{Jump if Not Zero}）の同義語です。アセンブラは、JNE命令とJNZ命令の両方を同じオペコードに変換します。
+JNEは実際にはJNZ（\emph{Jump if Not Zero}）の同義語です。アセンブラは、JNE命令とJNZ命令の両方を同じオペコードに変換します。
 したがって、 \CMP 命令は \SUB 命令で置き換えることができ、 \SUB が最初のオペランドの値を変更するという違いを除けば、ほとんどすべてが問題ありません。 
-\CMP \IT{は結果を保存しない \SUB ですが、フラグに影響}します。
+\CMP \emph{は結果を保存しない \SUB ですが、フラグに影響}します。
 
 \subsubsection{MSVC: x86: IDA}
 

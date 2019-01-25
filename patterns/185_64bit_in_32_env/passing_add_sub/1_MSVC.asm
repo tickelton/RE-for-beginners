@@ -12,7 +12,7 @@ _f_add_test PROC
 	push	5461		; 00001555H
 	push	1972608889	; 75939f79H
 	push	2874		; 00000b3aH
-	push	1942892530	; 73ce2ff\_subH
+	push	1942892530	; 73ce2ff2H
 	call	_f_add
 	push	edx
 	push	eax

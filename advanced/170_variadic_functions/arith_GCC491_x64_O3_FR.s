@@ -1,7 +1,7 @@
 arith_mean:
 	lea	rax, [rsp+8]
 	; sauver les 6 registrers en entrée dans
-	; la \IT{red zone}  sur la pile locale
+	; la \emph{red zone}  sur la pile locale
 	mov	QWORD PTR [rsp-40], rsi
 	mov	QWORD PTR [rsp-32], rdx
 	mov	QWORD PTR [rsp-16], r8

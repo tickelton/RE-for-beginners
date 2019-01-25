@@ -16,25 +16,25 @@ Strumenti da utilizzare senza eseguire nessun processo:
 
 \begin{itemize}
 \item
-(Free, open-source) \IT{ent}\footnote{\url{http://www.fourmilab.ch/random/}}: strumento per analizzare l'entropia.
+(Free, open-source) \emph{ent}\footnote{\url{http://www.fourmilab.ch/random/}}: strumento per analizzare l'entropia.
 Leggi di più riguardo l'entropia: \myref{entropy}.
 
 \item
 \label{Hiew}
-\IT{Hiew}\footnote{\href{http://go.yurichev.com/17035}{hiew.ru}}:
+\emph{Hiew}\footnote{\href{http://go.yurichev.com/17035}{hiew.ru}}:
 per piccole modifiche del codice dei file binari.
 
-\item (Free, open-source) \IT{xxd} e \IT{od}: standard UNIX utility per effettuare il dump nel formato desiderato.
+\item (Free, open-source) \emph{xxd} e \emph{od}: standard UNIX utility per effettuare il dump nel formato desiderato.
 
-\item (Free, open-source) \IT{strings}: strumento *NIX per cercare stringhe ASCII all'interno di file binari, eseguibili compresi.
+\item (Free, open-source) \emph{strings}: strumento *NIX per cercare stringhe ASCII all'interno di file binari, eseguibili compresi.
 Sysinternals ha un'alternativa\footnote{\url{https://technet.microsoft.com/en-us/sysinternals/strings}}
 che supporta la stringhe con caratteri di tipo "wide" (UTF-16, ampiamente utilizzati in Windows).
 
-\item (Free, open-source) \IT{Binwalk}\footnote{\url{http://binwalk.org/}}: analisi di immagini firmware.
+\item (Free, open-source) \emph{Binwalk}\footnote{\url{http://binwalk.org/}}: analisi di immagini firmware.
 
 \item
 \myindex{binary grep}
-(Free, open-source) \IT{binary grep}:
+(Free, open-source) \emph{binary grep}:
 piccola utility per cercare una sequenza di byte in molti file,
 incluso file non eseguibili: \BGREPURL.
 \myindex{rafind2}
@@ -49,23 +49,23 @@ C'è anche rafind2 in rada.re allo stesso scopo.
 \myindex{objdump}
 
 \begin{itemize}
-\item \IT{IDA}. Una versione più vecchia è liberamente disponibile per lo scaricamento
+\item \emph{IDA}. Una versione più vecchia è liberamente disponibile per lo scaricamento
 \footnote{\href{http://go.yurichev.com/17031}{hex-rays.com/products/ida/support/download\_freeware.shtml}}.
 \ShortHotKeyCheatsheet: \myref{sec:IDA_cheatsheet}
 
-\item \IT{Binary Ninja}\footnote{\url{http://binary.ninja/}}
+\item \emph{Binary Ninja}\footnote{\url{http://binary.ninja/}}
 
-\item (Free, open-source) \IT{zynamics BinNavi}\footnote{\url{https://www.zynamics.com/binnavi.html}}
+\item (Free, open-source) \emph{zynamics BinNavi}\footnote{\url{https://www.zynamics.com/binnavi.html}}
 
-\item (Free, open-source) \IT{objdump}: semplice utility command-line per effettuare il dump e il disassembling.
+\item (Free, open-source) \emph{objdump}: semplice utility command-line per effettuare il dump e il disassembling.
 
-\item (Free, open-ssource) \IT{readelf}\footnote{\url{https://sourceware.org/binutils/docs/binutils/readelf.html}}:
+\item (Free, open-ssource) \emph{readelf}\footnote{\url{https://sourceware.org/binutils/docs/binutils/readelf.html}}:
 dump delle informazioni dei file ELF.
 \end{itemize}
 
 \subsection{Decompilers}
 
-C'è solo un decompiler conosciuto, pubblicamente disponibile e di elevata qualità per decompilare in C: \IT{Hex-Rays}:
+C'è solo un decompiler conosciuto, pubblicamente disponibile e di elevata qualità per decompilare in C: \emph{Hex-Rays}:
 \href{http://go.yurichev.com/17033}{hex-rays.com/products/decompiler/}
 
 Più informazioni su: \myref{hex_rays}.
@@ -76,9 +76,9 @@ Potresti voler utilizzare questi strumenti quando devi comparare la versione ori
 in modo da trovare cos'è stato patchato e perchè.
 
 \begin{itemize}
-\item (Free) \IT{zynamics BinDiff}\footnote{\url{https://www.zynamics.com/software.html}}
+\item (Free) \emph{zynamics BinDiff}\footnote{\url{https://www.zynamics.com/software.html}}
 
-\item (Free, open-source) \IT{Diaphora}\footnote{\url{https://github.com/joxeankoret/diaphora}}
+\item (Free, open-source) \emph{Diaphora}\footnote{\url{https://github.com/joxeankoret/diaphora}}
 \end{itemize}
 
 \mysection{Analisi live}
@@ -95,41 +95,41 @@ Strumenti da utilizzare per effettuare un'analisi live del sistema o di un proce
 \myindex{WinDbg}
 
 \begin{itemize}
-\item (Free) \IT{OllyDbg}.
+\item (Free) \emph{OllyDbg}.
 Popolare win32 debugger\footnote{\href{http://go.yurichev.com/17032}{ollydbg.de}}.
 \ShortHotKeyCheatsheet: \myref{sec:Olly_cheatsheet}
 
-\item (Free, open-source) \IT{GDB}.
+\item (Free, open-source) \emph{GDB}.
 Strumento non molto popolare tra reverse engineers perchè è per lo più inteso per programmatori.
 Alcuni comandi: \myref{sec:GDB_cheatsheet}.
 C'è anche un'interfaccia per GDB, ``GDB dashboard''\footnote{\url{https://github.com/cyrus-and/gdb-dashboard}}.
 
-\item (Free, open-source) \IT{LLDB}\footnote{\url{http://lldb.llvm.org/}}.
+\item (Free, open-source) \emph{LLDB}\footnote{\url{http://lldb.llvm.org/}}.
 
-\item \IT{WinDbg}\footnote{\url{https://developer.microsoft.com/en-us/windows/hardware/windows-driver-kit}}:
+\item \emph{WinDbg}\footnote{\url{https://developer.microsoft.com/en-us/windows/hardware/windows-driver-kit}}:
 kernel debugger per Windows.
 
-\item (Free, open-source) \IT{Radare} \ac{AKA} rada.re \ac{AKA} r2\footnote{\url{http://rada.re/r/}}.
-Esiste anche una GUI: \IT{ragui}\footnote{\url{http://radare.org/ragui/}}.
+\item (Free, open-source) \emph{Radare} \ac{AKA} rada.re \ac{AKA} r2\footnote{\url{http://rada.re/r/}}.
+Esiste anche una GUI: \emph{ragui}\footnote{\url{http://radare.org/ragui/}}.
 
-\item (Free, open-source) \IT{tracer}.
+\item (Free, open-source) \emph{tracer}.
 \label{tracer}
-L'autore usa spesso \IT{tracer}
+L'autore usa spesso \emph{tracer}
 \footnote{\href{http://go.yurichev.com/17338}{yurichev.com}}
 invece di un debugger.
 
 L'autore di queste righe ha smesso di utilizzare un debugger dato che l'unica cosa di cui aveva bisogno era di trovare gli
 argomenti delle funzioni durante l'esecuzione o lo stato dei registri ad un determinato punto.
-Caricare un debugger ogni volta risultava essere non ottimale, perciò è nacque una nuova utility chiamata \IT{tracer}.
+Caricare un debugger ogni volta risultava essere non ottimale, perciò è nacque una nuova utility chiamata \emph{tracer}.
 Funziona dalla linea di comando e permette di intercettare l'esecuzione di funzioni,
 impostare breakpoint in posizioni arbitrarie, leggere e modificare lo stato dei registri, ecc.
 
-N.B.: \IT{tracer} non sta evolvendo perchè è nato principalmente come strumento di dimostrazione per questo libro, non come strumento di ogni giorno.
+N.B.: \emph{tracer} non sta evolvendo perchè è nato principalmente come strumento di dimostrazione per questo libro, non come strumento di ogni giorno.
 \end{itemize}
 
 \subsection{Tracciare chiamate alle librerie}
 
-\IT{ltrace}\footnote{\url{http://www.ltrace.org/}}.
+\emph{ltrace}\footnote{\url{http://www.ltrace.org/}}.
 
 \subsection{Tracciare chiamate di sistema}
 
@@ -164,12 +164,12 @@ cygwin.
 
 \subsection{Network sniffing}
 
-\IT{Sniffing} significa intercettare informazioni di cui si potrebbe essere interessati.
+\emph{Sniffing} significa intercettare informazioni di cui si potrebbe essere interessati.
 
-(Free, open-source) \IT{Wireshark}\footnote{\url{https://www.wireshark.org/}} per lo sniffing di rete.
+(Free, open-source) \emph{Wireshark}\footnote{\url{https://www.wireshark.org/}} per lo sniffing di rete.
 Puà sniffare anche USB\footnote{\url{https://wiki.wireshark.org/CaptureSetup/USB}}.
 
-Wireshark ha un fratello chiamato \IT{tcpdump}\footnote{\url{http://www.tcpdump.org/}}, un semplice strumento a linea di comando.
+Wireshark ha un fratello chiamato \emph{tcpdump}\footnote{\url{http://www.tcpdump.org/}}, un semplice strumento a linea di comando.
 
 \subsection{Sysinternals}
 
@@ -188,16 +188,16 @@ A causa del suo potente meccanismo \ac{JIT}, Valgrind è utilizzato come framewo
 \subsection{Emulatori}
 
 \begin{itemize}
-\item (Free, open-source) \IT{QEMU}\footnote{\url{http://qemu.org}}: emulatore per differenti tipi di CPU e architetture.
+\item (Free, open-source) \emph{QEMU}\footnote{\url{http://qemu.org}}: emulatore per differenti tipi di CPU e architetture.
 
-\item (Free, open-source) \IT{DosBox}\footnote{\url{https://www.dosbox.com/}}: emulatore MS-DOS, usato soprattutto per il retro-gaming.
+\item (Free, open-source) \emph{DosBox}\footnote{\url{https://www.dosbox.com/}}: emulatore MS-DOS, usato soprattutto per il retro-gaming.
 
-\item (Free, open-source) \IT{SimH}\footnote{\url{http://simh.trailing-edge.com/}}: emulatore di antichi computer, mainframe, ecc.
+\item (Free, open-source) \emph{SimH}\footnote{\url{http://simh.trailing-edge.com/}}: emulatore di antichi computer, mainframe, ecc.
 \end{itemize}
 
 \mysection{Altri strumenti}
 
-\IT{Microsoft Visual Studio Express}
+\emph{Microsoft Visual Studio Express}
 \footnote{\href{http://go.yurichev.com/17034}{visualstudio.com/en-US/products/visual-studio-express-vs}}:
 Versione gratuita di Visual Studio, conveniente per semplici esperimenti.
 
@@ -216,7 +216,7 @@ ed operazioni importanti come XOR e gli shift.
 
 \item IDA ha una calcolatrice integrata (``?'').
 
-\item rada.re ha \IT{rax2}.
+\item rada.re ha \emph{rax2}.
 
 \item \url{https://github.com/DennisYurichev/progcalc}
 

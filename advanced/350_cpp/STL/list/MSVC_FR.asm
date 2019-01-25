@@ -9,7 +9,7 @@ _main    PROC
     push 0
     lea  ecx, DWORD PTR _l$[esp+36]
     mov  DWORD PTR _l$[esp+40], 0
-    ; allocate first \IT{garbage} element
+    ; allocate first \emph{garbage} element
     call ?_Buynode0@?$_List_alloc@$0A@U?$_List_base_types@Ua@@V?$allocator@Ua@@@std@@@std@@@std@@QAEPAU?$_List_node@Ua@@PAX@2@PAU32@0@Z ; \verb|std::_List_alloc<0,std::_List_base_types<a,std::allocator<a> > >::_Buynode0|
     mov  edi, DWORD PTR __imp__printf
     mov  ebx, eax
@@ -66,7 +66,7 @@ _main    PROC
     call ?dump_List_val@@YAXPAI@Z ; \verb|dump_List_val|
     push OFFSET $SG40831 ; 'node at .begin:'
     call edi ; printf
-    push DWORD PTR [ebx] ; get next field of node $l$ variable points to
+    push DWORD PTR [ebx] ; get next field of node "l" variable points to
     call ?dump_List_node@@YAXPAUList_node@@@Z ; \verb|dump_List_node|
     push OFFSET $SG40835 ; 'node at .end:'
     call edi ; printf
@@ -123,7 +123,7 @@ _main    PROC
     add  esp, 4
     
     ; prev=next? 
-    ; it is the only element, \IT{garbage one}?
+    ; it is the only element, \emph{garbage one}?
     ; if yes, do not delete it!
     cmp  edx, ebx
     je   SHORT $LN349@main

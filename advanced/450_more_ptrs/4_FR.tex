@@ -39,7 +39,7 @@ Null pointer assignment
 C:\TC30\BIN>_
 \end{lstlisting}
 
-Plongeons un peu plus profondément dans le code du \ac{CRT} de Borland C++ 3.1, fichier \IT{c0.asm}:
+Plongeons un peu plus profondément dans le code du \ac{CRT} de Borland C++ 3.1, fichier \emph{c0.asm}:
 
 \lstinputlisting[style=customasmx86]{advanced/450_more_ptrs/tmp2.lst}
 
@@ -127,17 +127,17 @@ NULL en \CCpp est juste une macro qui est souvent définie comme ceci:
 \end{lstlisting}
 ( \href{https://github.com/wzhy90/linaro_toolchains/blob/8ff8ae680bac04558d10cc9626e12c4c2f6c1348/arm-cortex_a15-linux-gnueabihf/libc/usr/include/libio.h#L70}{fichier libio.h} )
 
-\IT{void*} est un type de données reflétant le fait que c'est un pointeur, mais sur
-une valeur d'un type de données inconnu (\IT{void}).
+\emph{void*} est un type de données reflétant le fait que c'est un pointeur, mais sur
+une valeur d'un type de données inconnu (\emph{void}).
 
 NULL est usuellement utilisé pour montrer l'absence d'un objet.
 Par exemple, vous avez une liste simplement chaînée, et chaque n\oe{}ud a une valeur
-(ou un pointeur sur une valeur) et un pointeur \IT{next}.
-Pour montrer qu'il n'y a pas de n\oe{}ud suivant, 0 est stocké dans le champ \IT{next}.
+(ou un pointeur sur une valeur) et un pointeur \emph{next}.
+Pour montrer qu'il n'y a pas de n\oe{}ud suivant, 0 est stocké dans le champ \emph{next}.
 (D'autres solutions sont pires.)
 Peut-être pourriez-vous avoir un environnement fou où vous devriez allouer un bloc
 de mémoire à l'adresse zéro. Comment indiqueriez-vous l'absence de n\oe{}ud suivant?
-Avec une sorte de \IT{magic number}? Peut-être -1? Ou peut-être avec un bit additionnel?
+Avec une sorte de \emph{magic number}? Peut-être -1? Ou peut-être avec un bit additionnel?
 
 Nous trouvons ceci dans Wikipédia:
 
@@ -163,12 +163,12 @@ int main()
 };
 \end{lstlisting}
 
-Le résultat est \IT{0x7578feae} et ne change pas après plusieurs lancements, car user32.dll
+Le résultat est \emph{0x7578feae} et ne change pas après plusieurs lancements, car user32.dll
 (où la fonction MessageBoxA se trouve) est toujours chargée à la même adresse.
 Et aussi car \ac{ASLR} n'est pas activé (le résultat serait différent à chaque exécution
 dans ce cas).
 
-Appelons \IT{MessageBoxA()} par son adresse:
+Appelons \emph{MessageBoxA()} par son adresse:
 
 \begin{lstlisting}[style=customc]
 #include <windows.h>

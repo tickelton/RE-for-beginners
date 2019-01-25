@@ -11,10 +11,10 @@ Diese Funktion arbeitet wie \TT{malloc()}, nur das sie Speicher direkt auf dem S
 
 Der allozierte Speicher Chunk muss nicht wieder mit \TT{free()} freigegeben werden, weil
 der Funktions Epilog (\myref{sec:prologepilog}) das \ESP Register wieder in seinen ursprünglichen 
-Zustand versetzt und der allozierte Speicher wird einfach \IT{verworfen}. 
+Zustand versetzt und der allozierte Speicher wird einfach \emph{verworfen}. 
 Es macht Sinn sich anzuschauen wie \TT{alloca()} implementiert ist.
 Mit einfachen Begriffen erklärt, diese Funktion verschiebt \ESP in Richtung des Stack ende mit der 
-Anzahl der Bytes die alloziert werden müssen und setzt \ESP als einen Zeiger auf den \IT{allozierten} block.
+Anzahl der Bytes die alloziert werden müssen und setzt \ESP als einen Zeiger auf den \emph{allozierten} block.
 
 Beispiel:
 
@@ -37,13 +37,13 @@ Das einzige \\TT{alloca()} Argument wird über \EAX übergeben (anstatt es erst 
 
 GCC 4.4.1 macht das selbe, aber ohne externe Funktions aufrufe.
 
-\lstinputlisting[caption=GCC 4.7.3,style=customasmx86]]{patterns/02_stack/04_alloca/2_1_gcc_intel_O3_EN.asm}
+\lstinputlisting[caption=GCC 4.7.3,style=customasmx86]{patterns/02_stack/04_alloca/2_1_gcc_intel_O3_EN.asm}
 
 \myparagraph{GCC + \ATTSyntax}
 
 Nun der gleiche Code, aber in AT\&T Syntax:
 
-\lstinputlisting[caption=GCC 4.7.3,style=customasmx86]]{patterns/02_stack/04_alloca/2_1_gcc_ATT_O3.s}
+\lstinputlisting[caption=GCC 4.7.3,style=customasmx86]{patterns/02_stack/04_alloca/2_1_gcc_ATT_O3.s}
 
 \myindex{\ATTSyntax}
 Der Code ist der gleiche wie im vorherigen listig.

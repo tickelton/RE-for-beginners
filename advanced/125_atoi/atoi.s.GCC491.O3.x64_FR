@@ -1,9 +1,9 @@
 my_atoi:
-: charger le caractère en entrée dans EDX
+; charger le caractère en entrée dans EDX
 	movsx	edx, BYTE PTR [rdi]
 ; EAX est alloué pour la variable "rt"
 	xor	eax, eax
-: sortir, si le caractère chargé est l'octet nul
+; sortir, si le caractère chargé est l'octet nul
 	test	dl, dl
 	je	.L4
 .L3:

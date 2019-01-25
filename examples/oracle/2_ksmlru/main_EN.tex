@@ -1,7 +1,7 @@
 \subsection{\TT{X\$KSMLRU} table in \oracle}
 \myindex{\oracle}
 
-There is a mention of a special table in the \IT{Diagnosing and Resolving Error ORA-04031 
+There is a mention of a special table in the \emph{Diagnosing and Resolving Error ORA-04031 
 on the Shared Pool or Other Memory Pools [Video] [ID 146599.1]} note:
 
 \begin{framed}
@@ -105,7 +105,8 @@ tracer -a:oracle.exe bpx=oracle.exe!0x00434C7A,set(eip,0x00434C8A)
 
 Indeed, now we can query the \TT{X\$KSMLRU} table as many times as we want and it is not being cleared anymore!
 
-\sout{Do not try this at home ("MythBusters")} Do not try this on your production servers.
+% \sout{Do not try this at home ("MythBusters")}
+Just in case, do not try this on your production servers.
 
 It is probably not a very useful or desired system behavior, but as an experiment for locating a piece of code that we need, it perfectly suits our needs!
 

@@ -26,7 +26,7 @@ put_to_array PROC
 ; \verb|R3 = R3&0xF0 = middle_byte&0xF0|
         ORR      r2,r3,r1,LSR #8
 ; \verb!R2 = R3 | R1>>8 = middle_byte&0xF0 | val>>8!
-; \verb|stocker middle_byte&0xF0 | val>>8 en R0+1 (à la place de l'octet du milieu):|
+; \verb!stocker middle_byte&0xF0 | val>>8 en R0+1 (à la place de l'octet du milieu):!
 	STRB     r2,[r0,#1]
 ; \verb|stocker es 8 bits bas de val (ou val&0xFF) en R0+2 (à la place de l'octet de droite):|
         STRB     r1,[r0,#2]

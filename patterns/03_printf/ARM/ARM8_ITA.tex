@@ -16,7 +16,7 @@ Il codice puo' essre diviso in piu' parti
 
 \myindex{ARM!\Instructions!STR}
 La prima istruzione \INS{STR LR, [SP,\#var\_4]!} salva \ac{LR} sullo stack, poiche' questo registro sara' usato per la chiamata a \printf.
-Il punto esclamativo all fine indica il \IT{pre-index}.
+Il punto esclamativo all fine indica il \emph{pre-index}.
 
 Questo implica che \ac{SP} deve essere prima decrementato di 4, e successivamente \ac{LR} sara' salvato all'indirizzo memorizzato in \ac{SP}.
 Tutto cio' e' simile a \PUSH in x86.
@@ -31,17 +31,17 @@ Gli altri 4 valori a 32-bit saranno passati tramite registri.
 Successivamente l'istruzione \INS{ADD R12, SP, \#0x18+var\_14} scrive l'indirizzo dello stack, dove queste 4 variabili saranno memorizzate,
 nel registri \Reg{12}.
 \myindex{IDA!var\_?}
-\IT{var\_14} e' una macro assembly, uguale a -0x14, creata da \IDA per visualizzare in maniera conveniente il codice che accede allo stack.
-Le macro \IT{var\_?} generate da \IDA riflettono le variabili locali nello stack.
+\emph{var\_14} e' una macro assembly, uguale a -0x14, creata da \IDA per visualizzare in maniera conveniente il codice che accede allo stack.
+Le macro \emph{var\_?} generate da \IDA riflettono le variabili locali nello stack.
 
 Quindi, \GTT{SP+4} sara' memorizzato nel registro \Reg{12}.
 \myindex{ARM!\Instructions!STMIA}
 L'istruzione successiva \INS{STMIA R12, {R0-R3}} scrive il contenuto dei registri \Reg{0}-\Reg{3} alla memoria puntata da \Reg{12}.
-\INS{STMIA} e' abbreviazione per \IT{Store Multiple Increment After}. 
-\IT{\q{Increment After}} (incrementa dopo) implica che \Reg{12} deve essere incrementato di 4 dopo ciascuna scrittura di un valore nei registri.
+\INS{STMIA} e' abbreviazione per \emph{Store Multiple Increment After}. 
+\emph{Increment After} (incrementa dopo) implica che \Reg{12} deve essere incrementato di 4 dopo ciascuna scrittura di un valore nei registri.
 
 \item Passaggio di 4 tramite lo stack: 4 e' memorizzato in \Reg{0} e questo valore, con l'aiuto dell'istruzione \INS{STR R0, [SP,\#0x18+var\_18]}, viene salvato sullo stack.
-\IT{var\_18} e' -0x18, quindi l'offset deve essere 0, da cui il valore dal registro \Reg{0} (4) sara' scritto all'indirizzo memorizzato in \ac{SP}.
+\emph{var\_18} e' -0x18, quindi l'offset deve essere 0, da cui il valore dal registro \Reg{0} (4) sara' scritto all'indirizzo memorizzato in \ac{SP}.
 
 \item Passaggio di 1, 2 e 3 tramite registri:
 I valori dei primi 3 numeri (a, b, c) (1, 2, 3 rispettivamente) sono passatti attraverso i registri
@@ -62,7 +62,7 @@ secuzione delle funzioni seguenti.
 L'istruzione \INS{LDR PC, [SP+4+var\_4],\#4} carica il valore di \ac{LR} salvato dallo stack nel nel registro \ac{PC}, causando quindi
 l'uscita dalla funzione.
 Non c'e' il punto esclamativo ---infatti \ac{PC} e' caricato prima dall'indirizzo memorizzato in \ac{SP} ($4+var\_4=4+(-4)=0$, questa istruzione e' quindi analoga a \INS{LDR PC, [SP],\#4}), e successivamente \ac{SP} e' incrementato di 4.
-Questo e' detto \IT{post-index}\footnote{Maggiori dettagli: \myref{ARM_postindex_vs_preindex}.}.
+Questo e' detto \emph{post-index}\footnote{Maggiori dettagli: \myref{ARM_postindex_vs_preindex}.}.
 Perche' \IDA mostra l'istruzione in quel modo?
 Perche' vuole illustrare il layout dello stack ed il fatto che \GTT{var\_4} e' allocata per salvare il valore di \ac{LR} nello stack locale.
 Questa istruzione e' piu' o meno simile a \INS{POP PC} in x86\footnote{E' impossibile settare il valore di \GTT{IP/EIP/RIP} usando \POP in x86, ma in ogni caso hai capito l'analogia.}.

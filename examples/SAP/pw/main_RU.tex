@@ -3,11 +3,11 @@
 \myindex{SAP}
 Когда автор этой книги в очередной раз вернулся к своему SAP 6.0 IDES заинсталлированному в виртуальной машине VMware, он обнаружил что забыл пароль, впрочем, затем он вспомнил его, но теперь получаем такую ошибку:
  
-\IT{<<Password logon no longer possible - too many failed attempts>>}, 
+\emph{<<Password logon no longer possible - too many failed attempts>>}, 
 потому что были потрачены все попытки на то, чтобы вспомнить его.
 
 \myindex{Windows!PDB}
-Первая очень хорошая новость состоит в том, что с SAP поставляется полный \gls{PDB}-файл \IT{disp+work.pdb}, он содержит все: имена функций, структуры, типы, локальные переменные, имена аргументов, \etc{}. Какой щедрый подарок!
+Первая очень хорошая новость состоит в том, что с SAP поставляется полный \gls{PDB}-файл \emph{disp+work.pdb}, он содержит все: имена функций, структуры, типы, локальные переменные, имена аргументов, \etc{}. Какой щедрый подарок!
 
 Существует утилита TYPEINFODUMP\footnote{\url{http://go.yurichev.com/17038}} для дампа содержимого \gls{PDB}-файлов во что-то более читаемое и grep-абельное.
 
@@ -21,17 +21,17 @@
 
 Вау!
 
-Вторая хорошая новость: \IT{отладочные} вызовы, коих здесь очень много, очень полезны. 
+Вторая хорошая новость: \emph{отладочные} вызовы, коих здесь очень много, очень полезны. 
 
-Здесь вы можете увидеть глобальную переменную \IT{ct\_level}\footnote{Еще об уровне трассировки: \url{http://go.yurichev.com/17039}}, отражающую уровень трассировки.
+Здесь вы можете увидеть глобальную переменную \emph{ct\_level}\footnote{Еще об уровне трассировки: \url{http://go.yurichev.com/17039}}, отражающую уровень трассировки.
 
-В \IT{disp+work.exe} очень много таких отладочных вставок:
+В \emph{disp+work.exe} очень много таких отладочных вставок:
 
 \lstinputlisting[style=customasmx86]{examples/SAP/pw/3.asm}
 
 Если текущий уровень трассировки выше или равен заданному в этом коде порогу, 
-отладочное сообщение будет записано в лог-файл вроде \IT{dev\_w0}, \IT{dev\_disp} 
-и прочие файлы \IT{dev*}.
+отладочное сообщение будет записано в лог-файл вроде \emph{dev\_w0}, \emph{dev\_disp} 
+и прочие файлы \emph{dev*}.
 
 \myindex{\GrepUsage}
 Попробуем grep-ать файл недавно полученный при помощи утилиты TYPEINFODUMP:
@@ -44,15 +44,15 @@ cat "disp+work.pdb.d" | grep FUNCTION | grep -i password
 
 \lstinputlisting{examples/SAP/pw/4.txt}
 
-Попробуем так же искать отладочные сообщения содержащие слова \IT{<<password>>} и \IT{<<locked>>}.
-Одна из таких это строка \IT{<<user was locked by subsequently failed password logon attempts>>} на которую есть ссылка в \\
-функции \IT{password\_attempt\_limit\_exceeded()}.
+Попробуем так же искать отладочные сообщения содержащие слова \emph{<<password>>} и \emph{<<locked>>}.
+Одна из таких это строка \emph{<<user was locked by subsequently failed password logon attempts>>} на которую есть ссылка в \\
+функции \emph{password\_attempt\_limit\_exceeded()}.
 
 Другие строки, которые эта найденная функция может писать в лог-файл это: 
-\IT{<<password logon attempt will be rejected immediately (preventing dictionary attacks)>>}, \IT{<<failed-logon lock: expired (but not removed due to 'read-only' operation)>>}, \IT{<<failed-logon lock: expired => removed>>}.
+\emph{<<password logon attempt will be rejected immediately (preventing dictionary attacks)>>}, \emph{<<failed-logon lock: expired (but not removed due to 'read-only' operation)>>}, \emph{<<failed-logon lock: expired => removed>>}.
 
 Немного поэкспериментировав с этой функцией, мы быстро понимаем, что проблема именно в ней.
-Она вызывается из функции \IT{chckpass()} --- одна из функций проверяющих пароль.
+Она вызывается из функции \emph{chckpass()} --- одна из функций проверяющих пароль.
 
 В начале, давайте убедимся, что мы на верном пути:
 
@@ -68,9 +68,9 @@ PID=2236|TID=2248|(0) disp+work.exe!chckpass (0x202c770, L"Brewered1            
 PID=2236|TID=2248|(0) disp+work.exe!chckpass -> 0x35
 \end{lstlisting}
 
-Функции вызываются так: \IT{syssigni()} -> \IT{DyISigni()} -> \IT{dychkusr()} -> \IT{usrexist()} -> \IT{chckpass()}.
+Функции вызываются так: \emph{syssigni()} -> \emph{DyISigni()} -> \emph{dychkusr()} -> \emph{usrexist()} -> \emph{chckpass()}.
 
-Число 0x35 возвращается из \IT{chckpass()} в этом месте:
+Число 0x35 возвращается из \emph{chckpass()} в этом месте:
 
 \lstinputlisting[style=customasmx86]{examples/SAP/pw/5.asm}
 
@@ -91,7 +91,7 @@ PID=2744|TID=360|We modify return value (EAX/RAX) of this function to 0
 
 Великолепно! Теперь мы можем успешно залогиниться.
 
-Кстати, мы можем сделать вид что вообще забыли пароль, заставляя \IT{chckpass()} всегда возвращать ноль, и этого достаточно для отключения проверки пароля:
+Кстати, мы можем сделать вид что вообще забыли пароль, заставляя \emph{chckpass()} всегда возвращать ноль, и этого достаточно для отключения проверки пароля:
 
 \begin{lstlisting}
 tracer64.exe -a:disp+work.exe bpf=disp+work.exe!chckpass,args:3,unicode,rt:0
@@ -104,17 +104,17 @@ PID=2744|TID=360|We modify return value (EAX/RAX) of this function to 0
 \end{lstlisting}
 
 Что еще можно сказать, бегло анализируя функцию \\
-\IT{password\_attempt\_limit\_exceeded()}, это то, что в начале
+\emph{password\_attempt\_limit\_exceeded()}, это то, что в начале
 можно увидеть следующий вызов:
 
 \lstinputlisting[style=customasmx86]{examples/SAP/pw/6.asm}
 
-Очевидно, функция \IT{sapgparam()} используется чтобы узнать значение какой-либо переменной конфигурации. Эта функция может вызываться из 1768 разных мест.
+Очевидно, функция \emph{sapgparam()} используется чтобы узнать значение какой-либо переменной конфигурации. Эта функция может вызываться из 1768 разных мест.
 
 Вероятно, при помощи этой информации, мы можем легко находить те места кода, на которые влияют определенные переменные конфигурации.
 
 Замечательно! Имена функций очень понятны, куда понятнее чем в \oracle.
  
 \myindex{\Cpp}
-По всей видимости, процесс \IT{disp+work} весь написан на \Cpp. Должно быть, он был переписан не так давно?
+По всей видимости, процесс \emph{disp+work} весь написан на \Cpp. Должно быть, он был переписан не так давно?
 

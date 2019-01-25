@@ -3,12 +3,12 @@
 \myindex{SAP}
 
 One time when the author of this book have returned again to his SAP 6.0 IDES installed in a VMware box, he figured out that he forgot the password for the SAP* account, then he have recalled it, but then he got this error message 
-\IT{<<Password logon no longer possible - too many failed attempts>>}, 
+\emph{<<Password logon no longer possible - too many failed attempts>>}, 
 since he've made all these attempts in attempt to recall it.
 
 \myindex{Windows!PDB}
 
-The first extremely good news was that the full \IT{disp+work.pdb} \gls{PDB} file is supplied with SAP, and it contain almost everything: function names, structures, types, local variable and argument names, \etc{}. What a lavish gift!
+The first extremely good news was that the full \emph{disp+work.pdb} \gls{PDB} file is supplied with SAP, and it contain almost everything: function names, structures, types, local variable and argument names, \etc{}. What a lavish gift!
 
 There is TYPEINFODUMP\footnote{\url{http://go.yurichev.com/17038}} utility for converting \gls{PDB} files into something readable and grepable.
 
@@ -22,17 +22,17 @@ And here is an example of some structure:
 
 Wow!
 
-Another good news: \IT{debugging} calls (there are plenty of them) are very useful. 
+Another good news: \emph{debugging} calls (there are plenty of them) are very useful. 
 
-Here you can also notice the \IT{ct\_level} global variable\footnote{More about trace level: \url{http://go.yurichev.com/17039}}, that reflects the current trace level.
+Here you can also notice the \emph{ct\_level} global variable\footnote{More about trace level: \url{http://go.yurichev.com/17039}}, that reflects the current trace level.
 
-There are a lot of debugging inserts in the \IT{disp+work.exe} file:
+There are a lot of debugging inserts in the \emph{disp+work.exe} file:
 
 \lstinputlisting[style=customasmx86]{examples/SAP/pw/3.asm}
 
 If the current trace level is bigger or equal to threshold defined in the code here, 
-a debugging message is to be written to the log files like \IT{dev\_w0}, \IT{dev\_disp}, 
-and other \IT{dev*} files.
+a debugging message is to be written to the log files like \emph{dev\_w0}, \emph{dev\_disp}, 
+and other \emph{dev*} files.
 
 \myindex{\GrepUsage}
 
@@ -46,15 +46,15 @@ We have got:
 
 \lstinputlisting{examples/SAP/pw/4.txt}
 
-Let's also try to search for debug messages which contain the words \IT{<<password>>} and \IT{<<locked>>}.
-One of them is the string \IT{<<user was locked by subsequently failed password logon attempts>>} , referenced in \\
-function \IT{password\_attempt\_limit\_exceeded()}.
+Let's also try to search for debug messages which contain the words \emph{<<password>>} and \emph{<<locked>>}.
+One of them is the string \emph{<<user was locked by subsequently failed password logon attempts>>} , referenced in \\
+function \emph{password\_attempt\_limit\_exceeded()}.
 
 Other strings that this function can write to a log file are: 
-\IT{<<password logon attempt will be rejected immediately (preventing dictionary attacks)>>}, \IT{<<failed-logon lock: expired (but not removed due to 'read-only' operation)>>}, \IT{<<failed-logon lock: expired => removed>>}.
+\emph{<<password logon attempt will be rejected immediately (preventing dictionary attacks)>>}, \emph{<<failed-logon lock: expired (but not removed due to 'read-only' operation)>>}, \emph{<<failed-logon lock: expired => removed>>}.
 
 After playing for a little with this function, we noticed that the problem is exactly in it.
-It is called from the \IT{chckpass()} function~---one of the password checking functions.
+It is called from the \emph{chckpass()} function~---one of the password checking functions.
 
 First, we would like to make sure that we are at the correct point:
 
@@ -70,9 +70,9 @@ PID=2236|TID=2248|(0) disp+work.exe!chckpass (0x202c770, L"Brewered1            
 PID=2236|TID=2248|(0) disp+work.exe!chckpass -> 0x35
 \end{lstlisting}
 
-The call path is: \IT{syssigni()} -> \IT{DyISigni()} -> \IT{dychkusr()} -> \IT{usrexist()} -> \IT{chckpass()}.
+The call path is: \emph{syssigni()} -> \emph{DyISigni()} -> \emph{dychkusr()} -> \emph{usrexist()} -> \emph{chckpass()}.
 
-The number 0x35 is an error returned in \IT{chckpass()} at that point:
+The number 0x35 is an error returned in \emph{chckpass()} at that point:
 
 \lstinputlisting[style=customasmx86]{examples/SAP/pw/5.asm}
 
@@ -93,7 +93,7 @@ PID=2744|TID=360|We modify return value (EAX/RAX) of this function to 0
 
 Excellent! We can successfully login now.
 
-By the way, we can pretend we forgot the password, fixing the \IT{chckpass()} function to return a value of 0 is enough to bypass the check:
+By the way, we can pretend we forgot the password, fixing the \emph{chckpass()} function to return a value of 0 is enough to bypass the check:
 
 \begin{lstlisting}
 tracer64.exe -a:disp+work.exe bpf=disp+work.exe!chckpass,args:3,unicode,rt:0
@@ -106,16 +106,16 @@ PID=2744|TID=360|We modify return value (EAX/RAX) of this function to 0
 \end{lstlisting}
 
 What also can be said while analyzing the \\
-\IT{password\_attempt\_limit\_exceeded()} 
+\emph{password\_attempt\_limit\_exceeded()} 
 function is that at the very beginning of it, this call can be seen:
 
 \lstinputlisting[style=customasmx86]{examples/SAP/pw/6.asm}
 
-Obviously, function \IT{sapgparam()} is used to query the value of some configuration parameter. This function can be called from 1768 different places.
+Obviously, function \emph{sapgparam()} is used to query the value of some configuration parameter. This function can be called from 1768 different places.
 It seems that with the help of this information, we can easily find the places in code, the control flow of which can be affected by specific configuration parameters.
 
 It is really sweet. The function names are very clear, much clearer than in the \oracle. 
 \myindex{\Cpp}
 
-It seems that the \IT{disp+work} process is written in \Cpp. Has it been rewritten some time ago?
+It seems that the \emph{disp+work} process is written in \Cpp. Has it been rewritten some time ago?
 

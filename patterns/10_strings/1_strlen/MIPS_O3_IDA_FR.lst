@@ -9,7 +9,7 @@ loc_4:
 ; si l'octet chargé n'est pas zéro, sauter en loc\_4:
                 bnez    $a1, loc_4
 ; incrémenter "eos" de toutes façons:
-                addiu   $v1, 1 ; slot de $délai$ de branchement
+                addiu   $v1, 1 ; slot de délai de branchement
 ; boucle terminée. inverser variable "str":
                 nor     $v0, $zero, $a0
 ; \$v0=-str-1

@@ -8,16 +8,16 @@
 
 \myindex{x86!\Instructions!JLE}
 
-最初の命令 \JLE は、\IT{Jump if Less or Equal}の場合はJumpを表します。 
+最初の命令 \JLE は、\emph{Jump if Less or Equal}の場合はJumpを表します。 
 言い換えれば、第2オペランドが第1オペランドより大きいか等しい場合、
 制御フローは命令で指定されたアドレスまたはラベルに移ります。 
 第2オペランドが最初のオペランドより小さいためにこの条件がトリガされない場合、制御フローは変更されず、最初の \printf が実行されます。 
 \myindex{x86!\Instructions!JNE}
-2番目のチェックは、 \JNE ：\IT{Jump if Not Equal}です。 
+2番目のチェックは、 \JNE ：\emph{Jump if Not Equal}です。 
 オペランドが等しい場合、制御フローは変更されません。
 
 \myindex{x86!\Instructions!JGE}
-3番目のチェックは、最初のオペランドが2番目のオペランドより大きい場合、または等しい場合は \JGE ：\IT{Jump if Greater or Equal}です。 
+3番目のチェックは、最初のオペランドが2番目のオペランドより大きい場合、または等しい場合は \JGE ：\emph{Jump if Greater or Equal}です。 
 したがって、3つの条件ジャンプがすべてトリガされた場合、\printf の呼び出しはまったく実行されません。 
 これは特別な介入なしには不可能です。 
 \TT{f\_unsigned()}関数を見てみましょう。 
@@ -30,7 +30,7 @@
 \myindex{x86!\Instructions!JAE}
 
 すでに説明したように、分岐命令は異なります。
-\JBE---\IT{Jump if Below or Equal} and \JAE---\IT{Jump if Above or Equal}
+\JBE---\emph{Jump if Below or Equal} and \JAE---\emph{Jump if Above or Equal}
 これらの命令（\JA/\JAE/\JB/\JBE）は、 \JG/\JGE/\JL/\JLE とは、符号なしの数字で動作する点が異なります。
 
 \myindex{x86!\Instructions!JA}

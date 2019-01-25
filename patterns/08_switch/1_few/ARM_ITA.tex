@@ -8,8 +8,8 @@ o una serie di istruzioni if().
 
 \myindex{ARM!\Instructions!ADRcc}
 
-Ad ogni modo vediamo istruzioni condizionali (dette anche \IT{predicated instructions}) come \ADREQ (\IT{Equal})
-che viene eseguita solo nel caso $R0=0$, e carica l'indirizzo della stringa \IT{<<zero\textbackslash{}n>>}
+Ad ogni modo vediamo istruzioni condizionali (dette anche \emph{predicated instructions}) come \ADREQ (\emph{Equal})
+che viene eseguita solo nel caso $R0=0$, e carica l'indirizzo della stringa \emph{<<zero\textbackslash{}n>>}
 into \Reg{0}.
 \myindex{ARM!\Instructions!BEQ}
 La successiva istruzione \ac{BEQ} redirige il controllo del flusso a \TT{loc\_170}, se $R0=0$.
@@ -28,10 +28,10 @@ A conti fatti, ci sono tre percorsi che portano alla \printf{}.
 \myindex{ARM!\Instructions!CMP}
 L'ultima istruzione, \TT{CMP R0, \#2}, è necessria per controllare se $a=2$.
 
-Se la condizione non è vera, allora \ADRNE carica un puntatore alla stringa \IT{<<something unknown \textbackslash{}n>>}
+Se la condizione non è vera, allora \ADRNE carica un puntatore alla stringa \emph{<<something unknown \textbackslash{}n>>}
 nel registro \Reg{0}, poiché la variabile $a$ è stata già confrontata 0 e 1 e siamo certi, a questo punto, 
 che non sia uguale a tali valori.
-E se $R0=2$, il puntatore alla stringa \IT{<<two\textbackslash{}n>>} sarà caricato in \Reg{0} da \ADREQ.
+E se $R0=2$, il puntatore alla stringa \emph{<<two\textbackslash{}n>>} sarà caricato in \Reg{0} da \ADREQ.
 
 \subsubsection{ARM: \OptimizingKeilVI (\ThumbMode)}
 
@@ -56,6 +56,6 @@ nell'esempio \q{\HelloWorldSectionName}:~\myref{pointers_ADRP_and_ADD}.
 \lstinputlisting[style=customasmARM]{patterns/08_switch/1_few/ARM64_GCC_O3_EN.lst}
 
 Codice maggiormente ottimizzato.
-L'istruzione \TT{CBZ} (\IT{Compare and Branch on Zero}) salta se \RegW{0} è zero.
+L'istruzione \TT{CBZ} (\emph{Compare and Branch on Zero}) salta se \RegW{0} è zero.
 C'è anche un salto diretto a \puts invece di una chiamata, come spiegato in precedenza:~\myref{JMP_instead_of_RET}.
 

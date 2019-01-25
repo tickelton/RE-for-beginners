@@ -7,7 +7,7 @@
 ここでのすべては簡単です。 
 \TT{MADD}は乗算/加算を一緒に行う命令です（既に見た\TT{MLA}に似ています）。 
 3つの引数はすべて、Xレジスタの32ビット部分に渡されます。 
-実際、引数の型は32ビット\IT{int}です。 結果は\TT{W0}に返されます。
+実際、引数の型は32ビット\emph{int}です。 結果は\TT{W0}に返されます。
 
 \lstinputlisting[caption=\Optimizing GCC (Linaro) 4.9,style=customasmARM]{patterns/05_passing_arguments/ARM/ARM64_O3_JPN.s}
 
@@ -64,7 +64,7 @@ f:
 これにより、元の関数の引数を上書きすることが防止されます。
 これは、将来必要になる可能性があります。
 
-これは、\IT{レジスタセーブエリア}と呼ばれます。((\ARMPCS))
+これは、\emph{レジスタセーブエリア}と呼ばれます。((\ARMPCS))
 しかし、呼び出し先関数はそれらを保存する義務はありません。 
 これは、\q{シャドースペース}(\myref{shadow_space})に多少似ています。
 

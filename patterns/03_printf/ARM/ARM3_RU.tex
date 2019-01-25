@@ -25,7 +25,7 @@ fastcall~(\myref{fastcall}) или win64~(\myref{sec:callingconventions_win64}).
 указатель на формат-строку для \printf
 в \Reg{0}, затем 1 в \Reg{1}, 2 в \Reg{2} и 3 в \Reg{3}.
 
-Инструкция на \GTT{0x18} записывает 0 в \Reg{0} --- это выражение в Си \IT{return 0}.
+Инструкция на \GTT{0x18} записывает 0 в \Reg{0} --- это выражение в Си \emph{return 0}.
 Пока что здесь нет ничего необычного.
 \OptimizingKeilVI генерирует точно такой же код.
 
@@ -47,7 +47,7 @@ fastcall~(\myref{fastcall}) или win64~(\myref{sec:callingconventions_win64}).
 \mysubparagraph{\OptimizingKeilVI (\ARMMode) + убираем return}
 \label{ARM_B_to_printf}
 
-Немного переделаем пример, убрав \IT{return 0}:
+Немного переделаем пример, убрав \emph{return 0}:
 
 \begin{lstlisting}[style=customc]
 #include <stdio.h>
@@ -95,7 +95,7 @@ void main()
 \lstinputlisting[caption=\NonOptimizing GCC (Linaro) 4.9,style=customasmARM]{patterns/03_printf/ARM/ARM3_O0_RU.lst}
 
 \myindex{ARM!\Instructions!STP}
-Итак, первая инструкция \INS{STP} (\IT{Store Pair}) сохраняет \ac{FP} (X29) и \ac{LR} (X30) в стеке.
+Итак, первая инструкция \INS{STP} (\emph{Store Pair}) сохраняет \ac{FP} (X29) и \ac{LR} (X30) в стеке.
 Вторая инструкция \INS{ADD X29, SP, 0} формирует стековый фрейм.
 Это просто запись значения \ac{SP} в X29.
 
@@ -103,7 +103,7 @@ void main()
 Далее уже знакомая пара инструкций \INS{ADRP}/\ADD формирует указатель на строку.
 
 \myindex{ARM64!lo12}
-\IT{lo12} означает младшие 12 бит, т.е., линкер запишет младшие 12 бит адреса метки LC1 в опкод инструкции \ADD.
+\emph{lo12} означает младшие 12 бит, т.е., линкер запишет младшие 12 бит адреса метки LC1 в опкод инструкции \ADD.
 \GTT{\%d} в формате \printf это 32-битный \Tint, так что 1, 2 и 3 заносятся в 32-битные части регистров.
 \Optimizing GCC (Linaro) 4.9 генерирует почти такой же код.
 

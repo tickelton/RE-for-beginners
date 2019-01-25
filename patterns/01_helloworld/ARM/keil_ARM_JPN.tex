@@ -7,7 +7,7 @@ armcc.exe --arm --c90 -O0 1.c
 \end{lstlisting}
 
 \myindex{\IntelSyntax}
-\IT{armcc}コンパイラはIntel構文でアセンブリリストを生成しますが、
+\emph{armcc}コンパイラはIntel構文でアセンブリリストを生成しますが、
 \footnote{例えば ARMモードには \PUSH/\POP 命令がありません}
 それには高レベルのARMプロセッサに関連するマクロがありますが、 \q{そのまま}の命令を見ることが重要ですので、 \IDA のコンパイル結果を見てみましょう。
 
@@ -29,7 +29,7 @@ armcc.exe --arm --c90 -O0 1.c
 \myindex{ARM!\Instructions!POP}
 最初の命令\INS{STMFD SP!, \{R4,LR\}}\footnote{\ac{STMFD}}は、2つのレジスタ(\Reg{4} と \ac{LR})の値をスタックに書き込むx86 \PUSH 命令として機能します。
 
-実際、 \IT{armcc} コンパイラの出力リストには、簡略化のために実際に \INS{PUSH \{r4,lr\}} 命令が示されています。しかしそれはかなり正確ではありません。 \PUSH 命令は、Thumbモードでのみ使用できます。したがって、物事をあまり混乱させないために、私たちは \IDA でこれをやっています。
+実際、 \emph{armcc} コンパイラの出力リストには、簡略化のために実際に \INS{PUSH \{r4,lr\}} 命令が示されています。しかしそれはかなり正確ではありません。 \PUSH 命令は、Thumbモードでのみ使用できます。したがって、物事をあまり混乱させないために、私たちは \IDA でこれをやっています。
 
 この命令は、最初に \ac{SP} を \glspl{decrement} して、新しいエントリがないスタック内の場所をポイントし、 \Reg{4} および \ac{LR} レジスタの値を変更された \ac{SP} に格納されたアドレスに保存します。
 
@@ -82,7 +82,7 @@ armcc.exe --arm --c90 -O0 1.c
 最後の命令\INS{LDMFD SP!, {R4,PC}}\footnote{\ac{LDMFD}は\ac{STMFD}とは逆の命令です}
 スタック（または他のメモリ場所）から値をロードして\Reg{4}と\ac{PC}に保存し、\gls{stack pointer} \ac{SP}を\glslink{increment}{increments}します。
 ここで \POP のように動作します。
-注意：最初の命令\TT{STMFD}は\Reg{4}と\ac{LR}レジスタのペアをスタックに保存しましたが、\Reg{4}と\ac{PC}は\TT{LDMFD}の実行中に\IT{リストア}されます。
+注意：最初の命令\TT{STMFD}は\Reg{4}と\ac{LR}レジスタのペアをスタックに保存しましたが、\Reg{4}と\ac{PC}は\TT{LDMFD}の実行中に\emph{リストア}されます。
 
 すでにわかっているように、各関数が制御を返さなければならない場所のアドレスは、通常、\ac{LR}レジスタに保存されます。
 最初の命令は、 \printf を呼び出すときに \main 関数が同じレジスタを使用するため、その値をスタックに保存します。

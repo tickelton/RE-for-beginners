@@ -1,5 +1,5 @@
 ; store 15 0xAA bytes to EDI
-CLD                 ; set direction to \IT{forward}
+CLD                 ; set direction to \emph{forward}
 MOV EAX, 0AAAAAAAAh
 MOV ECX, 3
 REP STOSD           ; write 12 bytes

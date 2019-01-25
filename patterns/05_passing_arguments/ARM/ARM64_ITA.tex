@@ -7,7 +7,7 @@
 Appare tutto molto semplice.
 \TT{MADD} e' semplicemente un'istruzione che fa una moltiplicazione/addizione combinata (simile alla \TT{MLA} vista in precedenza).
 Tutti i 3 argomenti sono passati tramite le parti a 32-bit dei registri X-.
-Infatti gli argomenti sono tutti di tipo \IT{int} a 32-bit.
+Infatti gli argomenti sono tutti di tipo \emph{int} a 32-bit.
 Il risultato e' restituito in \TT{W0}.
 
 \lstinputlisting[caption=\Optimizing GCC (Linaro) 4.9,style=customasmARM]{patterns/05_passing_arguments/ARM/ARM64_O3_EN.s}
@@ -64,7 +64,7 @@ Il codice salva gli argomenti in input nello stack locale, nel caso in cui qualc
 di usare i registri \TT{W0...W2} 
 Questo previene l'eventualita' che gli argomenti originali siano sovrascritti, nel caso in cui servano nuovamente nel corso della funzione.
 
-Cio' e' detto \IT{Register Save Area.} (\ARMPCS) ed e' vagamente simile allo \q{Shadow Space}: \myref{shadow_space}.
+Cio' e' detto \emph{Register Save Area.} (\ARMPCS) ed e' vagamente simile allo \q{Shadow Space}: \myref{shadow_space}.
 La funzione chiamata non e' comunque obbligata a salvarli.
 
 Perche' GCC 4.9 ottimizzante ha eliminato questa porzione di codice che salva gli argomenti?

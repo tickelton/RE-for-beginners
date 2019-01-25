@@ -20,13 +20,13 @@ $LL3@crc:
     and    ebx, 255 ; EBX = hash \& 0xff
 
 ; \verb|XOR EDI, EBX (EDI=EDI^EBX) - this operation uses all 32 bits of each register|
-; but other bits (8-31) are cleared all time, so its OK'
+; but other bits (8-31) are cleared all time, so it is OK
 ; these are cleared because, as for EDI, it was done by MOVZX instruction above
 ; high bits of EBX was cleared by AND EBX, 255 instruction above (255 = 0xff)
 
     xor    edi, ebx
 
-; EAX=EAX>>8; bits 24-31 taken \IT{from nowhere} will be cleared
+; EAX=EAX>>8; bits 24-31 taken \emph{from nowhere} will be cleared
     shr    eax, 8
 
 ; \verb|EAX=EAX^crctab[EDI*4] - choose EDI-th element from crctab[] table|

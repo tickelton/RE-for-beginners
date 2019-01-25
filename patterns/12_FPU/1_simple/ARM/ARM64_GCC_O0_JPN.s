@@ -34,8 +34,8 @@
 	fadd	d0, d0, d1
 ; D0 = D0+D1 = a/3.14 + b*4.1
 
-	fmov	x0, d0 ; \ 冗長符号
-	fmov	d0, x0 ; /
+	fmov	x0, d0 ; \verb|\ 冗長符号|
+	fmov	d0, x0 ; \verb|/         |
 	add	sp, sp, 16
 	ret
 .LC25:

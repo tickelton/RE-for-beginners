@@ -51,11 +51,11 @@ Das Ergebnis ist wie folgt:
 
 Der Quellcode beinhaltet Makros (beginnend mit einem Punkt), die hier aber nicht von Belang sind.
 
-An dieser Stelle werden aus Gründen der Übersichtlichkeit alle Makros au0er \IT{.string}
+An dieser Stelle werden aus Gründen der Übersichtlichkeit alle Makros au0er \emph{.string}
 ignoriert. Letzeres kodiert eine Null-terminierte Zeichenkette, die einem C-String entspricht.
 
 Die resultierende Ausgabe ist diese
-\footnote{Um die \q{unnötigen} Makros zu unterdrücen kann die GCC-Option \IT{-fno-asynchronous-unwind-tables} genutzt werden}:
+\footnote{Um die \q{unnötigen} Makros zu unterdrücen kann die GCC-Option \emph{-fno-asynchronous-unwind-tables} genutzt werden}:
 
 \lstinputlisting[caption=GCC 4.7.3,style=customasmx86]{patterns/01_helloworld/GCC_refined.s}
 

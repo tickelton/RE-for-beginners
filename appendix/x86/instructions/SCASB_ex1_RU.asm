@@ -1,5 +1,5 @@
 lea     edi, string
-mov     ecx, 0FFFFFFFFh ; сканировать $2^{32}-1$ байт, т.е., почти \IT{бесконечно}
+mov     ecx, 0FFFFFFFFh ; сканировать $2^{32}-1$ байт, т.е., почти \emph{бесконечно}
 xor     eax, eax        ; конец строки это 0
 repne scasb
 add     edi, 0FFFFFFFFh ; скорректировать

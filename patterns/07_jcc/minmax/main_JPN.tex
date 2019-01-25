@@ -67,5 +67,5 @@ ARM64にはARMの\INS{MOVcc}またはx86の\INS{CMOVcc}と同じように機能�
 
 \lstinputlisting[caption=\Optimizing GCC 4.4.5 (IDA),style=customasmMIPS]{patterns/07_jcc/minmax/minmax_MIPS_O3_IDA_JPN.lst}
 
-\IT{分岐遅延スロット}を忘れないでください。最初の\INS{MOVE}は\INS{BEQZ}の\IT{前に}実行され、
+\emph{分岐遅延スロット}を忘れないでください。最初の\INS{MOVE}は\INS{BEQZ}の\emph{前に}実行され、
 2番目の\INS{MOVE}は分岐が実行されなかった場合にのみ実行されます。

@@ -8,17 +8,17 @@ La funzione \TT{f\_signed()} appare così:
 
 \myindex{x86!\Instructions!JLE}
 
-La prima istruzione, \JLE, sta per \IT{Jump if Less or Equal} (\IT{salta se è minore o uguale}). 
+La prima istruzione, \JLE, sta per \emph{Jump if Less or Equal} (\emph{salta se è minore o uguale}). 
 In altre parole, se il secondo operando è
 maggiore o uguale al primo, il flusso di controllo sarà pasato all'indirizzo o alla label specificata nell'istruzione. 
 Se questa condizione non è soddisfatta, poiché il secondo operando è più piccolo del primo, il flusso non viene alterato e la prima \printf sarà eseguita.
 
 \myindex{x86!\Instructions!JNE}
-Il secondo controllo è \JNE: \IT{Jump if Not Equal}.
+Il secondo controllo è \JNE: \emph{Jump if Not Equal}.
 Il flusso non cambia se i due operandi sono uguali.
 
 \myindex{x86!\Instructions!JGE}
-Il terzo controllo è \JGE: \IT{Jump if Greater or Equal}---salta se il primo operando è maggiore del secondo, o se sono uguali.
+Il terzo controllo è \JGE: \emph{Jump if Greater or Equal}---salta se il primo operando è maggiore del secondo, o se sono uguali.
 
 Quindi, se tutti i tre salti condizionali vengono innescati, nessuna delle chiamate a \printf sarà eseguita.
 Ciò è chiaramente impossibile, almeno senza un intervento speciale.
@@ -33,7 +33,7 @@ sono utilizzate al posto di \JLE e \JGE:
 \myindex{x86!\Instructions!JAE}
 
 Come già detto, le istruzioni di salto (branch instructions) sono diverse:
-\JBE---\IT{Jump if Below or Equal} e \JAE---\IT{Jump if Above or Equal}.
+\JBE---\emph{Jump if Below or Equal} e \JAE---\emph{Jump if Above or Equal}.
 Queste istruzioni (\JA/\JAE/\JB/\JBE) differiscono da \JG/\JGE/\JL/\JLE in quanto operano con numeri senza segno (unsigned).
 
 \myindex{x86!\Instructions!JA}

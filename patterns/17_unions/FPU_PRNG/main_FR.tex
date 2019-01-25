@@ -32,10 +32,10 @@ Un générateur congruentiel linéaire de nombres aléatoire très simple est ut
 mon exemple\footnote{l'idée a été prise de: \URLXOR}, il produit des nombres 32-bit.
 Le \ac{PRNG} est initialisé avec le temps courant au format UNIX timestamp.
 
-Ici, nous représentons un type \Tfloat comme une \IT{union}---c'est la construction \CCpp qui nous
+Ici, nous représentons un type \Tfloat comme une \emph{union}---c'est la construction \CCpp qui nous
 permet d'interpréter un bloc de mémoire sous différents types.
-Dans notre cas, nous pouvons créer une variable de type \IT{union} et y accéder comme
-si c'est un \Tfloat ou un \IT{uint32\_t}.
+Dans notre cas, nous pouvons créer une variable de type \emph{union} et y accéder comme
+si c'est un \Tfloat ou un \emph{uint32\_t}.
 On peut dire que c'est juste un hack. Un sale.
 
 % WTF?

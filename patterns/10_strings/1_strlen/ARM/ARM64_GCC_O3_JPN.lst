@@ -1,6 +1,6 @@
 ﻿my_strlen:
 	mov	x1, x0
-	; X1は一時的なポインタ(eos)で、 ﾂｧ\IT{cursor}ﾂｧ のようにふるまう
+	; X1は一時的なポインタ(eos)で、 ﾂｧ\emph{cursor}ﾂｧ のようにふるまう
 .L58:
 	; X1 から W2にバイトをロードし、X1 (post-index)をインクリメント
 	ldrb	w2, [x1],1

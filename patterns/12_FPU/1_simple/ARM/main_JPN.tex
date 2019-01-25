@@ -1,7 +1,7 @@
 ﻿\subsubsection{ARM: \OptimizingXcodeIV (\ARMMode)}
 
 ARMが標準化された浮動小数点サポートを得るまで、いくつかのプロセッサーメーカーは独自の命令拡張を追加しました。 
-次に、VFP（\IT{Vector Floating Point}）を標準化しました。
+次に、VFP（\emph{Vector Floating Point}）を標準化しました。
 
 x86との重要な違いの1つは、ARMではスタックがなく、
 レジスタだけで動作するということです。
@@ -70,8 +70,8 @@ FPU命令の代わりに浮動小数点数の乗算、除算、加算をエミ�
 \myindex{ARM!armhf}
 \myindex{ARM!hard float}
 
-FPUコプロセッサエミュレーションは、ARMワールドでは\IT{ソフトフロート}または\IT{armel}（\IT{エミュレーション}）と呼ばれ、
-コプロセッサのFPU命令はハードフロートまたは\IT{armhf}と呼ばれます。
+FPUコプロセッサエミュレーションは、ARMワールドでは\emph{ソフトフロート}または\emph{armel}（\emph{エミュレーション}）と呼ばれ、
+コプロセッサのFPU命令はハードフロートまたは\emph{armhf}と呼ばれます。
 
 \iffalse
 % TODO разобраться...
@@ -79,7 +79,7 @@ FPUコプロセッサエミュレーションは、ARMワールドでは\IT{ソ�
 
 For example, the Linux kernel for Raspberry Pi is compiled in two variants.
 
-In the \IT{soft float} case, arguments are passed via R-registers, and in the \IT{hard float} case---via D-registers.
+In the \emph{soft float} case, arguments are passed via R-registers, and in the \emph{hard float} case---via D-registers.
 
 And that is what stops you from using armhf-libraries from armel-code or vice versa,
 and that is why all the code in Linux distributions must be compiled according to a single convention.

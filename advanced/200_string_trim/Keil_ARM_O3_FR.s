@@ -16,7 +16,7 @@ str_trim PROC
         CMP      r1,#0xd      ; \verb|est-ce que l'octet chargé est '\r'?|
         CMPNE    r1,#0xa      ; \verb|(si l'octet chargé n'est pas '\r') est-ce '\r'?|
         SUBEQ    r0,r0,#1     ; \verb|(si l'octet chargé  est '\r' ou '\n') R0-- ou str_len--|
-        STRBEQ   r3,[r2,#-1]  ; \verb|(si l'octet chargé est '\r' ou '\n') stocker R3 (zéero) à l'adresse R2-1=s+str_len-1|
+        STRBEQ   r3,[r2,#-1]  ; \verb|(si l'octet chargé est '\r' ou '\n')| stocker R3 (zéero) à l'adresse R2-1=s+str\_len-1
         BEQ      |L0.16|      ; \verb|sauter au début de a boucle si l'octet chargé était '\r' ou '\n'|
 |L0.56|
 ; renvoyer "s"

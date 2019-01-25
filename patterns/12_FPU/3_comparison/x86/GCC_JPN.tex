@@ -12,7 +12,7 @@
 
 \newcommand{\NANFN}{\footnote{\href{http://go.yurichev.com/17130}{wikipedia.org/wiki/NaN}}}
 
-FPUは、数字でない特別な\IT{非数値} や \gls{NaN}\NANFN を扱うことができます。 
+FPUは、数字でない特別な\emph{非数値} や \gls{NaN}\NANFN を扱うことができます。 
 これらは無限大で、0で除算した結果です。
 非数値は\q{寡黙}であることも\q{シグナルを発する}こともできます。\q{寡黙な} NaNで
 作業を続行することは可能ですが、\q{シグナルを発する} NaNで何らかの操作を試みる場合は例外が発生します。
@@ -26,7 +26,7 @@ FPUは、数字でない特別な\IT{非数値} や \gls{NaN}\NANFN を扱うこ
 \myindex{x86!\Instructions!SAHF}
 \label{SAHF}
 
-次の命令は \SAHF （\IT{AHをフラグにストア}）です。これはFPUに
+次の命令は \SAHF （\emph{AHをフラグにストア}）です。これはFPUに
 関連しないコードではまれな命令です。
 AHからの8ビットは、次の順序でCPUフラグの下位8ビットに移動します。
 
@@ -65,7 +65,7 @@ AHからの8ビットは、次の順序でCPUフラグの下位8ビットに移�
 
 CPUのフラグと条件に応じて、 \SETNBE はALに1または0を格納します。 
 これはほぼ \JNBE のものですが、 \SETcc
-\footnote{\IT{cc} は \IT{条件コード} です}
+\footnote{\emph{cc} は \emph{条件コード} です}
 はALに1または0を格納しますが、 \Jcc は実際にジャンプするかどうかは異なります。
 \SETNBE は、\GTT{CF=0}および\GTT{ZF=0}の場合にのみ1を格納します。 
 真でない場合は、0が \AL に格納されます。

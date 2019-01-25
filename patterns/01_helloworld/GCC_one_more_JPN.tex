@@ -1,7 +1,7 @@
 \subsection{GCC---もう1つ}
 \label{use_parts_of_C_strings}
 
-\IT{匿名の}C文字列が\IT{const}型(\myref{string_is_const_char})を持ち、
+\emph{匿名の}C文字列が\emph{const}型(\myref{string_is_const_char})を持ち、
 定数セグメントに割り当てられたC文字列が不変であることが保証されているという事実は興味深い結果をもたらします：
 コンパイラは文字列の特定の部分を使用するかもしれません。
 
@@ -36,6 +36,6 @@ int main()
 
 \puts が\GTT{f1()}から呼び出されると、\q{world}文字列とNULLバイトを使用します。 \puts はこの文字列の前に何かがあることを認識していません！
 
-この巧妙なトリックは、少なくともGCCでよく使用され、メモリを節約できます。 これは\IT{文字列インターン}に似ています。
+この巧妙なトリックは、少なくともGCCでよく使用され、メモリを節約できます。 これは\emph{文字列インターン}に似ています。
 
 別の関連する例がここにあります：\myref{strstr_example}

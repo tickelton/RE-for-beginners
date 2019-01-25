@@ -32,7 +32,7 @@ In altre parole:
 exit(main(argc,argv,envp));
 \end{lstlisting}
 
-Se dichiariamo \main come \Tvoid, non viene esplicitamente restituito nulla  (usando lo statement \IT{return}),
+Se dichiariamo \main come \Tvoid, non viene esplicitamente restituito nulla  (usando lo statement \emph{return}),
 e quindi qualche valore random, che si trova memorizzato nel registro \EAX alla fine di \main, diventa argomento della funzione exit().
 Molto probabilmente si trattera' di un valore randomico, resido dell'esecuzione della nostra funzione, quindi l'exit code del programma 
 e' pseudorandom.

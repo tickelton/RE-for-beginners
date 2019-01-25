@@ -20,7 +20,7 @@ Dopo aver inserito il valore 123 in console,
 
 Ma perchè il primo byte è \TT{7B}?
 A rigor di logica, dovremmo trovare \TT{00 00 00 7B}.
-La causa per cui troviamo invece \TT{7B} è detta \gls{endianness}, e x86 usa la convenzione \IT{little-endian}.
+La causa per cui troviamo invece \TT{7B} è detta \gls{endianness}, e x86 usa la convenzione \emph{little-endian}.
 Ciò significa che il byte piu basso è scritto per primo, e quello più alto per ultimo.
 Maggiori informazioni sono disponibili nella sezione: \myref{sec:endianness}.
 Tornando all'esempio, il valore a 32-bit è caricato da questo indirizzo di memoria in \EAX e passato a \printf.

@@ -8,7 +8,7 @@
     push edx
     push eax
     push ecx
-; \verb|'this is box. color=%d, width=%d, height=%d, depth=%d', 0aH, 00H|
+; \verb|'this is a box. color=%d, width=%d, height=%d, depth=%d', 0aH, 00H|
     push OFFSET ??_C@_0DG@NCNGAADL@this?5is?5box?4?5color?$DN?$CFd?0?5width?$DN?$CFd?0@
     call _printf
     add  esp, 20

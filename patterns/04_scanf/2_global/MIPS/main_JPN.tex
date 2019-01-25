@@ -4,7 +4,7 @@
 
 だから今$x$変数はグローバルです。 
 オブジェクトファイルではなく実行ファイルにコンパイルし、 \IDA にロードしてみましょう。 
-IDAは、\IT{.sbss} ELFセクションに$x$変数を表示します（25ページの\q{グローバルポインタ} \myref{MIPS_GP}を覚えておいてください）。
+IDAは、\emph{.sbss} ELFセクションに$x$変数を表示します（25ページの\q{グローバルポインタ} \myref{MIPS_GP}を覚えておいてください）。
 これは変数が最初に初期化されていないためです。
 
 \lstinputlisting[caption=\Optimizing GCC 4.4.5 (IDA),style=customasmMIPS]{patterns/04_scanf/2_global/MIPS/O3_IDA_JPN.lst}

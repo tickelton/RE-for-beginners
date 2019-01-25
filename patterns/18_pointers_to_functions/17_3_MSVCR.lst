@@ -1,4 +1,4 @@
-.text:7816CBF0 ; \verb|void __cdecl qsort(void *, unsigned int, unsigned int, int (__cdecl *)(const void *, const void *))|
+.text:7816CBF0 ; void \_\_cdecl qsort(void *, unsigned int, unsigned int, int (\_\_cdecl *)(const void *, const void *))
 .text:7816CBF0                 public _qsort
 .text:7816CBF0 _qsort          proc near
 .text:7816CBF0

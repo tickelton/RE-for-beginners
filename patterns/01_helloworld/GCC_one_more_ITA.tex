@@ -1,7 +1,7 @@
 \subsection{GCC---un'altra cosa}
 \label{use_parts_of_C_strings}
 
-Il fatto che una stringa C \IT{anonima} abbia tipo \IT{const} (\myref{string_is_const_char}),
+Il fatto che una stringa C \emph{anonima} abbia tipo \emph{const} (\myref{string_is_const_char}),
 e che le stringhe C allocate in in segmenti costanti siano garantite come immutabili, ha una conseguenza interessante:
 il compilatore può utilizzare una parte specifica della stringa.
 
@@ -39,6 +39,6 @@ In effett, non è veramente divisa; è separata solo \q{virtualmente}, in questo
 Quando \puts viene chiamato da \GTT{f1()}, usa la stringa \q{world} più un byte zero. \puts che è presente qualcosa prima di questa stringa!
 
 Questo trucchetto furbo viene utilizzato perlomeno da GCC e può salvare un po' di memoria.
-Questo è simile allo \IT{string interning}.
+Questo è simile allo \emph{string interning}.
 
 Un ulteriore esempio correlato è questo: \myref{strstr_example}.

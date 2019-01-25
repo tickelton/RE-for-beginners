@@ -92,7 +92,7 @@ Notes may meet each other somewhere in between, in case of lack of free space.
 Perhaps the reason for storing local variables and SEH records in the stack is that they are freed automatically upon function exit,
 using just one instruction to correct the stack pointer (it is often \ADD).
 Function arguments, as we could say, are also deallocated automatically at the end of function.
-In contrast, everything stored in the \IT{heap} must be deallocated explicitly.
+In contrast, everything stored in the \emph{heap} must be deallocated explicitly.
 
 % sections
 \EN{\input{patterns/02_stack/07_layout_EN}}

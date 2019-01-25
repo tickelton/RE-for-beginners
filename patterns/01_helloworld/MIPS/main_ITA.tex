@@ -44,7 +44,7 @@ Successivamente l'indirizzo della stringa viene caricato in \$4 usando la coppia
 \INS{LUI} setta i 16 bit alti del registro (da cui la parola \q{upper} nel nome dell'istruzione) e \INS{ADDIU} aggiunge
 i 16 bit piu' bassi dell'indirizzo.
 
-\INS{ADDIU} segue \INS{JALR} (ti ricordi dei \IT{branch delay slots}?).
+\INS{ADDIU} segue \INS{JALR} (ti ricordi dei \emph{branch delay slots}?).
 Il registro \$4 e' anche detto \$A0, e' usato per passare il primo argomento di una funzione
 \footnote{La tabella dei registri MIPS e' riportata in appendice \myref{MIPS_registers_ref}}.
 
@@ -54,8 +54,8 @@ Il registro \$4 e' anche detto \$A0, e' usato per passare il primo argomento di 
 salvando l'indirizzo della prossima istruzione (LW) in \ac{RA}.
 Questo e' molto simile ad ARM.
 Oh, e una cosa importate e' che l'indirizzo salvato in \ac{RA} non e' l'indirizzo della prossima istruzione (perche' e' in un 
-\IT{delay slot} e viene eseguito prima prima dell'istruzione jump),
-ma l'indirizzo dell'istruzione dopo la prossima (dopo il \IT{delay slot}).
+\emph{delay slot} e viene eseguito prima prima dell'istruzione jump),
+ma l'indirizzo dell'istruzione dopo la prossima (dopo il \emph{delay slot}).
 
 Quindi, $PC + 8$ viene scritto in \ac{RA} durante l'esecuzione di \TT{JALR}, nel nostro caso, questo e' l'indirizzo dell'istruzione 
 \INS{LW} successiva a \INS{ADDIU}.
@@ -68,7 +68,7 @@ dell'epilogo della funzione).
 \INS{MOVE} a riga 22 copia il valore dal registro \$0 (\$ZERO) al \$2 (\$V0).
 \label{MIPS_zero_register}
 
-MIPS ha un registro \IT{costante}, il cui valore e' sempre zero.
+MIPS ha un registro \emph{costante}, il cui valore e' sempre zero.
 Apparentemente, gli sviluppatori MIPS hanno pensato che zero e' la costante piu' usata in programmazione, quindi usiamo il registro \$0
  ogni volta che serve il valore zero.
 
@@ -81,7 +81,7 @@ Molto probabilmente, la \ac{CPU} ottimizza queste pseudoistruzioni e la \ac{ALU}
 \myindex{MIPS!\Instructions!J}
 
 \INS{J} a riga 24 salta all'indirizzo in \ac{RA}, effettuando di fatti il ritorno dalla funzione.
-\INS{ADDIU} dopo \INS{J} e' in effetti eseguita prima di J (ricordi i \IT{branch delay slots}?) e fa parte dell'epilogo della funzione.
+\INS{ADDIU} dopo \INS{J} e' in effetti eseguita prima di J (ricordi i \emph{branch delay slots}?) e fa parte dell'epilogo della funzione.
 Ecco anche il listato generato da \IDA. Ogni registro qui ha il suo pseudonimo:
 
 \lstinputlisting[caption=\Optimizing GCC 4.4.5 (\IDA),numbers=left,style=customasmMIPS]{patterns/01_helloworld/MIPS/hw_O3_IDA_EN.lst}
@@ -102,7 +102,7 @@ Il registro contenente l'indirizzo di \puts e' chiamato \$T9, perche' i registri
 Qui vediamo che il registro FP e' usato come un puntatore allo stack frame.
 Vediamo anche 3 \ac{NOP}s.
 Di cui il secondo e terzo seguono all'istruzione branch.
-Forse GCC aggiunge sempre \ac{NOP}s (a causa dei \IT{branch delay slots}) dopo le istruzioni branch
+Forse GCC aggiunge sempre \ac{NOP}s (a causa dei \emph{branch delay slots}) dopo le istruzioni branch
 e successivamente, se le ottimizzazioni sono attivate, forse li elimina.
 Quindi in questo caso sono rimasti.
 
@@ -115,7 +115,7 @@ Ecco anche il listato \IDA:
 E' interessante notare che \IDA ha riconosciuto la coppia di istruzioni \INS{LUI}/\INS{ADDIU} e le ha fusae in un'unica pseudoistruzione 
 \INS{LA} (\q{Load Address}) a riga 15.
 Possiamo anche vedere che questa pseudoistruzione e' lunga 8 bytes!
-Questa e' una pseudoistruzione (o \IT{macro}) in quanto non e' una vera istruzione MIPS , ma soltanto un nome comodo per una coppia
+Questa e' una pseudoistruzione (o \emph{macro}) in quanto non e' una vera istruzione MIPS , ma soltanto un nome comodo per una coppia
 di istruzioni.
 
 \myindex{MIPS!\Pseudoinstructions!NOP}

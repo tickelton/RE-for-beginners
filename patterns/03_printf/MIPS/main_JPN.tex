@@ -13,7 +13,7 @@
 \lstinputlisting[caption=\Optimizing GCC 4.4.5 (IDA),style=customasmMIPS]{patterns/03_printf/MIPS/printf3.O3.IDA_JPN.lst}
 
 \IDA は、\INS{LUI}および\INS{ADDIU}命令のペアを1つの\INS{LA}疑似命令に統合しました。 
-だから、アドレス0x1Cに命令がないのは、\INS{LA}が8バイトを\IT{占有}しているからです。
+だから、アドレス0x1Cに命令がないのは、\INS{LA}が8バイトを\emph{占有}しているからです。
 
 \myparagraph{\NonOptimizing GCC 4.4.5}
 

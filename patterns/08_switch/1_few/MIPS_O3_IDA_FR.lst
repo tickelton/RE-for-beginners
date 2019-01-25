@@ -15,7 +15,7 @@ f:
                 lui     $a0, ($LC0 >> 16)  # "zero"
                 lw      $t9, (puts & 0xFFFF)($gp)
                 or      $at, $zero ; slot de délai de branchement, NOP
-                jr      $t9 ; slot de délai de branchement, NOP
+                jr      $t9
                 la      $a0, ($LC0 & 0xFFFF)  # "zero" ; slot de délai de branchement
 
 loc_38:                                  # CODE XREF: f+1C

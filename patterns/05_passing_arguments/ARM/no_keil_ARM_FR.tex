@@ -11,13 +11,13 @@ passées par les 4 premiers registres (\Reg{0}-\Reg{3}).
 La fonction \ttf, comme il semble, utilise les 3 premiers registres (\Reg{0}-\Reg{2}) comme arguments. 
 
 \myindex{ARM!\Instructions!MLA}
-L'instruction \TT{MLA} (\IT{Multiply Accumulate}) multiplie ses deux premiers opérandes
+L'instruction \TT{MLA} (\emph{Multiply Accumulate}) multiplie ses deux premiers opérandes
 (\Reg{3} et \Reg{1}), additionne le troisième opérande (\Reg{2}) au produit et stocke
 le résultat dans le registre zéro (\Reg{0}), par lequel, d'après le standard, les
 fonctions retournent leur résultat.
 
 \myindex{Fused multiply–add}
-La multiplication et l'addition en une fois (\IT{Fused multiply–add})
+La multiplication et l'addition en une fois (\emph{Fused multiply–add})
 est une instruction très utile. À propos, il n'y avait pas une telle instruction en
 x86 avant les instructions FMA apparues en SIMD
 \footnote{\href{http://go.yurichev.com/17103}{Wikipédia}}.

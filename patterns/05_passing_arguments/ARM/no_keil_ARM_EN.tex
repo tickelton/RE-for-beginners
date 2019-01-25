@@ -10,12 +10,12 @@ As was noted before, in ARM the first 4 values are usually passed in the first 4
 The \ttf function, as it seems, uses the first 3 registers (\Reg{0}-\Reg{2}) as arguments.
 
 \myindex{ARM!\Instructions!MLA}
-The \TT{MLA} (\IT{Multiply Accumulate}) 
+The \TT{MLA} (\emph{Multiply Accumulate}) 
 instruction multiplies its first two operands (\Reg{3} and \Reg{1}), adds the third operand (\Reg{2}) to the product and stores
 the result into the zeroth register (\Reg{0}), via which, by standard, functions return values.
 
 \myindex{Fused multiply–add}
-Multiplication and addition at once (\IT{Fused multiply–add}) 
+Multiplication and addition at once (\emph{Fused multiply–add}) 
 is a very useful operation. By the way, there was no such instruction in x86 
 before FMA-instructions appeared in SIMD
 \footnote{\href{http://go.yurichev.com/17103}{wikipedia}}.

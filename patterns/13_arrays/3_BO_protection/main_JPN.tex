@@ -1,10 +1,6 @@
 ﻿\subsection{バッファオーバーフロー保護手法}
 \label{subsec:BO_protection}
 
-There are several methods to protect against this scourge, regardless of the \CCpp programmers' negligence.
-MSVC has options like\footnote{compiler-side buffer overflow protection methods:
-\href{http://go.yurichev.com/17133}{wikipedia.org/wiki/Buffer\_overflow\_protection}}:
-
 このソースコードに対する保護手法はいくつかあり、 \CCpp プログラマの怠慢にもかかわらず、
 MSVCにはオプションがあります。\footnote{コンパイラサイドのバッファオーバーフロー保護手法:
 \href{http://go.yurichev.com/17133}{wikipedia.org/wiki/Buffer\_overflow\_protection}}
@@ -95,7 +91,7 @@ gsはいわゆるセグメントレジスタです。このレジスタは広く
 ところで、win32では\TT{fs}レジスタは同じ役割を担い、\ac{TIB}を指し示します。
 \footnote{\href{http://go.yurichev.com/17104}{wikipedia.org/wiki/Win32\_Thread\_Information\_Block}}
 
-より詳細はLinuxカーネルソースコード\IT{arch/x86/include/asm/stackprotector.h}の中に
+より詳細はLinuxカーネルソースコード\emph{arch/x86/include/asm/stackprotector.h}の中に
 コメントとして記述してあるのを見つけられます（少なくとも3.11バージョンには）。
 
 \input{patterns/13_arrays/3_BO_protection/ARM_JPN.tex}

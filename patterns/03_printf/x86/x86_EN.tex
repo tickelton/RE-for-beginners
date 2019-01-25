@@ -30,7 +30,7 @@ When the \gls{stack pointer} (\ESP register) has changed back by the\\
 \INS{ADD ESP, X} instruction after a function call, often,
 the number of function arguments could be deduced by simply dividing X by 4.
 
-Of course, this is specific to the \IT{cdecl} calling convention, and only for 32-bit environment.
+Of course, this is specific to the \emph{cdecl} calling convention, and only for 32-bit environment.
 
 See also the calling conventions section ~(\myref{sec:callingconventions}).
 
@@ -106,7 +106,7 @@ Take a look at the right bottom debugger window:
 \end{figure}
 
 We can see 3 columns there: address in the stack, value in the stack and some additional \olly comments. 
-\olly understands \printf{}-like strings, so it reports the string here and the 3 values \IT{attached} to it.
+\olly understands \printf{}-like strings, so it reports the string here and the 3 values \emph{attached} to it.
 
 It is possible to right-click on the format string, click on \q{Follow in dump},
 and the format string will appear in the debugger left-bottom window, which always displays some part of the memory.
@@ -139,7 +139,7 @@ Apparently, the \printf function's hidden machinery used them for its own needs.
 
 A very important fact is that neither the \ESP value, nor the stack state have been changed!
 We clearly see that the format string and corresponding 3 values are still there.
-This is indeed the \IT{cdecl} calling convention behavior: \gls{callee} does not return \ESP back to its previous value.
+This is indeed the \emph{cdecl} calling convention behavior: \gls{callee} does not return \ESP back to its previous value.
 The \gls{caller} is responsible to do so.
 
 \clearpage
@@ -155,7 +155,7 @@ Press F8 again to execute \INS{ADD ESP, 10} instruction:
 \ESP has changed, but the values are still in the stack!
 Yes, of course; no one needs to set these values to zeros or something like that.
 Everything above the stack pointer (\ac{SP}) 
-is \IT{noise} or \IT{\garbage{}} and has no meaning at all.
+is \emph{noise} or \emph{\garbage{}} and has no meaning at all.
 It would be time consuming to clear the unused stack entries anyway, and no one really needs to.
 
 \myparagraph{GCC}

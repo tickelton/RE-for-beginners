@@ -1,7 +1,7 @@
 \subsection{Таблица \TT{X\$KSMLRU} в \oracle}
 \myindex{\oracle}
 
-В заметке \IT{Diagnosing and Resolving Error ORA-04031 
+В заметке \emph{Diagnosing and Resolving Error ORA-04031 
 on the Shared Pool or Other Memory Pools [Video] [ID 146599.1]} упоминается некая служебная таблица:
 
 \begin{framed}
@@ -105,7 +105,8 @@ tracer -a:oracle.exe bpx=oracle.exe!0x00434C7A,set(eip,0x00434C8A)
 
 Действительно, после этого мы можем обращаться к таблице \TT{X\$KSMLRU} сколько угодно, и она уже не очищается!
 
-\sout{Не делайте этого дома ("Разрушители легенд")} Не делайте этого на своих production-серверах.
+%\sout{Не делайте этого дома ("Разрушители легенд")} Не делайте этого на своих production-серверах.
+На всякий случай, не повторяйте этого на своих production-серверах.
 
 Впрочем, это не обязательно полезное или желаемое поведение системы, но как эксперимент по поиску нужного кода, нам это подошло!
 

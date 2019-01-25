@@ -116,7 +116,7 @@ The author of these lines found the version with the bug (2.4 fk)
 \footnote{\url{http://rephial.org/release/2.4.fk}, \url{https://yurichev.com/mirrors/angband-2.4.fk.tar}},
 and we can clearly see how global arrays are declared:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=customc]
 /* Number of dungeon objects */
 #define MAX_DUNGEON_OBJ  423
 
@@ -131,7 +131,7 @@ inven_type t_list[MAX_TALLOC];
 inven_type inventory[INVEN_ARRAY_SIZE];
 \end{lstlisting}
 
-Perhaps this is a reason. The \TT{The MAX\_DUNGEON\_OBJ} constant is too small.
+Perhaps this is a reason. The \TT{MAX\_DUNGEON\_OBJ} constant is too small.
 Perhaps, authors should use linked lists or other data structures, which are unlimited by size.
 But arrays are simpler.
 

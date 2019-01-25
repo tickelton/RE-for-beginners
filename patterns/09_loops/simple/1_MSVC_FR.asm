@@ -10,7 +10,7 @@ $LN2@main:
     add    eax, 1                  ; ajouter 1 à la valeur de (i)
     mov    DWORD PTR _i$[ebp], eax
 $LN3@main:
-    cmp    DWORD PTR _i$[ebp], 10  ; cette condition est testée \IT{avant} chaque itération
+    cmp    DWORD PTR _i$[ebp], 10  ; cette condition est testée \emph{avant} chaque itération
     jge    SHORT $LN1@main         ; si (i) est supérieur ou égal à 10, la boucle se termine
     mov    ecx, DWORD PTR _i$[ebp] ; corps de la boucle: appel de printing\_function(i)
     push   ecx

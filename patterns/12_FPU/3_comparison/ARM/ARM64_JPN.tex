@@ -12,7 +12,7 @@ ARM64 \ac{ISA}には、便宜上、
 \ac{APSR}フラグ（N, Z, C, V）を設定します。
 
 \myindex{ARM!\Instructions!FCSEL}
-\INS{FCSEL}（\IT{Floating Conditional Select}）は、条件（\GTT{GT}---Greater Than）に応じて\RegD{0}または\RegD{1}の値を\RegD{0}にコピーし、
+\INS{FCSEL}（\emph{Floating Conditional Select}）は、条件（\GTT{GT}---Greater Than）に応じて\RegD{0}または\RegD{1}の値を\RegD{0}にコピーし、
 再び\ac{FPSCR}の代わりに\ac{APSR}レジスタのフラグを使用します。
 
 これは、古いCPUの命令セットに比べてはるかに便利です。
@@ -27,7 +27,7 @@ ARM64 \ac{ISA}には、便宜上、
 
 非最適化GCCはより冗長です。
 
-まず、関数は入力引数の値をローカルスタック（\IT{Register Save Area}）に保存します。
+まず、関数は入力引数の値をローカルスタック（\emph{Register Save Area}）に保存します。
 次に、これらの値をレジスタ
 \RegD{0}/\RegD{1}にリロードし、
 最終的に\RegX{0}/\RegX{1}にコピーして\INS{FCMPE}を使用して比較します。
@@ -35,7 +35,7 @@ ARM64 \ac{ISA}には、便宜上、
 最適化されていないコンパイラの仕組みです。 
 \INS{FCMPE}は値を比較し、\ac{APSR}フラグを設定します。
 現時点では、コンパイラは、より便利な\INS{FCSEL}命令についてはまだ考えていないため、古いメソッドを使用して処理を進めます。
-つまり、\INS{BLE}命令を使用します（\IT{Branch if Less than or Equal}）。
+つまり、\INS{BLE}命令を使用します（\emph{Branch if Less than or Equal}）。
 最初のケース（$a>b$）では、 $a$ の値が\RegX{0}にロードされます。
 それ以外の場合（$a<=b$）、 $b$ の値は\RegX{0}にロードされます。
 最後に、戻り値がこのレジスタにある必要があるため、

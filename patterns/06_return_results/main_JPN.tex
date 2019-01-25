@@ -29,7 +29,7 @@ call exit
 exit(main(argc,argv,envp));
 \end{lstlisting}
 
-\main を \Tvoid として宣言すると、明示的に（\IT{return}文を使って）何も返されず、
+\main を \Tvoid として宣言すると、明示的に（\emph{return}文を使って）何も返されず、
 \main の最後の \EAX レジスタに格納された何かがexit()の唯一の引数になります。
 おそらく、あなたの関数の実行から放棄されるランダムな値があるでしょう。したがって、プログラムの終了コードは疑似乱数です。
 \par

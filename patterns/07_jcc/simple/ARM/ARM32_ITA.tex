@@ -15,24 +15,24 @@ Es. sono spesso usate quando si confrontano numeri.
 \myindex{ARM!\Instructions!ADDAL}
 
 Ad esempio, l'istruzione \ADD è infatti chiamata internamente is in fact named \TT{ADDAL}, il suffisso \TT{AL} sta per
-\IT{Always}, ad indicare che viene eseguita sempre.
-I predicati sono codificati nei 4 bit alti dell'istruzione ARM a 32-bit (\IT{condition field}).
+\emph{Always}, ad indicare che viene eseguita sempre.
+I predicati sono codificati nei 4 bit alti dell'istruzione ARM a 32-bit (\emph{condition field}).
 \myindex{ARM!\Instructions!B}
 L'istruzione \TT{B} per effettuare un salto non condizionale è in realtà condizionale ed è codificata proprio come ogni altro
-jump condizionale, ma ha \TT{AL} (\IT{execute ALways}) nel \IT{condition field}, e ciò implica che venga sempre eseguito, ignorando i flag.
+jump condizionale, ma ha \TT{AL} (\emph{execute ALways}) nel \emph{condition field}, e ciò implica che venga sempre eseguito, ignorando i flag.
 
 \myindex{ARM!\Instructions!ADR}
 \myindex{ARM!\Instructions!ADRcc}
 \myindex{ARM!\Instructions!CMP}
 
 L'istruzione \TT{ADRGT} funziona come \TT{ADR}, ma viene eseguita soltanto nel caso in cui la precedente istruzione \CMP
-trovi uno dei due numeri a confronto più grande dell'altro, (\IT{Greater Than}).
+trovi uno dei due numeri a confronto più grande dell'altro, (\emph{Greater Than}).
 
 \myindex{ARM!\Instructions!BL}
 \myindex{ARM!\Instructions!BLcc}
 
 La successiva istruzione \TT{BLGT} si comporta esattamente come \TT{BL} 
-ed il salto viene innescato solo se il risultato del confronto è (\IT{Greater Than}). 
+ed il salto viene innescato solo se il risultato del confronto è (\emph{Greater Than}). 
 \TT{ADRGT} scrive un putatore alla stringa \TT{a>b\textbackslash{}n} nel registro \Reg{0} e \TT{BLGT} chiama \printf.
 Le istruzioni aventi il suffisso \TT{-GT} in questo caso sono quindi eseguite solo se il valore in \Reg{0} (ovvero $a$) è maggiore del valore 
 in \Reg{4} (ovvero $b$).
@@ -48,7 +48,7 @@ Un altra \CMP si trova subito prima di loro (poiché l'esecuzione di \printf pot
 \myindex{ARM!\Instructions!LDMFD}
 
 Ancora più avanti vediamo \TT{LDMGEFD}, questa istruzione funziona come \TT{LDMFD}\footnote{\ac{LDMFD}},
-ma viene eseguita solo quando uno dei valori e maggiore di o uguale all'altro (\IT{Greater or Equal}).
+ma viene eseguita solo quando uno dei valori e maggiore di o uguale all'altro (\emph{Greater or Equal}).
 L'istruzione \TT{LDMGEFD SP!, \{R4-R6,PC\}} si comporta come un epilogo di funzione, ma viene eseguita solo se $a>=b$, e solo in tal caso avrà termine l'esecuzione della funzione.
 
 \myindex{Function epilogue}
@@ -61,7 +61,7 @@ Abbiamo già visto un salto diretto non condizionale alla funzione \printf senza
 \myindex{ARM!\Instructions!ADRcc}
 \myindex{ARM!\Instructions!BLcc}
 \myindex{ARM!\Instructions!LDMccFD}
-\TT{f\_unsigned} è simile, e vengono utilizzate le funzioni \TT{ADRHI}, \TT{BLHI}, e \TT{LDMCSFD}. Questi predicati (\IT{HI = Unsigned higher, CS = Carry Set (maggiore di o uguale a)}) sono analoghi a quelli visti in precedenza, e operano su valori di tipo unsigned.
+\TT{f\_unsigned} è simile, e vengono utilizzate le funzioni \TT{ADRHI}, \TT{BLHI}, e \TT{LDMCSFD}. Questi predicati (\emph{HI = Unsigned higher, CS = Carry Set (maggiore di o uguale a)}) sono analoghi a quelli visti in precedenza, e operano su valori di tipo unsigned.
 
 Nella funzione \main non c'è nulla di nuovo:
 
@@ -88,13 +88,13 @@ se specifici flag sono settati, solitamente da \CMP.
 \myindex{ARM!\Instructions!B}
 \myindex{ARM!\ThumbMode}
 
-Solo le istruzioni \TT{B} in modalità Thumb possono essere supplementate da \IT{condition codes}, pertanto il codice Thumb 
+Solo le istruzioni \TT{B} in modalità Thumb possono essere supplementate da \emph{condition codes}, pertanto il codice Thumb 
 ha un aspetto più ordinario.
 
-\TT{BLE} è un normale jump condizionale \IT{Less than or Equal}, 
-\TT{BNE}---\IT{Not Equal}, 
-\TT{BGE}---\IT{Greater than or Equal}.
+\TT{BLE} è un normale jump condizionale \emph{Less than or Equal}, 
+\TT{BNE}---\emph{Not Equal}, 
+\TT{BGE}---\emph{Greater than or Equal}.
 
 \TT{f\_unsigned} è simile, con la differenza che vengono usate altre istruzioni per operare con valori
 di tipo unsigned: \TT{BLS} 
-(\IT{Unsigned lower or same}) e \TT{BCS} (\IT{Carry Set (Greater than or equal)}).
+(\emph{Unsigned lower or same}) e \TT{BCS} (\emph{Carry Set (Greater than or equal)}).

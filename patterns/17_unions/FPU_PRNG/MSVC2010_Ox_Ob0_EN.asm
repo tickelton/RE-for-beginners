@@ -18,8 +18,8 @@ _tmp$ = -4
 ; subtract 1.0:
 	fsub	QWORD PTR __real@3ff0000000000000
 ; store value we got into local stack and reload it:
-	fstp	DWORD PTR tv130[esp+4] ; \  these instructions are redundant
-	fld	DWORD PTR tv130[esp+4] ; /
+	fstp	DWORD PTR tv130[esp+4] ; \verb|\  these instructions are redundant|
+	fld	DWORD PTR tv130[esp+4] ; \verb|/                                  |
 	pop	ecx
 	ret	0
 ?float_rand@@YAMXZ ENDP

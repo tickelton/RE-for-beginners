@@ -28,7 +28,7 @@ Qualcuno potrebbe chiedersi perchè ci debba essere una differenza tra il codice
 per un umano è molto più facille utilizzare un linguaggio di programmazione ad alto livello come \CCpp, Java, Python, etc., mentre per una \ac{CPU} è più semplice utilizzare un livello di astrazione più basso.
 Potrebbe essere forse possibile inventare una \ac{CPU} in grado di eseguire codice di un \ac{PL} ad alto livello, ma sarebbe molto più complessa dei processori che conosciamo oggi.
 Allo stesso modo sarebbe del tutto sconveniente per gli umani scrivere in linguaggio assembly, a causa della sua natura di basso livello e la difficoltà nello scrivere senza commettere un enorme numero di fastidiosi errori.
-Il programma che converte il codice di un \ac{PL} di alto livello in assembly è detto un \IT{compilatore}.
+Il programma che converte il codice di un \ac{PL} di alto livello in assembly è detto un \emph{compilatore}.
 \footnote{La vecchia letteratura russa in materia utilizza il termine \q{traduttore}.}.
 
 \myindex{ARM!\ARMMode}%
@@ -48,7 +48,7 @@ Successivamente si scoprì che non era poi tanto economico come si immaginava in
 Infatti, le istruzioni \ac{CPU} più usate \footnote{Che sono MOV/PUSH/CALL/Jcc} nelle applicazioni reali, possono essere codificate usando meno informazioni.
 Venne quindi aggiunta un'altra \ac{ISA}, detta Thumb, in cui ogni istruzione era codificata in solo 2 byte.
 Oggi detto \q{Thumb mode}.
-Tuttavia non \IT{tutte} le istruzioni ARM possono essere codificate in solo 2 byte, quindi il set di istruzioni Thumb è quindi in qualche modo limitato.
+Tuttavia non \emph{tutte} le istruzioni ARM possono essere codificate in solo 2 byte, quindi il set di istruzioni Thumb è quindi in qualche modo limitato.
 Vale la pena notare che il codice compilato in ARM mode e Thumb mode può tranquillamente coesistere all'interno dello stesso programma.
 I creatori di ARM pensarono di estendere Thumb, dando vita a Thumb-2, apparso per la prima volta in ARMv7.
 Thumb-2 utilizza ancora istruzioni da 2 byte, ma ha alcune nuove istruzioni da 4 byte.

@@ -38,8 +38,8 @@ gcc -fPIC -shared -O3 -o 1.so 1.c
 
 \lstinputlisting[style=customasmx86,caption=GCC 4.7.3]{OS/tmp2.asm}
 
-\newcommand{\retstring}{\IT{<<returning \%d\textbackslash{}n>>}}
-\newcommand{\globvar}{\IT{global\_variable}}
+\newcommand{\retstring}{\emph{<<returning \%d\textbackslash{}n>>}}
+\newcommand{\globvar}{\emph{global\_variable}}
 
 Так и есть: указатели на строку \retstring{} и переменную \globvar{} корректируются при каждом исполнении функции.
 
@@ -47,7 +47,7 @@ gcc -fPIC -shared -O3 -o 1.so 1.c
 Это очень простой способ получить значение указателя на текущую инструкцию (\EIP) в произвольном месте.
 
 Константа \TT{0x1A84} связана с разницей между началом этой функции и так называемой
-\IT{Global Offset Table Procedure Linkage Table} (GOT PLT), секцией, сразу же за \IT{Global Offset Table} (GOT), где находится указатель на \globvar{}.
+\emph{Global Offset Table Procedure Linkage Table} (GOT PLT), секцией, сразу же за \emph{Global Offset Table} (GOT), где находится указатель на \globvar{}.
 \IDA показывает смещения уже обработанными, чтобы их было проще понимать, но на самом деле код такой:
 
 \begin{lstlisting}[style=customasmx86]
@@ -69,7 +69,7 @@ gcc -fPIC -shared -O3 -o 1.so 1.c
 Скомпилируем тот же код на Си при помощи той же версии GCC, но для x64.
 
 \myindex{objdump}
-\IDA упростит код на выходе убирая упоминания RIP, так что будем использовать \IT{objdump} вместо нее:
+\IDA упростит код на выходе убирая упоминания RIP, так что будем использовать \emph{objdump} вместо нее:
 
 \lstinputlisting[style=customasmx86]{OS/tmp3.asm}
 
@@ -85,9 +85,9 @@ gcc -fPIC -shared -O3 -o 1.so 1.c
 \myindex{Windows!Win32}
 
 Такой механизм не используется в Windows DLL. Если загрузчику в Windows приходится загружать DLL 
-в другое место, он \q{патчит} DLL прямо в памяти (на местах \IT{FIXUP}-ов) чтобы скорректировать 
+в другое место, он \q{патчит} DLL прямо в памяти (на местах \emph{FIXUP}-ов) чтобы скорректировать 
 все адреса.
 Это приводит к тому что загруженную один раз DLL нельзя использовать одновременно в разных 
 процессах, желающих расположить её по разным адресам --- потому что каждый загруженный в память 
-экземпляр DLL \IT{доводится} до того чтобы работать только по этим адресам.
+экземпляр DLL \emph{доводится} до того чтобы работать только по этим адресам.
 

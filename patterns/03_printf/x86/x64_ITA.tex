@@ -94,7 +94,7 @@ rip            0x7ffff7a65f60	0x7ffff7a65f60 <__printf>
 0x400628:	"a=%d; b=%d; c=%d; d=%d; e=%d; f=%d; g=%d; h=%d\n"
 \end{lstlisting}
 
-Effettuiamo un dump dello stack, questa volta con il comando x/g ---\IT{g} sta per \IT{giant words}, ovvero 64-bit words.
+Effettuiamo un dump dello stack, questa volta con il comando x/g ---\emph{g} sta per \emph{giant words}, ovvero 64-bit words.
 
 \begin{lstlisting}
 (gdb) x/10g $rsp

@@ -1,7 +1,7 @@
 \subsection{GCC --- jeszcze co nieco}
 \label{use_parts_of_C_strings}
 
-To, że \IT{anonimowa} linia w C ma typ \IT{const} (\myref{string_is_const_char}), 
+To, że \emph{anonimowa} linia w C ma typ \emph{const} (\myref{string_is_const_char}), 
 i to, że zaznaczone w segmencie stałych C-linie są gwarantowanie nie do zmiany (immutable), 
 prowadzi do ciekawych konsekwencji: kompilator może korzystać tylko z pewnej części linii.
 
@@ -40,7 +40,7 @@ tylko \q{wirtualnie}, w naszym listingu.
 Kiedy \puts zostaje wywołane z \GTT{f1()}, ono wykorzystuje linię \q{world} + zerowy bajt. \puts w ogóle nie wie, że tam jest jeszcze jakaś linia przed tą!
 
 Ten trik jest często wykorzystywany (przynajmniej w GCC) i może zaoszczędzić trochę pamięci.
-Jest to podobny mechanizm do mechanizmu \IT{internowania łańcuchów}.
+Jest to podobny mechanizm do mechanizmu \emph{internowania łańcuchów}.
 
 Jeszcze jeden przykład można znaleźć tutaj: \myref{strstr_example}.
 

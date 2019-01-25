@@ -13,7 +13,7 @@ _main    PROC
     fld    QWORD PTR __real@40400147ae147ae1
     fstp   QWORD PTR [esp]
     call   _pow
-    add    esp, 8  ; 1つの変数の領域を ﾂｧ\IT{戻す}ﾂｧ 
+    add    esp, 8  ; 1つの変数の領域を ﾂｧ\emph{戻す}ﾂｧ 
 
 ; ローカルスタックにまだ8バイト空きがある
 ; 結果がST(0)に

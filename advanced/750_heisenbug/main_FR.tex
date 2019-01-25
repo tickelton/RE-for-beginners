@@ -1,7 +1,7 @@
 \mysection{Un autre heisenbug}
 \label{GlobalArraysOverflowHeisenbug}
 
-Parfois, un tableau (ou tampon) peut déborder à cause d'une \IT{erreur de poteaux et d'intervalles}:
+Parfois, un tableau (ou tampon) peut déborder à cause d'une \emph{erreur de poteaux et d'intervalles}:
 
 \lstinputlisting[style=customc]{advanced/750_heisenbug/1.c}
 
@@ -40,5 +40,5 @@ Si toutes les variables et tableaux sont allouées sur la pile locale, la protec
 de la pile peut être déclenchée, ou pas.
 Toutefois, Valgrind peut trouver ce genre de bugs.
 
-% TBT Related example in the book (Angband game): \myref{Angband}.
+Un exemple connexe dans le livre (jeu Angband): \myref{Angband}.
 

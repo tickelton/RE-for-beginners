@@ -22,7 +22,7 @@ Tak się dzieje dlatego, że ilość przydzielanego miejsca na stosie lokalnym j
 % TODO1: rewrite.
 \myindex{x86!\Instructions!PUSH}
 Adres linii (lub wskaźnik na nią) jest zatem odkładany prosto na stos bez wykorzystywania instrukcji \PUSH.
-\IT{var\_10} jednocześnie i lokalna zmienna i argument dla \printf{}. Dokładniej to będzie omawiane w dalszym ciągu.
+\emph{var\_10} jednocześnie i lokalna zmienna i argument dla \printf{}. Dokładniej to będzie omawiane w dalszym ciągu.
 
 Dalej jest wywoływane \printf.
 
@@ -49,8 +49,8 @@ Otrzymamy taki plik:
 
 Tu jest dużo makro (rozpoczynających się z kropki). Na razie one nas nie interesują.
 
-Na razie możemy je ignorować (za wyjątkiem \IT{.string}, za pomocą którego kodujemy sekwencję znaków zakończonych znakiem null ~--- tak jak w C). Wtedy otrzymamy następujące:
-\footnote{Dla zmniejszenia liczby generowanych \q{zbędnych} makro, można skorzystać z następującego klucza GCC: \IT{-fno-asynchronous-unwind-tables}}:
+Na razie możemy je ignorować (za wyjątkiem \emph{.string}, za pomocą którego kodujemy sekwencję znaków zakończonych znakiem null ~--- tak jak w C). Wtedy otrzymamy następujące:
+\footnote{Dla zmniejszenia liczby generowanych \q{zbędnych} makro, można skorzystać z następującego klucza GCC: \emph{-fno-asynchronous-unwind-tables}}:
 
 \lstinputlisting[caption=GCC 4.7.3,style=customasmx86]{patterns/01_helloworld/GCC_refined.s}
 

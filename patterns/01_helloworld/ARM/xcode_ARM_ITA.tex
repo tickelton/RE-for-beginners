@@ -55,8 +55,8 @@ L'istruzione \INS{BL} chiama la funzione \puts ivece di \printf.
 GCC ha sostituito la prima chiamata a \printf con \puts.
 Infatti: \printf con un solo argomento è quasi analoga a \puts.
 
-\IT{Quasi}, perchè le due funzioni producono lo stesso risultato solo nel caso in cui la stringa non contiene
-identificatori di formato (format identifiers) che iniziano con \IT{\%}.
+\emph{Quasi}, perchè le due funzioni producono lo stesso risultato solo nel caso in cui la stringa non contiene
+identificatori di formato (format identifiers) che iniziano con \emph{\%}.
 In caso contrario l'effetto di queste due funzioni sarebbe diverso
 \footnote{Bisogna anche notare che \puts non richiede un simbolo new line `\textbackslash{}n' alla fine della stringa,
 per questo non lo vediamo qui.}.
@@ -64,6 +64,6 @@ per questo non lo vediamo qui.}.
 Perchè il compilatore ha sostituito \printf con \puts? Probabilmente perchè \puts è più veloce
 \footnote{\href{http://go.yurichev.com/17063}{ciselant.de/projects/gcc\_printf/gcc\_printf.html}}.
 
-Poichè passa direttamente i caratteri a \gls{stdout} senza confrontare ciascuno di essi con il simbolo \IT{\%}.
+Poichè passa direttamente i caratteri a \gls{stdout} senza confrontare ciascuno di essi con il simbolo \emph{\%}.
 
 Andando avanti, vediamo la familiare istruzione \TT{MOV R0, \#0} che imposta il registro \Reg{0} a 0.

@@ -42,7 +42,7 @@ c:\tmp6\ss.cpp(4) : warning C4717: 'f' : recursive on all control paths, functio
 \lstinputlisting[style=customasmx86]{patterns/02_stack/1.asm}
 
 \dots Se attiviamo le ottimizzazioni del compilatore (\TT{\Ox} option) il codice ottimizzato non causera' overflow dello stack 
-e funzionera' invece \IT{correttamente}\footnote{sarcasmo, si fa per dire}:
+e funzionera' invece \emph{correttamente}\footnote{sarcasmo, si fa per dire}:
 
 \lstinputlisting[style=customasmx86]{patterns/02_stack/2.asm}
 
@@ -67,7 +67,7 @@ Spesso vediamo istruzioni come \INS{PUSH {R4-R7,LR}} insieme ad isrtuzioni nell'
 
 \myindex{ARM!Leaf function}
 Ciononostante, se una funzione non chiama al suo interno nessun'altra funzione, in terminologia \ac{RISC} e' detta 
-\IT{\gls{leaf function}}, o funzione foglia.\footnote{\href{http://go.yurichev.com/17064}{infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.faqs/ka13785.html}}. 
+\emph{\gls{leaf function}}, o funzione foglia.\footnote{\href{http://go.yurichev.com/17064}{infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.faqs/ka13785.html}}. 
 Di conseguenza, le leaf functions non salvano il registro \ac{LR} register (perche' difatti non lo modificano).
 Se una simile funzione e' molto breve e usa un piccolo numero di registri, potrebbe non usare del tutto lo stack. 
 E' quindi possible chiamare le leaf functions senza usare lo stack, cosa che puo' essere piu' veloce che sulle macchine x86 perche' ;a RA< esterna non viene usata per lo stack
