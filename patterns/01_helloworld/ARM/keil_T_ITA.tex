@@ -3,7 +3,7 @@
 Compiliamo lo stesso esempio usando Keil in Thumb mode:
 
 \begin{lstlisting}
-armcc.exe --thumb --c90 -O0 1.c 
+armcc.exe --thumb --c90 -O0 1.c
 \end{lstlisting}
 
 Otteniamo (in \IDA):
@@ -19,12 +19,12 @@ Otteniamo (in \IDA):
 .text:00000304 68 65 6C 6C+aHelloWorld  DCB "hello, world",0    ; DATA XREF: main+2
 \end{lstlisting}
 
-Possiamo facilmente individuare gli opcode a 2-byte (16-bit). Questo e', come gia' detto, Thumb.
+Possiamo facilmente individuare gli opcode a 2-byte (16-bit). Questo è, come già detto, Thumb.
 \myindex{ARM!\Instructions!BL}
-L'istruzione \TT{BL} , tuttavia, e' fatta da due istruzioni a 16-bit.
-Cio' accade perche' e' impossibile caricare un offset per la funzione \printf usando il poco spazio a disposizione in un opcode a 16-bit.
-Pertanto la prima istruzione a 16-bit carica i 10 bit alti ( the higher 10 bits) dell' offset e la seconda istruzione carica
-gli 11 bit bassi (the lower 11 bits) dell'offset.
+L'istruzione \TT{BL} , tuttavia, è composta da due istruzioni a 16-bit.
+Ciò accade perchè è impossibile caricare un offset per la funzione \printf usando il poco spazio a disposizione in un opcode a 16-bit.
+Pertanto la prima istruzione a 16-bit carica i 10 bit alti dell'offset e la seconda istruzione carica
+gli 11 bit più bassi dell'offset.
 
 % TODO:
 % BL has space for 11 bits, so if we don't encode the lowest bit,
@@ -46,15 +46,15 @@ gli 11 bit bassi (the lower 11 bits) dell'offset.
 % In this case, though, the new program counter can only be 1M away,
 % because of the highest bit is used for the sign.
 
-Come gia' detto, tutte le istruzione in Thumb mode hanno dimensione pari a 2 bytes (o 16 bits).
-Cio' implica che e' impossibile trovare un'istruzione Thumb-instruction ad un indirizzo dispari.
-Secondo quanto detto, l'ultimo bit dell'indirizzo puo' essere omesso nell'encoding delle istruzioni.
+Come già detto, tutte le istruzione in Thumb mode hanno dimensione pari a 2 bytes (o 16 bit).
+Ciò implica che è impossibile trovare un'istruzione Thumb ad un indirizzo dispari.
+Per questo motivo, l'ultimo bit dell'indirizzo può essere omesso nell'encoding delle istruzioni.
 
-Per riassumere, l'istruzione Thumb \TT{BL} puo' codificare un indirizzo in $current\_PC \pm{}\approx{}2M$.
+Per riassumere, l'istruzione Thumb \TT{BL} può codificare un indirizzo in $current\_PC \pm{}\approx{}2M$.
 
 \myindex{ARM!\Instructions!PUSH}
 \myindex{ARM!\Instructions!POP}
-Riguardo le altre istruzioni nella funzione: \PUSH and \POP qui funzionano come \TT{STMFD}/\TT{LDMFD} con
-l'unica differenza che il registro \ac{SP} in questo caso non e' menzionato esplicitamente.
+Riguardo le altre istruzioni nella funzione: \PUSH e \POP qui funzionano come \TT{STMFD}/\TT{LDMFD} con
+l'unica differenza che il registro \ac{SP} in questo caso non viene menzionato esplicitamente.
 \TT{ADR} funziona esattamente come nell'esempio precedente.
 \TT{MOVS} scrive 0 nel registro \Reg{0} per restituire zero.
