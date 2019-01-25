@@ -10,20 +10,20 @@ Affinche' \scanf possa leggere l'input, necessita di un parametro ---puntatore a
 \Tint e' 32-bit, quindi servono 4 byte per memorizzarlo da qualche parte in memoria, e entra perfettamente in un registro a 32-bit.
 \myindex{IDA!var\_?}
 Uno spazio per la variabile locale \GTT{x} e' allocato nello stack e \IDA
-lo ha chiamato \IT{var\_8}. Non e' comunque necessario allocarlo in questo modo poiche' \ac{SP} (\gls{stack pointer}) punta gia' a quella posizione e puo' essere usato direttamente.
+lo ha chiamato \emph{var\_8}. Non e' comunque necessario allocarlo in questo modo poiche' \ac{SP} (\gls{stack pointer}) punta gia' a quella posizione e puo' essere usato direttamente.
 
 Successivamente il valore di \ac{SP} e' copiato nel registro \Reg{1} e sono passati, insieme alla format-string, a \scanf.
 
 % TBT here
 %\INS{PUSH/POP} instructions behaves differently in ARM than in x86 (it's the other way around).
 %They are synonyms to \INS{STM/STMDB/LDM/LDMIA} instructions.
-%And \INS{PUSH} instruction first writes a value into the stack, \IT{and then} subtracts \ac{SP} by 4.
-%\INS{POP} first adds 4 to \ac{SP}, \IT{and then} reads a value from the stack.
+%And \INS{PUSH} instruction first writes a value into the stack, \emph{and then} subtracts \ac{SP} by 4.
+%\INS{POP} first adds 4 to \ac{SP}, \emph{and then} reads a value from the stack.
 %Hence, after \INS{PUSH}, \ac{SP} points to an unused space in stack.
 %It is used by \scanf, and by \printf after.
 
-%\INS{LDMIA} means \IT{Load Multiple Registers Increment address After each transfer}.
-%\INS{STMDB} means \IT{Store Multiple Registers Decrement address Before each transfer}.
+%\INS{LDMIA} means \emph{Load Multiple Registers Increment address After each transfer}.
+%\INS{STMDB} means \emph{Store Multiple Registers Decrement address Before each transfer}.
 
 \myindex{ARM!\Instructions!LDR}
 Questo valore, con l'aiuto dell'istruzione \INS{LDR} , viene poi spostato dallo stakc al registro \Reg{1} per essere passato a \printf.

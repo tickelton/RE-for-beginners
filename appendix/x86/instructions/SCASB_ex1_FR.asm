@@ -1,5 +1,5 @@
 lea     edi, string
-mov     ecx, 0FFFFFFFFh ; scanne les octets $2^{32}-1$, i.e., presque l'\IT{infini}
+mov     ecx, 0FFFFFFFFh ; scanne les octets $2^{32}-1$, i.e., presque l'\emph{infini}
 xor     eax, eax        ; 0 est le terminateur
 repne scasb
 add     edi, 0FFFFFFFFh ; le corriger

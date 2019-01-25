@@ -2,10 +2,10 @@
 
 \lstinputlisting[caption=IDA,style=customasmARM]{patterns/04_scanf/2_global/ARM.lst}
 
-La variabile \TT{x} è ora globale, e perciò è collocata in un altro segmento, ovvero il data segment (\IT{.data}).
-Ci si potrebbe chiedere perchè le stringhe testuali sono collocate nel code segment (\IT{.text}) e \TT{x} nel data segment.
+La variabile \TT{x} è ora globale, e perciò è collocata in un altro segmento, ovvero il data segment (\emph{.data}).
+Ci si potrebbe chiedere perchè le stringhe testuali sono collocate nel code segment (\emph{.text}) e \TT{x} nel data segment.
 Il motivo risiede nel fatto che \TT{x} è una variabile, e per definizione il suo valore potrebbe cambiare (e anche spesso).
-Le stringhe testuali hanno invece tipo costante, non verranno modificate, e sono quindi collocate nel segmento \IT{.text}.
+Le stringhe testuali hanno invece tipo costante, non verranno modificate, e sono quindi collocate nel segmento \emph{.text}.
 \myindex{\RAM}
 \myindex{\ROM}
 
@@ -30,7 +30,7 @@ Quindi l'indirizzo della variabile \TT{x} deve trovarsi nelle vicinanze, poichè
 \myindex{\CLanguageElements!const}
 \myindex{\ROM}
 
-Un'altra cosa: se una variabile è dichiarata come \IT{const}, il compilatore Keil la colloca nel segmento \TT{.constdata}.
+Un'altra cosa: se una variabile è dichiarata come \emph{const}, il compilatore Keil la colloca nel segmento \TT{.constdata}.
 Forse successivamente il linker potrebbe piazzare anche questo segmento nella ROM, insieme al code segment.
 
 \subsubsection{ARM64}

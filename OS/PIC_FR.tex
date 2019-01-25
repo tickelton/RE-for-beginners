@@ -45,8 +45,8 @@ gcc -fPIC -shared -O3 -o 1.so 1.c
 
 \lstinputlisting[style=customasmx86,caption=GCC 4.7.3]{OS/tmp2.asm}
 
-\newcommand{\retstring}{\IT{<<returning \%d\textbackslash{}n>>}}
-\newcommand{\globvar}{\IT{global\_variable}}
+\newcommand{\retstring}{\emph{<<returning \%d\textbackslash{}n>>}}
+\newcommand{\globvar}{\emph{global\_variable}}
 
 C'est ça: les pointeurs sur \retstring{} et \globvar{} sont corrigés à chaque exécution de la fonction.
 
@@ -54,7 +54,7 @@ C'est ça: les pointeurs sur \retstring{} et \globvar{} sont corrigés à chaque
 
 C'est un moyen simple d'obtenir la valeur du compteur de programme (\EIP) à un endroit quelconque.
 La constante \TT{0x1A84} est relative à la différence entre le début de cette fonction et ce que l'on appelle
-\IT{Global Offset Table Procedure Linkage Table} (GOT PLT), la section juste après la \IT{Global Offset Table} (GOT), où se trouve le pointeur sur \globvar{}.
+\emph{Global Offset Table Procedure Linkage Table} (GOT PLT), la section juste après la \emph{Global Offset Table} (GOT), où se trouve le pointeur sur \globvar{}.
 \IDA montre ces offsets sous leur forme calculée pour rendre les choses plus facile à comprendre, mais en fait, le code est:
 
 \begin{lstlisting}[style=customasmx86]
@@ -80,7 +80,7 @@ Compilons le même code C en utilisant la même version de GCC, mais pour x64.
 
 \myindex{objdump}
 \IDA simplifierait le code en supprimant les détails de l'adressage relatif à RIP,
-donc utilisons \IT{objdump} à la place d'\IDA pour tout voir:
+donc utilisons \emph{objdump} à la place d'\IDA pour tout voir:
 
 \lstinputlisting[style=customasmx86]{OS/tmp3.asm}
 
@@ -97,10 +97,10 @@ Donc, il est probablement mieux de lier statiquement si vous vous préoccupez de
 \myindex{Windows!Win32}
 
 Le mécanisme PIC n'est pas utilisé dans les DLLs de Windows. Si le chargeur de Windows doit charger une DLL
-à une autre adresse, il \q{patche} la DLL en mémoire (aux places \IT{FIXUP}) afin de corriger toutes les
+à une autre adresse, il \q{patche} la DLL en mémoire (aux places \emph{FIXUP}) afin de corriger toutes les
 adresses.
 
 Cela implique que plusieurs processus Windows ne peuvent pas partager une DLL déjà chargée à une adresse différente
-dans des blocs mémoire de différents processus --- puisque chaque instance qui est chargée en mémoire est \IT{fixé} pour 
+dans des blocs mémoire de différents processus --- puisque chaque instance qui est chargée en mémoire est \emph{fixé} pour 
 fonctionner uniquement à ces adresses...
 

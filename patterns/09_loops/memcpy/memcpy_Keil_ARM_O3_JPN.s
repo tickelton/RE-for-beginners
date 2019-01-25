@@ -16,7 +16,7 @@
         STRBCC   r12,[r0,r3]
 ; i++
         ADDCC    r3,r3,#1
-; \IT{conditional block}の最後の命令
+; \emph{conditional block}の最後の命令
 ; i<sizeならループの開始にジャンプ
 ; そうでなければ何もしない(i>=sizeなら)
         BCC      |L0.4|

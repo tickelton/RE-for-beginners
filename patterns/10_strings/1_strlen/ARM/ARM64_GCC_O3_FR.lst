@@ -1,6 +1,6 @@
 my_strlen:
 	mov	x1, x0
-	; X1 est maintenant un pointeur temporaire (eos), se comportant comme un \IT{curseur}
+	; X1 est maintenant un pointeur temporaire (eos), se comportant comme un \emph{curseur}
 .L58:
   ; charger un octet de X1 dans W2, incrémenter X1 (post-index)
 	ldrb	w2, [x1],1

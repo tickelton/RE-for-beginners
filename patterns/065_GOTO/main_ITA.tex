@@ -1,7 +1,7 @@
 \mysection{L'operatore GOTO}
 
-L'operatore GOTO e' generalmente considerato un "anti-pattern", cfr. [Edgar Dijkstra, \IT{Go To Statement Considered Harmful} (1968)\footnote{\url{http://yurichev.com/mirrors/Dijkstra68.pdf}}].
-Ciononostante puo' essere usato ragionevolmente, [Donald E. Knuth, \IT{Structured Programming with go to Statements} (1974)\footnote{\url{http://yurichev.com/mirrors/KnuthStructuredProgrammingGoTo.pdf}}]
+L'operatore GOTO e' generalmente considerato un "anti-pattern", cfr. [Edgar Dijkstra, \emph{Go To Statement Considered Harmful} (1968)\footnote{\url{http://yurichev.com/mirrors/Dijkstra68.pdf}}].
+Ciononostante puo' essere usato ragionevolmente, [Donald E. Knuth, \emph{Structured Programming with go to Statements} (1974)\footnote{\url{http://yurichev.com/mirrors/KnuthStructuredProgrammingGoTo.pdf}}]
 \footnote{\InSqBrackets{\CNotes} ha anche alcuni esempi}.
 
 Ecco un esempio molto semplice:
@@ -12,7 +12,7 @@ Ecco un esempio molto semplice:
 
 \lstinputlisting[caption=MSVC 2012,style=customasmx86]{patterns/065_GOTO/MSVC_goto.asm}
 
-Lo statement \IT{goto} e' stato semplicemente sostituito con un'istruzione \JMP, che ha lo stesso effetto: un salto non condizionale
+Lo statement \emph{goto} e' stato semplicemente sostituito con un'istruzione \JMP, che ha lo stesso effetto: un salto non condizionale
 ad un altro punto del codice.
 La seconda \printf puo' essere eseguita soltanto con l'intervento umano, utilizzando un debugger o patchando manualmente il codice.
 

@@ -1,7 +1,7 @@
 ﻿\mysection{SIMD}
 
 \label{SIMD_x86}
-\ac{SIMD} は頭字語です：\IT{Single Instruction, Multiple Data}
+\ac{SIMD} は頭字語です：\emph{Single Instruction, Multiple Data}
 
 名前の通り、複数のデータを1つの命令で処理します。
 
@@ -19,7 +19,7 @@ SIMDはx86でMMXとして始まりました。 8つの新しい64ビットレジ
 簡潔にするために、画像がグレースケールで各ピクセルが1つの8ビットバイトで定義されているとしたら、
 8ピクセルの明るさを同時に変更することが可能です。
 
-ところで、これが\IT{飽和}命令がSIMDに存在する理由です。
+ところで、これが\emph{飽和}命令がSIMDに存在する理由です。
 
 ユーザがグラフィックエディタで明るさを変更するとき、オーバーフローとアンダーフローは望ましくないので、
 最大値に達すると何も加算しないという追加命令がSIMDにあります。
@@ -50,8 +50,8 @@ DESアルゴリズムは、ワイヤおよびAND/OR/NOTゲートを有する非�
 \newcommand{\URLBS}{\url{http://go.yurichev.com/17329}}
 
 Bitslice DES\footnote{\URLBS}は、ブロックとキーのグループを同時に処理するというアイデアです。
-たとえば、x86の\IT{符号なし整数}型の変数は最大32ビットを保持できるため、
-64個+56個の\IT{符号なし整数}型の変数を使用して、32個のブロックキーペアの中間結果を同時に格納できます。
+たとえば、x86の\emph{符号なし整数}型の変数は最大32ビットを保持できるため、
+64個+56個の\emph{符号なし整数}型の変数を使用して、32個のブロックキーペアの中間結果を同時に格納できます。
 
 \myindex{\oracle}
 There is an utility to brute-force \oracle passwords/hashes (ones based on DES),

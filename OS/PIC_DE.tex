@@ -46,8 +46,8 @@ gcc -fPIC -shared -O3 -o 1.so 1.c
 
 \lstinputlisting[style=customasmx86,caption=GCC 4.7.3]{OS/tmp2.asm}
 
-\newcommand{\retstring}{\IT{<<returning \%d\textbackslash{}n>>}}
-\newcommand{\globvar}{\IT{global\_variable}}
+\newcommand{\retstring}{\emph{<<returning \%d\textbackslash{}n>>}}
+\newcommand{\globvar}{\emph{global\_variable}}
 
 Das ist es: die Zeiger auf \retstring{} und \globvar{} werden bei jedem Funktionsaufruf korrigiert.
 
@@ -56,7 +56,7 @@ Aufruf von sich selbst zurück (hier \TT{0x57C}).
 
 Dies ist eine einfache Möglichkeit um den Wert des Programmzählers (\EIP) an einer beliebigen Stelle zu erhalten.
 Die Konstante \TT{0x1A84} gehört zu dem Unterschied des Funktionsanfangs und der sogenannten
-\IT{Global Offset Table Procedure Linkage Table} (GOT PLT), die Sektion direkt hinter der \IT{Global Offset Table}
+\emph{Global Offset Table Procedure Linkage Table} (GOT PLT), die Sektion direkt hinter der \emph{Global Offset Table}
 (GOT), an der der Zeiger auf \globvar{}.
 \IDA zeigt diese Offsets aus Gründen des einfacheren Verständnisses in einer verarbeiteten Form an,
 der Code ist aber wie folgt:
@@ -85,7 +85,7 @@ Nachfolgend der selbe C-Code mit der gleichen GCC-Version, jedoch für x64 kompi
 
 \myindex{objdump}
 \IDA würde den resultierenden Code vereinfachen aber auch die Details zur RIP-relativen Adressierung
-unterdrücken. Um alles sehen zu können wird hier \IT{objdump} anstatt IDA genutzt.
+unterdrücken. Um alles sehen zu können wird hier \emph{objdump} anstatt IDA genutzt.
 
 \lstinputlisting[style=customasmx86]{OS/tmp3.asm}
 
@@ -102,7 +102,7 @@ Es mag also von Vorteil sein, statisch zu linken wenn Geschwindigkeit eine Rolle
 \myindex{Windows!Win32}
 
 Der PIC-Mechanismus wird in Windows-DLLs nicht genutzt. Wenn der Windows-Loader eine DLL an
-eine andere Basisadresse laden muss, \q{patched} er diese im Speicher (and den \IT{FIXUP}-Platz)
+eine andere Basisadresse laden muss, \q{patched} er diese im Speicher (and den \emph{FIXUP}-Platz)
 um alle Adressen zu korrigieren.
 
 Dies bedeutet, dass mehrere Windows-Prozesse eine einmal geladene DLL nicht teilen können

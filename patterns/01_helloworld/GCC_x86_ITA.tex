@@ -24,7 +24,7 @@ Ciò è dovuto al fatto che la dimensione dello stack allocato è anch'essa alli
 % TODO1: rewrite.
 \myindex{x86!\Instructions!PUSH}
 L'indirizzo della stringa (o un puntatore alla stringa) è quindi memorizzato direttamente sullo stack senza utilizzare l'istruzione \PUSH .
-\IT{var\_10}~--- è una variabile locale ed è anche un argomento di \printf{}.
+\emph{var\_10}~--- è una variabile locale ed è anche un argomento di \printf{}.
 Maggiori dettagli in seguito.
 
 Infine viene chiamata la funzione \printf.
@@ -51,8 +51,8 @@ Otteniamo questo:
 
 Il listato contiene molte macro (iniziano con il punto). Per il momento non ci interessano.
 
-Per il momento, e solo per una questione di semplificazione, possiamo ignorarle (fatta eccezione per la macro \IT{.string} che codifica una sequenza di caratteri che termina con il null-byte (zero) proprio come una stringa C). Consideriamo soltanto questo
-\footnote{Questa opzione di GCC può essere usata per eliminare le macro \q{superflue}: \IT{-fno-asynchronous-unwind-tables}}:
+Per il momento, e solo per una questione di semplificazione, possiamo ignorarle (fatta eccezione per la macro \emph{.string} che codifica una sequenza di caratteri che termina con il null-byte (zero) proprio come una stringa C). Consideriamo soltanto questo
+\footnote{Questa opzione di GCC può essere usata per eliminare le macro \q{superflue}: \emph{-fno-asynchronous-unwind-tables}}:
 
 \lstinputlisting[caption=GCC 4.7.3,style=customasmx86]{patterns/01_helloworld/GCC_refined.s}
 

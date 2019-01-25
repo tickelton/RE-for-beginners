@@ -21,14 +21,14 @@ Poniamo ad esempio che $a$ sia uguale a 2. $2*4 = 8$ (tutti gli elementi della t
 L'indirizzo della tabella \TT{\$LN11@f} + 8 corrisponde all'elemento della tabella in cui è memorizzata la label \TT{\$LN4@f}.
 L'istruzione \JMP recupera quindi l'indirizzo di \TT{\$LN4@f} dalla tabella e salta.
 
-Questa tabella è talvolta detta \IT{jumptable} o \IT{branch table}\footnote{L'intero metodo una volta era noto come 
-\IT{computed GOTO} nelle prime versioni di Fortran:
+Questa tabella è talvolta detta \emph{jumptable} o \emph{branch table}\footnote{L'intero metodo una volta era noto come 
+\emph{computed GOTO} nelle prime versioni di Fortran:
 \href{http://go.yurichev.com/17122}{wikipedia}.
 Non è molto rilevante oggigiorno, ma che termine!}.
 
 Successivamente la corrispondente \printf viene chiamata con argomento \TT{'two'}.\\
 Letteralmente, l'istruzione \TT{jmp DWORD PTR \$LN11@f[ecx*4]} corrisponde a 
-\IT{salta alla DWORD che è memorizzata all'indirizzo} \TT{\$LN11@f + ecx * 4}.
+\emph{salta alla DWORD che è memorizzata all'indirizzo} \TT{\$LN11@f + ecx * 4}.
 
 \TT{npad} (\myref{sec:npad}) è una macro del linguaggio assembly che allinea la prossima label in modo tale che sia memorizzata 
 ad un indirizzo allineato a 4 byte (or a 16 byte).

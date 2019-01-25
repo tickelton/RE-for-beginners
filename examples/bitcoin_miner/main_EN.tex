@@ -180,10 +180,10 @@ But labels inside functions were named by me.
 
 \myindex{UNIX!getopt}
 \myindex{strtoll()}
-\TT{optind} name looks familiar. It is from \IT{getopt} *NIX library intended for command-line parsing---well,
+\TT{optind} name looks familiar. It is from \emph{getopt} *NIX library intended for command-line parsing---well,
 this is exactly what happens inside.
 Then, the 3rd argument (where frequency value is to be passed) is converted from a string to a number using
-a call to \IT{strtoll()} function.
+a call to \emph{strtoll()} function.
 
 The value is then checked against various constants.
 At 0xACEC, it's checked, if it is lesser or equal to 499, and if it is so,
@@ -235,7 +235,7 @@ We must disable \INS{BGT} branch instruction at 0xAC90 somehow. And this is ARM 
 \TT{NOP} (no operation) instruction in ARM mode is just four zero bytes: \TT{00 00 00 00}.
 So by writing four zeros at 0xAC90 address (or physical offset in file 0x2C90) we can disable the check.
 
-Now it's possible to set frequencies up to 1050MHz. Even more is possible, but due to the bug, if input value is greater than 1099, a value \IT{as is} in MHz will be passed to the board, which is incorrect.
+Now it's possible to set frequencies up to 1050MHz. Even more is possible, but due to the bug, if input value is greater than 1099, a value \emph{as is} in MHz will be passed to the board, which is incorrect.
 
 I didn't go further, but if I had to, I would try to decrease a value which is passed to \TT{write\_power()} function.
 

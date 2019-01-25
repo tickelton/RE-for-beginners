@@ -5,15 +5,15 @@
 
 Il codice fa uso della modalità ARM in cui tutte le istruzioni hanno dimensione fissa di 4 byte.
 Ricordiamoci che il massimo valore previsto per $a$ è 4 e ogni valore maggiore causerà la stampa della stringa 
-\IT{<<something unknown\textbackslash{}n>>}.
+\emph{<<something unknown\textbackslash{}n>>}.
 
 \myindex{ARM!\Instructions!CMP}
 \myindex{ARM!\Instructions!ADDCC}
 La prima istruzione \TT{CMP R0, \#5} confronta il valore di $a$ con 5.
 
 \footnote{ADD---addition}
-La successiva \TT{ADDCC PC, PC, R0,LSL\#2} viene eseguita solo se $R0 < 5$ (\IT{CC=Carry clear / Less than}). 
-Di conseguenza, se \TT{ADDCC} non viene innescata (è il caso $R0 \geq 5$), si verificherà un jump a \IT{default\_case}.
+La successiva \TT{ADDCC PC, PC, R0,LSL\#2} viene eseguita solo se $R0 < 5$ (\emph{CC=Carry clear / Less than}). 
+Di conseguenza, se \TT{ADDCC} non viene innescata (è il caso $R0 \geq 5$), si verificherà un jump a \emph{default\_case}.
 
 Se invece $R0 < 5$ e \TT{ADDCC} viene innescata, succede quanto segue:
 
@@ -22,7 +22,7 @@ Infatti \TT{LSL\#2} nel suffisso dell'istruzione sta per \q{shift left by 2 bits
 Come vedremo più avanti ~(\myref{division_by_shifting}) nella sezione \q{\ShiftsSectionName}, uno shift a sinistra
 di 2 bit equivale a moltiplicare per 4.
 
-In seguito viene aggiunto $R0*4$ all'attuale valore in \ac{PC}, saltando quindi ad una delle istruzioni \TT{B} (\IT{Branch}) poste sotto.
+In seguito viene aggiunto $R0*4$ all'attuale valore in \ac{PC}, saltando quindi ad una delle istruzioni \TT{B} (\emph{Branch}) poste sotto.
 
 Al momento dell'esecuzione di \TT{ADDCC}, il valore in \ac{PC} si trova 8 byte più avanti (\TT{0x180})
 rispetto all'indirizzo a cui si trova l'istruzione \TT{ADDCC} (\TT{0x178}), 
@@ -36,16 +36,16 @@ Bisogna ricordarsi di ciò e tenerne conto.
 
 Se $a=0$, viene aggiunta al valore in \ac{PC},
 e l'attuale valore del \ac{PC} sarà scritto in \ac{PC} (che è 8 byte più avanti)
-e si verificherà un salto alla label \IT{loc\_180},
+e si verificherà un salto alla label \emph{loc\_180},
 che si trova 8 byte più avanti rispetto al punto in cui si trova l'istruzione \TT{ADDCC}.
 
-Se $a=1$, allora $PC+8+a*4 = PC+8+1*4 = PC+12 = 0x184$ sarà scritto in \ac{PC}, ovvero l'indirizzo della label \IT{loc\_184}.
+Se $a=1$, allora $PC+8+a*4 = PC+8+1*4 = PC+12 = 0x184$ sarà scritto in \ac{PC}, ovvero l'indirizzo della label \emph{loc\_184}.
 
 Ogni volta che si aggiunge 1 ad $a$, il risultante \ac{PC} è incrementato di 4.
 
 4 è la lunghezza delle istruzioni in modalità ARM, comprese le istruzioni \TT{B} di cui ne abbiamo 5.
 
-Ognuna di queste istruzioni \TT{B} passa il controllo più avanti, a quello che era previsto nello \IT{switch()}.
+Ognuna di queste istruzioni \TT{B} passa il controllo più avanti, a quello che era previsto nello \emph{switch()}.
 Li' avviene il caricamento del puntatore alla stringa corrispondente al caso, etc.
 
 \subsubsection{ARM: \OptimizingKeilVI (\ThumbMode)}
@@ -68,7 +68,7 @@ ed un offset per ciascuno di essi, con una label a cui deve essere passato il co
 \myindex{ARM!\Instructions!BX}
 
 E' anche presente una funzione speciale per gestire la tabella e passare il controllo, \\
-chiamata \IT{\_\_ARM\_common\_switch8\_thumb}. 
+chiamata \emph{\_\_ARM\_common\_switch8\_thumb}. 
 Inizia con l'istruzione \TT{BX PC}, la cui funzione è quella di mettere il processore in ARM-mode.
 Subito dopo c'è la funzione per il processamento della tabella.
 

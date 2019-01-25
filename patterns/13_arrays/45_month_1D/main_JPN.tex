@@ -44,7 +44,7 @@
 
 \Optimizing GCC 4.9はもっとよく仕事をこなします。
 \footnote{GCCアセンブラ出力が排除するのに十分なほど整っていないので、\q{0+}がリストに残っていました。 
-それは\IT{変位}であり、ここではゼロです。}
+それは\emph{変位}であり、ここではゼロです。}
 
 \begin{lstlisting}[caption=\Optimizing GCC 4.9 x64,style=customasmx86]
 	movsx	rdi, edi
@@ -128,7 +128,7 @@ get_month1 PROC
 
 プログラムは小さいので、データセグメントにパックされるデータは多くありません。
 だから単に次の名前が来ています。
-しかし注意すべきはリンカーが配置するように決定するのは\IT{どんなものも}ありえます。
+しかし注意すべきはリンカーが配置するように決定するのは\emph{どんなものも}ありえます。
 
 だからもし12が関数に渡されたら？
 13番目の要素がリターンされます。
@@ -200,10 +200,10 @@ GCCのマクロは利便性のために関数名も渡します。
 
 \lstinputlisting[style=customc]{patterns/13_arrays/45_month_1D/month2_JPN.c}
 
-\dots \IT{month[3]}式は\IT{const char*}型をもつので、
+\dots \emph{month[3]}式は\emph{const char*}型をもつので、
 5番目の文字列はこのアドレスに4バイトを足した式から取得します。
 
-さて、\IT{main()}関数に渡された引数リストは同じデータ型を持ちます。
+さて、\emph{main()}関数に渡された引数リストは同じデータ型を持ちます。
 
 \lstinputlisting[style=customc]{patterns/13_arrays/45_month_1D/argv_JPN.c}
 

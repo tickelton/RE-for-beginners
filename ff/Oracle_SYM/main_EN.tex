@@ -69,7 +69,7 @@ We will mark the OSYM signatures and strings here:
 
 Well, let's see. 
 In Hiew, we will mark the whole strings block (except the trailing OSYM signatures) and put it into a separate file.
-Then we run UNIX \IT{strings} and \IT{wc} utilities to count the text strings:
+Then we run UNIX \emph{strings} and \emph{wc} utilities to count the text strings:
 
 \begin{lstlisting}
 strings strings_block | wc -l
@@ -79,7 +79,7 @@ strings strings_block | wc -l
 So there are 66 text strings.
 Please note that number.
 
-We can say, in general, as a rule, the number of \IT{anything} is often stored separately in binary files.
+We can say, in general, as a rule, the number of \emph{anything} is often stored separately in binary files.
 
 It's indeed so, we can find the 66 value (0x42) at the file's start, right after the OSYM signature:
 
@@ -103,7 +103,7 @@ about the file.
 
 Now let's investigate closer what this binary block is.
 
-Using Hiew again, we put the block starting at address 8 (i.e., after the 32-bit \IT{count} value) 
+Using Hiew again, we put the block starting at address 8 (i.e., after the 32-bit \emph{count} value) 
 ending at the strings block, into a separate binary file.
 
 \clearpage

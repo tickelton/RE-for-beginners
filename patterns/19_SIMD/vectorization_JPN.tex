@@ -25,8 +25,8 @@ for (i = 0; i < 1024; i++)
 
 \myindex{x86!\Instructions!PLMULLD}
 \myindex{x86!\Instructions!PLMULHW}
-\newcommand{\PMULLD}{\IT{PMULLD} (\IT{Multiply Packed Signed Dword Integers and Store Low Result})}
-\newcommand{\PMULHW}{\TT{PMULHW} (\IT{Multiply Packed Signed Integers and Store High Result})}
+\newcommand{\PMULLD}{\emph{PMULLD} (\emph{Multiply Packed Signed Dword Integers and Store Low Result})}
+\newcommand{\PMULHW}{\TT{PMULHW} (\emph{Multiply Packed Signed Integers and Store High Result})}
 
 各配列要素が32ビット \Tint の場合、Aから128ビットのXMMレジスタへ、Bから別のXMMレジスタへ、
 \PMULLD{} および \PMULHW{}を実行することで、一度に4つの64ビット\glspl{product}を取得できます。
@@ -72,10 +72,10 @@ SSE2関連の命令は以下のとおりです。
 \myindex{x86!\Instructions!PADDD}
 \begin{itemize}
 \item
-\MOVDQU (\IT{Move Unaligned Double Quadword})---メモリから16バイトをXMMレジスタにロードします
+\MOVDQU (\emph{Move Unaligned Double Quadword})---メモリから16バイトをXMMレジスタにロードします
 
 \item
-\PADDD (\IT{Add Packed Integers})---4対の32ビット数を加算し、その結果を最初のオペランドに残します。
+\PADDD (\emph{Add Packed Integers})---4対の32ビット数を加算し、その結果を最初のオペランドに残します。
 ちなみに、オーバーフローが発生しても例外は発生せず、フラグも設定されません。
 結果の下位32ビットだけが格納されます。 
 \PADDD のオペランドの1つがメモリ内の値のアドレスである場合、
@@ -84,7 +84,7 @@ SSE2関連の命令は以下のとおりです。
 \footnote{データアラインメントについての詳細は: \URLWPDA}.
 
 \item
-\MOVDQA (\IT{Move Aligned Double Quadword})
+\MOVDQA (\emph{Move Aligned Double Quadword})
 はMOVDQUと同じですが、メモリ内の値のアドレスを16ビット境界に揃える必要があります。
 整列されていないと、例外が発生します。 
 \MOVDQA は \MOVDQU よりも高速に動作しますが、前述のものが必要です。

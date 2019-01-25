@@ -10,7 +10,7 @@ $LN2@main:
     add    eax, 1                  ; (i)に1を加える
     mov    DWORD PTR _i$[ebp], eax
 $LN3@main:
-    cmp    DWORD PTR _i$[ebp], 10  ; 各イテレーション\IT{の前に}この条件がチェックされる
+    cmp    DWORD PTR _i$[ebp], 10  ; 各イテレーション\emph{の前に}この条件がチェックされる
     jge    SHORT $LN1@main         ; (i) が10以上の場合、ループが終了する
     mov    ecx, DWORD PTR _i$[ebp] ; ループボディ：printing\_function(i)を呼び出す
     push   ecx

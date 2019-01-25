@@ -90,7 +90,7 @@ Lektury mogą się "spotkać" gdzieś na środku zeszytu, jeśli zabraknie miejs
 \input{patterns/02_stack/06_BO_protection}
 
 \subsubsection{Automatyczne zwalnianie danych na stosie}
-Możliwym powodem przechowywania zmiennych lokalnych i rekordów SEH na stosie jest to, że kiedy funkcja zakończy działanie są one automatycznie zwalniane ze stosu używając tylko jednej instrukcji w celu przywrócenia poprzedniego stanu stosu (często jest to instrukcja ADD). Argumenty funkcji także są automatycznie zwalniane z pamięci pod koniec funkcji. Natomiast wszystko co jest przechowywane na stercie(\IT{heap}) trzeba zwalniać jawnie.
+Możliwym powodem przechowywania zmiennych lokalnych i rekordów SEH na stosie jest to, że kiedy funkcja zakończy działanie są one automatycznie zwalniane ze stosu używając tylko jednej instrukcji w celu przywrócenia poprzedniego stanu stosu (często jest to instrukcja ADD). Argumenty funkcji także są automatycznie zwalniane z pamięci pod koniec funkcji. Natomiast wszystko co jest przechowywane na stercie(\emph{heap}) trzeba zwalniać jawnie.
 
 % sections
 \EN{\input{patterns/02_stack/07_layout_EN}}

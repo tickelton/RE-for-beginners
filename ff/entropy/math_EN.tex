@@ -45,7 +45,7 @@ fPutASCIIWindow[CurrentBlock]}]
 
 \myindex{GeoIP}
 Let's start with the \href{https://www.maxmind.com/en/geoip-demo}{GeoIP} file (which assigns ISP to the block of IP addresses).
-This binary file \IT{GeoIPISP.dat} has some tables (which are IP address ranges perhaps)
+This binary file \emph{GeoIPISP.dat} has some tables (which are IP address ranges perhaps)
 plus some text blob at the end of the file (containing ISP names).
 
 When I load it to Mathematica, I see this:
@@ -55,8 +55,8 @@ When I load it to Mathematica, I see this:
 There are two parts in graph: first is somewhat chaotic, second is more steady.
 
 0 in horizontal axis in graph means lowest entropy
-(the data which can be compressed very tightly, \IT{ordered} in other words) 
-and 8 is highest (cannot be compressed at all, \IT{chaotic} or \IT{random} in other words).
+(the data which can be compressed very tightly, \emph{ordered} in other words) 
+and 8 is highest (cannot be compressed at all, \emph{chaotic} or \emph{random} in other words).
 Why 0 and 8? 0 means 0 bits per byte (byte as a container is not filled at all) 
 and 8 means 8 bits per byte, i.e., the whole byte container is filled with the information tightly.
 

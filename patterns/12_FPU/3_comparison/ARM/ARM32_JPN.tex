@@ -19,7 +19,7 @@ ARMコプロセッサには独自のステータスおよびフラグレジス�
 
 \myindex{ARM!\Instructions!VMOVGT}
 \INS{VMOVGT}はDレジスタ用の\INS{MOVGT}命令に類似のもので、
-比較中に一方のオペランドが他方のものより大きい場合に実行されます。（\IT{GT---Greater Than}）
+比較中に一方のオペランドが他方のものより大きい場合に実行されます。（\emph{GT---Greater Than}）
 
 実行されると、 （現在\GTT{D17}に格納されている） $a$ の値は\GTT{D16}に書き込まれます。 
 それ以外の場合は、 $b$ の値は\GTT{D16}レジスタにとどまります。
@@ -57,11 +57,11 @@ BX              LR
 \label{ARM_Thumb_IT}
 \myindex{ARM!\Instructions!IT}
 \myindex{ARM!if-then block}
-\INS{IT}命令は、いわゆる\IT{if-then ブロック}を定義します。
+\INS{IT}命令は、いわゆる\emph{if-then ブロック}を定義します。
 
 命令の後に最大4つの命令を配置することができ、
 それぞれに述語接尾辞があります。
-この例では、\IT{GT}（\IT{Greater Than}）条件が真である場合、\INS{IT GT}は次の命令が実行されることを意味します。
+この例では、\emph{GT}（\emph{Greater Than}）条件が真である場合、\INS{IT GT}は次の命令が実行されることを意味します。
 
 \myindex{Angry Birds}
 ちなみにAngry Birds（iOS向け）のより複雑なコードの断片は次のとおりです。
@@ -75,12 +75,12 @@ BLX             _objc_msgSend ; not suffixed
 ...
 \end{lstlisting}
 
-\INS{ITE}は\IT{if-then-else}を表し、
+\INS{ITE}は\emph{if-then-else}を表し、
 
 次の2つの命令の接尾辞をエンコードします。
 
-最初の命令は、\INS{ITE}でエンコードされた条件（\IT{NE, not equal}）が真である場合に実行され、2番目の場合は条件が真でない場合に実行されます。
-（\GTT{NE}の逆条件は\GTT{EQ}（\IT{等しい}）です。
+最初の命令は、\INS{ITE}でエンコードされた条件（\emph{NE, not equal}）が真である場合に実行され、2番目の場合は条件が真でない場合に実行されます。
+（\GTT{NE}の逆条件は\GTT{EQ}（\emph{等しい}）です。
 
 2番目の\INS{VMOV}（または\INS{VMOVEQ}）が通常のもので、接尾辞（\INS{BLX}）ではない命令の後に続きます。
 
@@ -102,7 +102,7 @@ BLX             ___stack_chk_fail ; not suffixed
 
 これが \IDA がそれぞれに\GTT{-EQ}サフィックスを追加する理由です。
 
-たとえば、\INS{ITEEE EQ}（\IT{if-then-else-else-else}）があった場合、
+たとえば、\INS{ITEEE EQ}（\emph{if-then-else-else-else}）があった場合、
 接尾辞は次のように設定されます。
 
 \begin{lstlisting}
@@ -127,14 +127,14 @@ CBZ             R0, loc_1E7E32 ; not suffixed
 ...
 \end{lstlisting}
 
-\INS{ITTE}（\IT{if-then-then-else}）は、\GTT{LE}（\IT{Less or Equal}）
-条件が真であれば第1および第2の命令が実行されることを意味し、逆条件（\GTT{GT}---\IT{Greater Than}）
+\INS{ITTE}（\emph{if-then-then-else}）は、\GTT{LE}（\emph{Less or Equal}）
+条件が真であれば第1および第2の命令が実行されることを意味し、逆条件（\GTT{GT}---\emph{Greater Than}）
 が真であれば第3の命令を実行することを意味します。
 
 コンパイラは通常、可能な組み合わせのすべてを生成しません。
 \myindex{Angry Birds}
 
-たとえば、前述のAngry Birdsゲーム（iOSの\IT{クラシック}バージョン）では、
+たとえば、前述のAngry Birdsゲーム（iOSの\emph{クラシック}バージョン）では、
 \INS{IT}命令の変種である、\INS{ITE}、\INS{ITT}、\INS{ITTE}、\INS{ITTT}、\INS{ITTTT}のみが使用されます。 
 \myindex{\GrepUsage}
 これらをを学ぶのはどうしたらいいでしょうか？
@@ -218,5 +218,5 @@ KeilはFPU命令を生成しません。
 \myindex{ARM!\Instructions!BCS}
 
 注意：比較の結果はこの関数によってフラグに残されます。したがって、
-次の\INS{BCS}（\IT{Carry set---Greater than or equal}）命令は
+次の\INS{BCS}（\emph{Carry set---Greater than or equal}）命令は
 追加コードなしで動作します。

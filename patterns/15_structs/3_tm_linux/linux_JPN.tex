@@ -19,13 +19,13 @@ GCC 4.4.1でコンパイルしましょう。
 \myparagraph{GDB}
 
 例をGDBにロードしてみましょう。
-\footnote{デモの目的で、\IT{date}の結果が少し修正されます。 
+\footnote{デモの目的で、\emph{date}の結果が少し修正されます。 
 もちろん、同じ秒で、GDBをすばやく実行することはできません。}
 
 \lstinputlisting[caption=GDB]{patterns/15_structs/3_tm_linux/GCC_tm_GDB.txt}
 
 私たちは簡単にスタック内の構造を見つけることができます。
-まず、\IT{time.h}でどのように定義されているのかを見てみましょう。
+まず、\emph{time.h}でどのように定義されているのかを見てみましょう。
 
 \begin{lstlisting}[caption=time.h, label=struct_tm,style=customc]
 struct tm

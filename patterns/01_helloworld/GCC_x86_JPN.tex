@@ -21,7 +21,7 @@ LinuxのGCC 4.4.1コンパイラと同じ \CCpp コードをコンパイルし�
 
 % TODO1: rewrite.
 \myindex{x86!\Instructions!PUSH}
-文字列アドレス（または文字列へのポインタ）は、 \PUSH 命令を使用せずにスタックに直接格納されます。 \IT{var\_10} はローカル変数であり、 \printf{} の引数でもあります。それについて下記を読んでください。
+文字列アドレス（または文字列へのポインタ）は、 \PUSH 命令を使用せずにスタックに直接格納されます。 \emph{var\_10} はローカル変数であり、 \printf{} の引数でもあります。それについて下記を読んでください。
 
 \printf 関数が呼び出されます。
 
@@ -46,9 +46,9 @@ gcc -S 1_1.c
 
 リストには、多くのマクロ（ドットで始まる部分）が含まれています。 現時点では興味深いものではありません。
 
-今のところ、簡単にするため、無視してもかまいません（C言語の文字列のように終端文字列をエンコードする\IT{.string}マクロを除く）。 
+今のところ、簡単にするため、無視してもかまいません（C言語の文字列のように終端文字列をエンコードする\emph{.string}マクロを除く）。 
 それからこれを見てみましょう。
-\footnote{このGCCオプションは\q{不要な}マクロを削除するために使用できます：\IT{-fno-asynchronous-unwind-tables}}
+\footnote{このGCCオプションは\q{不要な}マクロを削除するために使用できます：\emph{-fno-asynchronous-unwind-tables}}
 
 \lstinputlisting[caption=GCC 4.7.3,style=customasmx86]{patterns/01_helloworld/GCC_refined.s}
 

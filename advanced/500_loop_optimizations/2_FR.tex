@@ -2,7 +2,7 @@
 
 Si vous traitez tous les éléments d'un tableau qui est situé dans la mémoire globale,
 le compilateur peut l'optimiser.
-Par exemple, calculons la somme de tous les éléments du tableau de 128 \IT{int}:
+Par exemple, calculons la somme de tous les éléments du tableau de 128 \emph{int}:
 
 \begin{lstlisting}[style=customc]
 #include <stdio.h>
@@ -55,7 +55,7 @@ int sum_of_a_v2()
 };
 \end{lstlisting}
 
-La première version a le compteur \IT{i}, et l'adresse de chaque élément du tableau
+La première version a le compteur \emph{i}, et l'adresse de chaque élément du tableau
 est calculée à chaque itération.
 La seconde version est plus optimisée: le pointeur sur chaque élément du tableau
 est toujours prêt et est déplacé de 4 octets à chaque itération.

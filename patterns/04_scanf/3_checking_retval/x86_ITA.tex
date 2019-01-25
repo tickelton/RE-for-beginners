@@ -9,10 +9,10 @@ La funzione chiamante (\gls{caller}) \main necessita di ottenere il risultato de
 e pertanto quest'ultima lo restituisce nel registro \EAX register.
 
 \myindex{x86!\Instructions!CMP}
-Il controllo viene eseguito con l'aiuto dell'istruzione \TT{CMP EAX, 1} (\IT{CoMPare}). In altre parole, confrontiamo il valore nel registro \EAX con 1.
+Il controllo viene eseguito con l'aiuto dell'istruzione \TT{CMP EAX, 1} (\emph{CoMPare}). In altre parole, confrontiamo il valore nel registro \EAX con 1.
 
 \myindex{x86!\Instructions!JNE}
-U jump condizionale \JNE segue l'istruzione \CMP. \JNE sta per \IT{Jump if Not Equal}.
+U jump condizionale \JNE segue l'istruzione \CMP. \JNE sta per \emph{Jump if Not Equal}.
 
 Quindi, se il valore nel registro \EAX non e' uguale a 1, la \ac{CPU} passera' l'esecuzione all'indirizzo specificato nell'operando di \JNE, nel nostro caso \TT{\$LN2@main}.
 Passare il controllo a questo indirizzo risulta nel fatto che la \ac{CPU} eseguira' la funzione \printf con l'argomento \TT{What you entered? Huh?}.
@@ -25,7 +25,7 @@ Questo passa il controllo al punto dopo la seconda \printf e prima dell'istruzio
 
 % FIXME internal \ref{} to x86 flags instead of wikipedia
 \myindex{x86!\Registers!\Flags}
-Possiamo quindi dire che il confronto di valori e' \IT{solitamente} implementato con una coppia di istruzioni \CMP/\Jcc, dove \IT{cc} e' un \IT{condition code}.
+Possiamo quindi dire che il confronto di valori e' \emph{solitamente} implementato con una coppia di istruzioni \CMP/\Jcc, dove \emph{cc} e' un \emph{condition code}.
 \CMP confronta due valori e imposta i flag del processore \footnote{x86 flags, vedere anche: \href{http://go.yurichev.com/17120}{wikipedia}.}.
 \Jcc controlla questi flag e decide se passare o meno il controllo all'indirizzo specificato.
 
@@ -38,10 +38,10 @@ Puo' sembrare un paradosso, ma l'istruzione \CMP e' in effetti una \SUB (subtrac
 Tutte le istruzioni aritmetiche settano i flag del processore, non solo \CMP.
 Se confrontiamo 1 e 1, $1-1$ e' 0 e quindi il flag \ZF sarebbe impostato a 1 (significando che l'ultimo risultato era 0).
 In nessun'altra circostanza il flag \ZF puo' essere impostato, eccetto il caso in cui gli operandi sono uguali.
-\JNE controlla soltanto il flag \ZF e salta se e solo se il flag non e' settato.  \JNE e' infatti un sinonimo di \JNZ (\IT{Jump if Not Zero}).
+\JNE controlla soltanto il flag \ZF e salta se e solo se il flag non e' settato.  \JNE e' infatti un sinonimo di \JNZ (\emph{Jump if Not Zero}).
 L'assembler traduce entrambe le istruzioni \JNE e \JNZ nello stesso opcode.
 Quindi l'istruzione \CMP puo' essere sostituita dall'istruzione \SUB e quasi tutto funzionera', con la differenza che \SUB altera il valore del primo operando.
-\CMP e' uguale a \IT{SUB senza salvare il risultato, ma settando i flag}.
+\CMP e' uguale a \emph{SUB senza salvare il risultato, ma settando i flag}.
 
 \subsubsection{MSVC: x86: IDA}
 

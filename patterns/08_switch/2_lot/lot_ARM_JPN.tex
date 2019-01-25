@@ -5,7 +5,7 @@
 
 このコードでは、すべての命令の固定サイズが4バイトのARMモード機能を使用しています。
 
-$a$ の最大値は4で、それ以上の値を指定すると、\IT{<<something unknown\textbackslash{}n>>}文字列が
+$a$ の最大値は4で、それ以上の値を指定すると、\emph{<<something unknown\textbackslash{}n>>}文字列が
 出力されることに注意しましょう。
 
 \myindex{ARM!\Instructions!CMP}
@@ -13,8 +13,8 @@ $a$ の最大値は4で、それ以上の値を指定すると、\IT{<<something
 最初の\TT{CMP R0, \#5}命令は、 $a$ の入力値を5と比較します。
 
 \footnote{ADD---addition}
-次の\TT{ADDCC PC, PC,R0, LSL \#2}命令は、$R0 < 5$（\IT{CC=Carry clear / Less than}）の場合にのみ実行されます。
-したがって、\TT{ADDCC}がトリガしない場合（$R0 \geq 5$の場合）、\IT{default\_case}ラベルにジャンプします。
+次の\TT{ADDCC PC, PC,R0, LSL \#2}命令は、$R0 < 5$（\emph{CC=Carry clear / Less than}）の場合にのみ実行されます。
+したがって、\TT{ADDCC}がトリガしない場合（$R0 \geq 5$の場合）、\emph{default\_case}ラベルにジャンプします。
 
 しかし$R0 < 5$と\TT{ADDCC}がトリガされた場合、次のことが起こります：
 
@@ -22,7 +22,7 @@ $a$ の最大値は4で、それ以上の値を指定すると、\IT{<<something
 実際、命令のサフィックスの\TT{LSL \#2}は\q{2ビット左シフト}の略です。
 しかし、セクション\q{\ShiftsSectionName}の~(\myref{division_by_shifting})で後で見るように、2ビット左シフトは4を乗算するのと同じです。
 
-次に、$R0*4$を\ac{PC}の現在の値に追加し、下にある\TT{B}（\IT{Branch}）命令の1つにジャンプします。
+次に、$R0*4$を\ac{PC}の現在の値に追加し、下にある\TT{B}（\emph{Branch}）命令の1つにジャンプします。
 
 \TT{ADDCC}命令の実行時に、\ac{PC}の値は\TT{ADDCC}命令が置かれているアドレス（\TT{0x178}）よりも8バイト先（\TT{0x180}）であり、
 言い換えれば2命令先にあります。
@@ -35,16 +35,16 @@ $a$ の最大値は4で、それ以上の値を指定すると、\IT{<<something
 これは覚えておく必要があります。
 
 $a=0$ の場合、\ac{PC}の値に加算され、\ac{PC}の実際の値は\ac{PC}（8バイト先）に書き込まれ、
-\IT{loc\_180}というラベルへのジャンプが起こります。これは、\TT{ADDCC}命令の先の8バイト先です。
+\emph{loc\_180}というラベルへのジャンプが起こります。これは、\TT{ADDCC}命令の先の8バイト先です。
 
 $a=1$ の場合、\ac{PC}には $PC+8+a*4 = PC+8+1*4 = PC+12 = 0x184$ が書き込まれます。
-\IT{loc\_184}というラベルが付いたアドレスです。
+\emph{loc\_184}というラベルが付いたアドレスです。
 
 1を $a$ に加えるごとに、結果の\ac{PC}は4ずつ増加します。
 
 4はARMモードの命令長であり、各\TT{B}命令の長さ4でそれらは5つあります。
 
-これらの5つの\TT{B}命令のそれぞれは、制御を\IT{switch()}にプログラムされたものにさらに渡します。
+これらの5つの\TT{B}命令のそれぞれは、制御を\emph{switch()}にプログラムされたものにさらに渡します。
 
 対応する文字列のポインタローディングが発生します。
 
@@ -66,7 +66,7 @@ ThumbモードとThumb-2モードのすべての命令が同じサイズであ�
 \myindex{ARM!Mode switching}
 \myindex{ARM!\Instructions!BX}
 
-\IT{\_\_ARM\_common\_switch8\_thumb}という名前のテーブルと
+\emph{\_\_ARM\_common\_switch8\_thumb}という名前のテーブルと
 パスコントロールを扱うために特別な関数がここにあります。
 \TT{BX PC}で始まり、その機能はプロセッサをARMモードに切り替えることです。
 次に、テーブル処理の機能が表示されます。

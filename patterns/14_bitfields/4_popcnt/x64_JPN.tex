@@ -21,7 +21,7 @@
 ここでコードは \q{rt}を先に増やして（6行目）、新しい値をレジスタ \EDX に書き込みます。
 したがって、最後のビットが1である場合、 \CMOVNE\footnote{Conditional MOVe if Not Equal} 命令
 （\CMOVNZ\footnote{Conditional MOVe if Not Zero}と同義）は、 \EDX （\q{提案されたrt値}）
-を \EAX （最後にリターンされる\q{現在のrt}）に戻すことによって新しい値\q{rt}を\IT{コミット}します。
+を \EAX （最後にリターンされる\q{現在のrt}）に戻すことによって新しい値\q{rt}を\emph{コミット}します。
 
 したがって、ループの各ステップで、言い換えると64回入力値に関係なく、インクリメントが実行されます。
 

@@ -43,8 +43,6 @@
 \newcommand*{\TT}[1]{\texttt{#1}}
 \newcommand*{\GTT}[1]{\texttt{#1}}
 
-\newcommand*{\IT}[1]{\textit{#1}}
-
 %\newcommand*{\EN}[1]{\iflanguage{english}{#1}{}}
 
 \newcommand{\HeaderColor}{\cellcolor{blue!25}}
@@ -175,13 +173,13 @@
 % FIXME: get rid of:
 \newcommand{\tracer}{\protect\gls{tracer}\xspace}
 
-\newcommand{\Tchar}{\IT{char}\xspace}
-\newcommand{\Tint}{\IT{int}\xspace}
-\newcommand{\Tbool}{\IT{bool}\xspace}
-\newcommand{\Tfloat}{\IT{float}\xspace}
-\newcommand{\Tdouble}{\IT{double}\xspace}
-\newcommand{\Tvoid}{\IT{void}\xspace}
-\newcommand{\ITthis}{\IT{this}\xspace}
+\newcommand{\Tchar}{\emph{char}\xspace}
+\newcommand{\Tint}{\emph{int}\xspace}
+\newcommand{\Tbool}{\emph{bool}\xspace}
+\newcommand{\Tfloat}{\emph{float}\xspace}
+\newcommand{\Tdouble}{\emph{double}\xspace}
+\newcommand{\Tvoid}{\emph{void}\xspace}
+\newcommand{\ITthis}{\emph{this}\xspace}
 
 \newcommand{\Ox}{\GTT{/Ox}\xspace}
 \newcommand{\Obzero}{\GTT{/Ob0}\xspace}
@@ -426,82 +424,82 @@
 \newcommand{\YurichevIDAIDCScripts}{http://go.yurichev.com/17019}
 
 % sources: books, etc
-\newcommand{\TAOCPvolI}{Donald E. Knuth, \IT{The Art of Computer Programming}, Volume 1, 3rd ed., (1997)}
-\newcommand{\TAOCPvolII}{Donald E. Knuth, \IT{The Art of Computer Programming}, Volume 2, 3rd ed., (1997)}
-\newcommand{\Russinovich}{Mark Russinovich, \IT{Microsoft Windows Internals}}
-\newcommand{\Schneier}{Bruce Schneier, \IT{Applied Cryptography}, (John Wiley \& Sons, 1994)}
-\newcommand{\AgnerFog}{Agner Fog, \IT{The microarchitecture of Intel, AMD and VIA CPUs}, (2016)}
-\newcommand{\AgnerFogCPP}{Agner Fog, \IT{Optimizing software in C++} (2015)}
-\newcommand{\AgnerFogCC}{Agner Fog, \IT{Calling conventions} (2015)}
-\newcommand{\JavaBook}{[Tim Lindholm, Frank Yellin, Gilad Bracha, Alex Buckley, \IT{The Java(R) Virtual Machine Specification / Java SE 7 Edition}]
+\newcommand{\TAOCPvolI}{Donald E. Knuth, \emph{The Art of Computer Programming}, Volume 1, 3rd ed., (1997)}
+\newcommand{\TAOCPvolII}{Donald E. Knuth, \emph{The Art of Computer Programming}, Volume 2, 3rd ed., (1997)}
+\newcommand{\Russinovich}{Mark Russinovich, \emph{Microsoft Windows Internals}}
+\newcommand{\Schneier}{Bruce Schneier, \emph{Applied Cryptography}, (John Wiley \& Sons, 1994)}
+\newcommand{\AgnerFog}{Agner Fog, \emph{The microarchitecture of Intel, AMD and VIA CPUs}, (2016)}
+\newcommand{\AgnerFogCPP}{Agner Fog, \emph{Optimizing software in C++} (2015)}
+\newcommand{\AgnerFogCC}{Agner Fog, \emph{Calling conventions} (2015)}
+\newcommand{\JavaBook}{[Tim Lindholm, Frank Yellin, Gilad Bracha, Alex Buckley, \emph{The Java(R) Virtual Machine Specification / Java SE 7 Edition}]
 \footnote{\AlsoAvailableAs \url{https://docs.oracle.com/javase/specs/jvms/se7/jvms7.pdf}; \url{http://docs.oracle.com/javase/specs/jvms/se7/html/}}}
 
-\newcommand{\ARMPCS}{\InSqBrackets{\IT{Procedure Call Standard for the ARM 64-bit Architecture (AArch64)}, (2013)}\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17287}}}
+\newcommand{\ARMPCS}{\InSqBrackets{\emph{Procedure Call Standard for the ARM 64-bit Architecture (AArch64)}, (2013)}\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17287}}}
 
-\newcommand{\IgorSkochinsky}{[Igor Skochinsky, \IT{Compiler Internals: Exceptions and RTTI}, (2012)] \footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17294}}}
+\newcommand{\IgorSkochinsky}{[Igor Skochinsky, \emph{Compiler Internals: Exceptions and RTTI}, (2012)] \footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17294}}}
 
-\newcommand{\PietrekSEH}{[Matt Pietrek, \IT{A Crash Course on the Depths of Win32\texttrademark{} Structured Exception Handling}, (1997)]\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17293}}}
+\newcommand{\PietrekSEH}{[Matt Pietrek, \emph{A Crash Course on the Depths of Win32\texttrademark{} Structured Exception Handling}, (1997)]\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17293}}}
 
-\newcommand{\PietrekPE}{Matt Pietrek, \IT{An In-Depth Look into the Win32 Portable Executable File Format}, (2002)]}
+\newcommand{\PietrekPE}{Matt Pietrek, \emph{An In-Depth Look into the Win32 Portable Executable File Format}, (2002)]}
 
 \newcommand{\PietrekPEURL}{\PietrekPE\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17318}}}
 
-\newcommand{\RitchieDevC}{[Dennis M. Ritchie, \IT{The development of the C language}, (1993)]\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17264}}}
+\newcommand{\RitchieDevC}{[Dennis M. Ritchie, \emph{The development of the C language}, (1993)]\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17264}}}
 
-\newcommand{\RitchieThompsonUNIX}{[D. M. Ritchie and K. Thompson, \IT{The UNIX Time Sharing System}, (1974)]\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17270}}}
+\newcommand{\RitchieThompsonUNIX}{[D. M. Ritchie and K. Thompson, \emph{The UNIX Time Sharing System}, (1974)]\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17270}}}
 
-\newcommand{\DrepperTLS}{[Ulrich Drepper, \IT{ELF Handling For Thread-Local Storage}, (2013)]\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17272}}}
+\newcommand{\DrepperTLS}{[Ulrich Drepper, \emph{ELF Handling For Thread-Local Storage}, (2013)]\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17272}}}
 
-\newcommand{\DrepperMemory}{[Ulrich Drepper, \IT{What Every Programmer Should Know About Memory}, (2007)]\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17341}}}
+\newcommand{\DrepperMemory}{[Ulrich Drepper, \emph{What Every Programmer Should Know About Memory}, (2007)]\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17341}}}
 
-\newcommand{\AlephOne}{[Aleph One, \IT{Smashing The Stack For Fun And Profit}, (1996)]\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17266}}}
+\newcommand{\AlephOne}{[Aleph One, \emph{Smashing The Stack For Fun And Profit}, (1996)]\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17266}}}
 
 \ifdefined\RUSSIAN
-\newcommand{\KRBook}{Брайан Керниган, Деннис Ритчи, \IT{Язык программирования Си}, второе издание, (1988, 2009)}
+\newcommand{\KRBook}{Брайан Керниган, Деннис Ритчи, \emph{Язык программирования Си}, второе издание, (1988, 2009)}
 \newcommand{\CppOneOneStd}{Стандарт Си++11}
-\newcommand{\CNotes}{Денис Юричев, \IT{Заметки о языке программирования Си/Си++}}
-\newcommand{\TAOCP}{Дональд Э. Кнут, \IT{Искусство программирования}}
+\newcommand{\CNotes}{Денис Юричев, \emph{Заметки о языке программирования Си/Си++}}
+\newcommand{\TAOCP}{Дональд Э. Кнут, \emph{Искусство программирования}}
 \else
-\newcommand{\KRBook}{Brian W. Kernighan, Dennis M. Ritchie, \IT{The C Programming Language}, 2ed, (1988)}
+\newcommand{\KRBook}{Brian W. Kernighan, Dennis M. Ritchie, \emph{The C Programming Language}, 2ed, (1988)}
 \newcommand{\CppOneOneStd}{C++11 standard}
-\newcommand{\CNotes}{Dennis Yurichev, \IT{C/C++ programming language notes}}
-\newcommand{\TAOCP}{Donald E. Knuth, \IT{The Art of Computer Programming}}
+\newcommand{\CNotes}{Dennis Yurichev, \emph{C/C++ programming language notes}}
+\newcommand{\TAOCP}{Donald E. Knuth, \emph{The Art of Computer Programming}}
 \fi
 
-\newcommand{\RobPikePractice}{Brian W. Kernighan, Rob Pike, \IT{Practice of Programming}, (1999)}
+\newcommand{\RobPikePractice}{Brian W. Kernighan, Rob Pike, \emph{Practice of Programming}, (1999)}
 
-\newcommand{\ARMSixFourRef}{\IT{ARM Architecture Reference Manual, ARMv8, for ARMv8-A architecture profile}, (2013)}
+\newcommand{\ARMSixFourRef}{\emph{ARM Architecture Reference Manual, ARMv8, for ARMv8-A architecture profile}, (2013)}
 \newcommand{\ARMSixFourRefURL}{\InSqBrackets{\ARMSixFourRef}\footnote{\AlsoAvailableAs \url{http://yurichev.com/mirrors/ARMv8-A_Architecture_Reference_Manual_(Issue_A.a).pdf}}}
 
-\newcommand{\SysVABI}{[Michael Matz, Jan Hubicka, Andreas Jaeger, Mark Mitchell, \IT{System V Application Binary Interface. AMD64 Architecture Processor Supplement}, (2013)]
+\newcommand{\SysVABI}{[Michael Matz, Jan Hubicka, Andreas Jaeger, Mark Mitchell, \emph{System V Application Binary Interface. AMD64 Architecture Processor Supplement}, (2013)]
 \footnote{\AlsoAvailableAs \url{https://software.intel.com/sites/default/files/article/402129/mpx-linux64-abi.pdf}}}
 
-\newcommand{\IOSABI}{\InSqBrackets{\IT{iOS ABI Function Call Guide}, (2010)}\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17276}}}
+\newcommand{\IOSABI}{\InSqBrackets{\emph{iOS ABI Function Call Guide}, (2010)}\footnote{\AlsoAvailableAs \url{http://go.yurichev.com/17276}}}
 
-\newcommand{\CNineNineStd}{\IT{ISO/IEC 9899:TC3 (C C99 standard)}, (2007)}
+\newcommand{\CNineNineStd}{\emph{ISO/IEC 9899:TC3 (C C99 standard)}, (2007)}
 
-\newcommand{\TCPPPL}{Bjarne Stroustrup, \IT{The C++ Programming Language, 4th Edition}, (2013)}
+\newcommand{\TCPPPL}{Bjarne Stroustrup, \emph{The C++ Programming Language, 4th Edition}, (2013)}
 
-\newcommand{\AMDOptimization}{\IT{Software Optimization Guide for AMD Family 16h Processors}, (2013)}
+\newcommand{\AMDOptimization}{\emph{Software Optimization Guide for AMD Family 16h Processors}, (2013)}
 % note = "\AlsoAvailableAs \url{http://go.yurichev.com/17285}",
 
-\newcommand{\IntelOptimization}{\IT{Intel® 64 and IA-32 Architectures Optimization Reference Manual}, (2014)}
+\newcommand{\IntelOptimization}{\emph{Intel® 64 and IA-32 Architectures Optimization Reference Manual}, (2014)}
 % note = "\AlsoAvailableAs \url{http://go.yurichev.com/17342}",
 
-\newcommand{\TAOUP}{Eric S. Raymond, \IT{The Art of UNIX Programming}, (2003)}
+\newcommand{\TAOUP}{Eric S. Raymond, \emph{The Art of UNIX Programming}, (2003)}
 % note = "\AlsoAvailableAs \url{http://go.yurichev.com/17277}",
 
-\newcommand{\HenryWarren}{Henry S. Warren, \IT{Hacker's Delight}, (2002)}
+\newcommand{\HenryWarren}{Henry S. Warren, \emph{Hacker's Delight}, (2002)}
 
-\newcommand{\ParashiftCPPFAQ}{Marshall Cline, \IT{C++ FAQ}}
+\newcommand{\ParashiftCPPFAQ}{Marshall Cline, \emph{C++ FAQ}}
 % note = "\AlsoAvailableAs \url{http://go.yurichev.com/17291}",
 
-\newcommand{\ARMCookBook}{Advanced RISC Machines Ltd, \IT{The ARM Cookbook}, (1994)}
+\newcommand{\ARMCookBook}{Advanced RISC Machines Ltd, \emph{The ARM Cookbook}, (1994)}
 % note = "\AlsoAvailableAs \url{http://go.yurichev.com/17273}",
 
-\newcommand{\ARMSevenRef}{\IT{ARM(R) Architecture Reference Manual, ARMv7-A and ARMv7-R edition}, (2012)}
+\newcommand{\ARMSevenRef}{\emph{ARM(R) Architecture Reference Manual, ARMv7-A and ARMv7-R edition}, (2012)}
 
-\newcommand{\MAbrash}{Michael Abrash, \IT{Graphics Programming Black Book}, 1997}
+\newcommand{\MAbrash}{Michael Abrash, \emph{Graphics Programming Black Book}, 1997}
 
 \newcommand{\radare}{rada.re}
 

@@ -15,6 +15,6 @@ Possiamo arrivare alla label \TT{.L5} se all'input della funzione viene dato il 
 Ma si può anche giungere allo stesso punto da un altro percorso:
 notiamo che non ci sono jump tra la chiamata a \printf e la label \TT{.L5}.
 
-Questo spiega facilmente perchè i costrutti con \IT{switch()} sono spesso fonte di bug:
-è sufficiente dimenticare un \IT{break} per trasformare il costrutto \IT{switch()} in un \IT{fallthrough} , in cui vengono eseguiti
+Questo spiega facilmente perchè i costrutti con \emph{switch()} sono spesso fonte di bug:
+è sufficiente dimenticare un \emph{break} per trasformare il costrutto \emph{switch()} in un \emph{fallthrough} , in cui vengono eseguiti
 più blocchi invece di uno solo.

@@ -11,10 +11,10 @@ Diese Funktion arbeitet wie \TT{malloc()}, nur das sie Speicher direkt auf dem S
 
 Der allozierte Speicher Chunk muss nicht wieder mit \TT{free()} freigegeben werden, weil
 der Funktions Epilog (\myref{sec:prologepilog}) das \ESP Register wieder in seinen ursprünglichen 
-Zustand versetzt und der allozierte Speicher wird einfach \IT{verworfen}. 
+Zustand versetzt und der allozierte Speicher wird einfach \emph{verworfen}. 
 Es macht Sinn sich anzuschauen wie \TT{alloca()} implementiert ist.
 Mit einfachen Begriffen erklärt, diese Funktion verschiebt \ESP in Richtung des Stack ende mit der 
-Anzahl der Bytes die alloziert werden müssen und setzt \ESP als einen Zeiger auf den \IT{allozierten} block.
+Anzahl der Bytes die alloziert werden müssen und setzt \ESP als einen Zeiger auf den \emph{allozierten} block.
 
 Beispiel:
 

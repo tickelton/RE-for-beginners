@@ -13,7 +13,7 @@ _main    PROC
     fld    QWORD PTR __real@40400147ae147ae1
     fstp   QWORD PTR [esp]
     call   _pow
-    add    esp, 8  ; \IT{rendre} l'espace d'une variable.
+    add    esp, 8  ; \emph{rendre} l'espace d'une variable.
 
 ; sur la pile locale, il y a ici encore 8 octets réservés pour nous.
 ; le résultat se trouve maintenant dans ST(0)

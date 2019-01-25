@@ -29,7 +29,7 @@ Abbiamo 4 argomenti, quindi $4*4 = 16$~---essi occupano esattamente 16 bytes nel
 Quando lo \gls{stack pointer} (registro \ESP) viene ripristinato dall'istruzione \INS{ADD ESP, X}
 dopo una chiamata a funzione, in molti casi il numero di argomenti della fuznione puo' essere dedotto semplicemente dividendo X per 4.
 
-Questa caratteristca  e' propria solo della calling convention \IT{cdecl} e in ambienti a 32-bit..
+Questa caratteristca  e' propria solo della calling convention \emph{cdecl} e in ambienti a 32-bit..
 
 Si veda anche la sezione sulle calling conventions ~(\myref{sec:callingconventions}).
 
@@ -105,7 +105,7 @@ Diamo un'occhiata alla finestra del debugger in basso a destra:
 \end{figure}
 
 Notiamo 3 colonne: indirizzo nello stack, valore nello stack ed alcuni commenti aggiuntivi di \olly. 
-\olly riconosce le stringhe \printf{}-like , e riporta quindi la stringa insieme ai 3 valori \IT{associati}.
+\olly riconosce le stringhe \printf{}-like , e riporta quindi la stringa insieme ai 3 valori \emph{associati}.
 
 Facendo click destro sulla formato string, quindi click su \q{Follow in dump},
 e' possibile vedere la format string nella finestra del debugger in basso a sinistra, che mostra una zona di memoria.
@@ -137,7 +137,7 @@ Apparentemente, i meccanismi interni alla funzione \printf hanno usato quei regi
 
 Un fatto molto importante e' che ne' il valore di ESP ne' lo stack sono stati modificati!
 Vediamo chiaramente che la format string ed i suoi 3 valori si trovano ancora li'.
-Questo e; infatti il comportamento della calling convention \IT{cdecl}: il \gls{callee} (la funzione chiamata) non ripristina
+Questo e; infatti il comportamento della calling convention \emph{cdecl}: il \gls{callee} (la funzione chiamata) non ripristina
 \ESP al suo valore precedente. Farlo e' una responsabilita' del The \gls{caller} (chiamante).
 
 \clearpage
@@ -152,7 +152,7 @@ Premiamo F8 nuovamente per eseguire l'istruzione \INS{ADD ESP, 10}:
 
 \ESP e' cambiato, ma i valori si trovano ancora sullo stack!
 Ovviamente si: non c'e' necessita' di azzerare i valori o effettuare altre simili operazioni di "pulizia".
-Qualunque cosa si trovi sopra lo stack pointer (\ac{SP}) e' \IT{noise} o \IT{\garbage{}} e non ha alcun significato.
+Qualunque cosa si trovi sopra lo stack pointer (\ac{SP}) e' \emph{noise} o \emph{\garbage{}} e non ha alcun significato.
 Pulire i valori non utilizzati nello stack sarebbe una perdita di tempo inutile, e non vi e' alcuna necessita' di farlo.
 
 \myparagraph{GCC}

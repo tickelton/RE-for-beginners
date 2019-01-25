@@ -17,10 +17,10 @@
 
 \lstinputlisting[caption=x86,style=customasmx86]{patterns/09_loops/skeleton_x86_2_9_order_JPN.lst}
 
-通常、条件はループ本体の\IT{前で}チェックされますが、ループ本体の後で条件がチェックされるように
+通常、条件はループ本体の\emph{前で}チェックされますが、ループ本体の後で条件がチェックされるように
 コンパイラが再配置することがあります。
 
-これは、ループの本体が少なくとも1回は実行されるように、最初の反復で条件が常に\IT{true}であると
+これは、ループの本体が少なくとも1回は実行されるように、最初の反復で条件が常に\emph{true}であると
 コンパイラが確信するときに行われます。
 
 \lstinputlisting[caption=x86,style=customasmx86]{patterns/09_loops/skeleton_x86_2_9_reorder_JPN.lst}

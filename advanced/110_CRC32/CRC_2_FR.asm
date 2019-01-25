@@ -27,7 +27,7 @@ $LL3@crc:
 
     xor    edi, ebx
 
-; EAX=EAX>>8; bits 24-31 pris \IT{de nul part} seront mis à 0
+; EAX=EAX>>8; bits 24-31 pris \emph{de nul part} seront mis à 0
     shr    eax, 8
 
 ; \verb|EAX=EAX^crctab[EDI*4] - choisir le EDI-ème élément de la table crctab[]|

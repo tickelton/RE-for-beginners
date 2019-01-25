@@ -10,10 +10,10 @@ Vale la pena esaminare la funzione \TT{alloca()}
 Questa funzione opera come \TT{malloc()}, ma alloca memoria direttamente nello stack.
 % page break added to prevent "\vref on page boundary" error. it may be dropped in future.
 Il pezzo di memoria allocato non necessita di essere liberato tramite una chiamata alla funzione \TT{free()} function call, \\
-poiche' l'epilogo della funzione (\myref{sec:prologepilog}) ripristina \ESP al suo valore iniziale e la memoria allocata viene semplicemente \IT{abbandonata}.
+poiche' l'epilogo della funzione (\myref{sec:prologepilog}) ripristina \ESP al suo valore iniziale e la memoria allocata viene semplicemente \emph{abbandonata}.
 Vale anche la pena notare come e' implementata la funzione \TT{alloca()}.
 In termini semplici, questa funzione shifta \ESP in basso, verso la base dello stack, per il numero di byte necessari e setta \ESP  
-per puntare al blocco \IT{allocato}.
+per puntare al blocco \emph{allocato}.
 
 Proviamo:
 

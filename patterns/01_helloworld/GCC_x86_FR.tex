@@ -26,7 +26,7 @@ C'est parce que la taille de la pile allouée est alignée sur une limite de 16-
 \myindex{x86!\Instructions!PUSH}
 L'adresse de la chaîne est (ou un pointeur vers la chaîne) est stockée directement sur la pile sans utiliser
 l'instruction \PUSH.
-\IT{var\_10}~---est une variable locale et est aussi un argument pour \printf{}.
+\emph{var\_10}~---est une variable locale et est aussi un argument pour \printf{}.
 Lisez à ce propos en dessous.
 
 Ensuite la fonction \printf est appelée.
@@ -54,10 +54,10 @@ Nous obtenons ceci:
 
 Le listing contient beaucoup de macros (qui commencent avec un point). Cela ne nous intéresse pas pour le moment.
 
-Pour l'instant, dans un souci de simplification, nous pouvons les ignorer (excepté la macro \IT{.string}
+Pour l'instant, dans un souci de simplification, nous pouvons les ignorer (excepté la macro \emph{.string}
 qui encode une séquence de caractères terminée par un octet nul, comme une chaîne C).
 Ensuite nous verrons cela\footnote{Cette option de GCC peut être utilisée pour éliminer les macros \q{non nécessaires}:
-\IT{-fno-asynchronous-unwind-tables}}:
+\emph{-fno-asynchronous-unwind-tables}}:
 
 \lstinputlisting[caption=GCC 4.7.3,style=customasmx86]{patterns/01_helloworld/GCC_refined.s}
 

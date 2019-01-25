@@ -15,7 +15,7 @@ Questo e' il motivo per cui questi registri hanno il prefisso A-, che implica il
 \lstinputlisting[caption=\Optimizing GCC 4.4.5 (IDA),style=customasmMIPS]{patterns/03_printf/MIPS/printf3.O3.IDA_EN.lst}
 
 \IDA ha fuso le coppie di istruzioni \INS{LUI} e \INS{ADDIU} in una unica pseudoistruzione \INS{LA}.
-Questo e' il motivo per cui non c'e' nessuna istruzione all'indirizzo 0x1C: perche' \INS{LA} \IT{occupa} 8 byte.%
+Questo e' il motivo per cui non c'e' nessuna istruzione all'indirizzo 0x1C: perche' \INS{LA} \emph{occupa} 8 byte.%
 
 \myparagraph{\NonOptimizing GCC 4.4.5}
 

@@ -27,10 +27,10 @@ Ein sehr einfacher linearer Kongruenzgenerator für Zufallszahlen wird in meinem
 \URLXOR} vorgestellt: er erzeugt 32-Bit-Zahlen.
 Der \ac{PRNG} wird mit der aktuellen Zeit um UNIX-Timestamp-Format initialisiert.
 
-Wir stellen hier den Typ \Tfloat als \IT{union} dar--das ist die \CCpp Konstruktion, die es uns ermöglicht, einen
+Wir stellen hier den Typ \Tfloat als \emph{union} dar--das ist die \CCpp Konstruktion, die es uns ermöglicht, einen
 Speicherblock als unterschiedliche Typen aufzufassen.
-In unserem Fall sind wir in der Lage eine Variable vom Typ \IT{union} zu erzeugen und dann auf diese wie auf einen
-\Tfloat oder \IT{uint32\_t} zuzugreifen.
+In unserem Fall sind wir in der Lage eine Variable vom Typ \emph{union} zu erzeugen und dann auf diese wie auf einen
+\Tfloat oder \emph{uint32\_t} zuzugreifen.
 Man kann sagen, dass es sich dabei um einen Hack, d.h. Trick handelt. Sogar um einen sehr schmutzigen.
 
 % WTF?

@@ -49,7 +49,7 @@ Qui possiamo vedere un po' di trucchetti.
 
 Primo: il valore di $a$ è messo in \EAX, e gli viene sottratto 0. Sembra assurdo, ma è fatto per controllare se il valore 
 in \EAX è 0. Se si, il flag \ZF viene settato (i.e. sottrarre 0 a 0 da 0)
-e il primo jump condizionale \JE (\IT{Jump if Equal} o il sinonimo \JZ~---\IT{Jump if Zero}) è innescato e il controllo del flusso 
+e il primo jump condizionale \JE (\emph{Jump if Equal} o il sinonimo \JZ~---\emph{Jump if Zero}) è innescato e il controllo del flusso 
 passato alla label \TT{\$LN4@f}, dove il messaggio \TT{'zero'} viene stampato. 
 Se il primo jump non viene innescato, 1 viene sottratto dal valore in input e se ad un certo punto il risultato è 0, il jump corrispondente
 viene innescato.

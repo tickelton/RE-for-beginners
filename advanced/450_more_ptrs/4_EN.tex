@@ -35,7 +35,7 @@ Null pointer assignment
 C:\TC30\BIN>_
 \end{lstlisting}
 
-Let's dig deeper into the source code of \ac{CRT} of Borland C++ 3.1, file \IT{c0.asm}:
+Let's dig deeper into the source code of \ac{CRT} of Borland C++ 3.1, file \emph{c0.asm}:
 
 \lstinputlisting[style=customasmx86]{advanced/450_more_ptrs/tmp2.lst}
 
@@ -108,14 +108,14 @@ NULL in C/C++ is just a macro which is often defined like this:
 \end{lstlisting}
 ( \href{https://github.com/wzhy90/linaro_toolchains/blob/8ff8ae680bac04558d10cc9626e12c4c2f6c1348/arm-cortex_a15-linux-gnueabihf/libc/usr/include/libio.h#L70}{libio.h file} )
 
-\IT{void*} is a data type reflecting the fact it's the pointer, but to a value of unknown data type (\IT{void}).
+\emph{void*} is a data type reflecting the fact it's the pointer, but to a value of unknown data type (\emph{void}).
 
 NULL is usually used to show absence of an object.
-For example, you have a single-linked list, and each node has a value (or pointer to a value) and \IT{next} pointer.
-To show that there are no next node, 0 is stored to \IT{next} field.
+For example, you have a single-linked list, and each node has a value (or pointer to a value) and \emph{next} pointer.
+To show that there are no next node, 0 is stored to \emph{next} field.
 (Other solutions are just worse.)
 Perhaps, you may have some crazy environment where you need to allocate memory blocks at zero address. How would you indicate absence of the next node?
-Some kind of \IT{magic number}? Maybe -1? Or maybe using additional bit?
+Some kind of \emph{magic number}? Maybe -1? Or maybe using additional bit?
 
 In Wikipedia we may find this:
 
@@ -141,11 +141,11 @@ int main()
 };
 \end{lstlisting}
 
-The result is \IT{0x7578feae} and doesn't changing after several times I run it,
+The result is \emph{0x7578feae} and doesn't changing after several times I run it,
 because user32.dll (where MessageBoxA function resides) is always loads at the same address.
 And also because \ac{ASLR} is not enabled (result would be different each time in that case).
 
-Let's call \IT{MessageBoxA()} by address:
+Let's call \emph{MessageBoxA()} by address:
 
 \begin{lstlisting}[style=customc]
 #include <windows.h>

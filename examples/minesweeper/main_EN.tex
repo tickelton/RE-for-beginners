@@ -124,13 +124,13 @@ and trapped into mine, but now all mines are visible:
 \end{figure}
 
 By comparing the mine places and the dump, we can conclude that 0x10 stands for border, 0x0F---empty block, 0x8F---mine.
-Perhaps, 0x10 is just a \IT{sentinel value}.
+Perhaps, 0x10 is just a \emph{sentinel value}.
 
 Now we'll add comments and also enclose all 0x8F bytes into square brackets:
 
 \lstinputlisting[style=customasmx86]{examples/minesweeper/2.lst}
 
-Now we'll remove all \IT{border bytes} (0x10) and what's beyond those:
+Now we'll remove all \emph{border bytes} (0x10) and what's beyond those:
 
 \lstinputlisting[style=customasmx86]{examples/minesweeper/3.lst}
 
@@ -186,7 +186,7 @@ Full source code: \url{https://github.com/DennisYurichev/RE-for-beginners/blob/m
 \begin{itemize}
 
 \item 
-Why do the \IT{border bytes} (or \IT{sentinel values}) (0x10) exist in the array?
+Why do the \emph{border bytes} (or \emph{sentinel values}) (0x10) exist in the array?
 
 What they are for if they are not visible in Minesweeper's interface?
 How could it work without them?

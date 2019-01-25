@@ -72,7 +72,7 @@ call main
 
 \lstinputlisting[caption=Assembly code,style=customasmx86]{patterns/02_stack/global_args.asm}
 
-しかし、このメソッドには明白な欠点があります。\IT{do\_something()}関数は、独自の引数をzapする必要があるため、
+しかし、このメソッドには明白な欠点があります。\emph{do\_something()}関数は、独自の引数をzapする必要があるため、
 再帰的に（または別の関数を介して）呼び出すことはできません。 
 ローカル変数を使った同じ話：グローバル変数でそれらを保持すると、関数は自分自身を呼び出すことができませんでした。 
 また、これはスレッドセーフ
@@ -124,7 +124,7 @@ error:
 このメソッドは、アセンブリ言語プログラマによって引き続き使用されます。 
 Windows Research Kernelのソースコード（Windows 2003と非常に似ています）では、次のようなものが見つかります
 
-（ファイル \IT{base/ntos/ke/i386/cpu.asm}）
+（ファイル \emph{base/ntos/ke/i386/cpu.asm}）
 
 \begin{lstlisting}[style=customasmx86]
         public  Get386Stepping

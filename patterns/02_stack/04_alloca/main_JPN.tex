@@ -8,9 +8,9 @@
 \footnote{MSVCでは、関数の実装は\TT{\AllocaSrcPath{}}の\TT{alloca16.asm} と \TT{chkstk.asm}にあります}
 この関数は\TT{malloc()}のように動作しますが、スタックに直接メモリを割り当てます。 
 % page break added to prevent "\vref on page boundary" error. it may be dropped in future.
-関数のエピローグ(\myref{sec:prologepilog})は \ESP を初期状態に戻し、割り当てられたメモリは単に\IT{破棄}されるため、
+関数のエピローグ(\myref{sec:prologepilog})は \ESP を初期状態に戻し、割り当てられたメモリは単に\emph{破棄}されるため、
 割り当てられたメモリチャンクは\TT{free()}関数呼び出しで解放する必要はありません。 \TT{alloca()}がどのように実装されているかは注目に値する。
-簡単に言えば、この関数は必要なバイト数だけスタック底部に向かって \ESP を下にシフトさせ、\IT{割り当てられた}ブロックへのポインタとして \ESP を設定します。
+簡単に言えば、この関数は必要なバイト数だけスタック底部に向かって \ESP を下にシフトさせ、\emph{割り当てられた}ブロックへのポインタとして \ESP を設定します。
 
 やってみましょう。
 

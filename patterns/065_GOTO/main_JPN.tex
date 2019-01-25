@@ -1,9 +1,9 @@
 \mysection{GOTO演算子}
 
 GOTO演算子は、一般的にアンチパターンとみなされます。
-[Edgar Dijkstra, \IT{Go To Statement Considered Harmful} (1968)\footnote{\url{http://yurichev.com/mirrors/Dijkstra68.pdf}}]を参照してください。 
+[Edgar Dijkstra, \emph{Go To Statement Considered Harmful} (1968)\footnote{\url{http://yurichev.com/mirrors/Dijkstra68.pdf}}]を参照してください。 
 それにもかかわらず、それは合理的に使用することができます
-[Donald E. Knuth, \IT{Structured Programming with go to Statements} (1974)\footnote{\url{http://yurichev.com/mirrors/KnuthStructuredProgrammingGoTo.pdf}}]
+[Donald E. Knuth, \emph{Structured Programming with go to Statements} (1974)\footnote{\url{http://yurichev.com/mirrors/KnuthStructuredProgrammingGoTo.pdf}}]
 \footnote{\InSqBrackets{\CNotes} にもいくつか例があります}
 を参照してください。
 
@@ -15,7 +15,7 @@ MSVC 2012ではは次のようになります。
 
 \lstinputlisting[caption=MSVC 2012,style=customasmx86]{patterns/065_GOTO/MSVC_goto.asm}
 
-\IT{goto}文は単に \JMP 命令に置き換えられています。これは同じ効果があります。別の場所への無条件ジャンプです。 
+\emph{goto}文は単に \JMP 命令に置き換えられています。これは同じ効果があります。別の場所への無条件ジャンプです。 
 2番目の \printf は、人間の介入、デバッガの使用、またはコードのパッチ適用によってのみ実行できます。
 
 \par

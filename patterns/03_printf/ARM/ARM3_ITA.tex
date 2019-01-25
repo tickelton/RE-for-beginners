@@ -24,7 +24,7 @@ fastcall~(\myref{fastcall}) o win64~(\myref{sec:callingconventions_win64}).
 I primi 4 argomenti sono quindi passati attraverso i registri \Reg{0}-\Reg{3} nel seguente ordine:
 un puntatore alla format string di \printf in 
 \Reg{0}, 1 in \Reg{1}, 2 in \Reg{2} e 3 in \Reg{3}.
-L'istruzione a \GTT{0x18} scrive 0 in \Reg{0}---questo equivale allo statement C \IT{return 0}.
+L'istruzione a \GTT{0x18} scrive 0 in \Reg{0}---questo equivale allo statement C \emph{return 0}.
 Niente di insolito fino a qui.
 
 \OptimizingKeilVI genera lo stesso codice.
@@ -48,7 +48,7 @@ Non c'e' nessuna differenza significativa nel codice non ottimizzato per modo AR
 \mysubparagraph{\OptimizingKeilVI (\ARMMode) + rimozione di return}
 \label{ARM_B_to_printf}
 
-Modifichiamo leggermente l'esempio rimuovendo \IT{return 0}:
+Modifichiamo leggermente l'esempio rimuovendo \emph{return 0}:
 
 \begin{lstlisting}[style=customc]
 #include <stdio.h>
@@ -96,14 +96,14 @@ Un esempio simile e' fornito di seguito:
 
 \myindex{ARM!\Instructions!STP}
 
-La prima istruzione \INS{STP} (\IT{Store Pair}) salva \ac{FP} (X29) e \ac{LR} (X30) nello stack.
+La prima istruzione \INS{STP} (\emph{Store Pair}) salva \ac{FP} (X29) e \ac{LR} (X30) nello stack.
 La seconda istruzione \INS{ADD X29, SP, 0} forma lo stack frame.
 Scrive semplicemente il valore di \ac{SP} in X29.
 
 \myindex{ARM!\Instructions!ADRP/ADD pair}
 Successivamente vediamo la familiare coppia di istruzioni \INS{ADRP}/\ADD , che forma un puntatore alla stringa.
 \myindex{ARM64!lo12}
-\IT{lo12} indica 12 bit bassi (low 12 bits), ovvero, il linker scrivera' i 12 bit bassi dell'indirizzo di LC1 nell'opcode dell'istruzione \ADD .
+\emph{lo12} indica 12 bit bassi (low 12 bits), ovvero, il linker scrivera' i 12 bit bassi dell'indirizzo di LC1 nell'opcode dell'istruzione \ADD .
 \GTT{\%d} nella format string di \printf e' un \Tint a 32-bit, quindi u valori 1, 2 e 3 sono caricati nelle parti a 32-bit dei registri.
 
 \Optimizing GCC (Linaro) 4.9 genera lo stesso codice.

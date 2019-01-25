@@ -1,4 +1,4 @@
-\subsection{\IT{LD\_PRELOAD} hack in Linux}
+\subsection{\emph{LD\_PRELOAD} hack in Linux}
 
 \myindex{LD\_PRELOAD}
 \label{ld_preload}
@@ -10,7 +10,7 @@ Ad esempio, è facile intercettare tutte le chiamate da
 time(), read(), write(), etc. \\
 \\
 \myindex{uptime}
-Proviamo ad ingannare l'utility \IT{uptime}.
+Proviamo ad ingannare l'utility \emph{uptime}.
 Come sappiamo, essa ci dice da quanto tempo il computer sta lavorando.
 \myindex{strace}
 Con l'aiuto di strace(\myref{strace}), è possibile osservare che l'utility prende questa informazione dal file \TT{/proc/uptime}:
@@ -79,7 +79,7 @@ Compiliamolo con librerie dinamiche comuni:
 gcc -fpic -shared -Wall -o fool_uptime.so fool_uptime.c -ldl
 \end{lstlisting}
 
-Avviamo \IT{uptime} caricando prima le nostre librerie:
+Avviamo \emph{uptime} caricando prima le nostre librerie:
 
 \begin{lstlisting}
 LD_PRELOAD=`pwd`/fool_uptime.so uptime
@@ -91,7 +91,7 @@ Osserviamo che:
  01:23:02 up 24855 days,  3:14,  3 users,  load average: 0.00, 0.01, 0.05
 \end{lstlisting}
 
-Se la variabile d'ambiente \IT{LD\_PRELOAD} punta sempre al nome del file ed al percorso della nostra libreria, 
+Se la variabile d'ambiente \emph{LD\_PRELOAD} punta sempre al nome del file ed al percorso della nostra libreria, 
 deve essere per forza avviato per tutti i programmi che andremo ad avviare. \\
 \\
 Altri esempi:

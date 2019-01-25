@@ -29,7 +29,7 @@ made the programs look good afterwards.}{Дональд Кнут, интервь
 Например, LoadLibrary(), судя по \ac{MSDN}, возвращает ``handle'' модуля
 \footnote{\url{https://msdn.microsoft.com/ru-ru/library/windows/desktop/ms684175(v=vs.85).aspx}}.
 Затем вы передаете этот ``handle'' в другую ф-цию вроде GetProcAddress().
-Но на самом деле, LoadLibrary() возвращает указатель на DLL-файл загруженный (\IT{mapped}) в памяти
+Но на самом деле, LoadLibrary() возвращает указатель на DLL-файл загруженный (\emph{mapped}) в памяти
 \footnote{\url{https://blogs.msdn.microsoft.com/oldnewthing/20041025-00/?p=37483}}.
 Вы можете прочитать два байта по адресу возвращенному LoadLibrary(), и это будет ``MZ'' (первые два байта любого файла
 типа .EXE/.DLL в Windows).

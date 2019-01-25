@@ -22,13 +22,13 @@ We get (MSVC 2010):
 \TT{\$LN11@f}テーブルのアドレス+ 8は\TT{\$LN4@f}ラベルが格納されているテーブル要素です。
 \JMP はテーブルから\TT{\$LN4@f}アドレスを取り出し、それにジャンプします。
 
-このテーブルはしばしば\IT{jumptable} または \IT{branch table}\footnote{The whole method was once called 
-\IT{computed GOTO} in early versions of Fortran:
+このテーブルはしばしば\emph{jumptable} または \emph{branch table}\footnote{The whole method was once called 
+\emph{computed GOTO} in early versions of Fortran:
 \href{http://go.yurichev.com/17122}{wikipedia}.
 Not quite relevant these days, but what a term!}と呼ばれます。
 
 それから、対応する \printf は引数 \TT{'two'}で呼び出されます。
-実際、\TT{jmp DWORD PTR \$LN11@f[ecx*4]}命令は\IT{jump to the DWORD that is stored at address} \TT{\$LN11@f + ecx * 4}
+実際、\TT{jmp DWORD PTR \$LN11@f[ecx*4]}命令は\emph{jump to the DWORD that is stored at address} \TT{\$LN11@f + ecx * 4}
 
 \TT{npad}（\myref{sec:npad}）は、4バイト（または16バイト）の境界に整列したアドレスに格納されるように次のラベルを整列するアセンブリ言語マクロです。
 これは、メモリバス、キャッシュメモリなどを介してメモリから32ビット値をフェッチすることができるため、

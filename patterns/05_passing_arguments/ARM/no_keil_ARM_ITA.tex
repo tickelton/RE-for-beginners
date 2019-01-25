@@ -9,12 +9,12 @@ Come detto in precedenza, in ARM i primi 4 valori sono solitamente passati nei p
 La funzione \ttf function, come si deve, usa i primi 3 registri (\Reg{0}-\Reg{2}) come argomenti.
 
 \myindex{ARM!\Instructions!MLA}
-L'istruzione \TT{MLA} (\IT{Multiply Accumulate}) 
+L'istruzione \TT{MLA} (\emph{Multiply Accumulate}) 
 moltiplica i suoi primi due operandi (\Reg{3} e \Reg{1}), aggiunge al prodotto il terzo operando (\Reg{2}) e salva il risultato
 nel zeresimo registro (\Reg{0}), attraverso il quale, da standard, le funzioni restituiscono i valori.
 
 \myindex{Fused multiply–add}
-La moltiplicazione e addizione fatte in una volta sola (\IT{Fused multiply–add}) e' un'operazione molto utile. 
+La moltiplicazione e addizione fatte in una volta sola (\emph{Fused multiply–add}) e' un'operazione molto utile. 
 Non vi era alcune funzione analoga in x86 prima dell'avvento delle istruzioni FMA in SIMD.
 \footnote{\href{http://go.yurichev.com/17103}{wikipedia}}.
 

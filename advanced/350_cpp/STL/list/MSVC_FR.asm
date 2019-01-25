@@ -9,7 +9,7 @@ _main    PROC
     push 0
     lea  ecx, DWORD PTR _l$[esp+36]
     mov  DWORD PTR _l$[esp+40], 0
-    ; allocate first \IT{garbage} element
+    ; allocate first \emph{garbage} element
     call ?_Buynode0@?$_List_alloc@$0A@U?$_List_base_types@Ua@@V?$allocator@Ua@@@std@@@std@@@std@@QAEPAU?$_List_node@Ua@@PAX@2@PAU32@0@Z ; \verb|std::_List_alloc<0,std::_List_base_types<a,std::allocator<a> > >::_Buynode0|
     mov  edi, DWORD PTR __imp__printf
     mov  ebx, eax
@@ -123,7 +123,7 @@ _main    PROC
     add  esp, 4
     
     ; prev=next? 
-    ; it is the only element, \IT{garbage one}?
+    ; it is the only element, \emph{garbage one}?
     ; if yes, do not delete it!
     cmp  edx, ebx
     je   SHORT $LN349@main

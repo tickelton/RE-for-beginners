@@ -7,7 +7,7 @@ armcc.exe --arm --c90 -O0 1.c
 \end{lstlisting}
 
 \myindex{\IntelSyntax}
-Il compilatore \IT{armcc} produce un listato assembly con sintassi Intel,
+Il compilatore \emph{armcc} produce un listato assembly con sintassi Intel,
 e utilizza macro di alto livello legate al processore ARM
 \footnote{ad esempio, l' ARM mode 'e privo delle istruzioni \PUSH/\POP},
 tuttavia e' piu' importante per noi vedere le istruzioni \q{cosi' come sono}, quindi guardiamo il risultato compilato con \IDA.
@@ -30,7 +30,7 @@ Difatti abbiamo compilato il codice per la modalita' ARM e non Thumb.
 \myindex{ARM!\Instructions!POP}
 La prima istruzione, \TT{STMFD SP!, \{R4,LR\}}\footnote{\ac{STMFD}},
 funzione come l' istruzione \PUSH in x86, scrivendo i valori di due registri (\Reg{4} \ITAph{} \ac{LR}) nello stack.
-Infatti il listato di output prodotto dal compilatore \IT{armcc}, per semplificazione, mostra l'istruzione \INS{PUSH \{r4,lr\}}.
+Infatti il listato di output prodotto dal compilatore \emph{armcc}, per semplificazione, mostra l'istruzione \INS{PUSH \{r4,lr\}}.
 Ma cio' non e' del tutto esatto. L'istruzione\PUSH e' disponibile solo in modalita' Thumb. Utilizziamo quindi \IDA per non fare confusione.
 
 Questa istruzione dapprima \glslink{decrement}{decrementa} il valore di \ac{SP} cosi' da farlo puntare alla porzione dello stack che' e' libera di ospitare nuovi dati, quindi salva il valore dei registri \Reg{4} e \ac{LR} all'indirizzo memorizzato nel registro \ac{SP} appena modificato.
@@ -83,7 +83,7 @@ Questo succede perche' la nostra funzione C restituisce 0, ed il valore di ritor
 L'ultima istruzione \INS{LDMFD SP!, {R4,PC}}\footnote{\ac{LDMFD} e' l'istruzione inversa rispetto a  \ac{STMFD}}.
 Carica i valori dallo stack (o qualunque altra zona di memoria) per salvarli nei registri \Reg{4} e \ac{PC}, e \glslink{increment}{incrementa} lo \gls{stack pointer} \ac{SP}.
 In questo caso funziona come \POP.\\
-N.B. La prima istruzione \TT{STMFD} aveva salvato la coppia di registri \Reg{4} e \ac{LR} sullo stack, ma \Reg{4} e \ac{PC} vengono \IT{ripristinati} durante l'esecuzione di \TT{LDMFD}.
+N.B. La prima istruzione \TT{STMFD} aveva salvato la coppia di registri \Reg{4} e \ac{LR} sullo stack, ma \Reg{4} e \ac{PC} vengono \emph{ripristinati} durante l'esecuzione di \TT{LDMFD}.
 
 Come gia' sappiamo, l'indirizzo del posto a cui ogni funzione devere restituire il controllo e' solitamente salvato nel registro \ac{LR}.
 La prima istruzione salva il suo valore nello stack perche' lo stesso registro sara' usato dalla nostra funzione \main per la chiamata a \printf.

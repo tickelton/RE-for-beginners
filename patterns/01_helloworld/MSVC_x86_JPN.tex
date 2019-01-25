@@ -89,7 +89,7 @@ C/C++の文字列\TT{hello, world}には、\TT{const char[]}\InSqBrackets{\TCPPP
 \XOR は実際には\q{eXclusive OR}\footnote{\href{http://go.yurichev.com/17118}{Wikipedia}}ですが、コンパイラでは\INS{MOV EAX, 0}の代わりに使用されることがよくあります。 もう少し短いオペコード（ \MOV の場合は5に対して \XOR の場合は2バイト）であるからです。
 
 \myindex{x86!\Instructions!SUB}
-一部のコンパイラは\INS{SUB EAX, EAX}を出力します。これは、 \EAX の値を \EAX \IT{の値から} \IT{差し引くこと}を意味します。それはどんな場合でもゼロになります。
+一部のコンパイラは\INS{SUB EAX, EAX}を出力します。これは、 \EAX の値を \EAX \emph{の値から} \emph{差し引くこと}を意味します。それはどんな場合でもゼロになります。
 
 \myindex{x86!\Instructions!RET}
 最後の命令RETは、\gls{caller}に制御を返します。 通常、これは \CCpp \ac{CRT}コードであり、これは\ac{OS}に制御を戻します。

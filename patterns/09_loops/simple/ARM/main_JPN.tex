@@ -11,7 +11,7 @@
 \myindex{ARM!\Instructions!ADD}
 \INS{ADD R4, R4, \#1}命令は、各繰り返しで $i$ 変数に1を加算するだけです。 
 \INS{CMP R4, \#0xA}は $i$ と\TT{0xA}（10）を比較します。 
-次の命令\INS{BLT}（\IT{Branch Less Than}）は、 $i$ が10未満の場合にジャンプします。
+次の命令\INS{BLT}（\emph{Branch Less Than}）は、 $i$ が10未満の場合にジャンプします。
 それ以外の場合は、\Reg{0}に0が書き込まれます（関数が0を返すため）。
 そして関数の実行が終了します。
 
@@ -37,8 +37,8 @@ void printing_function(int i)
 
 \myindex{Unrolled loop}
 \myindex{Inline code}
-だから、LLVMはループを\IT{展開}しただけでなく、
-私の非常に単純な関数 \ttf を\IT{インライン}化し、
+だから、LLVMはループを\emph{展開}しただけでなく、
+私の非常に単純な関数 \ttf を\emph{インライン}化し、
 呼び出すのではなく本体を8回挿入しました。
 
 これは、関数が（私の例のように）とても簡単で、（ここのように）あまり呼び出されないときに可能です。

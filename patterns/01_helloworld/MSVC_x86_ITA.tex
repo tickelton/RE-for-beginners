@@ -96,7 +96,7 @@ Nel codice generato, questa è implementata dall'istruzione \INS{XOR EAX, EAX}.
 \INS{MOV EAX, 0}---ancora una volta poichè è un opcode leggermente più corto (2 byte per \XOR contro 5 per \MOV).
 
 \myindex{x86!\Instructions!SUB}
-Alcuni compilatori emettono l'istruzione \INS{SUB EAX, EAX}, che significa \IT{sottrai (SUBtract) il valore nel registro} \EAX \IT{dal valore nel registro} \EAX, che, in ogni caso, risulta uguale a zero.
+Alcuni compilatori emettono l'istruzione \INS{SUB EAX, EAX}, che significa \emph{sottrai (SUBtract) il valore nel registro} \EAX \emph{dal valore nel registro} \EAX, che, in ogni caso, risulta uguale a zero.
 
 \myindex{x86!\Instructions!RET}
 L'ultima istruzione \RET restituisce il controllo al chiamante (\gls{caller}). Solitamente, questo è codice \CCpp \ac{CRT} , che, a sua volta, restituisce il controllo all' \ac{OS}.

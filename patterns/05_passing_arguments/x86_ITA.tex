@@ -12,7 +12,7 @@ Vediamo che la funzione \main fa il push di 3 numeri sullo stack e chiama \TT{f(
 
 L'accesso agli argomenti all'interno della funzione \ttf e' gestito con l'aiuto di macro come: \TT{\_a\$ = 8}, 
 allo stesso modo delle variabili locali, ma con offset positivi.
-Si sta quindi indirizzando il lato \IT{esterno} dello \gls{stack frame} sommando la macro \TT{\_a\$} al valore contenuto nel registro \EBP.
+Si sta quindi indirizzando il lato \emph{esterno} dello \gls{stack frame} sommando la macro \TT{\_a\$} al valore contenuto nel registro \EBP.
 
 \myindex{x86!\Instructions!IMUL}
 \myindex{x86!\Instructions!ADD}
