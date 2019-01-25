@@ -5,16 +5,16 @@ istruzioni \JE/\JNE.
 
 \lstinputlisting[label=switch_lot_c,style=customc]{patterns/08_switch/2_lot/lot.c}
 
-\input{patterns/08_switch/2_lot/lot_x86_ITA}
-\input{patterns/08_switch/2_lot/lot_ARM_ITA}
-\input{patterns/08_switch/2_lot/lot_MIPS_ITA}
+\input{patterns/08_switch/2_lot/lot_x86_IT}
+\input{patterns/08_switch/2_lot/lot_ARM_IT}
+\input{patterns/08_switch/2_lot/lot_MIPS_IT}
 
 \subsubsection{\Conclusion{}}
 
 Stuttura approssimativa di \emph{switch()}:
 
 % TODO: ARM, MIPS skeleton
-\lstinputlisting[caption=x86,style=customasmx86]{patterns/08_switch/2_lot/skel1_ITA.lst}
+\lstinputlisting[caption=x86,style=customasmx86]{patterns/08_switch/2_lot/skel1_IT.lst}
 
 Il salto agli indirizzi nella tabella di jump può anche essere implementato usando questa istruzione: \\
 \TT{JMP jump\_table[REG*4]}.
