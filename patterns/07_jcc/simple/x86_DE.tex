@@ -32,7 +32,7 @@ anstelle von \JLE und \JGE wie folgt verwendet werden:
 \myindex{x86!\Instructions!JAE}
 Wie bereits erwähnt unterscheiden sich die Verzweigungsbefehle:
 \JBE---\emph{Jump if Below or Equal} und \JAE---\emph{Jump if Above or Equal}.
-Diese Befehle (\JA/\JAE/\JB/\JBE) unterscheiden sich von \JG/\JGE/\JL/\JLE dadurch, dass sie mit vorzeichenlosen Zahlen
+Diese Befehle (\INS{JA}/\JAE/\JB/\JBE) unterscheiden sich von \JG/\JGE/\JL/\JLE dadurch, dass sie mit vorzeichenlosen Zahlen
 arbeiten.
 
 \myindex{x86!\Instructions!JA}
@@ -41,7 +41,7 @@ arbeiten.
 \myindex{x86!\Instructions!JL}
 \myindex{Signed numbers}
 Siehe hierzu auch den Abschnitt über Darstellung vorzeichenbehafteter Zahlen~(\myref{sec:signednumbers}).
-Das ist der Grund warum wir, wenn wir \JG/\JL anstelle von \JA/\JB und umgekehrt finden, fast mit Gewissheit sagen
+Das ist der Grund warum wir, wenn wir \JG/\JL anstelle von \INS{JA}/\JB und umgekehrt finden, fast mit Gewissheit sagen
 können, dass die Variablen vorzeichenbehaftet bzw. vorzeichenlos sind.
 Hier befindet sich auch die Funktion \main, welche für uns nichts Neues bereithält:
 

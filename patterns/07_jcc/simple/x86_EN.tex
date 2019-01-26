@@ -32,7 +32,7 @@ are used instead of \JLE and \JGE, as follows:
 
 As already mentioned, the branch instructions are different:
 \JBE---\emph{Jump if Below or Equal} and \JAE---\emph{Jump if Above or Equal}.
-These instructions (\JA/\JAE/\JB/\JBE) differ from \JG/\JGE/\JL/\JLE in the fact that they work with unsigned numbers.
+These instructions (\INS{JA}/\JAE/\JB/\JBE) differ from \JG/\JGE/\JL/\JLE in the fact that they work with unsigned numbers.
 
 \myindex{x86!\Instructions!JA}
 \myindex{x86!\Instructions!JB}
@@ -41,7 +41,7 @@ These instructions (\JA/\JAE/\JB/\JBE) differ from \JG/\JGE/\JL/\JLE in the fact
 \myindex{Signed numbers}
 
 See also the section about signed number representations~(\myref{sec:signednumbers}).
-That is why if we see \JG/\JL in use instead of \JA/\JB or vice-versa, 
+That is why if we see \JG/\JL in use instead of \INS{JA}/\JB or vice-versa, 
 we can be almost sure that the variables are signed or unsigned, respectively.
 Here is also the \main function, where there is nothing much new to us:
 

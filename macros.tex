@@ -6,7 +6,7 @@
 \newcommand{\THAph}{\THA{{\color{red}Thai text placeholder}}}
 \newcommand{\NLph}{\NL{{\color{red}Dutch text placeholder}}}
 \newcommand{\FRph}{\FR{{\color{red}French text placeholder}}}
-\newcommand{\JPNph}{\JPN{{\color{red}Japanese text placeholder}}}
+\newcommand{\JAph}{\JA{{\color{red}Japanese text placeholder}}}
 \newcommand{\TRph}{\TR{{\color{red}Turkish text placeholder}}}
 
 \newcommand{\myhrule}{\begin{center}\rule{0.5\textwidth}{.4pt}\end{center}}
@@ -125,9 +125,9 @@
 
 \ifdefined\JAPANESE{}
 %\newcommand*{\JPN}[1]{\iflanguage{japanese}{#1}{}}
-\newcommand*{\JPN}[1]{#1}
+\newcommand*{\JA}[1]{#1}
 \else
-\newcommand*{\JPN}[1]{}
+\newcommand*{\JA}[1]{}
 \fi
 
 \ifdefined\TURKISH{}
@@ -231,7 +231,7 @@
 \newcommand{\IMUL}{\INS{IMUL}}
 \newcommand{\INC}{\INS{INC}}
 \newcommand{\JAE}{\INS{JAE}}
-\newcommand{\JA}{\INS{JA}}
+%\newcommand{\JA}{\INS{JA}} % now used for Japanese text
 \newcommand{\JBE}{\INS{JBE}}
 \newcommand{\JB}{\INS{JB}}
 \newcommand{\JE}{\INS{JE}}

@@ -34,7 +34,7 @@ sono utilizzate al posto di \JLE e \JGE:
 
 Come già detto, le istruzioni di salto (branch instructions) sono diverse:
 \JBE---\emph{Jump if Below or Equal} e \JAE---\emph{Jump if Above or Equal}.
-Queste istruzioni (\JA/\JAE/\JB/\JBE) differiscono da \JG/\JGE/\JL/\JLE in quanto operano con numeri senza segno (unsigned).
+Queste istruzioni (\INS{JA}/\JAE/\JB/\JBE) differiscono da \JG/\JGE/\JL/\JLE in quanto operano con numeri senza segno (unsigned).
 
 \myindex{x86!\Instructions!JA}
 \myindex{x86!\Instructions!JB}
@@ -44,7 +44,7 @@ Queste istruzioni (\JA/\JAE/\JB/\JBE) differiscono da \JG/\JGE/\JL/\JLE in quant
 
 Vedi anche la sezione sulle rappresentazioni di numeri con segno (signed) ~(\myref{sec:signednumbers}).
 
-Questo è il motivo per cui se vediamo usare \JG/\JL al posto di \JA/\JB, o viceversa, 
+Questo è il motivo per cui se vediamo usare \JG/\JL al posto di \INS{JA}/\JB, o viceversa, 
 possiamo essere quasi certi che le variabili sono rispettivamente di tipo signed o unsigned.
 
 Di seguito è riportata anche la funzione \main, dove non c'è niente di nuovo:
