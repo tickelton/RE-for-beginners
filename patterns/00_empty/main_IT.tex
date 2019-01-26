@@ -58,7 +58,7 @@ Anche se le funzioni vuote sembrano inutili, sono abbastanza utilizzate nel codi
 
 Prima di tutto, sono abbastanza popolari nelle funzioni per debug, come questa:
 
-\lstinputlisting[caption=\EN{\CCpp Code},style=customc]{patterns/00_empty/dbg_print.c}
+\lstinputlisting[caption=\CCpp Code,style=customc]{patterns/00_empty/dbg_print_EN.c}
 
 In una build non di debug (come in una ``release''), \TT{\_DEBUG} non è definito,
 quindi la funzione \TT{dbg\_print()}, nonostante venga ancora chiamata durante l'esecuzione,
@@ -67,7 +67,7 @@ sarà vuota.
 Similmente, un metodo popolare per la protezione del software è di creare una build per gli acquirenti regolari, ed una build di demo.
 In una build di demo possono mancare alcune funzionalità importanti, come in questo esempio:
 
-\lstinputlisting[caption=\EN{\CCpp Code},style=customc]{patterns/00_empty/demo.c}
+\lstinputlisting[caption=\CCpp Code,style=customc]{patterns/00_empty/demo_EN.c}
 
 La funzione \TT{save\_file()} può essere chiamata quando l'utente fa click sul menu \TT{File->Salva}.
 La versione demo può essere distribuita con questa voce di menu disattivata, ma anche se un cracker la riattiva,

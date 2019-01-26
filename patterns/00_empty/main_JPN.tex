@@ -53,7 +53,7 @@ MIPSの世界では、レジスタと命令の名前は、伝統的に小文字�
 
 まず第一に、次のようなデバッグ機能でとてもポピュラーです。
 
-\lstinputlisting[caption=\EN{\CCpp Code},style=customc]{patterns/00_empty/dbg_print.c}
+\lstinputlisting[caption=\CCpp Code,style=customc]{patterns/00_empty/dbg_print_EN.c}
 
 非デバッグビルドでは（greleasehのように）、\TT{\_DEBUG}は定義されていないので、
 \TT{dbg\_print()}関数は実行中に呼び出されているにもかかわらず、空になります。
@@ -61,7 +61,7 @@ MIPSの世界では、レジスタと命令の名前は、伝統的に小文字�
 同様に、ソフトウェア保護の一般的な方法は、合法な顧客向けに1つのビルドを作成し、
 他にはデモビルドを作成することです。 デモビルドには、この例のようにいくつかの重要な機能が欠けています。
 
-\lstinputlisting[caption=\EN{\CCpp Code},style=customc]{patterns/00_empty/demo.c}
+\lstinputlisting[caption=\CCpp Code,style=customc]{patterns/00_empty/demo_EN.c}
 
 \TT{save\_file()}関数は、ユーザーがメニューの\TT{File->Save}をクリックすると呼び出すことができます。 
 デモ版は、このメニュー項目を無効にしてお届けできますが、ソフトウェアクラッカーが有効にしても、役に立つコードのない空の関数だけが呼び出されます。
