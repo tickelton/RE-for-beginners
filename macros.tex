@@ -1,12 +1,12 @@
 \newcommand{\ESph}{\ES{{\color{red}Spanish text placeholder}}}
 \newcommand{\PTBRph}{\PTBR{{\color{red}Brazilian Portuguese text placeholder}}}
 \newcommand{\PLph}{\PL{{\color{red}Polish text placeholder}}}
-\newcommand{\ITAph}{\ITA{{\color{red}Italian text placeholder}}}
+\newcommand{\ITph}{\IT{{\color{red}Italian text placeholder}}}
 \newcommand{\DEph}{\DE{{\color{red}German text placeholder}}}
 \newcommand{\THAph}{\THA{{\color{red}Thai text placeholder}}}
 \newcommand{\NLph}{\NL{{\color{red}Dutch text placeholder}}}
 \newcommand{\FRph}{\FR{{\color{red}French text placeholder}}}
-\newcommand{\JPNph}{\JPN{{\color{red}Japanese text placeholder}}}
+\newcommand{\JAph}{\JA{{\color{red}Japanese text placeholder}}}
 \newcommand{\TRph}{\TR{{\color{red}Turkish text placeholder}}}
 
 \newcommand{\myhrule}{\begin{center}\rule{0.5\textwidth}{.4pt}\end{center}}
@@ -75,10 +75,10 @@
 \fi
 
 \ifdefined\ITALIAN{}
-%\newcommand*{\ITA}[1]{\iflanguage{italian}{#1}{}}
-\newcommand*{\ITA}[1]{#1}
+%\newcommand*{\IT}[1]{\iflanguage{italian}{#1}{}}
+\newcommand*{\IT}[1]{#1}
 \else
-\newcommand*{\ITA}[1]{}
+\newcommand*{\IT}[1]{}
 \fi
 
 \ifdefined\BRAZILIAN{}
@@ -125,9 +125,9 @@
 
 \ifdefined\JAPANESE{}
 %\newcommand*{\JPN}[1]{\iflanguage{japanese}{#1}{}}
-\newcommand*{\JPN}[1]{#1}
+\newcommand*{\JA}[1]{#1}
 \else
-\newcommand*{\JPN}[1]{}
+\newcommand*{\JA}[1]{}
 \fi
 
 \ifdefined\TURKISH{}
@@ -231,7 +231,7 @@
 \newcommand{\IMUL}{\INS{IMUL}}
 \newcommand{\INC}{\INS{INC}}
 \newcommand{\JAE}{\INS{JAE}}
-\newcommand{\JA}{\INS{JA}}
+%\newcommand{\JA}{\INS{JA}} % now used for Japanese text
 \newcommand{\JBE}{\INS{JBE}}
 \newcommand{\JB}{\INS{JB}}
 \newcommand{\JE}{\INS{JE}}
@@ -500,6 +500,8 @@
 \newcommand{\ARMSevenRef}{\emph{ARM(R) Architecture Reference Manual, ARMv7-A and ARMv7-R edition}, (2012)}
 
 \newcommand{\MAbrash}{Michael Abrash, \emph{Graphics Programming Black Book}, 1997}
+
+\newcommand{\MathForProg}{Mathematics for Programmers\footnote{\url{https://yurichev.com/writings/Math-for-programmers.pdf}}}
 
 \newcommand{\radare}{rada.re}
 

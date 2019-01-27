@@ -37,7 +37,7 @@ suit:
 Comme déjà mentionné, les instructions de branchement sont différentes:
 \JBE---\emph{Jump if Below or Equal} (saut si inférieur ou égal) et \JAE---\emph{Jump if Above or Equal}
 (saut si supérieur ou égal).
-Ces instructions (\JA/\JAE/\JB/\JBE) diffèrent de \JG/\JGE/\JL/\JLE par le fait qu'elles
+Ces instructions (\INS{JA}/\JAE/\JB/\JBE) diffèrent de \JG/\JGE/\JL/\JLE par le fait qu'elles
 travaillent avec des nombres non signés.
 
 \myindex{x86!\Instructions!JA}
@@ -47,7 +47,7 @@ travaillent avec des nombres non signés.
 \myindex{Signed numbers}
 
 Voir aussi la section sur la représentation des nombres signés~(\myref{sec:signednumbers}).
-C'est pourquoi si nous voyons que \JG/\JL sont utilisés à la place de \JA/\JB ou
+C'est pourquoi si nous voyons que \JG/\JL sont utilisés à la place de \INS{JA}/\JB ou
 vice-versa, nous pouvons être presque sûr que les variables sont signées ou non
 signées, respectivement.
 Voici la fonction \main, où presque rien n'est nouveau pour nous:
