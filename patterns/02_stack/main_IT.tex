@@ -6,23 +6,23 @@ Lo stack e' una delle strutture dati piu' importanti in informatica
 \footnote{\href{http://go.yurichev.com/17119}{wikipedia.org/wiki/Call\_stack}}.
 \ac{AKA} \ac{LIFO}.
 
-Tecnicamente, e' soltanto un blocco di memoria nella memoria di un processo insieme al registro \ESP o \RSP in x86 o x86, o il registro \ac{SP} in ARM, come puntatore all'interno di quel blocco.
+Tecnicamente, è soltanto un blocco di memoria nella memoria di un processo insieme al registro \ESP o \RSP in x86 o x64, o il registro \ac{SP} in ARM, come puntatore all'interno di quel blocco.
 
 \myindex{ARM!\Instructions!PUSH}
 \myindex{ARM!\Instructions!POP}
 \myindex{x86!\Instructions!PUSH}
 \myindex{x86!\Instructions!POP}
-Le istruzioni di accesso allo stack piu' usate sono \PUSH e \POP (sia in x86 che in ARM Thumb-mode).
-\PUSH sottrae da \ESP/\RSP/\ac{SP} 4 in modalita' 32-bit (oppur 8 in modalita' 64-bit) e scrive successivamente il contenuto del suo unico operando nell'indirizzo di memoria puntato da \ESP/\RSP/\ac{SP}.
+Le istruzioni di accesso allo stack più usate sono \PUSH e \POP (sia in x86 che in ARM Thumb-mode).
+\PUSH sottrae da \ESP/\RSP/\ac{SP} 4 in modalità 32-bit (oppure 8 in modalità 64-bit) e scrive successivamente il contenuto del suo unico operando nell'indirizzo di memoria puntato da \ESP/\RSP/\ac{SP}.
 
-\POP e' l'operazione inversa: recupera il dato dalla memoria a cui punta \ac{SP}, lo carica nell'operando dell'istruzione (di solito un registro)
+\POP è l'operazione inversa: recupera il dato dalla memoria a cui punta \ac{SP}, lo carica nell'operando dell'istruzione (di solito un registro)
 e successivamente aggiunge 4 (o 8) allo \gls{stack pointer}.
 
 A seguito dell'allocazione dello stack, lo \gls{stack pointer} punta alla base (fondo) dello stack.
 \PUSH decrementa lo \gls{stack pointer} e \POP lo incrementa.
-La base dello stack e' in realta' all'inizio della memoria allocata per il blocco (porzione) dello stack. Sembra strano, ma e' cosi'.
+La base dello stack è in realtà all'inizio del blocco di memoria allocato per lo stack. Sembra strano, ma è così.
 
-ARM supporta stack decrescenti e crescenti.
+ARM supporta sia stack decrescenti che crescenti.
 
 \myindex{ARM!\Instructions!STMFD}
 \myindex{ARM!\Instructions!LDMFD}
@@ -43,16 +43,16 @@ Le istruzioni \ac{STMFA}/\ac{LDMFA}, \ac{STMEA}/\ac{LDMEA} sono fatte per operar
 % but also in a non-standard order.
 % Maybe this can be in the glossary, which would explain why E stands for "empty".
 
-\subsection{Perche' lo stack cresce al contrario?}
+\subsection{Perchè lo stack cresce al contrario?}
 \label{stack_grow_backwards}
 
-Intuitivamente potremmo pensare che lo stack cresca verso l'alto, ovvero verso indirizzi piu' alti, come qualunque altra struttura dati.
+Intuitivamente potremmo pensare che lo stack cresca verso l'alto, ovvero verso indirizzi più alti, come qualunque altra struttura dati.
 
-La ragione per cui lo stack cresce verso il basso e' probabilmente di natura storica.
-Quando i computer erano talmente grandi da occupare un'intera stanza, era facile dividere la memoria in due parti, una per lo 
+La ragione per cui lo stack cresce verso il basso è probabilmente di natura storica.
+Quando i computer erano talmente grandi da occupare un'intera stanza, era facile dividere la memoria in due parti, una per lo
 \gls{heap} e l'altra per lo stack.
 Ovviamente non era possibile sapere a priori quanto sarebbero stati grandi lo stack e lo \gls{heap} durante l'esecuzione di un programma,
-e questa soluzione era la piu' semplice.
+e questa soluzione era la più semplice.
 
 \input{patterns/02_stack/stack_and_heap}
 
@@ -66,11 +66,11 @@ During execution, this segment is write-protected and a single copy of it is sha
 At the first 8K byte boundary above the program text segment in the virtual address space begins a nonshared, writable data segment, the size of which may be extended by a system call.
 Starting at the highest address in the virtual address space is a stack segment, which automatically grows downward as the hardware's stack pointer fluctuates.
 
-Il nucleo utente di una immagine e' diviso in tre segmenti logici.
+Il nucleo utente di una immagine è diviso in tre segmenti logici.
 Il segmento text del programma inizia in posizione 0 nel virtual address space.
 Durante l'esecuzione questo segmento viene protetto da scrittura, ed una sua singola copia viene condivisa tra i processi che eseguono lo stesso programma.
-Al primo limite di 8K byte dopra il segmento text del programma, nel virtual address space comincia un segmento dati scrivibile, non condiviso, le cui dimensioni possono essere estese da una chiamata di sistema.
-A partire dall'indirizzo piu' alto nel virtual address space c'e' lo stack segment, che automaticammente cresce verso il basso al variare dello stack pointer hardware.
+Al primo limite di 8K byte sopra il segmento text del programma, nel virtual address space comincia un segmento dati scrivibile, non condiviso, le cui dimensioni possono essere estese da una chiamata di sistema.
+A partire dall'indirizzo più alto nel virtual address space c'è lo stack segment, che automaticammente cresce verso il basso al variare dello stack pointer hardware.
 \end{quotation}
 \end{framed}
 
@@ -91,9 +91,7 @@ Le note si potrebbero "incontrare" da qualche parte in mezzo al quaderno, nel ca
 % subsections
 \input{patterns/02_stack/01_saving_ret_addr}
 \input{patterns/02_stack/02_args_passing}
-\EN{\input{patterns/02_stack/03_local_vars_EN}}
-\RU{\input{patterns/02_stack/03_local_vars_RU}}
-\PTBR{\input{patterns/02_stack/03_local_vars_PTBR}}
+\input{patterns/02_stack/03_local_vars_IT}
 \input{patterns/02_stack/04_alloca/main}
 \input{patterns/02_stack/05_SEH}
 \input{patterns/02_stack/06_BO_protection}
@@ -101,8 +99,8 @@ Le note si potrebbero "incontrare" da qualche parte in mezzo al quaderno, nel ca
 \subsubsection{Deallocazione automatica dei dati nello stack}
 
 Probabilmente la ragione per cui si memorizzano nello stack le variabili locali e i record SEH deriva dal fatto che questi dati vengono "liberati" automaticamente all'uscita dalla funzione,
-usando soltanto un'istruzione per correggere lo stack pointer (spesso e' \ADD).
-Si puo' dire che anche gli argomenti delle funzioni sono deallocati automaticamente alla fine della funzione.
+usando soltanto un'istruzione per correggere lo stack pointer (spesso è \ADD).
+Si può dire che anche gli argomenti delle funzioni sono deallocati automaticamente alla fine della funzione.
 Invece, qualunque altra cosa memorizzata nello \emph{heap} deve essere deallocata esplicitamente.
 
 % sections
