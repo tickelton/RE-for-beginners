@@ -17,24 +17,24 @@ $SG3830	DB	'a=%d; b=%d; c=%d', 00H
 	add	esp, 16					; 00000010H
 \end{lstlisting}
 
-Notiamo che gli argomenti di \printf sono messi sullo stack in ordine inverso. Il primo argomento e' quello messo per ultimo.
+Notiamo che gli argomenti di \printf sono messi sullo stack in ordine inverso. Il primo argomento è quello inserito per ultimo.
 
 A proposito, le variabili di tipo \Tint in ambienti a 32-bit hanno dimensione pari a 32-bit, ovvero 4 byte.
 
-Abbiamo 4 argomenti, quindi $4*4 = 16$~---essi occupano esattamente 16 bytes nello stack: un puntatore a 32-bit alla stringa,  e 3 numeri di tipo \Tint.
+Abbiamo 4 argomenti, quindi $4*4 = 16$~---occupano esattamente 16 byte nello stack: un puntatore da 32 bit alla stringa, e 3 numeri di tipo \Tint.
 
 \myindex{x86!\Instructions!ADD}
 \myindex{x86!\Registers!ESP}
 \myindex{cdecl}
 Quando lo \gls{stack pointer} (registro \ESP) viene ripristinato dall'istruzione \INS{ADD ESP, X}
-dopo una chiamata a funzione, in molti casi il numero di argomenti della fuznione puo' essere dedotto semplicemente dividendo X per 4.
+dopo una chiamata a funzione, in molti casi,
+il numero di argomenti della funzione può essere dedotto semplicemente dividendo X per 4.
 
-Questa caratteristca  e' propria solo della calling convention \emph{cdecl} e in ambienti a 32-bit..
+Questa caratteristica è propria solo della calling convention \emph{cdecl} ed in ambienti a 32 bit.
 
 Si veda anche la sezione sulle calling conventions ~(\myref{sec:callingconventions}).
 
-In certi casi in qui diverse funzioni ritornano una dopo l'altra, il compilatore potrebbe accorpare piu' istruzioni \q{ADD ESP, X} 
-dopo l'ultima chiamata, emettendo una sola istruzione:
+In certi casi, quando diverse funzioni ritornano una dopo l'altra, il compilatore potrebbe accorpare più istruzioni \q{ADD ESP, X} dopo l'ultima chiamata, emettendo una sola istruzione:
 
 \begin{lstlisting}[style=customasmx86]
 push a1
@@ -53,35 +53,36 @@ add esp, 24
 
 Ecco un esempio reale:
 
-% TODO translate to Italian
-\lstinputlisting[caption=x86,style=customasmx86]{patterns/03_printf/x86/add_example_EN.lst}
+\lstinputlisting[caption=x86,style=customasmx86]{patterns/03_printf/x86/add_example_IT.lst}
 
 \clearpage
-\myparagraph{MSVC and \olly}
+\myparagraph{MSVC e \olly}
 \myindex{\olly}
 
-Proviamo ora ad esaminare l'esempio con \olly, uno dei piu' diffusi debugger win32 user-land.
-Possiamo compilarlo in MSVC 2012 con l'opzione \GTT{/MD}, che indica al compilatore di linkare con \GTT{MSVCR*.DLL},
+Proviamo ora ad esaminare l'esempio con \olly.
+Si tratta di uno dei più popolari debugger per win32 in user-land.
+Possiamo compilare l'esempio in MSVC 2012 con l'opzione \GTT{/MD}, che indica al compilatore di linkare con \GTT{MSVCR*.DLL},
 in maniera tale da poter vedere in modo chiaro, nel debugger, le funzioni importate.
 
 Carichiamo quindi l'eseguibile in \olly.
-Il primo breakpoint avviene in \GTT{ntdll.dll}, premiamo F9 (run) per continuare l'esecuzione. 
-Il secondo breakpoint e' nel codice \ac{CRT}.
+Il primo breakpoint avviene in \GTT{ntdll.dll},
+premiamo F9 (run) per continuare l'esecuzione.
+Il secondo breakpoint è nel codice \ac{CRT}.
 Ora dobbiamo trovare la funzione \main.
 
-Per farlo scorriamo il codice verso l'alto (MSVC alloca la funzione \main proprio all'inizio della sezione code): 
+Per farlo scorriamo il codice verso l'alto (MSVC alloca la funzione \main proprio all'inizio della sezione code):
 \begin{figure}[H]
 \centering
 \myincludegraphics{patterns/03_printf/x86/olly3_1.png}
-\caption{\olly: the very start of the \main function}
+\caption{\olly: l'inizio della funzione \main}
 \label{fig:printf3_olly_1}
 \end{figure}
 
-Clickiamo sull'istruzione \INS{PUSH EBP}, premiamo F2 (set breakpoint) and quindi F9 (run).
+Clickiamo sull'istruzione \INS{PUSH EBP}, premiamo F2 (set breakpoint) e quindi F9 (run).
 Queste azioni ci consentono di saltare tutta la parte legata al codice \ac{CRT}, in quanto per il momento non ci interessa.
 
 \clearpage
-Premiamo F8 (\stepover) 6 volte, ovverso saltiamo (avanziamo di) 6 istruzioni:
+Premiamo F8 (\stepover) per 6 volte, ovvero saltiamo (avanziamo di) 6 istruzioni:
 
 \begin{figure}[H]
 \centering
@@ -92,26 +93,26 @@ Premiamo F8 (\stepover) 6 volte, ovverso saltiamo (avanziamo di) 6 istruzioni:
 
 Adesso il \ac{PC} punta all'istruzione \INS{CALL printf}.
 \olly, come altri debugger, evidenzia il valore dei registri che sono stati modificati.
-Quindi ogni volta che si preme F8, \EIP cambia ed il suo valore e' mostrato in rosso.
-Anche \ESP cambia, poiche' i valori degli argomenti vengono messi sullo stack.
-
+Quindi ogni volta che si preme F8, \EIP cambia ed il suo valore è mostrato in rosso.
+Anche \ESP cambia, poichè i valori degli argomenti vengono messi sullo stack.\\
+\\
 Dove sono i valori messi nello stack?
 Diamo un'occhiata alla finestra del debugger in basso a destra:
 
 \begin{figure}[H]
 \centering
 \input{patterns/03_printf/x86/incl_olly3_stack}
-\caption{\olly: stato dello stack dopo il push dei valori degli argomenti (il rettangolo rosso e' stato aggiunto dall'autore per evidenziare la finestra)}
+\caption{\olly: stato dello stack dopo il push dei valori degli argomenti (il rettangolo rosso è stato aggiunto dall'autore per evidenziare la finestra)}
 \end{figure}
 
-Notiamo 3 colonne: indirizzo nello stack, valore nello stack ed alcuni commenti aggiuntivi di \olly. 
-\olly riconosce le stringhe \printf{}-like , e riporta quindi la stringa insieme ai 3 valori \emph{associati}.
+Notiamo 3 colonne: indirizzo nello stack, valore nello stack ed alcuni commenti aggiuntivi di \olly.
+\olly riconosce le stringhe \printf{}-like, e riporta quindi la stringa insieme ai 3 valori \emph{associati}.
 
-Facendo click destro sulla formato string, quindi click su \q{Follow in dump},
-e' possibile vedere la format string nella finestra del debugger in basso a sinistra, che mostra una zona di memoria.
+Facendo click destro sulla stringa di formato, quindi click su \q{Follow in dump},
+è possibile vedere la format string nella finestra del debugger in basso a sinistra, che mostra una zona di memoria.
 I valori mostrati possono anche essere modificati.
 E' ad esempio possibile cambiare la format string, che renderebbe diverso il risultato dell'esempio.
-Non e' molto utile in questo particolare caso, ma puo' comunque essere un esercizio utile per iniziare a prendere dimestichezza con lo strumento.
+Non è molto utile in questo particolare caso, ma può comunque essere un esercizio utile per iniziare a prendere dimestichezza con lo strumento.
 
 \clearpage
 Premiamo F8 (\stepover).
@@ -130,15 +131,16 @@ Vediamo come sono cambiati i registri e lo stack:
 \end{figure}
 
 Il registro \EAX adesso contiene \GTT{0xD} (13).
-Questo valore e' corretto, poiche' \printf restituisce il numero di caratteri stampati. 
-Il valore di \EIP e' cambiato: adesso contiene infatti l'indirizzo dell'istruzione che viene dopo \INS{CALL printf}.
-Anche i valori \ECX e \EDX sono cambiati.
-Apparentemente, i meccanismi interni alla funzione \printf hanno usato quei registri durante l'esecuzione di printf per le sue necessita'.
+Questo valore è corretto, poichè \printf restituisce il numero di caratteri stampati.
+Il valore di \EIP è cambiato: adesso contiene infatti l'indirizzo dell'istruzione che viene dopo \INS{CALL printf}.
+Anche i valori di \ECX e \EDX sono cambiati.
+Apparentemente, i meccanismi interni alla funzione \printf hanno usato quei registri durante l'esecuzione di printf, per le sue necessità.
 
-Un fatto molto importante e' che ne' il valore di ESP ne' lo stack sono stati modificati!
-Vediamo chiaramente che la format string ed i suoi 3 valori si trovano ancora li'.
-Questo e; infatti il comportamento della calling convention \emph{cdecl}: il \gls{callee} (la funzione chiamata) non ripristina
-\ESP al suo valore precedente. Farlo e' una responsabilita' del The \gls{caller} (chiamante).
+Un fatto molto importante è che nè il valore di ESP nè lo stack sono stati modificati!
+Vediamo chiaramente che la format string ed i suoi 3 valori si trovano ancora lì.
+Questo è infatti il comportamento della calling convention \emph{cdecl}: il \gls{callee} (la funzione chiamata) non ripristina
+\ESP al suo valore precedente.
+Farlo è una responsabilità del \gls{caller} (chiamante).
 
 \clearpage
 Premiamo F8 nuovamente per eseguire l'istruzione \INS{ADD ESP, 10}:
@@ -146,30 +148,32 @@ Premiamo F8 nuovamente per eseguire l'istruzione \INS{ADD ESP, 10}:
 \begin{figure}[H]
 \centering
 \myincludegraphics{patterns/03_printf/x86/olly3_4.png}
-\caption{\olly: after \INS{ADD ESP, 10} instruction execution}
+\caption{\olly: dopo l'esecuzione dell'istruzione \INS{ADD ESP, 10}}
 \label{fig:printf3_olly_4}
 \end{figure}
 
-\ESP e' cambiato, ma i valori si trovano ancora sullo stack!
-Ovviamente si: non c'e' necessita' di azzerare i valori o effettuare altre simili operazioni di "pulizia".
-Qualunque cosa si trovi sopra lo stack pointer (\ac{SP}) e' \emph{noise} o \emph{\garbage{}} e non ha alcun significato.
-Pulire i valori non utilizzati nello stack sarebbe una perdita di tempo inutile, e non vi e' alcuna necessita' di farlo.
+\ESP è cambiato, ma i valori si trovano ancora sullo stack!
+Ovviamente si: non c'è necessità di azzerare i valori o effettuare altre simili operazioni di "pulizia".
+Qualunque cosa si trovi sopra lo stack pointer (\ac{SP})
+è \emph{rumore} o \emph{\garbage{}} e non ha alcun significato.
+Pulire i valori non utilizzati nello stack sarebbe una perdita di tempo inutile, e non vi è alcuna necessità di farlo.
+
 
 \myparagraph{GCC}
 
-Compiliamo adesso lo stesso programma su Linux usando GCC 4.4.1, e diamo un'occhiata al risultato con \IDA:
+Compiliamo lo stesso programma su Linux usando GCC 4.4.1, e diamo un'occhiata al risultato con \IDA:
 
 \lstinputlisting[style=customasmx86]{patterns/03_printf/x86/x86_1.asm}
 
 Si nota che la differenza tra il codice prodotto da MSVC e GCC risiede soltanto nel modo in cui gli argomenti sono memorizzati sullo stack.
-In questo caso GCC lavora diversamente con lo stack senza l'uso di \PUSH/\POP.
+In questo caso GCC lavora diversamente con lo stack, senza l'uso di \PUSH/\POP.
 
 \myparagraph{GCC e GDB}
 \myindex{GDB}
 
 Proviamo l'esempio anche con \ac{GDB} su Linux.
 
-L'opzione \GTT{-g} indica al comiplatore di includere le informazioni di debug nel file eseguibile.
+L'opzione \GTT{-g} indica al compilatore di includere le informazioni di debug nel file eseguibile.
 
 \begin{lstlisting}
 $ gcc 1.c -g -o 1
@@ -188,17 +192,17 @@ Breakpoint 1 at 0x80482f0
 \end{lstlisting}
 
 Avviamolo.
-Non abbiamo il sorgente della funzione \printf qui, quindi \ac{GDB} non puo' mostrarlo, anche se potrebbe.
+Non abbiamo il sorgente della funzione \printf qui, quindi \ac{GDB} non può mostrarlo, anche ne avrebbe la capacità.
 
 \begin{lstlisting}
 (gdb) run
-Starting program: /home/dennis/polygon/1 
+Starting program: /home/dennis/polygon/1
 
 Breakpoint 1, __printf (format=0x80484f0 "a=%d; b=%d; c=%d") at printf.c:29
 29	printf.c: No such file or directory.
 \end{lstlisting}
 
-Stampiamo 10 elementi dello stack elements. La colonna piu' a sinistra contiene l'indirizzo nello stack.
+Stampiamo 10 elementi dello stack. La colonna più a sinistra contiene gli indirizzi nello stack.
 
 \begin{lstlisting}
 (gdb) x/10w $esp
@@ -207,21 +211,21 @@ Stampiamo 10 elementi dello stack elements. La colonna piu' a sinistra contiene 
 0xbffff13c:	0xb7e29905	0x00000001
 \end{lstlisting}
 
-Il primo elemento e' il \ac{RA} (\GTT{0x0804844a}).
+Il primo elemento è il \ac{RA} (\GTT{0x0804844a}).
 Possiamo verificarlo disassemblando la memoria a questo indirizzo:
 
 \begin{lstlisting}[label=NOP_as_XCHG_example,style=customasmx86]
 (gdb) x/5i 0x0804844a
    0x804844a <main+45>:	mov    $0x0,%eax
-   0x804844f <main+50>:	leave  
-   0x8048450 <main+51>:	ret    
+   0x804844f <main+50>:	leave
+   0x8048450 <main+51>:	ret
    0x8048451:	xchg   %ax,%ax
    0x8048453:	xchg   %ax,%ax
 \end{lstlisting}
 
-Le due istruzioni \INS{XCHG} sono istruzioni \q{inutili} (idle), analoghe a \ac{NOP}.
+Le due istruzioni \INS{XCHG} sono istruzioni \q{inutili} (idle), analoghe a dei \ac{NOP}.
 
-Il secondo elemento (\GTT{0x080484f0}) e' l'indirizzo della format string:
+Il secondo elemento (\GTT{0x080484f0}) è l'indirizzo della format string:
 
 \begin{lstlisting}
 (gdb) x/s 0x080484f0
@@ -229,10 +233,11 @@ Il secondo elemento (\GTT{0x080484f0}) e' l'indirizzo della format string:
 \end{lstlisting}
 
 I successivi 3 elementi (1, 2, 3) sono gli argomenti di \printf.
-Il resto degli elementi potrebbe essere \q{immondizia} nello stack, oppure valori provenienti da altre funzioni, come le loro variabili locali, etc.
+Il resto degli elementi potrebbe essere \q{immondizia} nello stack,
+oppure valori provenienti da altre funzioni, come le loro variabili locali, etc.
 Per il momento li possiamo ignorare.
 
-Eseguiamo il comando \q{finish}. 
+Eseguiamo il comando \q{finish}.
 Questo comando dice a GDB di \q{eseguire tutte le istruzioni fino alla fine della funzione}.
 In questo caso: esegui fino alla fine di \printf.
 
@@ -244,15 +249,16 @@ main () at 1.c:6
 Value returned is $2 = 13
 \end{lstlisting}
 
-\ac{GDB} mostr il risultato di \printf restituito in \EAX (13).
-Questo e' il numero di caratteri stampati, proprio come nell'esempio in \olly.
+\ac{GDB} mostra il risultato di \printf restituito in \EAX (13).
+Questo è il numero di caratteri stampati, proprio come nell'esempio in \olly.
 
-Vediamo anche \q{return 0;} e l'informazione che questa espressione si trova nel file \GTT{1.c} a riga 6.
-Infatti il file \GTT{1.c} si trova nella directory corrente, e \ac{GDB} trova la stringa li'.
+Vediamo anche \q{return 0;} e l'informazione che questa espressione si trova nel file \GTT{1.c} alla riga 6.
+Infatti il file \GTT{1.c} si trova nella directory corrente, e \ac{GDB} trova la stringa lì.
 Come fa \ac{GDB} a sapere quale riga del codice C viene eseguita?
-Cio' e' dovuto al fatto che il compilatore, quando genera le informazioni di debug, salva anche una tabella di relazioni tra le righe del
+Ciò è dovuto al fatto che il compilatore,
+quando genera le informazioni di debug, salva anche una tabella di relazioni tra le righe del
 codice sorgente e gli indirizzi delle istruzioni.
-Dopotutto GDB e' un \q{source-level debugger}.
+Dopotutto GDB è un \q{source-level debugger}.
 
 Esaminiamo i registri.
 13 in \EAX:
@@ -272,7 +278,7 @@ eip            0x804844a	0x804844a <main+45>
 \end{lstlisting}
 
 Disassembliamo le istruzioni correnti.
-La freccia punta all'a prossima istruzione da eseguire.
+La freccia punta alla prossima istruzione da eseguire.
 
 \begin{lstlisting}[style=customasmx86]
 (gdb) disas
@@ -287,13 +293,13 @@ Dump of assembler code for function main:
    0x0804843e <+33>:	movl   $0x80484f0,(%esp)
    0x08048445 <+40>:	call   0x80482f0 <printf@plt>
 => 0x0804844a <+45>:	mov    $0x0,%eax
-   0x0804844f <+50>:	leave  
-   0x08048450 <+51>:	ret    
+   0x0804844f <+50>:	leave
+   0x08048450 <+51>:	ret
 End of assembler dump.
 \end{lstlisting}
 
 \ac{GDB} usa la sintassi AT\&T di default.
-Ma e' anche possibile passare alla sintassi Intel:
+Ma è anche possibile passare alla sintassi Intel:
 
 \begin{lstlisting}[style=customasmx86]
 (gdb) set disassembly-flavor intel
@@ -309,8 +315,8 @@ Dump of assembler code for function main:
    0x0804843e <+33>:	mov    DWORD PTR [esp],0x80484f0
    0x08048445 <+40>:	call   0x80482f0 <printf@plt>
 => 0x0804844a <+45>:	mov    eax,0x0
-   0x0804844f <+50>:	leave  
-   0x08048450 <+51>:	ret    
+   0x0804844f <+50>:	leave
+   0x08048450 <+51>:	ret
 End of assembler dump.
 \end{lstlisting}
 
@@ -323,7 +329,7 @@ Eseguiamo la prossima istruzione.
 \end{lstlisting}
 
 Esaminiamo i registri dopo l'esecuzione dell'istruzione \INS{MOV EAX, 0}.
-\EAX e' zero.
+\EAX è zero a questo punto.
 
 \begin{lstlisting}
 (gdb) info registers
