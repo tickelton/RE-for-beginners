@@ -1,4 +1,4 @@
-all:    UAL-EN UAL-RU UAL-DE UAL-FR UAL-JA RE4B-RU RE4B-EN RE4B-DE RE4B-FR RE4B-JA
+all:    UAL-EN UAL-RU UAL-DE UAL-FR UAL-JA UAL-IT RE4B-RU RE4B-EN RE4B-DE RE4B-FR RE4B-JA RE4B-IT
 
 clean:
 	rm -f *.aux
@@ -102,4 +102,7 @@ UAL-JA:
 
 UAL-TR:
 	$(call compile,UAL-TR)
+
+UAL-IT:
+	$(call compile,UAL-IT)
 
