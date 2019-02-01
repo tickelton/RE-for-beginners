@@ -1,47 +1,54 @@
-\section{Using PIN DBI for XOR interception}
+\section{Utiliser PIN DBI pour intercepter les XOR}
 
 \newcommand{\GitHubPinXORURL}{https://github.com/DennisYurichev/RE-for-beginners/tree/master/DBI/XOR/files}
 
-PIN from Intel is a \ac{DBI} tool.
-That means, it takes compiled binary and inserts your instructions in it, where you want.
+PIN d'Intel est un outil \ac{DBI}.
+Cela signifie qu'il prend un binaire compilé et y insère vos instructions, où vous
+voulez.
 
-Let's try to intercept all XOR instructions.
-These are heavily used in cryptography, and we can try to run WinRAR archiver in encryption mode with a hope
-that some XOR instruction is indeed is used while encryption.
+Essayons d'intercepter toutes les instructions XOR.
+Elles sont utilisées intensément en cryptographie, et nous pouvons essayer de lancer l'archiveur
+WinRAR en mode chiffrement avec l'espoir que des instructions sont effectivement utilisées durant
+le chiffrement.
 
-Here is the source code of my PIN tool: \url{\GitHubPinXORURL/XOR_ins.cpp}.
+Voici le code source de mon outil PIN: \url{\GitHubPinXORURL/XOR_ins.cpp}.
 
-The code is almost self-explanatory: it scans input executable file for all XOR/PXOR instructions and inserts
-a call to our function before each.
-log\_info() function first checks, if operands are different (since XOR is often used just to clear register,
-like XOR EAX, EAX), and if they are different, it increments a counter at this EIP/RIP, so the statistics will be gathered.
+Le code est presque auto-documenté: il scanne le fichier exécutable en entrée à la recherche
+des instructions XOR/PXOR et insère un appel à notre fonction avant chaque.
+La fonction log\_info() vérifie d'abord si les opérandes sont différents (puisque
+l'instruction XOR est souvent utilisée pour effacer simplement un registre, comme
+XOR EAX, EAX), et si ils sont différents, il incrémente un compteur à cette EIP/RIP,
+afin que les statistiques soient collectées.
 
-I have prepared two files for test: test1.bin (30720 bytes) and test2.bin
-(5547752 bytes), I'll compress them by RAR with password and see difference in statistics.
+J'ai préparé deux fichiers pour tester: test1.bin (30720 octets) et test2.bin (5547752 octets),
+je vais les compresser avec RAR avec un mot de passe et voir les différences dans
+les statistiques.
 
-You'll also need to turn off \ac{ASLR}
+Vous devez aussi désactiver \ac{ASLR}
 \footnote{\url{https://stackoverflow.com/q/9560993}},
-so the PIN tool will report the same RIPs as in RAR executable.
+afin que l'outil PIN rapporte les mêmes RIPs que dans l'exécutable RAR.
 
-Now let's run it:
+Maintenant, lançons-le:
 
 \begin{lstlisting}
 c:\pin-3.2-81205-msvc-windows\pin.exe -t XOR_ins.dll -- rar a -pLongPassword tmp.rar test1.bin
 c:\pin-3.2-81205-msvc-windows\pin.exe -t XOR_ins.dll -- rar a -pLongPassword tmp.rar test2.bin
 \end{lstlisting}
 
-Now here is statistics for the test1.bin: \\
+Maintenant voici les statistiques pour test1.bin: \\
 \url{\GitHubPinXORURL/XOR_ins.out.test1}.
-... and for test2.bin: \\
+... et pour test2.bin: \\
 \url{\GitHubPinXORURL/XOR_ins.out.test2}.
-So far, you can ignore all addresses other than ip=0x1400xxxxx, which are in other DLLs.
+Jusqu'ici, vous pouvez ignorer toutes les adresses autres que ip=0x1400xxxxx, qui
+sont dans d'autres DLLs.
 
-Now let's see a difference: \url{\GitHubPinXORURL/XOR_ins.diff}.
+Maintenant, regardons la différence: \url{\GitHubPinXORURL/XOR_ins.diff}.
 
-Some XOR instructions are executed more often for test2.bin (which is bigger) than for test1.bin (which is smaller).
-So these are clearly related to file size!
+Certaines instructions XOR sont exécutées plus souvent pour test2.bin (qui est plus
+gros) que pour test1.bin (qui est plus petit).
+Donc elles sont clairement liées à la taille du fichier!
 
-The first block of differences is:
+Le premier bloc de différence est:
 
 \begin{lstlisting}
 < ip=0x140017b21 count=0xd84
@@ -63,7 +70,7 @@ The first block of differences is:
 > ip=0x140017ba1 count=0xa8a8a
 \end{lstlisting}
 
-This is indeed some kind of loop inside of RAR.EXE:
+C'est en effet une sorte de boucle à l'intérieur de RAR.EXE:
 
 \begin{lstlisting}
 .text:0000000140017B21 loc_140017B21:
@@ -103,9 +110,9 @@ This is indeed some kind of loop inside of RAR.EXE:
 .text:0000000140017BAD                 jnz     loc_140017B21
 \end{lstlisting}
 
-What does it do? No idea yet.
+Que fait-elle? Aucune idée à ce stade.
 
-The next:
+La suivante:
 
 \begin{lstlisting}
 < ip=0x14002c4f1 count=0x4fce
@@ -113,11 +120,11 @@ The next:
 > ip=0x14002c4f1 count=0x4463be
 \end{lstlisting}
 
-0x4fce is 20430, which is close to size of test1.bin (30720 bytes).
-0x4463be is 4481982 which is close to size of test2.bin (5547752 bytes).
-Not equal, but close.
+0x4fce est 20430, qui est proche de la taille de test1.bin (30720 octets).
+0x4463be est 4481982, qui est proche de la taille de test2.bin (5547752 octets).
+Par égal, mais proche.
 
-This is a piece of code with that XOR instruction:
+Ceci est un morceau de code avec cette instruction XOR:
 
 \begin{lstlisting}
 .text:000000014002C4EA loc_14002C4EA:
@@ -132,17 +139,18 @@ This is a piece of code with that XOR instruction:
 .text:000000014002C505                 inc     ebx
 \end{lstlisting}
 
-Loop body can be written as:
+Le corps de la boucle peut être écrit comme:
 
 \begin{lstlisting}
 state = input_byte ^ (state<<5) & 0x7FFF}.
 \end{lstlisting}
 
-\emph{state} is then used as index in some table. Is this some kind of \ac{CRC}? I don't know, but this could be a checksumming routine.
-Or maybe optimized \ac{CRC} routine?
-Any ideas?
+\emph{state} est ensuite utilisé comme un index dans une table. Est-ce une sorte de \ac{CRC}?
+Je ne sais pas, mais ça pourrait être une routine effectuant une somme de contrôle.
+Ou peut-être une routine \ac{CRC} optimisée?
+Une idée?
 
-The next block:
+Le bloc suivant:
 
 \begin{lstlisting}
 < ip=0x14004104a count=0x367
@@ -179,10 +187,11 @@ The next block:
 .text:000000014004107C
 \end{lstlisting}
 
-This piece has both PXOR and AESENC instructions (the last is \ac{AES} encryption instruction).
-So yes, we found encryption function, RAR uses \ac{AES}.
+Ce morceau possède les instructions PXOR et AESENC (la dernière est une instruction
+de chiffrement \ac{AES}).
+Donc oui, nous avons trouvé une fonction de chiffrement, RAR utilise \ac{AES}.
 
-There is also another big block of almost contiguous XOR instructions:
+Il y a ensuite un autre gros bloc d'instructions XOR presque contigus:
 
 \begin{lstlisting}
 < ip=0x140043e10 count=0x23006
@@ -194,8 +203,8 @@ There is also another big block of almost contiguous XOR instructions:
 > ip=0x140043e56 count=0x23002
 \end{lstlisting}
 
-But, its count is not very different during compressing/encrypting test1.bin/test2.bin.
-What is on these addresses?
+Mais le compteur n'est pas très différent pendant la compression/chiffrement de test1.bin/test2.bin.
+Qu'y a-t-il à ces adresses?
 
 \begin{lstlisting}
 .text:0000000140043E07                 xor     ecx, r9d
@@ -213,23 +222,30 @@ What is on these addresses?
 .text:0000000140043E33                 mov     eax, ebx
 \end{lstlisting}
 
-Let's google 5A827999h constant... this looks like SHA-1! But why would RAR use SHA-1 during encryption?
+Googlons la constante 5A827999h... ceci ressemble à du SHA-1! mais pourquoi RAR utiliserait-il
+SHA-1 pendant le chiffrement?
 
-Here is the answer:
+Voici la réponse:
 
 \begin{lstlisting}
 In comparison, WinRAR uses its own key derivation scheme that requires (password length * 2 + 11)*4096 SHA-1 transformations. That’s why it takes longer to brute-force attack encrypted WinRAR archives.
 \end{lstlisting}
 ( \url{http://www.tomshardware.com/reviews/password-recovery-gpu,2945-8.html} )
 
-This is key scheduling: input password hashed many times and the hash is then used as \ac{AES} key.
-This is why we see the count of XOR instruction is almost unchanged during we switched to bigger test file.
+C'est la génération de la clef: le mot de passe entré est hashé plusieurs fois et
+le hash est utilisé comme clef \ac{AES}.
+C'est pourquoi nous voyons que le comptage de l'instruction XOR est presque inchangé
+lorsque nous passons au fichier de test plus gros.
 
-This is it, it took couple of hours for me to write this tool and to get at least 3 points: 1) probably checksumming; 2) \ac{AES} encryption; 3) SHA-1 calculation.
-The first function is still unknown for me.
+C'est tout ce qu'il faut faire, ça m'a pris quelques heures d'écrire cet outil et
+d'obtenir au moins 3 éléments: 1) c'est probablement une somme de contrôle; 2) chiffrement
+\ac{AES}; 3) calcul de somme SHA-1.
+La première fonction est encore un mystère pour moi.
 
-Still, this is impressive, because I didn't dig into RAR code (which is proprietary, of course). I didn't even peek into UnRAR source code (which is available).
+Cependant, ceci est impressionnant, car j'ai ne me suis pas plongé dans le code de
+RAR (qui est propriétaire, bien sûr). Je n'ai même pas jeté un coup d'\oe{}il dans
+le code source de UnRAR (qui est disponible).
 
-The files, including test files and RAR executable I've used (win64, 5.40): \\
+Les fichiers, incluant les fichiers de test et l'exécutable RAR que j'ai utilisé (win64, 5.40): \\
 \url{\GitHubPinXORURL}.
 
