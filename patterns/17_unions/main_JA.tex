@@ -7,34 +7,34 @@
 \input{patterns/17_unions/epsilon/main}
 \input{patterns/17_unions/FSCALE_JA}
 
-\subsection{\JAph{}}
+\subsection{高速平方根計算}
 
 \Tfloat が整数として解釈される別のよく知られたアルゴリズムは平方根の高速計算です。
 
 \begin{lstlisting}[caption=ソースコードはウィキペディアから取りました: \url{http://go.yurichev.com/17364},style=customc]
-/* Assumes that float is in the IEEE 754 single precision floating point format
- * and that int is 32 bits. */
+/* floatはIEEE 754形式の単精度浮動小数点数で、
+ * intは32ビットです。 */
 float sqrt_approx(float z)
 {
-    int val_int = *(int*)&z; /* Same bits, but as an int */
+    int val_int = *(int*)&z; /* 同じビットだが、intとして扱われる */
     /*
-     * To justify the following code, prove that
+     * 次のコードを正当化するため、以下を証明せよ
      *
      * ((((val_int / 2^m) - b) / 2) + b) * 2^m = ((val_int - 2^m) / 2) + ((b + 1) / 2) * 2^m)
      *
-     * where
+     * 以下の条件において
      *
-     * b = exponent bias
-     * m = number of mantissa bits
+     * b = 指数バイアス
+     * m = 仮数ビットの数
      *
      * .
      */
  
-    val_int -= 1 << 23; /* Subtract 2^m. */
-    val_int >>= 1; /* Divide by 2. */
-    val_int += 1 << 29; /* Add ((b + 1) / 2) * 2^m. */
+    val_int -= 1 << 23; /* 2^m を除算 */
+    val_int >>= 1; /* 2で除算 */
+    val_int += 1 << 29; /* ((b + 1) / 2) * 2^m を加算 */
  
-    return *(float*)&val_int; /* Interpret again as float */
+    return *(float*)&val_int; /* float型として再び解釈 */
 }
 \end{lstlisting}
 
