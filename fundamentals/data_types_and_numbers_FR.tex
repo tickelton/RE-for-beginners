@@ -61,6 +61,11 @@ Hormis ce livre, l'auteur de ces notes n'a jamais rencontré en pratique de nomb
 \emph{nombres magiques} (\myref{magic_numbers}),
 tels que lorsque la date de naissance d'un individu est encodé sous la forme 0x19791011---qui n'est autre qu'un nombre au format \ac{BCD}.
 
+%TBT
+%Surprisingly, the author found a use of \ac{BCD}-encoded numbers in SAP software: \url{https://yurichev.com/blog/SAP/}.
+%Some numbers, including prices, are encoded in \ac{BCD} form in database.
+%Perhaps, they used it to make it compatible with some ancient software/hardware?
+
 Les instructions x86 destinées au traitement des nombres \ac{BCD} ont parfois été utilisées à d'autres fins, le plus souvent non documentées, par exemple:
 
 \begin{lstlisting}[style=customasmx86]

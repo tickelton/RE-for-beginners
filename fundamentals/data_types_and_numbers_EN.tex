@@ -61,6 +61,10 @@ But aside of this book, the author of these notes never seen \ac{BCD} numbers in
 \emph{magic numbers} (\myref{magic_numbers}),
 like when someone's birthday is encoded like 0x19791011---this is indeed packed \ac{BCD} number.
 
+Surprisingly, the author found a use of \ac{BCD}-encoded numbers in SAP software: \url{https://yurichev.com/blog/SAP/}.
+Some numbers, including prices, are encoded in \ac{BCD} form in database.
+Perhaps, they used it to make it compatible with some ancient software/hardware?
+
 \ac{BCD} instructions in x86 were often used for other purposes, especially in undocumented ways, for example:
 
 \begin{lstlisting}[style=customasmx86]
