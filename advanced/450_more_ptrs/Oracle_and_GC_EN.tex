@@ -1,4 +1,4 @@
-\subsection{Oracle RDBMS and a garbage collector}
+\subsection{Oracle RDBMS and a simple garbage collector for C/C++}
 
 There was a time, when the author of these lines tried to learn more about Oracle RDBMS, searching for vulnerabilities, etc.
 This is a huge piece of software, and a typical function can take very large nested objects as arguments.
@@ -28,7 +28,7 @@ Bigger pictures:
 This is quite impressive, given the fact that I had no information about data types of all these structures.
 But I could get some information from it.
 
-\subsubsection{Now the garbage collector}
+\subsubsection{Now the garbage collector for C/C++: Boehm GC}
 
 \myindex{Garbage collector}
 If you use a block allocated in memory, its address has to be present somewhere, as a pointer in some structure/array in another allocated block,
