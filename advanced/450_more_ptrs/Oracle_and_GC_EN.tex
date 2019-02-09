@@ -7,7 +7,7 @@ And I wanted to dump these objects, as trees (or graphs).
 Also, I tracked all memory allocations/deallocations by intercepting memory allocating/deallocating functions.
 And when a function to be intercepted getting a pointer to a block in memory, I search for the block in a list of blocks allocated.
 I'm getting its size + short name of block
-(this is like "tagging" in Windows OS kernel\footnote{Read more about comments in allocated blocks: \CNotes \url{http://yurichev.com/C-book.html}}).
+(this is like "tagging" in Windows OS kernel\footnote{Read more about comments in allocated blocks: \CNotes{} \url{http://yurichev.com/C-book.html}}).
 
 Given a block, I can scan it for 32-bit words (on 32-bit OS) or for 64-bit words (on 64-bit OS).
 Each word can be a pointer to another block.
@@ -44,7 +44,7 @@ It treats allocated blocks and stack as arrays of pointers.
 And if it found a block allocated, which is "orphaned", i.e., there are no pointer(s) to it from another block(s) or stack, this block considered unneeded, to be freed.
 Scanning process takes time, and this is what for \ac{GC}s are criticized.
 
-/myindex{Boehm garbage collector}
+\myindex{Boehm garbage collector}
 Also, \ac{GC} like Boehm GC\footnote{\url{https://www.hboehm.info/gc/}} (for pure C) has function like \verb|GC_malloc_atomic()|---using it, you declare that the block allocated
 using this function will never contain any pointer(s) to other block(s).
 Maybe this could be a text string, or other type of data.
