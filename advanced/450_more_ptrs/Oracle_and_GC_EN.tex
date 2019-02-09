@@ -40,7 +40,7 @@ It scans all blocks (because it keep tabs on all blocks allocated) for pointers.
 It's important to understand, that it has no idea of data types of all these structure fields in blocks---this is important, \ac{GC} has no information about types.
 It just scans blocks for 32-bit of 64-bit words and see, if they could be a pointers to another block(s).
 It also scans stack.
-It treats allocated blocks and stack as arrays of pointers.
+It treats allocated blocks and stack as arrays of words, some of which may be pointers.
 And if it found a block allocated, which is "orphaned", i.e., there are no pointer(s) to it from another block(s) or stack, this block considered unneeded, to be freed.
 Scanning process takes time, and this is what for \ac{GC}s are criticized.
 
