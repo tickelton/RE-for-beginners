@@ -176,7 +176,7 @@ compressés!
 Visiblement, c'est le point où le flag de compression doit être défini dans l'objet
 \emph{CConnectionContext}.
 
-Donc, le flag de compression est passé dans le 5-ème argument de \emph{CConnectionContext::CreateNetwork}.
+Donc, le flag de compression est passé dans le 5ème argument de \emph{CConnectionContext::CreateNetwork}.
 À l'intérieur de la fonction, une autre est appelée:
 
 \begin{lstlisting}[style=customasmx86]
@@ -189,10 +189,10 @@ Donc, le flag de compression est passé dans le 5-ème argument de \emph{CConnec
 .text:64403485                 call    CNetwork__CNetwork
 \end{lstlisting}
 
-Le flag de compression est passé ici dans le 5-ème argument au constructer \emph{CNetwork::CNetwork}.
+Le flag de compression est passé ici dans le 5ème argument au constructer \emph{CNetwork::CNetwork}.
 
 Et voici comment le constructeur \emph{CNetwork} défini le flag dans l'objet \emph{CNetwork}
-suivant son 5-ème argument \emph{et} une autre variable qui peut probablement aussi
+suivant son 5ème argument \emph{et} une autre variable qui peut probablement aussi
 affecter la compression des paquets réseau.
 
 \lstinputlisting[style=customasmx86]{examples/SAP/sapgui/6_FR.lst}
