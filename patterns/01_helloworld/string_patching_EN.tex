@@ -42,6 +42,17 @@ Then I want to be sure that this is really that place: \TT{px} dumps bytes there
 Note the \TT{\textbackslash{}00} at the end---this is a zero byte.
 \TT{q} quits.
 
+\subsubsection{This is a real story of software cracking}
+
+An image processing software, when not registered, added watermarks,
+like ``This image was processed by evaluation version of [software name]'', across a picture.
+We tried at random: we found that string in the executable file and put spaces instead of it.
+Watermarks disappeared.
+Technically speaking, they continued to appear.
+\myindex{Qt}
+With the help of Qt functions, the watermark was still added to the resulting image.
+But adding spaces didn't alter the image itself...
+
 \subsubsection{Software \emph{localization} of MS-DOS era}
 
 This method was a common way to translate MS-DOS software to Russian language back to 1980's and 1990's.
