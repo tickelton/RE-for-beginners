@@ -25,7 +25,7 @@ les ax,[bx]
 ; ES:AX=9FFF:20CD
 
 FillLoop:
-; \verb|установить DX в 0. CWD работает так: DX:AX = sign_extend(AX). |
+; \verb|установить DX в 0. CWD работает так: DX:AX = sign_extend(AX).|
 ; AX здесь 0x20CD (в начале) или меньше 320 (когда вернемся после цикла),
 ; так что DX всегда будет 0.
 cwd 

@@ -25,7 +25,7 @@ les ax,[bx]
 ; ES:AX=9FFF:20CD
 
 FillLoop:
-; \verb|set DX to 0. CWD works as: DX:AX = sign_extend(AX). |
+; \verb|set DX to 0. CWD works as: DX:AX = sign_extend(AX).|
 ; AX here 0x20CD (at startup) or less then 320 (when getting back after loop),
 ; so DX will always be 0.
 cwd 
