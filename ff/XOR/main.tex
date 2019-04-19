@@ -1,4 +1,4 @@
-﻿\mysection{\RU{Примитивное XOR-шифрование}\EN{Primitive XOR-encryption}\FR{Chiffrement primitif avec XOR}}
+﻿\mysection{\RU{Примитивное XOR-шифрование}\EN{Primitive XOR-encryption}\FR{Chiffrement primitif avec XOR}\DEph{}}
 \label{simple_XOR_encryption}
 
 \ifdefined\RUSSIAN
@@ -6,13 +6,41 @@
 \fi
 
 % subsections
-\EN{\input{ff/XOR/simplest/main_EN}}\FR{\input{ff/XOR/simplest/main_FR}}
-\EN{\input{ff/XOR/ng/main_EN}}\RU{\input{ff/XOR/ng/main_RU}}%
+\EN{\input{ff/XOR/simplest/main_EN}}
+\FR{\input{ff/XOR/simplest/main_FR}}
+\DE{\input{ff/XOR/simplest/main_DE}}
+
+\EN{\input{ff/XOR/ng/main_EN}}
+\RU{\input{ff/XOR/ng/main_RU}}
 \FR{\input{ff/XOR/ng/main_FR}}
-\EN{\input{ff/XOR/4byte/main_EN}}\RU{\input{ff/XOR/4byte/main_RU}}%
+
+\EN{\input{ff/XOR/4byte/main_EN}}
+\RU{\input{ff/XOR/4byte/main_RU}}
 \FR{\input{ff/XOR/4byte/main_FR}}
-\EN{\input{ff/XOR/mask_1/main_EN}}\RU{\input{ff/XOR/mask_1/main_RU}}%
+
+\EN{\input{ff/XOR/mask_1/main_EN}}
+\RU{\input{ff/XOR/mask_1/main_RU}}
 \FR{\input{ff/XOR/mask_1/main_FR}}
-\EN{\input{ff/XOR/mask_2/main_EN}}\RU{\input{ff/XOR/mask_2/main_RU}}%
+
+\EN{\input{ff/XOR/mask_2/main_EN}}
+\RU{\input{ff/XOR/mask_2/main_RU}}
 \FR{\input{ff/XOR/mask_2/main_FR}}
+
+\ifdefined\RUSSIAN
+\subsection{Домашнее задание}
+
+Очень древняя текстовая игра под MS-DOS конца 80-х.
+Чтобы скрыть информацию об игре от игрока, файлы данных, скорее всего, чем-то про-XOR-ены:
+\url{https://beginners.re/homework/XOR_crypto_1/destiny.zip}.
+Попробуйте разобраться...
+\fi
+
+\ifdefined\ENGLISH
+\subsection{Homework}
+
+An ancient text adventure for MS-DOS, developed in the end of 1980's.
+To conceal game information from player, data files, most likely, XOR-ed with something:
+\url{https://beginners.re/homework/XOR_crypto_1/destiny.zip}.
+Try to get into...
+\fi
 

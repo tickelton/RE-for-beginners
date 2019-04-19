@@ -37,6 +37,31 @@ Somewhat similar example in this book is: \myref{Millenium_DOS_game}.
 
 % TODO: пример с какой-то простой игрушкой?
 
+\subsubsection{A real story from 1999}
+
+\myindex{ICQ}
+There was a time of ICQ messenger's popularity, at least in ex-USSR countries.
+The messenger had a peculiarity --- some users didn't want to share their online status with everyone.
+And you had to ask an \emph{authorization} from that user.
+That user could allow you seeing his/her status, or maybe not.
+
+This is what the author of these lines did:
+
+\begin{itemize}
+\item Added a user.
+\item A user appeared in a contact-list, in a ``wait for authorization'' section.
+\item Closed ICQ.
+\item Backed up the ICQ database.
+\item Loaded ICQ again.
+\item User \emph{authorized}.
+\item Closed ICQ and compared two databases.
+\end{itemize}
+
+It turned out: two database differed by only one byte.
+In the first version: \verb|RESU\x03|, in the second: \verb|RESU\x02|.
+(``RESU'', presumably, means ``USER'', i.e., a header of a structure where all the information about user was stored.)
+That means the information about authorization was stored not at the server, but at the client.
+
 \subsubsection{Windows registry}
 
 It is also possible to compare the Windows registry before and after a program installation.

@@ -1,15 +1,22 @@
-* Compiling on Ubuntu (checked way)
+* Compiling on Ubuntu (checked)
 
-1) Get all the packages listed in .travis.yml file.
+1) Get these packages:
+
+texlive
+texlive-xetex
+texlive-generic-extra
+texlive-generic-recommended
+texlive-science
+texlive-fonts-extra
 
 2) For all versions (Russian, English):
    make all
 
    For English-only version:
-   make EN
+   make RE4B-EN
 
    For Russian-only version:
-   make RU
+   make RE4B-RU
 
 * Compiling on Mac OS X 10.8 (unchecked)
 
@@ -17,7 +24,7 @@
 
 2) Run make as it has been described before.
 
-* Windows (unchecked)
+* Windows (checked years ago...)
 
 Install TeXlive and use Cygwin.
 
