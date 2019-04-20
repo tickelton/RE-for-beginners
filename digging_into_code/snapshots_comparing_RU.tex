@@ -67,6 +67,19 @@ DOS-утилитой FC\footnote{утилита MS-DOS для сравнения
 
 Наверное это причина, почему так популярны shareware-программы для очистки реестра в Windows.
 
+Кстати, вот как сдампить реестр в Windows в текстовые файлы:
+
+\begin{lstlisting}
+reg export HKLM HKLM.reg
+reg export HKCU HKCU.reg
+reg export HKCR HKCR.reg
+reg export HKU HKU.reg
+reg export HKCC HKCC.reg
+\end{lstlisting}
+
+\myindex{UNIX!diff}
+Затем их можно сравнивать используя diff...
+
 \subsubsection{Блинк-компаратор}
 
 Сравнение файлов или слепков памяти вообще, немного напоминает блинк-компаратор

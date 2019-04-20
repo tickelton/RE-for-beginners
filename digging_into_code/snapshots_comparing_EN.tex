@@ -69,6 +69,19 @@ It is also possible to compare the Windows registry before and after a program i
 It is a very popular method of finding which registry elements are used by the program.
 Perhaps, this is the reason why the \q{windows registry cleaner} shareware is so popular.
 
+By the way, this is how to dump Windows registry to text files:
+
+\begin{lstlisting}
+reg export HKLM HKLM.reg
+reg export HKCU HKCU.reg
+reg export HKCR HKCR.reg
+reg export HKU HKU.reg
+reg export HKCC HKCC.reg
+\end{lstlisting}
+
+\myindex{UNIX!diff}
+They can be compared using diff...
+
 \subsubsection{Blink-comparator}
 
 Comparison of files or memory snapshots remind us blink-comparator

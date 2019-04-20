@@ -1,0 +1,22 @@
+\subsection{Трюк с переключением значений}
+
+... найдено в Jorg Arndt --- Matters Computational / Ideas, Algorithms, Source Code
+\footnote{\url{https://www.jjj.de/fxt/fxtbook.pdf}}.
+
+Вам нужно, чтобы некая переменная переключалась между 123 и 456.
+Вы напишете что-то вроде:
+
+\begin{lstlisting}
+if (a==123)
+    a=456;
+else
+    a=123;
+\end{lstlisting}
+
+Оказывается, это можно делать одной операцией:
+
+\lstinputlisting[style=customc]{fundamentals/XOR_switch.c}
+
+Стоит так писать или нет, а особенно думая о читабельность кода, можно спорить.
+Но это еще одна хорошая иллюстрация свойств исключающего ИЛИ.
+

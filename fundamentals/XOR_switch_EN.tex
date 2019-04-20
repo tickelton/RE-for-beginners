@@ -1,0 +1,22 @@
+\subsection{Switching value trick}
+
+... found in Jorg Arndt --- Matters Computational / Ideas, Algorithms, Source Code
+\footnote{https://www.jjj.de/fxt/fxtbook.pdf}.
+
+You want a variable to be switching between 123 and 456.
+You may write something like:
+
+\begin{lstlisting}
+if (a==123)
+    a=456;
+else
+    a=123;
+\end{lstlisting}
+
+But this can be done using a single operation:
+
+\lstinputlisting[style=customc]{fundamentals/XOR_switch.c}
+
+One can argue, worth it using or not, especially keeping in mind code readability.
+But this is yet another demonstration of XOR properties.
+
