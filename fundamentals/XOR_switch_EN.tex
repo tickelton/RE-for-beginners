@@ -17,6 +17,9 @@ But this can be done using a single operation:
 
 \lstinputlisting[style=customc]{fundamentals/XOR_switch.c}
 
+It works because $123 \oplus 123 \oplus 456=0 \oplus 456=456$ and
+$456 \oplus 123 \oplus 456=456 \oplus 456 \oplus 123=0 \oplus 123=123$.
+
 One can argue, worth it using or not, especially keeping in mind code readability.
 But this is yet another demonstration of XOR properties.
 
