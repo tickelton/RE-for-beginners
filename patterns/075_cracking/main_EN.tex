@@ -17,7 +17,8 @@ all_OK:
 ...
 \end{lstlisting}
 
-So if you see a patch (or ``crack''), that cracks a software, and that patch replaces 0xEB byte(s) by 0x74 or 0x75, this is it.
+So if you see a patch (or ``crack''), that cracks a software, and that patch replaces 0x74/0x75 (JZ/JNZ) byte(s) by 0xEB (JMP),
+this is it.
 
 The process of software cracking comes down to a search of that \INS{JMP}.
 

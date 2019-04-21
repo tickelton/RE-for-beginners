@@ -61,6 +61,7 @@ It turned out: two database differed by only one byte.
 In the first version: \verb|RESU\x03|, in the second: \verb|RESU\x02|.
 (``RESU'', presumably, means ``USER'', i.e., a header of a structure where all the information about user was stored.)
 That means the information about authorization was stored not at the server, but at the client.
+Presumably, 2/3 value reflected \emph{authorization} status.
 
 \subsubsection{Windows registry}
 
