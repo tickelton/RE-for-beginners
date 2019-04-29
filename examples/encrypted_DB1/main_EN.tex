@@ -202,10 +202,10 @@ OK, it's not a problem to find a function which encrypts block.
 It is called \\
 \emph{CryptoPP::Rijndael::Enc::ProcessAndXorBlock}:
 \href{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L349}{src},
-and it can call from another function: \\
+and it can call another function: \\
 \emph{Rijndael::Enc::AdvancedProcessBlocks()}
 \href{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L1179}{src},
-which, in turn, can be call the two functions (
+which, in turn, can call two other functions (
 \href{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L1000}{AESNI\_Enc\_Block}
 and
 \href{https://github.com/mmoss/cryptopp/blob/2772f7b57182b31a41659b48d5f35a7b6cedd34d/src/rijndael.cpp#L1012}{AESNI\_Enc\_4\_Blocks}
@@ -391,7 +391,7 @@ Third, fourth and fifth:
 00000020: 66 40 D4 07 06 03                                 f@....
 \end{lstlisting}
 
-All blocks decrypted seems correctly except of first 16 bytes part.
+All blocks decrypted seems correct except of first 16 bytes part.
 
 \subsection{Initializing Vector}
 
