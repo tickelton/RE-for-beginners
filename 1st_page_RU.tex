@@ -10,9 +10,22 @@
 
 \myhrule{}
 
+Что означает тильда в номерах версий, в .dsc-файлах, которые описывают пакеты Ubuntu?
+Это wildcard (символ подстановки)?
+И что означает \verb|>>|?
+\emph{Труба} это просто \emph{ИЛИ}?
+Например:
+
+\begin{lstlisting}
+Build-Depends: cython-dbg | python-pyrex, ca-certificates, debhelper (>> 8.1.0~), python (>= 2.6.6-3), python-all-dev (>= 2.6.6-3), python-all-dbg (>= 2.6.6-3), python-configobj (>= 4.7.2+ds-2), python-docutils, python-paramiko, python-pycurl-dbg, python-subunit, python-testtools (>= 0.9.5~)
+\end{lstlisting}
+
+\myhrule{}
+
 Что использовать на нерутованном Андроиде как SSH-сервер, который умеет писать на внешнюю micro-SD?
 SSHDroid нормально работал, но теперь он устарел...
 Например, когда Total Commander пишет на micro-SD, появляется окно с вопросом, разрешить или нет.
+Вы разрешаете, и он начинает писать в любые директории на флешке.
 В случае с виденными мною SSH-серверами этого что-то не происходит.
 
 \myhrule{}
