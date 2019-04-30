@@ -3,6 +3,7 @@
 \myindex{Windows 98}
 \myindex{user32.dll}
 I don't quite remember how I found this function in Windows 98's (it was late 1990s) user32.dll file.
+Probably, I just spotted its self-describing name.
 When I did, I tried to "block" it by patching its beginning by 0xC3 byte (\INS{RETN}).
 
 The result was funny: Windows 98 cannot be shutted down anymore.
