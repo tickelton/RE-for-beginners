@@ -146,11 +146,14 @@ RtlLargeIntegerAdd (
 \end{lstlisting}
 
 All these functions can be dropped (in future), but now they just operate on QuadPart fields.
+If this piece of code is to be compiled using a modern 32-bit compiler (that supports 64-bit integer),
+it will generate two 32-bit additions under the hood.
 From this moment, LowPart/HighPart fields can be dropped from the LARGE\_INTEGER union/structure.
 
 Would you use such a technique today?
-Probably not, but if someone would need 128-bit integer data type, you can implement them just like this.
+Probably not, but if someone would need 128-bit integer data type, you can implement it just like this.
 
-Also, needless to say, this works thanks to little-endian (\ref{sec:endianness}).
+Also, needless to say, this works thanks to little-endian (\ref{sec:endianness})
+(all architectures Windows NT was developed for are little-endian).
 This trick wouldn't be possible on big-endian architectures.
 
