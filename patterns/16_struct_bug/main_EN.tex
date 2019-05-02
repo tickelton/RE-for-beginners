@@ -2,7 +2,7 @@
 
 This is a classic \emph{struct} bug.
 
-Here is a definition:
+Here is a sample definition:
 
 \lstinputlisting[style=customc]{patterns/16_struct_bug/old.h}
 
@@ -18,11 +18,12 @@ Now you add a third field into the structure, some place between two fields:
 
 \lstinputlisting[style=customc]{patterns/16_struct_bug/new.h}
 
-And you probably modify setter() function, but forget about printer():
+And you probably modify \verb|setter()| function, but forget about \verb|printer()|:
 
 \lstinputlisting[style=customc]{patterns/16_struct_bug/setter_new.c}
 
-You compile your project, but the C file where printer() is residing, isn't recompiling, because your \ac{IDE} or build system
+You compile your project, but the C file where \verb|printer()| is residing, isn't recompiling,
+because your \ac{IDE} or build system
 has no idea that module depends on a \emph{test} struct definition.
 Maybe because \verb|#include <new.h>| is omitted.
 Or maybe, \verb|new.h| header file is included \verb|in printer.c| via some other header file.
@@ -43,5 +44,5 @@ This is true for C++ classes as well, since they works just like structures: \re
 This is a C/C++'s malady, and a source of criticism, yes.
 Many newer \ac{PL}s has better support of modules and interfaces.
 But keep in mind, when C compiler was created: 1970s, on old PDP computers.
-So everything was simplified down to this.
+So everything was simplified down to this by C creators.
 
