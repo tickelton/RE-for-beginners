@@ -14,7 +14,12 @@ Surely, a test suite can prepare argc/argv variables as \ac{CRT} would do it.
 
 Interestingly enough, how this compiles:
 
-\lstinputlisting[style=customasmx86]{patterns/025_almost_empty/boolectormain.s}
+\lstinputlisting[caption=\NonOptimizing GCC 8.2 x64 (\assemblyOutput),style=customasmx86]{patterns/025_almost_empty/boolectormain_O0.s}
+
+This is OK, prologue, unnecessary (not optimized) shuffling of two arguments, \INS{CALL}, epilogue, \INS{RET}.
+But let's see optimizing version:
+
+\lstinputlisting[caption=\Optimizing GCC 8.2 x64 (\assemblyOutput),style=customasmx86]{patterns/025_almost_empty/boolectormain_O3.s}
 
 As simple as that: stack/registers are untouched and \verb|boolector_main()| has the same arguments set.
 So all we need to do is pass execution to another address.
