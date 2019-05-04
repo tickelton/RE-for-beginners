@@ -87,10 +87,19 @@ To take his/her viewpoint and ask himself, how would one solve some task the spe
 \subsection{Order of functions in binary code}
 
 All functions located in a single .c or .cpp-file are compiled into corresponding object (.o) file.
-Later, linker puts all object files it needs together, not changing order or functions in them.
+Later, a linker puts all object files it needs together, not changing order of functions in them.
 As a consequence, if you see two or more consecutive functions, it means, that they were placed together
 in a single source code file (unless you're on border of two object files, of course.)
-This means these functions have something in common, that they are from the same \ac{API} level, from same library, etc.
+This means these functions have something in common, that they are from the same \ac{API} level, from the same library, etc.
+
+\myindex{CryptoPP}
+This is a real story from practice: once upon a time, the author searched for Twofish-related functions in
+a program with CryptoPP library linked, especially encryption/decryption functions.\\
+I found the \verb|Twofish::Base::UncheckedSetKey()| function, but not others.
+After peeking into the \verb|twofish.cpp| source code
+\footnote{\url{https://github.com/weidai11/cryptopp/blob/b613522794a7633aa2bd81932a98a0b0a51bc04f/twofish.cpp}}, it became clear that all functions are located in one module (\verb|twofish.cpp|).\\
+So I tried all function that followed \verb|Twofish::Base::UncheckedSetKey()|---as it happened,\\
+one was \verb|Twofish::Enc::ProcessAndXorBlock()|, another---\verb|Twofish::Dec::ProcessAndXorBlock()|.
 
 \subsection{Tiny functions}
 

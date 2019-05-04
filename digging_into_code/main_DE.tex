@@ -105,6 +105,16 @@ sich an der Grenze zwischen zwei Dateien.). Das bedeutet das diese Funktionen et
 gemeinsam haben, das sie aus dem gleichen \ac{API}-Level stammen oder aus der
 gleichen Library, etc.
 
+% TBT
+%\myindex{CryptoPP}
+%This is a real story from practice: once upon a time, the author searched for Twofish-related functions in
+%a program with CryptoPP library linked, especially encryption/decryption functions.\\
+%I found the \verb|Twofish::Base::UncheckedSetKey()| function, but not others.
+%After peeking into the \verb|twofish.cpp| source code
+%\footnote{\url{https://github.com/weidai11/cryptopp/blob/b613522794a7633aa2bd81932a98a0b0a51bc04f/twofish.cpp}}, it became clear that all functions are located in one module (\verb|twofish.cpp|).\\
+%So I tried all function that followed \verb|Twofish::Base::UncheckedSetKey()|---as it happened,\\
+%one was \verb|Twofish::Enc::ProcessAndXorBlock()|, another---\verb|Twofish::Dec::ProcessAndXorBlock()|.
+
 \subsection{kleine Funktionen} 
 
 Sehr kleine oder leere Funktionen  (\myref{empty_func})
