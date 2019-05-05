@@ -321,11 +321,7 @@ value around $1.8 \cdot 10^{308}$.
 $4 \cdot 10^{79}$ and $4 \cdot 10^{81}$.)
 
 In fact, upper bound in practical computing is much, much lower.
-If you get the source code of UNIX v6 for PDP-11
-\footnote{\url{http://minnie.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v6/}},
-16-bit \emph{int} is used everywhere while 32-bit \emph{long} type is not used at all.
-
-Same story was in MS-DOS era: 16-bit \emph{int} was used almost for everything (array indices, loop counters),
+In MS-DOS era 16-bit \emph{int} was used almost for everything (array indices, loop counters),
 while 32-bit \emph{long} was used rarely.
 
 During advent of x86-64, it was decided for \emph{int} to stay as 32 bit size integer, because, probably,

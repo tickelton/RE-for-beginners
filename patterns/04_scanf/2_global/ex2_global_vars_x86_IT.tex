@@ -28,6 +28,7 @@ Analizzando l'eseguibile dell'esempio precedente con \IDA, vedremo qualcosa del 
 
 \lstinputlisting[caption=\IDA,style=customasmx86]{patterns/04_scanf/2_global/IDA.lst}
 
+\label{BSSClearedByCStd}
 \TT{\_x} è contrassegnata con il simbolo \TT{?} insiema lresto delle variabili che non necessitano di essere inizializzate.
 Ciò implica che dopo il caricamento del .exe in memoria, verrà allocato spazio riempito di zeri per tutte queste variabili \InSqBrackets{\CNineNineStd 6.7.8p10}.
 Ma nel file .exe tutte le variabili non inizializzate non occupano alcuno spazio.

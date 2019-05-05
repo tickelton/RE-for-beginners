@@ -32,6 +32,7 @@ _x	DD	0aH
 
 \lstinputlisting[caption=\IDA,style=customasmx86]{patterns/04_scanf/2_global/IDA.lst}
 
+\label{BSSClearedByCStd}
 \TT{\_x} обозначен как \TT{?}, наряду с другими переменными не требующими инициализации. 
 Это означает, что при загрузке .exe в память, место под всё это выделено будет и будет заполнено
 нулевыми байтами \InSqBrackets{\CNineNineStd 6.7.8p10}.

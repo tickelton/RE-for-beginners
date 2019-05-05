@@ -32,6 +32,7 @@ wurde, sieht man etwa das Folgende:
 
 \lstinputlisting[caption=\IDA,style=customasmx86]{patterns/04_scanf/2_global/IDA.lst}
 
+\label{BSSClearedByCStd}
 \TT{\_x} ist mit \TT{?} markiert zusammen mit dem Rest der Variablen, die nicht initialisiert werden müssen.
 Daraus folgt, dass nachdem die .exe in den Speicher geladen wurde, Platz für alle diese Variablen angelegt und mit
 Nullen gefüllt werden muss \InSqBrackets{\CNineNineStd 6.7.8p10}.

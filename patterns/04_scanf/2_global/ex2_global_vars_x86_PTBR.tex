@@ -32,6 +32,7 @@ Se você abrir o .exe compilado no exemplo anterior no \IDA, onde o valor de x n
 
 \lstinputlisting[caption=\IDA,style=customasmx86]{patterns/04_scanf/2_global/IDA.lst}
 
+\label{BSSClearedByCStd}
 \TT{\_x} está marcada com \TT{?} juntamente com o resto das variáveis que não precisam ser inicializadas.
 Isso implica que após carregar o .exe para a memória, um espaço para todas essas variáveis será alocado e preenchido com zeros \InSqBrackets{\CNineNineStd 6.7.8p10}.
 Mas no arquivo .exe essas variáveis não inicializadas não ocupam nenhum espaço.

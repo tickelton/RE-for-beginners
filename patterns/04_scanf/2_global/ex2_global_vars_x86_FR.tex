@@ -34,6 +34,7 @@ Si vous ouvrez le .exe compilé de l'exemple précédent dans \IDA, où la valeu
 
 \lstinputlisting[caption=\IDA,style=customasmx86]{patterns/04_scanf/2_global/IDA.lst}
 
+\label{BSSClearedByCStd}
 \TT{\_x} est marquée avec \TT{?} avec le reste des variables qui ne doivent pas être
 initialisées.
 Ceci implique qu'après avoir chargé le .exe en mémoire, de l'espace pour toutes ces
