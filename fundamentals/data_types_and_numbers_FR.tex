@@ -186,6 +186,11 @@ pouvait supporter jusqu'à 4096 kilo mots de \emph{solid state memory}
 (i.e., hard disks, tapes, etc).
 S'agissant d'un ordinateur 36 bits, cela représentait 18432 kilo octets ou ~18 mega octets.
 
+% TBT
+%Essentially, why do you need bytes if you have words?
+%Mostly for text strings processing.
+%Words can be used in almost any other situations.
+
 \myhrule{}
 
 \emph{int} en C/C++ est presque systématiquement représenté par un \glslink{word}{mot}.
@@ -259,9 +264,11 @@ Cependant, cette règle n'est pas toujours respectée sur d'autres architectures
 Le processeur 8 bits Z80 peut adresser $2^{16}$ octets, en utilisant une paire de registres 8 bits ou certains registres
 spécialisés (\emph{IX}, \emph{IY}). En outre sur ce processeur les registres \emph{SP} et \emph{PC} contiennent 16 bits.
 
-\myindex{Cray-1}
+\myindex{Cray}
 Le super calculateur Cray-1 possèdent des registres généraux de 64-bit, et des registres d'adressage de 24 bits.
 Il peut donc adresser $2^{24}$ octets, soit (16 mega mots ou 128 mega octets).
+% TBT
+% RAM was very expensive in 1970s, and a typical Cray had 1048576 (0x100000) words of RAM or ~8MB.
 Dans les années 70, la RAM était très coûteuse. Il paraissait alors inconcevable qu'un tel calculateur atteigne
 les 128 Mo. Dès lors pourquoi aurait-on utilisé des registres 64 bits pour l'adressage?
 

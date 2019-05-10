@@ -185,6 +185,10 @@ could have up to 4096 kilowords of \emph{solid state memory}
 (i.e., hard disks, tapes, etc).
 This was 36-bit computer, so this is 18432 kilobytes or ~18 megabytes.
 
+Essentially, why do you need bytes if you have words?
+Mostly for text strings processing.
+Words can be used in almost any other situations.
+
 \myhrule{}
 
 \emph{int} in C/C++ is almost always mapped to \gls{word}.
@@ -258,10 +262,10 @@ Nevertheless, width of address bus can be different on other architectures.
 8-bit Z80 can address $2^{16}$ bytes, using 8-bit registers pairs or dedicated registers (\emph{IX}, \emph{IY}).
 \emph{SP} and \emph{PC} registers are also 16-bit ones.
 
-\myindex{Cray-1}
+\myindex{Cray}
 Cray-1 supercomputer has 64-bit GPRs, but 24-bit address registers, so it can address $2^{24}$ 
 (16 megawords or 128 megabytes).
-RAM was very expensive in 1970s, and even in supercomputing environment it cannot be expected it could have more.
+RAM was very expensive in 1970s, and a typical Cray had 1048576 (0x100000) words of RAM or ~8MB.
 So why to allocate 64-bit register for address or pointer?
 
 8086/8088 CPUs had a really weird addressing scheme:

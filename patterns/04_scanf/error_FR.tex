@@ -6,6 +6,9 @@ lieu d'un pointeur sur \emph{x}:
 \lstinputlisting[style=customc]{patterns/04_scanf/error.c}
 
 Donc que se passe-t-il ici?
+% TBT: was incorrect "not uninitialized"
+% correct:
+% \emph{x} is not initialized and contains some random noise from local stack.
 \emph{x} n'est pas non-initialisée et contient des données aléatoires de la pile
 locale.
 Lorsque \scanf est appelée, elle prend la chaîne de l'utilisateur, la convertit

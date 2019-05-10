@@ -4,6 +4,9 @@
 
 \lstinputlisting[style=customc]{patterns/04_scanf/error.c}
 
+% TBT: was incorrect "not uninitialized"
+% correct:
+% \emph{x} is not initialized and contains some random noise from local stack.
 では、何が起こるでしょうか？ 
 \emph{x}は初期化されておらず、ローカルスタックからのランダムノイズを含んでいます。 
 \scanf が呼び出されると、ユーザーから文字列を受け取り、数値に解析し、\emph{x}に書き込んでメモリ内のアドレスとして扱います。 

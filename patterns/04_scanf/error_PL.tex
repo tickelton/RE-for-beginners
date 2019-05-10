@@ -5,6 +5,9 @@ Bardzo popularnym błędem jest podanie jako argumentu zmiennej \emph{x} zamiast
 \lstinputlisting[style=customc]{patterns/04_scanf/error.c}
 
 Więc co tutaj się stanie?
+% TBT: was incorrect "not uninitialized"
+% correct:
+% \emph{x} is not initialized and contains some random noise from local stack.
 \emph{x} jest niezainicjalizowany i zawiera losowe śmieci z lokalnego stosu.
 Kiedy funkcja \scanf jest wywoływana, pobiera ciąg znaków od użytkownika, parsuje go do liczby i próbuje go zapisać w \emph{x}, traktując wartość \emph{x} jako adres w pamięci.
 Jednak skoro tam są losowe śmieci ze stosu, \scanf będzie próbować uzyskać dostęp do losowego adresu.
