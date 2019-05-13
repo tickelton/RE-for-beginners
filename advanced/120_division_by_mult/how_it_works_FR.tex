@@ -21,15 +21,14 @@ Avec le fait que la division par $2^n$ est très rapide (en utilisant des décal
 nous devons maintenant trouver quels $MagicNumber$, pour lesquels l'équation suivante
 sera vraie: $2^n = 9 \cdot MagicNumber$.
 
-La division par $2^{32}$ est quelque peu cachée: la partie basse 32-bit du produit
+La division par $2^{33}$ est quelque peu cachée: la partie basse 32-bit du produit
 dans EAX n'est pas utilisée (ignorée), seule la partie haute 32-bit du produit
 (dans EDX) est utilisée et ensuite décalée de 1 bit additionnel.
 
-Autrement dit, le code assembleur que nous venons de voir multiplie par {\Large $\frac{954437177}{2^{32+1}}$},
-ou divise par {\Large $\frac{2^{32+1}}{954437177}$}.
+Autrement dit, le code assembleur que nous venons de voir multiplie par {\Large $\frac{954437177}{{2^{33}+1}}$},
+ou divise par {\Large $\frac{{2^{33}+1}}{954437177}$}.
 Pour trouver le diviseur, nous avons juste à diviser le numérateur par le dénominateur.
-En utilisant Wolfram Alpha, nous obtenons 8.99999999.... comme résultat (qui est
-proche de 9).
+En utilisant Wolfram Alpha, nous obtenons 9 comme résultat.
 
 % TODO ref to https://yurichev.com/blog/signed_division_using_shifts/
 

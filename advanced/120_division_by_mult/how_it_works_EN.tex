@@ -18,13 +18,13 @@ Given the fact that division by $2^n$ is very fast (using shifts), we now should
 for which the following
 equation will be true: $2^n = 9 \cdot MagicNumber$.
 
-Division by $2^{32}$ is somewhat hidden: lower 32-bit of product in EAX is not used (dropped), only higher 32-bit of
+Division by $2^{33}$ is somewhat hidden: lower 32-bit of product in EAX is not used (dropped), only higher 32-bit of
 product (in EDX) is used and then shifted by additional 1 bit.
 
-In other words, the assembly code we have just seen multiplicates by {\Large $\frac{954437177}{2^{32+1}}$},
-or divides by {\Large $\frac{2^{32+1}}{954437177}$}.
+In other words, the assembly code we have just seen multiplicates by {\Large $\frac{954437177}{{2^{33}+1}}$},
+or divides by {\Large $\frac{{2^{33}+1}}{954437177}$}.
 To find a divisor we just have to divide numerator by denominator.
-Using Wolfram Alpha, we can get 8.99999999.... as result (which is close to 9).
+Using Wolfram Alpha, we can get 9 as result.
 
 % TODO ref to https://yurichev.com/blog/signed_division_using_shifts/
 
